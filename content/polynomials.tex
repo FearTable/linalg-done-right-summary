@@ -1,0 +1,74 @@
+\chapter{Polynomials}
+$\mathbb{F}$ denotes $\mathbb{R}$ or $\mathbb{C}$.
+\section{Complex numbers}
+
+\setcounter{thm}{0}
+\textbf{4.1} $z = a+bi$
+
+\section{Zeros of polynomials}
+$p: \mathbb{F} \to \mathbb{F}, \, p(z) = a_0 + a_1z + \cdots + a_n z^m$
+
+\setcounter{thm}{4}
+\begin{thm}
+    $\lambda \in \mathbb{F}$ is called a zero (or root) of a polynomial if $p(\lambda) = 0$.
+\end{thm}
+
+\setcounter{thm}{5}
+\begin{thm}
+    % each zero of a polynomial corresponds to a degree-one factor
+    \label{factororingOutZerosOfAPolynomial}
+    $p \in \mathcal{P}_m(\mathbb{F}), \lambda \in \mathbb{F}: p(\lambda) = 0 \iff \exists q \in \mathcal{P}_{m-1}: p(z) = (z-\lambda)q(z)$
+\end{thm}
+
+\setcounter{thm}{7}
+\begin{thm}
+    A polynomial of degree $m$ has at most $m$ zeros.
+\end{thm}
+\begin{proof}
+    For $m=1$, $a_0+a_1z$ has only one zero, which is $-\frac{a_0}{a_1}$\\
+    Now for $m>1$ and assuming the desired result holds for $m-1$. If $p\in \mathcal{P}_{m}(\myF)$ has no zeros, we are done. If $p$ has a zero $\lambda \in \myF$, by \ref{factororingOutZerosOfAPolynomial}, there is a $q \in \mathcal{P}(\myF)_{m-1}$ such that $p(z)=(z-\lambda)q(z).$ Since $q$ has at most $m-1$ zeros, $p$ has at most $m$ zeros.
+\end{proof}
+
+\section{Division algorithm for polynomials}
+
+\setcounter{thm}{8}
+\begin{thm}
+
+    Suppose $p,s \in \mathcal{P} (\mathbb{F}), s\neq 0$. Then $\exists q,r \in \mathcal{P} (\mathbb{F})$ such that
+$p=sq+r$ and $\deg r < \deg s$.
+\end{thm}
+
+
+\setcounter{thm}{11}
+\begin{thm}
+    \label{fundamental-theorem-of-algebra-first-version}
+    Fundamental theorem of algebra, first version: Every non-constant polynomial with complex coefficients has a zero in $\mathbb{C}$.
+\end{thm}
+
+\begin{thm}
+    \label{fundamental-theorem-of-algebra-second-version}
+    Fundamental theorem of algebra, second version: $p \in \mathcal{P} (\mathbb{C}), \; p$ is non-constant $\implies p$ has a unique factorization $p(z)=c \cdot (z-\lambda_1) \cdots (z-\lambda_m)$ where $c, \lambda_1, \dots, \lambda_m \in \mathbb{C}$.
+\end{thm}
+
+\begin{thm}
+    Suppose $p\in \mathcal{P} (\mathbb{C})$ is a polynomial with real coefficients. If $\lambda \in \mathbb{C}$ is a zero of $p$, then so is $\overline{\lambda}$.
+\end{thm}
+
+\begin{thm}
+    Factorization of a quadratic polynomial:
+    $b, c \in \mathbb{R}$. Then $x^2 + bx + c = (x-\lambda_1)(x-\lambda_2)$ with $\lambda_1, \lambda_2 \in \mathbb{R} \iff b^2 \geq 4c$.
+\end{thm}
+\begin{proof}
+    $x^2+bx+c=(x+\frac{b}{2})^2+(c-\frac{b^2}{4})$. Therefore, if $b^2<4c$, the last term is always positive and no factorization is possible because it has no zeros. \\ 
+    If $b^2 \geq 4c$, we define $d^2 :\equiv \frac{b^2}{4}-c.$ $\implies x^2+bx+c = \left (x+\frac{b}{2} \right )^2-d^2 = \left ( (x+\frac{b}{2}) +d \right) \left ( (x+\frac{b}{2}) - d \right) = \left (x-(-d -\frac{b}{2}) \right) \left (x-(d-\frac{b}{2})\right)=\left(x-\lambda_1 \right) \left(x-\lambda_2\right)$ for $\lambda_1 :\equiv -d-\frac{b}{2}$ and $\lambda_2 :\equiv d-\frac{b}{2}$
+\end{proof}
+
+\begin{thm}
+    Suppose $p \in \mathcal{P}(\mathbb{R})$ is nonconstant. Then $p$ has a unique factorization:
+\begin{equation}
+p(x) = c(x-\lambda_1) \cdots (x-\lambda_m)(x^2+b_1x+c_1) \cdots (x^2+b_Mx+c_M)
+\end{equation}
+where $c, \lambda_1, \cdots, \lambda_m, b_1, \cdots, b_M, c_1, \cdots, c_M \in \mathbb{R}$
+\end{thm}
+
+
