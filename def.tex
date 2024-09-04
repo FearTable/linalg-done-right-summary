@@ -1,21 +1,23 @@
 \newcommand{\gt}{>}
 \newcommand{\lt}{<}
 
-\def\deltaLow{{ \color{purple}{ \delta_{\text{low}} }}}
-\def\deltaSup{{ \color{purple}{ \delta_{\text{sup}} }}}
-\def\deltaHigh{{ \color{purple}{ \delta_{\text{high}} }}}
-\def\deltaVanilla{{ \color{purple}{ \delta }}}
-
-\def\tHigh{{ \color{olive}{ t_{\text{high}} }}}
-\def\tLow{{ \color{olive}{ t_{\text{low}} }}}
-
-\def\supremum{{ \color{RoyalBlue}{ \tilde s }}}
-\def\SSet{{ \color{RoyalBlue}{ S }}}
-
-\def\myEpsilon{{ \color{black}{\epsilon }}}
+%\def\deltaLow{{ \color{purple}{ \delta_{\text{low}} }}}
+%\def\deltaSup{{ \color{purple}{ \delta_{\text{sup}} }}}
+%\def\deltaHigh{{ \color{purple}{ \delta_{\text{high}} }}}
+%\def\deltaVanilla{{ \color{purple}{ \delta }}}
+%
+%\def\tHigh{{ \color{olive}{ t_{\text{high}} }}}
+%\def\tLow{{ \color{olive}{ t_{\text{low}} }}}
+%
+%\def\supremum{{ \color{RoyalBlue}{ \tilde s }}}
+%\def\SSet{{ \color{RoyalBlue}{ S }}}
+%
+%\def\myEpsilon{{ \color{black}{\epsilon }}}
 %\def\myspan{{ \color{black}{\text{span} }}}
 
-\def\myF{{\mathbb{F}}}
+
+
+
 \def\degree{{\operatorname{deg} \,}}
 
 \newcommand{\myspan}[1]{\operatorname{span} (#1)}
@@ -70,14 +72,23 @@
 
 \newcommand{\myrange}{\operatorname{range}}
 
-\newcommand{\mmatrix}{\mathcal{M}}
+%\newcommand{\mmatrix}{\mathcal{M}}
 
+% Natural numbers, integers, real numbers, complex numbers:
 \newcommand{\nat}{\mathbb{N}}
 \newcommand{\integer}{\mathbb{N}}
 \newcommand{\real}{\mathbb{R}}
 \newcommand{\compl}{\mathbb{C}}
+\newcommand{\myF}{\mathbb{F}}
 
-\newcommand{\bfemph}[1]{{\ttfamily\fontseries{b}\selectfont #1}}
+% Polynomial symbol:
+\newcommand{\polyn}{\mathcal{P}}
+
+% Matrix symbol:
+\newcommand{\mmatrix}{\mathcal{M}}
+
+%\newcommand{\bfemph}[1]{{\ttfamily\fontseries{b}\selectfont #1}}
+\newcommand{\bfemph}[1]{{\fontseries{b}\selectfont #1}}
 
 %\newcommand{\basis}[2]{\overbrace{ \myspan{#1_1, \dots #1_{#2}}}^{\text{linearly independent}} }}
 
@@ -87,12 +98,14 @@
 \def\bold#1{{\bf #1}}
 
 \newtheoremstyle{mytheoremstyle} % name
-{\topsep}                    % Space above
-{0em}                    % Space below
+%{\topsep}                    % Space above
+{0.7em}                    % Space above
+{0em}                        % Space below
 {}                           % Body font
 {0em}                           % Indent amount
-{\ttfamily\fontseries{b}\selectfont}                   % Theorem head font
-{:}                          % Punctuation after theorem head
+%{\ttfamily\fontseries{b}\selectfont}                   % Theorem head font
+{\fontseries{sb}\selectfont}                   % Theorem head font
+{:\newline}                          % Punctuation after theorem head
 {.3em}                       % Space after theorem head
 {}  					     % Theorem head spec (can be left empty, meaning ‘normal’)
 
@@ -116,10 +129,14 @@
 %\newtheorem{example}[thm]{Example}
 
 \theoremstyle{mytheoremstyle}
-\newtheorem{thm}{T}[chapter]
+\newtheorem{thm}{Theorem}[chapter]
 
 \theoremstyle{mytheoremstyle}
-\newtheorem{mydef}[thm]{D}
+\newtheorem{mydef}[thm]{Definition}
+\newtheorem*{mydef-non}{Definition}
 
 \theoremstyle{mytheoremstyle}
 \newtheorem{example}[thm]{Example}
+
+\setlength{\abovedisplayskip}{1pt}
+\setlength{\belowdisplayskip}{1pt}

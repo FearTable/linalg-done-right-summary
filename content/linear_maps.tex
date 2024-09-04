@@ -1,19 +1,28 @@
 \chapter{Linear Maps}
 \section{\vs of linear maps}
-A \lm from $V$ to $W$ is a function $T:V\to W$ with following properties:
-\begin{itemize}
-	\item additivity: $T(u+v)=Tu + Tv \qquad \forall u,v \in V$
-	\item homogenity: $T(\lambda v)=\lambda (Tv) \qquad 
-	\forall \lambda \in \mathbb{F} \; \forall v\in V$
-\end{itemize}
-The set of all linear maps from $V$ to $W$ is denoted by $\mathcal{L}(V,W)$. For The set of all linear maps from $V$ to itself we use $\mathcal{L}(V) :\equiv \mathcal{L}(V,V)$
 
-\textbf{Linear map lemma: }
-Suppose $\onetilln{v}$ is a basis of $V$ and $\onetilln{w} \in W$, where the $w$'s do not necessarily form a basis. Then there exist a unique \lm $T:V\to W$ or $T \in \linmap(V,W)$ such that
-\begin{itemize}
-	\item[] $Tv_{k} = w_k \quad \forall \kinonetilln.$
-\end{itemize}
-It is of the form $T(c_1 v_1 + \cdots c_n v_n) \mapsto c_1 w_1 + \cdots + c_n w_n$
+\begin{mydef}
+    A \lm from $V$ to $W$ is a function $T:V\to W$ with following properties:
+    \begin{itemize}
+    	\item additivity: $T(u+v)=Tu + Tv \qquad \forall u,v \in V$
+    	\item homogenity: $T(\lambda v)=\lambda (Tv) \qquad 
+    	\forall \lambda \in \mathbb{F} \; \forall v\in V$
+    \end{itemize}
+\end{mydef}
+
+\begin{mydef}
+    The set of all linear maps from $V$ to $W$ is denoted by $\mathcal{L}(V,W)$. For The set of all linear maps from $V$ to itself we use $\mathcal{L}(V) :\equiv \mathcal{L}(V,V)$
+\end{mydef}
+
+\setcounter{thm}{3}
+\begin{thm}
+    \textbf{Linear map lemma: }
+    Suppose $\onetilln{v}$ is a basis of $V$ and $\onetilln{w} \in W$, where the $w$'s do not have any specific properties. Then there exist a unique \lm $T:V\to W$ or $T \in \linmap(V,W)$ such that
+    \begin{itemize}
+       	\item[] $Tv_{k} = w_k \quad \forall \kinonetilln.$
+    \end{itemize}
+    It is of the form $T(c_1 v_1 + \cdots c_n v_n) \mapsto c_1 w_1 + \cdots + c_n w_n$
+\end{thm}
 
 \setcounter{thm}{4}
 \begin{mydef}
@@ -53,11 +62,19 @@ It is of the form $T(c_1 v_1 + \cdots c_n v_n) \mapsto c_1 w_1 + \cdots + c_n w_
 
 \setcounter{thm}{9}
 \begin{thm}
-     $T\in \lvw \implies T(0)=0$. Proof: $T(0) = T(0+0) = T(0) + T(0)$. Subtracting $T(0)$ on both sides ends the proof.
+     $T\in \lvw \implies T(0)=0$. 
 \end{thm}
+\begin{proof}
+    $T(0) = T(0+0) = T(0) + T(0)$. Subtracting $T(0)$ on both sides ends the proof.
+\end{proof}
+
+\pagebreak
 
 \section{Null spaces, ranges and injectivity}
-$\mynull T :\equiv \ker T :\equiv \{ v \in V \mid Tv=0\} \subseteq V$ for $T \in \lvw$
+
+\begin{mydef}
+    $\mynull T :\equiv \ker T :\equiv \{ v \in V \mid Tv=0\} \subseteq V$ for $T \in \lvw$
+\end{mydef}
 
 \setcounter{thm}{12}
 %\textbf{3.13} 
@@ -75,7 +92,7 @@ Or analogous: $u \neq v \implies Tu \neq Tv$
 \setcounter{thm}{14}
 %\textbf{3.15} 
 \begin{mydef}
-    Let $T \in \lvw$. Then $T$ is injective $\iff \mynull T = \varnothing$
+    Let $T \in \lvw$. Then $T$ is injective $\iff \mynull T = \{0 \}$
 \end{mydef}
 
 \section{Definition of Range}
@@ -93,13 +110,14 @@ Or analogous: $u \neq v \implies Tu \neq Tv$
 
 \setcounter{thm}{18}
 %\textbf{3.19} 
-\begin{thm}
-    If $\myrange T=W$, $T$ is called ``surjektive".
-\end{thm} 
+\begin{mydef}
+    If $\myrange T=W$, $T$ is called ``surjektive" or ``onto".
+\end{mydef} 
 
 \setcounter{thm}{20}
 %\textbf{3.21} 
 \begin{thm}
+    \label{rank-nullity-theorem}
     Fundamental theorem of linear maps or \textbf{``rank nullity theorem":} \\
     For $T \in \lvw$:
     \begin{equation}
@@ -133,7 +151,54 @@ Or analogous: $u \neq v \implies Tu \neq Tv$
 	An inhomogeneous system of linear equations with more equations then variables has no solutions for some choice of constant terms.
 \end{thm}
 
+\pagebreak
+
 \section{Matrices}
+\subsection{Representing a Liner Map by a Matrix}
+
+\setcounter{thm}{30}
+\begin{mydef}
+    \label{matrix-of-linear-map}
+    \textbf{Matrix of a linear map, $\mathbf{\mmatrix(T)}$:} \\
+    Suppose $T \in \linmap (L,W)$ and $v_1, \dots, v_n$ be a basis of $V$ and $w_1, \dots, w_m$ be a basis of $W$. The ``matrix of $T$" with respect to these bases is the $m$-by-$n$ matrix $\mmatrix(T)$ whose entries $A_{j,k}$ are defined by 
+    \begin{equation}
+        T v_k = A_{1,k} w_1 + \cdots + A_{m,k} w_m = \sum_{j=1}^{m} A_{j,k} w_j
+    \end{equation}
+    If the bases are not clear from the context, one writes $\mmatrix(T, (v_1, \dots, v_n),(w_1, \dots, w_m))$. One remembers how to construct $\mmatrix(T)$ as follows:
+    \begin{equation}
+        \mathcal{M} (T) :\equiv 
+        \begin{blockarray}{cccc}
+            & v_1 \quad \cdots & v_k & \cdots \quad v_n \\
+            \begin{block}{c(ccc)}
+                w_1    & & A_{1,k} & \\
+                \vdots & & \vdots & \\
+                w_m    & & A_{m,k} & \\
+            \end{block}
+        \end{blockarray}
+    \end{equation}
+\end{mydef}
+
+\subsection{Addition and Scalar Multiplication of Matrices}
+\setcounter{thm}{34}
+\begin{thm}
+    $\mmatrix(S+T) = \mmatrix(S) + \mmatrix(T)$ for $S, T \in \linmap (V,W)$
+\end{thm}
+
+\setcounter{thm}{37}
+\begin{thm}
+    $\mmatrix(\lambda T) = \lambda \mmatrix(T)$ for $\lambda \in \myF$ and $T \in \linmap (V,W)$
+\end{thm}
+
+\begin{mydef}
+    $\myF^{m,n}$ denotes the set of all $m$-by-$n$ matrices with entries in $F$, where $m,n \in \nat$
+\end{mydef}
+
+\begin{thm}
+    $\myF^{m,n}$ is a vector space with $\dim \myF^{m,n}=mn$.
+\end{thm}
+
+
+
 \setcounter{thm}{40}
 %\textbf{3.41} 
 
@@ -193,8 +258,27 @@ Or analogous: $u \neq v \implies Tu \neq Tv$
 \setcounter{thm}{64}
 %\textbf{3.65} 
 \begin{thm}
-    Injectivity is equivalent to surjectivity (if $\dim V = \dim W < \infty$)
+    \label{injectivity-is-equivalent-to-surjectivity}
+    If $\dim V = \dim W \neq \infty$, injectivity is equivalent to surjectivity for $T\in \linmap(V,W):$
+    
+    $T$ is invertible $\iff$ $T$ is injective $\iff$ $T$ is surjective.
 \end{thm}
+\begin{proof}
+    The rank-nullity theorem (\ref{rank-nullity-theorem}) or fundamental theorem of linear maps states that 
+    \begin{equation}
+        \label{rank-nullity-nested-equation}
+        \dim V = \dim \mynull T + \dim \myrange T
+    \end{equation}
+    
+    If $T$ is injective, $\dim \mynull T = 0$ and therefore $\dim \myrange T = \dim V = \dim W$, which means $T$ is surjective ($\myrange T = \dim W$). This is because every linearly independent list of vectors of of length $\dim W$ is a basis by \ref{every-lid-list-of-length-dim-v-is -a-basis-of-v}.
+    
+    If $T$ is surjective, we have $\dim \myrange T = \dim W$ to begin with and therefore \ref{rank-nullity-nested-equation} becomes
+    \begin{equation}
+        \dim \mynull T = \dim V - \dim \myrange T = \dim V - \dim W = 0
+    \end{equation}
+    which makes $T$ also injective. Since injectivity and surjectivy together imply invertibility, this ends the proof.
+\end{proof}
+
 
 \setcounter{thm}{67}
 %\textbf{3.68} 
@@ -225,126 +309,213 @@ Or analogous: $u \neq v \implies Tu \neq Tv$
     \end{equation}
 \end{thm}
 
-\section{Linear maps thought of as matrix multiplication}
-Let $v \in V$, $V=\myspan{\onetillm{v}}$ and $v=b_1v_1+\dots+b_mv_m$. We define
-\begin{equation}
-	\mathcal{M}(v) :\equiv 
-	\left (
-	\begin{matrix} 
-		b_1 \\ \vdots \\ b_m 
-	\end{matrix}
-	\right )
-\end{equation}
+\subsection{Linear maps thought of as matrix multiplication}
 
-\[
-\mathcal{M} (T) :\equiv 
+\begin{mydef}
+    Let $v \in V$ and $\onetillm{v}$ be a basis of $V$ such that $v=b_1v_1+\dots+b_mv_m$. 
+    \\
+    We define
+    $
+    	\mathcal{M}(v) :\equiv 
+    	\left (
+    	\begin{matrix} 
+    		b_1 \\ \vdots \\ b_m 
+    	\end{matrix}
+    	\right )
+    $. The vector depends on the basis, but it is not included in the notation.
+\end{mydef}
+
+Recall: $ 
+ \mathcal{M} (T) :\equiv 
 \begin{blockarray}{cccc}
-	& v_1 \cdots & v_k & \cdots v_n \\
+	& v_1 \quad \cdots & v_k & \cdots \quad v_n \\
 	\begin{block}{c(ccc)}
 		w_1    & & A_{1,k} & \\
 		\vdots & & \vdots & \\
 		w_m    & & A_{m,k} & \\
 	\end{block}
 \end{blockarray}
-\]
+$
+
 
 \setcounter{thm}{74}
 %\textbf{3.75} 
-$\mathcal{M}_{\mathsmaller{\bullet}, k} = M(T v_k)$. The $k^{\text{th}}$ column of $\mathcal{M}(T)$ equals $(A_{1,k}, \dots, A_{m,k})^\top$
+\begin{thm}
+    $\mathcal{M}_{\mathsmaller{\bullet}, k} = M(T v_k)$. The $k^{\text{th}}$ column of $\mathcal{M}(T)$ equals $(A_{1,k}, \dots, A_{m,k})^\top$
+\end{thm}
 
-\textbf{3.76} Linear maps act like matrix multiplication: Suppose $T\in \lvw$ and $v\in V$.
-\begin{equation}
-	\implies \mathcal{M} (Tv)=\mathcal{M}(T) \cdot \mathcal{M}(v)
-\end{equation}
+%\textbf{3.76} 
+\begin{thm}
+    Linear maps act like matrix multiplication: Suppose $T\in \lvw$ and $v\in V$. Suppose $\onetilln{v}$ is a basis of $V$ and $\onetillm{w}$ is a basis of $W$. Then
+    \begin{equation}
+    	\mathcal{M} (Tv)=\mathcal{M}(T) \cdot \mathcal{M}(v)
+    \end{equation}
+
+    Or using different notation: 
+    \begin{equation}
+\mathcal{M} (Tv, (\onetilln{v}), (\onetillm{w}))=\mathcal{M}(T, (\onetilln{v}), (\onetillm{w})) \cdot \mathcal{M}(v)
+    \end{equation}
+
+\end{thm}
 
 \setcounter{thm}{77}
-\textbf{3.78} For $T \in \lvw: \dim \myrange T = \text{column rank of } \mathcal{M} (T)$
+%\textbf{3.78} 
+\begin{thm}
+    For $T \in \lvw: \dim \myrange T = \text{column rank of } \mathcal{M} (T)$
+\end{thm}
 
-\section{Change of basis}
-$\mathcal{M}(T, (\onetilln{v})) :\equiv \mathcal{M}(T, (\onetilln{v}),(\onetilln{v}))$
+\subsection{Change of basis}
+
+\begin{mydef-non}
+    $\mathcal{M}(T, (\onetilln{v})) :\equiv \mathcal{M}(T, (\onetilln{v}),(\onetilln{v}))$
+\end{mydef-non}
 
 \setcounter{thm}{79}
-\textbf{3.80} A square matrix $A$ is called invertible, if there is some square matrix B of the same size such that $AB=BA=I$. We call $B$ the inverse of $A$ denoted by $A^{-1} :\equiv B$. Rules: 
-\begin{itemize}
-	\item $(A^{-1})^{-1}=A$
-	\item $(AC)^{-1} = C^{-1}A^{-1}$ (Because $(AC)(C^{-1}A^{-1})=I$ and $(C^{-1}A^{-1})(AC)=I$)
-\end{itemize}
+%\textbf{3.80} 
+\begin{thm}
+    A square matrix $A$ is called invertible, if there is some square matrix B of the same size such that $AB=BA=I$. We call $B$ the inverse of $A$ denoted by $A^{-1} :\equiv B$. Rules: 
+    \begin{itemize}
+    	\item $(A^{-1})^{-1}=A$
+    	\item $(AC)^{-1} = C^{-1}A^{-1}$ (Because $(AC)(C^{-1}A^{-1})=I$ and $(C^{-1}A^{-1})(AC)=I$)
+    \end{itemize}
+\end{thm}
 
-\textbf{3.81} matrix of product of linear maps \\
-Suppose $T\in \mathcal{L}(U,V)$ and $S\in \lvw$. If $\onetillm{u}$ is a basis of $U$, $\onetilln{v}$, is a basis of $V$ and $\onetill{w}{p}$ is a basis of $W$. Note that $\dim U = m$, $\dim V = n$, $\dim W = p$. Then we have: 
-\begin{multline}
-	\mmatrix(ST, (\onetillm{u}), (\onetill{w}{p})) = \\
-	\mmatrix(S, (\onetilln{v}), (\onetill{w}{p} )) \cdot
-	\mmatrix(T, (\onetillm{u}), (\onetilln{v}   ))
-\end{multline}
+%\textbf{3.81} 
+\begin{thm}
+    \bfemph{Matrix of product of linear maps:} \\
+    Suppose $T\in \mathcal{L}(U,V)$ and $S\in \lvw$. If $\onetillm{u}$ is a basis of $U$, $\onetilln{v}$, is a basis of $V$ and $\onetill{w}{p}$ is a basis of $W$. Note that $\dim U = m$, $\dim V = n$, $\dim W = p$. Then we have: 
+    \begin{multline}
+    	\mmatrix(ST, (\onetillm{u}), (\onetill{w}{p})) = \\
+    	\mmatrix(S, (\onetilln{v}), (\onetill{w}{p} )) \cdot
+    	\mmatrix(T, (\onetillm{u}), (\onetilln{v}   ))
+    \end{multline}
+    Or using different notation:
+    \begin{equation}
+        \mathcal{M}(ST) = \mathcal{M}(S) \cdot \mathcal{M}(T)
+    \end{equation}
+\end{thm}
 
 \setcounter{thm}{83}
-\textbf{3.84} change-of-basis formula: Suppose $T \in \linmap(V)$. Let 
-$V = \myspan{\onetillm{u}} = \myspan{\onetillm{v}}$ such that the u's and v's both form a basis. Let $A=\mmatrix(T, (\onetillm{u}))$ and $B=\mmatrix(T,(\onetillm{v}))$. Let  
-$C=\mmatrix(I, \onetillm{u}, \onetillm{v})$ 
-\begin {equation}
-\implies A = C^{-1} B C
-\end {equation} 
+%\textbf{3.84}
+\begin{thm}
+    \bfemph{Change-of-basis formula:}\\ 
+    Suppose $T \in \linmap(V)$. Let 
+    $V = \myspan{\onetillm{u}} = \myspan{\onetillm{v}}$ such that the $u$'s and $v$'s both form a basis. Let $A=\mmatrix(T, (\onetillm{u}))$ and $B=\mmatrix(T,(\onetillm{v}))$. Let  
+    $C=\mmatrix(I, \onetillm{u}, \onetillm{v})$. Then
+    \begin {equation}
+        A = C^{-1} B C
+    \end {equation} 
+\end{thm}
 
 \setcounter{thm}{85}
-\textbf{3.86} If $\onetillm{v}$ is a basis $V$ and $T\in \mathcal{L}$ is invertible, then 
-\begin{equation}
-	\begin{aligned}
-		\mmatrix(T^{-1}) & = (\mmatrix(T))^{-1} \; \text{or} \\
-		\mmatrix(T^{-1}, (\onetillm{v})) & =\mmatrix(T, (\onetillm{v}))^{-1}
-	\end{aligned}
-\end{equation}
+%\textbf{3.86} 
+\begin{thm}
+    If $\onetillm{v}$ is a basis $V$ and $T\in \mathcal{L}$ is invertible, then 
+    \begin{equation}
+    	\begin{aligned}
+    		\mmatrix(T^{-1}) & = (\mmatrix(T))^{-1} \; \text{or} \\
+    		\mmatrix(T^{-1}, (\onetillm{v})) & =\mmatrix(T, (\onetillm{v}))^{-1}
+    	\end{aligned}
+    \end{equation}
+\end{thm}
 
+\filbreak
 \section{Products and quotients of vector spaces}
-\begin{equation}
+\subsection{Products of vector spaces}
+
+\begin{mydef}The product, addition and scalar multiplication of vector spaces $V_1, \cdots, V_m$ is defined as follows:
+    \begin{equation}
 	\begin{aligned}
-		v_1 \times \cdots \times v_m &:\equiv \{ (v_1, \dots, v_m) \mid v_1 \in V_1, \dots, v_m \in V_m\} \\
+		V_1 \times \cdots \times V_m &:\equiv \{ (v_1, \dots, v_m) \mid v_1 \in V_1, \dots, v_m \in V_m\} \\
 		(u_1, \dots, u_m) + (v_1, \dots, v_m) &:\equiv (u_1+v_1, \dots, u_m+v_m) \\
 		\lambda (v_1, \dots, v_m) &:\equiv (\lambda v_1, \dots, \lambda v_m)			
 	\end{aligned}
 \end{equation}
+\end{mydef}
 
 \setcounter{thm}{88}
-\textbf{3.89} $V_1 \times \cdots \times V_m$ is a vector space over $\mathbb{F}$.
+%\textbf{3.89} 
+\begin{thm}
+    $V_1 \times \cdots \times V_m$ together with addition and scalar multiplication is a vector space over $\mathbb{F}$.
+\end{thm}
 
 \setcounter{thm}{91}
-\textbf{3.92} $\dim (V_1 \times \cdots \times V_m) = \dim V_1 + \cdots + \dim V_m$
+\begin{thm}
+    $\dim (V_1 \times \cdots \times V_m) = \dim V_1 + \cdots + \dim V_m$
+\end{thm}
 
-\textbf{3.93} Let $\Gamma: V_1 \times \cdots \times V_m \to V_1 + \cdots + V_m, \Gamma(v_1, \cdots, v_m) \mapsto v_1 + \cdots + v_m$ \\
+%\textbf{3.93} 
+\begin{thm}
+    Let $\Gamma: V_1 \times \cdots \times V_m \to V_1 + \cdots + V_m$ and
+    $ \Gamma(v_1, \cdots, v_m) \mapsto v_1 + \cdots + v_m$ \\
 Then $v_1 + \cdots + v_m$ is a direct sum $\iff$ $\Gamma$ is injective. 
+\end{thm}
 
-\textbf{3.94} $V_1 + \cdots + V_1$ is a direct sum $\iff$
+\begin{thm}$V_1 + \cdots + V_1$ is a direct sum $\iff$
 $\dim (V_1+\cdots+V_m) = \dim V_1 + \cdots + \dim V_m$
+\end{thm}
 
 \section{Quotient spaces}
-\textbf{3.95, 3.97} $v+U :\equiv \{v+U \mid u\in U\}$ for $v\in V$ and $U\subseteq V$ is said to be ``a translate" of $U$.
+
+\setcounter{thm}{94}
+%\textbf{3.95, 3.97} 
+\begin{mydef}
+    $v+U :\equiv \{v+U \mid u\in U\}$ for $v\in V$ and $U\subseteq V$ is said to be ``a translate" of $U$.
+\end{mydef}
 
 \setcounter{thm}{98}
-\textbf{3.99} $V/U :\equiv \{v+U \mid v\in V\}$ is called ``quotient space".\\
-example $1$: If $U=\{ (x,2x)\in \mathbb{R}^2 \mid x\in \mathbb{R} \} \implies \mathbb{R}/U$ is the set of all lines with slope $2$.  \\
-example $2$: If $U$ is a plane in $\mathbb{R}^3$ $\implies$ $\mathbb{R}^3/U$ is the set of all planes parallel to $U$.
+%\textbf{3.99} 
+\begin{mydef}
+    $V/U :\equiv \{v+U \mid v\in V\}$ is called ``quotient space".
+\end{mydef} 
+
+\begin{example}
+    If $U=\{ (x,2x)\in \mathbb{R}^2 \mid x\in \mathbb{R} \} \implies \mathbb{R}/U$ is the set of all lines with slope $2$.
+\end{example}
+
+\begin{example}
+    If $U$ is a plane in $\mathbb{R}^3$ $\implies$ $\mathbb{R}^3/U$ is the set of all planes parallel to $U$.
+\end{example}
+
 
 \setcounter{thm}{100}
-\textbf{3.101} $ U \subseteq V$ and $v,w\in V$. Then
+%\textbf{3.101} 
+\begin{thm}
+    $ U \subseteq V$ and $v,w\in V$. Then
 $$v-w \in U \iff v+U = w + U \iff (v+U) \cap (w+U) \neq \varnothing$$
 That means, two translates of a subspaces are equal or disjoint.
+\end{thm}
 
-\textbf{3.102} Definition of addition and scalar multiplication on $V/U$.
+%\textbf{3.102} 
+\begin{mydef}
+    Definition of addition and scalar multiplication on $V/U$.
 \begin{equation}
 	\begin{aligned}
 		(v+U)+(w+U) & :\equiv (v+w) + U \\
 		\lambda (v+U) & :\equiv (\lambda v) + U \qquad \forall v,w \in V \text{ and } \forall \lambda \in \mathbb{F} 
 		\text{ and } U \subseteq V
 	\end{aligned}
-\end{equation} 
-\textbf{3.103} $V/U$ is a vector space. \\
-additive identity: $0+u = u$. \\
-additive inverse: $(-v)+U$.
+\end{equation}
+\end{mydef}
 
-\textbf{3.104} TODO \textbf{3.105} TODO
+ 
+%\textbf{3.103} 
+\begin{thm}
+    $V/U$ is a vector space with additive identity $0+U$ which is equal to $U$ and the additive inverse $(-v)+U$.
+\end{thm}
 
-\section{Duality, dual space and dual map}
-\textbf{3.108} A ``linear functional" is an element of $\mathcal{L}(V, \mathbb{F})$\\
+\textbf{3.104} TODO \textbf{3.105} TODO \\
+
+ \filbreak
+\section{Duality}
+\subsection{Dual Space and Dual Map}
+
+\setcounter{thm}{107}
+%\textbf{3.108} 
+\begin{mydef}
+    A ``linear functional" $\phi$ is an element of $\mathcal{L}(V, \mathbb{F})$. So $\phi \in \linmap(V, \myF)$
+\end{mydef}
+
 \textbf{Examples:} 
 \begin{equation} 
 	\begin{array}{lll}
@@ -357,34 +528,69 @@ additive inverse: $(-v)+U$.
 		& \phi(p)  &\mapsto \textstyle \int_{0}^{1} p(x) dx
 	\end{array}
 \end{equation}
-\textbf{3.110}
-the dual space of $V$, denoted by $V^{*}$, is the vector space of all linear functionals on $V$.
-$$V^{*} :\equiv \mathcal{L}(V, \mathbb {F})$$
 
-\textbf{3.111} $\dim V^{*} = \dim V$. \textbf{Proof:} $\dim V^{*} = \dim \mathcal{L}(V, \mathbb{F})=(\dim V) \cdot (\dim \mathbb{F}) = \dim V $
+\setcounter{thm}{109}
+%\textbf{3.110}
+\begin{thm}
+    The dual space of $V$, denoted by $V'$ or $V^{*}$, is the vector space of all linear functionals on $V$.
+    \begin{equation}
+        V^{*} :\equiv \linmap(V, \myF)
+    \end{equation}
+\end{thm}
 
-\textbf{3.112} Dual basis: If $V=\myspan {\onetillm{v}}$, then $V^{*} :\equiv 	
-\myspan{\varphi_1, \dots, \varphi_m}$ such that
-$\varphi_j(v_k) :\equiv
+%\textbf{3.111} 
+\begin{thm}
+    $\dim V^{*} = \dim V$. 
+\end{thm}
+\begin{proof}
+    $\dim V^{*} = \dim \mathcal{L}(V, \mathbb{F})=(\dim V) \cdot (\dim \mathbb{F}) = \dim V $
+\end{proof}
+
+
+%\textbf{3.112} 
+\begin{mydef}
+    If $\onetillm{v}$ is a basis of $V$, then the ``dual basis" of $\onetilln{v}$ is the list $\varphi_1, \dots, \varphi_m \in V^{*}$, where each $\varphi_j$ is the linear functional such that 
+$\varphi_j(v_k) = \delta_{j,k} =
 \begin{cases}
 	1,  & \text{if $k=j$} \\
 	0, & \text{if $k \neq j$}
-\end{cases}$
+\end{cases}$. \\
+Note that this is not the definition of each $\varphi_j$.
+\end{mydef}
 
-\textbf{3.114} $\onetillm{\varphi}$ is called a dual basis of $\onetillm{v}$ because for $v \in V$ we have $v=\varphi_1 (v)v_1 + \cdots \varphi_m(v)v_m = c_1v_1 + \cdots c_mv_m$ $\iff$ $\varphi(v)=\phi(c_1v_1 + \cdots + c_mv_m)$ such that $\varphi_j(v)=c_j$, because $\varphi$ is linear and $\varphi_j(v_j)=1$ by definition.
+%\textbf{3.114}
+\setcounter{thm}{113} 
+\begin{thm}
+    Suppose $\onetillm{v}$ is a basis of $V$. $\onetillm{\varphi}$ is called a dual basis of $\onetillm{v}$ because for every $v \in V$ we have $v=\varphi_1 (v)v_1 + \cdots \varphi_m(v)v_m$
+\end{thm}
+\begin{proof}
+    Let $v\in V$, $v= c_1v_1 + \cdots c_mv_m$. If $j\in \{1, \dots, m\}$, then applying 
+    $\varphi_j$ on both sides gives $\varphi_j(v)=c_j$.
+%    \iff$ $\varphi(v)=\phi(c_1v_1 + \cdots + c_mv_m)$ such that $\varphi_j(v)=c_j$, because $\varphi$ is linear and $\varphi_j(v_j)=1$ by definition.
+\end{proof}
 
-\textbf{3.116} The dual basis of a basis of $V$ is a basis of the dual space $V^{*}$
+%\textbf{3.116}
+\setcounter{thm}{115}
+\begin{thm}
+    The dual basis of a basis of $V$ is a basis of the dual space $V^{*}$
+\end{thm}
 
-\textbf{3.118} Suppose $T \in \lvw$. The dual map of $T$ is the linear map $T^{*} \in \lin{W^{*}}{V^{*}}$ defined like this:
-\begin{align}
-	&\forall \phi \in W^{*}: T^{*}(\varphi) :\equiv \varphi \circ T \\
-	(&\varphi \in W^{*}=\lin{W}{\mathbb{F}} \text{ and } T^{*}(\varphi) \in V^{*} = \lin{V}{\mathbb{F}} \\
-	&\text{So $T^{*}$ is indeed a map from $W^{*}$ to $V^{*}$} 
-\end{align}
-
-\begin{itemize}
-	\item $\varphi, \psi \in W^{*} \implies T^{*} (\varphi + \psi) = (\varphi + \psi) \circ T = \varphi \circ T + \psi \circ T = T^{*} (\varphi) + T^{*} (\psi)$
-	\item $\lambda \in \mathbb{F}, \varphi \in W \implies T^{*} (\lambda \varphi) = (\lambda \varphi) \circ T = \lambda (\varphi \circ T) = \lambda T^{*} (\varphi)$ 
-\end{itemize}
-
+%\textbf{3.118} 
+\setcounter{thm}{117}
+\begin{mydef}
+    Suppose $T \in \lvw$. The ``dual map" of $T$ is the linear map $T^{*} \in \lin{W^{*}}{V^{*}}$ defined like this:
+    
+    \begin{itemize}
+    \item[] $\forall \phi \in W^{*}: T^{*}(\varphi) :\equiv \varphi \circ T $
+    
+    \item[]  
+    
+    \item $\varphi \in W^{*}=\lin{W}{\mathbb{F}} \text{ and } T^{*}(\varphi) \in V^{*} = \lin{V}{\mathbb{F}}$.
+    So $T^{*}$ is indeed a map from $W^{*}$ to $V^{*}$
+    
+    
+    	\item $\varphi, \psi \in W^{*} \implies T^{*} (\varphi + \psi) = (\varphi + \psi) \circ T = \varphi \circ T + \psi \circ T = T^{*} (\varphi) + T^{*} (\psi)$
+    	\item $\lambda \in \mathbb{F}, \varphi \in W \implies T^{*} (\lambda \varphi) = (\lambda \varphi) \circ T = \lambda (\varphi \circ T) = \lambda T^{*} (\varphi)$ 
+    \end{itemize}
+\end{mydef}
 

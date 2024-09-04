@@ -1,34 +1,37 @@
 \chapter{Vector spaces}
 
-\section{Basic properties}
+%\section{Basic properties}
+\section{Definition of a Vector Space}
 
 \setcounter{thm}{19}
 \begin{mydef}
     A ``vector space" is a set $V$ along with an addition on $V$ and a scalar multiplication on $V$ such that the following properties hold.
     \begin{itemize}
         \item \bfemph{Commutativity:} 
-        $ u+v = v+u \; \forall u,v \in V$
+        $ u+v = v+u \quad \forall u,v \in V$
         \item \bfemph{Associativity:} 
-        $(u+v)+w=u+(v+w)$ and $(ab)v=a(bv)$ $\forall u,v,w \in V$ and $\forall a,b \in \myF$
+        $(u+v)+w=u+(v+w)$ and $(ab)v=a(bv) \quad \forall u,v,w \in V$ and $\forall a,b \in \myF$
         \item \bfemph{Additive identity:} 
-        $\exists 0\in V:v+0=v \; \forall v\in V$. ($\exists!$ is not a requirement but a property.)
+        $\exists 0\in V:v+0=v \quad \forall v\in V$. ($\exists!$ is not a requirement but a property.)
         \item \bfemph{Additive inverse:} 
-        $\forall v\in V \, \exists w\in V: v+w=0$
+        $\forall v\in V \quad \exists w\in V: v+w=0$
         \item \bfemph{Multiplicative identity:} 
-        $1v = v \; \forall v\in V$
+        $1v = v \quad \forall v\in V$
         \item \bfemph{Distributive properties:}\\
         $a(u+v) = au+av$ and  \\
-        $(a+b)v \, = av + bv \; \forall a,b \in \myF$ and 
+        $(a+b)v \, = av + bv \quad \forall a,b \in \myF$ and 
         $\forall u,v \in V$
     \end{itemize}
 \end{mydef}
 
 \setcounter{thm}{23}
 \begin{mydef}
-    If $S$ is a set, then $\myF^S$ denotes the set of functions from $S$ to $\myF$. We also define:
-%    \begin{itemize}
-%        \item (
-%    \end{itemize}
+    If $S$ is a set, then $\myF^S$ denotes the set of functions from $S$ to $\myF$. Let $f, g \in \myF^{S}$ and $\lambda \in \myF$:
+    \begin{itemize}
+        \item The ``sum" $f+g \in \myF^{S}$ is defined as follows: $(f+g)(x) :\equiv f(x)+ g(x) \quad \forall x\in S$
+        \item The ``product" $\lambda f \in \myF^{S}$ is defined as follows: $(\lambda f)(x) :\equiv \lambda f(x) \quad \forall x \in S$.
+    \end{itemize}
+    The vector space $\myF^{n} :\equiv \myF^{\{1,2,\dots,n\}}$ is a special case, because each $(x_1, \dots, x_n) \in \myF^{n}$ can be thought of as a function $x$ from the set $\{1, 2, \dots, n\}$ to $\myF$ by writing $x(k)$ instead of $x_k$ for the $k^{\text{th}}$ coordinate of $(x_1, \dots, x_n)$.
 \end{mydef}
 
 \setcounter{thm}{25}
@@ -49,17 +52,18 @@
 \end{mydef}
 
 \begin{thm}
-    $0v = 0 \; \forall v\in V$
+    $0v = 0 \quad \forall v\in V$
 \end{thm}
 
 \begin{thm}
-    $a \vec0= \vec0 \; \forall a\in \myF$
+    $a \vec0= \vec0 \quad \forall a\in \myF$
 \end{thm}
 
 \begin{thm}
-    $(-1)v = -v \; \forall v\in V$
+    $(-1)v = -v \quad \forall v\in V$
 \end{thm}
 
+\filbreak
 \section{Subspaces}
 
 \begin{mydef}
@@ -86,6 +90,8 @@
 %	\item closed under scalar multiplication: $a \in \myF$ and $u\in U$ $\implies$ $au \in U$
 %\end{itemize}
 
+\subsection{Sum of Subspaces}
+
 \setcounter{thm}{35}
 
 \begin{mydef}
@@ -97,6 +103,8 @@
 \begin{thm}
     $V_1 + \cdots + V_m$ is the smalles subspace of V containing $V_1, \dots, V_m$
 \end{thm}
+
+\subsection{Direct Sum}
 
 %\textbf{1.41} 
 \setcounter{thm}{40}
@@ -127,3 +135,4 @@
 \begin{thm}
     $U+W$ is a direct sum $\iff$ $U \cap W = \{0\}$
 \end{thm}
+

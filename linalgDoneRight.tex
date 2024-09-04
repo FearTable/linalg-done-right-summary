@@ -1,4 +1,5 @@
 \documentclass[12pt]{report}
+%\usepackage[fleqn]{amsmath}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{color}
@@ -8,12 +9,14 @@
 \usepackage{blkarray}
 \usepackage{blindtext}
 \usepackage{geometry}
-\usepackage[medium]{titlesec} %"big, medium, small, tiny".
+\usepackage[small]{titlesec} %"big, medium, small, tiny".
 \usepackage{xfakebold}
 \usepackage{amsthm}
 \usepackage{lmodern}
 \usepackage{enumitem}
 \usepackage{ragged2e}
+\usepackage{kpfonts}
+
 
 \geometry{
 	a4paper,
@@ -24,7 +27,8 @@
 }
 
 %\setcounter{secnumdepth}{0}
-\renewenvironment{proof}{\textit{\ttfamily Proof.}}{\hfill $\Box$ \\} 
+%\renewenvironment{proof}{\underline{\ttfamily Proof:}}{\hfill $\Box$ \\} 
+\renewenvironment{proof}{{\fontseries{b}\selectfont Proof:}}{\hfill $\Box$ \\} 
 
 \titlespacing{\chapter}{0pt}{6pt}{3pt}
 \titlespacing{\section}{0pt}{10pt}{3pt}
@@ -34,13 +38,16 @@
 %\titleformat*{\chapter}{\ttfamily\fontseries{b}\selectfont\large}
 
 \titleformat{\chapter}[block]
-{\ttfamily\fontseries{b}\selectfont\Large}{\thechapter.}{0.5em}{\ttfamily\fontseries{b}\selectfont\Large}
+{\fontseries{b}\selectfont\Large}{\thechapter.}{0.5em}{\fontseries{b}\selectfont\Large}
 \titlespacing*{\chapter}{0pt}{-19pt}{0pt}
 
-\titleformat*{\section}{\ttfamily\fontseries{b}\selectfont\large}
-\titleformat*{\subsection}{\ttfamily\fontseries{b}\selectfont\large}
-\titleformat*{\subsubsection}{\ttfamily\fontseries{b}\selectfont\large}
+%\titleformat*{\section}{\ttfamily\fontseries{b}\selectfont\large}
+%\titleformat*{\subsection}{\ttfamily\fontseries{b}\selectfont\normalsize}
+%\titleformat*{\subsubsection}{\ttfamily\fontseries{b}\selectfont\normalsize}
 
+\titleformat*{\section}{\fontseries{b}\selectfont\large}
+\titleformat*{\subsection}{\fontseries{b}\selectfont\large}
+\titleformat*{\subsubsection}{\fontseries{b}\selectfont\large}
 
 %\titlespacing{\chapter}{0pt}{\parskip}{-\parskip}
 %\titlespacing{\section}{0pt}{\parskip}{-\parskip}
