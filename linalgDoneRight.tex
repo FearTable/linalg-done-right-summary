@@ -17,6 +17,10 @@
 \usepackage{ragged2e}
 \usepackage{kpfonts}
 
+\usepackage{xcolor}
+
+%\everymath{\color{MidnightBlue}}
+%\everydisplay{\color{Melon}}
 
 \geometry{
 	a4paper,
@@ -27,8 +31,8 @@
 }
 
 %\setcounter{secnumdepth}{0}
-%\renewenvironment{proof}{\underline{\ttfamily Proof:}}{\hfill $\Box$ \\} 
-\renewenvironment{proof}{{\fontseries{b}\selectfont Proof:}}{\hfill $\Box$ \\} 
+%\renewenvironment{proof}{\underline{\ttfamily Proof:}}{\hfill $\Box$ \\}
+\renewenvironment{proof}{{\fontseries{b}\selectfont Proof:}}{\hfill $\Box$ \\}
 
 \titlespacing{\chapter}{0pt}{6pt}{3pt}
 \titlespacing{\section}{0pt}{10pt}{3pt}
@@ -69,5 +73,5 @@
     \input{content/linear_maps}
     \input{content/polynomials}
     \input{content/eigenvalues}
-    
+
 \end{document}

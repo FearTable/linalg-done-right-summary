@@ -3,7 +3,7 @@
 \subsection{Eigenvalues}
 
 \begin{mydef}
-    A \lm from a \vs to itself is called an ``operator". 
+    A \lm from a \vs to itself is called an ``operator".
 \end{mydef}
 
 (Suppose $T\in \linmap(V)$, then may be $\left.T\right|_{V_{k}}$ is not an operator on a subspace $V_k$)
@@ -26,7 +26,7 @@
 \bfemph{Invariant subspaces of dimension one:} \\
 Take any $v\in V, v\neq 0$ and let $U :\equiv \{  \lambda v \mid \lambda \in \myF \} = \myspan{v}$, then $U$ is a one-dimensional subspace of $V$. \\
 If $U$ is invariant under an operator $T \in \linmap (V)$, then $Tv  \in U$. $\implies \exists \lambda \in \myF: Tv = \lambda v$. \\
-Conversely if $Tv = \lambda v$, $\lambda \in \myF$, then $\myspan{v}$ is a one-dimensional subspace of $V$ invariant under $T$. 
+Conversely if $Tv = \lambda v$, $\lambda \in \myF$, then $\myspan{v}$ is a one-dimensional subspace of $V$ invariant under $T$.
 
 \begin{mydef}
     Suppose $T\in \linmap (V)$. $\lambda \in \myF$ is called ``eigenvalue of $T$" if there exists $v \in V$ such that $v \neq 0$ and $Tv = \lambda v$
@@ -46,13 +46,13 @@ Conversely if $Tv = \lambda v$, $\lambda \in \myF$, then $\myspan{v}$ is a one-d
 \begin{proof}
     Conditions \ref{first} and \ref{second} are equivalent because the eigenvector $v$ is a solution to $Tv=\lambda v$ which is equivalent to $(T-\lambda I)v=0$. So there is a non-zero solution to $T-\lambda I$. \\
     \ref{second}, \ref{third} and \ref{forth} are equivalent by \ref{injectivity-is-equivalent-to-surjectivity}.
-    
+
 \end{proof}
 
 \setcounter{thm}{7}
 \begin{thm}
     Let $T\in \linmap(V).$ A vector $v \in V$ is called ``an eigenvector" of $T$ corresponding to $\lambda$ if $v\neq 0$ and $Tv = \lambda v$.
-    In other words: 
+    In other words:
     \\A vector $v\in V, v \neq 0$ is an eigenvector corresponding to $\lambda \iff v \in \operatorname{null}(T-\lambda I_V)$
 \end{thm}
 
@@ -62,15 +62,15 @@ Conversely if $Tv = \lambda v$, $\lambda \in \myF$, then $\myspan{v}$ is a one-d
 \end{thm}
 \begin{proof}
     Suppose the desired result is false. Then there exists a smallest list of length $m$ of linearly dependent eigenvectors $v_1, \dots, v_m$ with eigenvalues $\lambda_1, \dots, \lambda_m$ of $T$. Since an eigenvector is unequal to the zero vector, $m$ must be $\geq 2$.
-    
-    Because of the minimality of $m$ and becaue our list is linearly dependent: $\exists a_1, \dots, a_m \neq 0$ such that $a_1 v_1 + \cdots + a_m v_m = 0$. Now we apply $T-\lambda_m I$ on both sides of the equation and get  
+
+    Because of the minimality of $m$ and becaue our list is linearly dependent: $\exists a_1, \dots, a_m \neq 0$ such that $a_1 v_1 + \cdots + a_m v_m = 0$. Now we apply $T-\lambda_m I$ on both sides of the equation and get
     $a_1 \lambda_1 v_1 - a_1 \lambda_m v_1 + \cdots +
     a_{m-1} \lambda_{m-1} v_{m-1} - a_{m-1} \lambda_{m} v_{m-1} +
     \underbrace{a_m \lambda_m v_m -a_m \lambda_m v_m}_{=0}=0$
-   
+
     From there it follows that:
    $a_1 \underbrace{(\lambda_1 - \lambda_m)}_{\neq 0} v_1 + \cdots + a_{m-1} \underbrace{(\lambda_{m-1}-\lambda_{m})}_{\neq 0} v_{m-1}=0$
-   
+
    Which contradicts the minimality of $m$. Therefore, no such linearly dependent list of eigenvectors can exist.
 \end{proof}
 
@@ -85,17 +85,17 @@ Conversely if $Tv = \lambda v$, $\lambda \in \myF$, then $\myspan{v}$ is a one-d
 
 \setcounter{thm}{12}
 \begin{mydef}
-    Let $T \in \linmap(V)$ and $m\in \nat^{+}$ 
+    Let $T \in \linmap(V)$ and $m\in \nat^{+}$
     \begin{itemize}
         \item $T^{m} :\equiv \underbrace{T \cdots T}_{\text{$m$ times}}$ or $T^{m} :\equiv T^{m-1} \cdot T$ such that $T^{m} \in \linmap(V)$
         \item $T^0 :\equiv I_V$
-        \item If $T$ is invertible with inverse $T^{-1}$ then $T^{-m}\in \linmap(V)$ is defined by $T^{-m} :\equiv (T^{-1})^m$ 
+        \item If $T$ is invertible with inverse $T^{-1}$ then $T^{-m}\in \linmap(V)$ is defined by $T^{-m} :\equiv (T^{-1})^m$
     \end{itemize}
 \end{mydef}
 $\implies T^m T^n = T^{m+n}$ and $(T^m)^n=T^{mn}$ when $m,n \in \mathbb{Z}$ when $T$ is invertible. And $m,n \in \mathbb{N}$ if $T$ is not invertible.
 
 \begin{mydef}
-    For $p \in \mathcal{P} (\myF)$, $p(z) = a_0+a_1z+a_2z^2+\cdots+a_mz^m$ 
+    For $p \in \mathcal{P} (\myF)$, $p(z) = a_0+a_1z+a_2z^2+\cdots+a_mz^m$
     $\forall z \in \compl$\\
     For $T \in \linmap (V)$ we define: \\
     $p(T) :\equiv a_0 I + a_1 T + a_2 T^2 + \cdots a_m T^m,$ $p(T) \in \linmap(V)$
@@ -118,8 +118,8 @@ $\implies T^m T^n = T^{m+n}$ and $(T^m)^n=T^{mn}$ when $m,n \in \mathbb{Z}$ when
 \end{thm}
 \begin{proof}
     Suppose $u\in \operatorname{null} p(T) \implies p(T)u = 0$. Assoziativiy and distributivity of linear maps imply hat $(p(T))(Tu)=T(p(T)u)=T(0)=0$.$\implies Tu \in \mynull p(T)$.
-    
-    Suppose $u \in \myrange p(T) \implies \exists v\in V: u=p(T)v \implies Tu=T(p(T)v)=p(T)(Tv)$ \\ 
+
+    Suppose $u \in \myrange p(T) \implies \exists v\in V: u=p(T)v \implies Tu=T(p(T)v)=p(T)(Tv)$ \\
     $\implies Tu \in \myrange p(T)$.
 \end{proof}
 
@@ -132,12 +132,12 @@ $\implies T^m T^n = T^{m+n}$ and $(T^m)^n=T^{mn}$ when $m,n \in \mathbb{Z}$ when
     Suppose $\dim(V)=n>0$ and $T\in \linmap(V).$ Choose $v\in V, v\neq0$. Then $v, Tv, T^2v, \dots, T^nv$ is not linearly independent, because the list has length $n+1$. $\implies$ some linear combination of these vectors equals to $0$. $\implies$ there exists a non-constant polynomial $p$ of smallest degree such that $p(T)v = 0$. By the first version of the fundamental theorem of algebra (\ref{fundamental-theorem-of-algebra-first-version}) $\implies \exists \lambda \in \compl: p(\lambda) = 0.$\\
     (\ref{factororingOutZerosOfAPolynomial})$\implies \exists q \in \mathcal {P} (\compl): p(z) = (z-\lambda)  q(z) \; \forall z \in \compl$ \\
     (\ref{multiplicative-properties})$\implies 0=p(T)v=(T-\lambda I) (q(T)v)$. Because $q$ has a smaller degree than $p$, $q(T)v \neq 0$. \\
-    $\implies$ $\lambda$ is an eigenvalue of $T$ with eigenvector $q(T)v$. 
+    $\implies$ $\lambda$ is an eigenvalue of $T$ with eigenvector $q(T)v$.
 \end{proof}
 
 \subsection{Eigenvalues and the minimal polynomial}
 \begin{mydef}
-    A monic polynomial is a polynomial whose highest-degree coefficient equals $1$. 
+    A monic polynomial is a polynomial whose highest-degree coefficient equals $1$.
 \end{mydef}
 \begin{example}
     $p(z)=2+9z^2+z^7, \deg p = 7$
@@ -151,21 +151,21 @@ $\implies T^m T^n = T^{m+n}$ and $(T^m)^n=T^{mn}$ when $m,n \in \mathbb{Z}$ when
     If $\dim V=0$, $I$, is the zero-operator on $V$ and we let $p=1$ such that $1I\vec0=0$. \\
     Now we use induction on $\dim V$ and we assume $\dim V > 0$. Let $v\in V, v \neq 0$. The list $v, Tv, \dots, T^{\dim V}$ has length $1+\dim V.$
     $\implies$ linear dependence.
-    
+
     By the linear dependence lemma (\ref{linear-dependence-lemma}), there is a smallest positive integer $m\leq \dim V$ such that $c_0 v + c_1 Tv + \cdots + c_{m-1} T^{m-1} v + T^m v = 0$ for some $c_0, c_1, \dots, c_{m-1} \in \myF$. \\
-    
+
     Let $q(z) :\equiv c_0 + c_1z + \cdots + c_{m-1} z^{m-1} +z^{m} \in \mathcal{P} (\myF)$ \\
     $\implies q(T) v=0$. Not that $q(z)$ is a monic polynomial.
-    
+
     If $k \in \nat$, then $q(T)(T^kv)=T^k(q(T)v) =T^k (0) =0$.\\
     By the linear dependence lemma (\ref{linear-dependence-lemma}) $\implies v, Tv, \dots, T^{m-1}v$ from before are linearly independent $\implies \dim \mynull q(T) \geq m$ \\
     $\implies \dim \myrange q(T) = \dim V - \dim \mynull q(T) \leq \dim V - m$.
-    
+
     Because $\myrange q(T)$ is invariant under $T$ (by \ref{null-space-and-range-of-p(T)-are-invariant-under-T}), we can apply our induction hypothesis to the operator $\left.T\right|_{\myrange q(T)}$. \\
     So there exists monic $s \in \mathcal{P} (\myF): \deg s \leq \dim V - m$ and $s(\left.T\right|_{\myrange q(T)})=0$ \\
     $\implies \forall v \in V: (sq)(T)(v) = s(T) (q(T)v) = 0$, because $q(T)v \in \myrange q(T)$ and $\left.s(T)\right|_{\myrange q(T)}=s\left( \left.T\right|_{\myrange q(T)} \right )$.
     Therefore, $sq$ is a monic polynomial such that $\deg sq \leq \dim V$ and $(sq)(T)=0$.
-    
+
     Proof of uniqueness: Let $p\in \mathcal{P} (\myF)$ a monic polynomial of smallest degree such that $p(T)=0$. Let $r\in \mathcal{P} ( \myF)$ another monic polynomial of same degree such that $p(T)=0$. \\
     $\implies (p-r) (T) = 0$(*) and also $\deg (p-r) < \deg p = \deg r$ \\
     If $p-r \neq 0$, we could devide $p-r$ by the coefficient of the highest order term in $p-r$ to get a monic polynomial that when applied to $T$ gives the $0$-operator(*). This polynomial would have a smaler degree than $p$ or $r$, which would be a contradiction. Therefore $p-r=0 \iff p = r$
@@ -179,17 +179,17 @@ $\implies T^m T^n = T^{m+n}$ and $(T^m)^n=T^{mn}$ when $m,n \in \mathbb{Z}$ when
 \bfemph{Computation:} Find the smallest $m \in \nat$ such that: \\
 $c_0I + c_1 T + \cdots + c_{m-1} T^{m-1} = -T^{m}$ has a solution $c_0, \dots, c_{m-1} \in \myF$. Solve for $m=1,2,\dots,\dim V$
 
-Even faster (usually), pick $v \in V$ with $v \neq 0$ and consider the equation $c_0v + c_1Tv + \cdots + C_{\dim V-1}T^{\dim V-1}v=-T^{\dim V}v$. 
+Even faster (usually), pick $v \in V$ with $v \neq 0$ and consider the equation $c_0v + c_1Tv + \cdots + C_{\dim V-1}T^{\dim V-1}v=-T^{\dim V}v$.
 If this equation has a unique solution, as happens most of the time $c_0, c_1, c_2, \dots, c_{\dim V-1}, 1$ are the coefficients of the minimal polynomial of $T$.
 %TODO: do more.
 
 \setcounter{thm}{26}
 \begin{thm}
     \label{zeros-of-the-minimal-polynomial-of-T-are-the-eigenvalues-of-T}
-    Let $T \in \linmap(V)$. Then 
+    Let $T \in \linmap(V)$. Then
     \begin{enumerate}[label=(\alph*)]
-        \item The zeros of the minimal polynomial of $T$ are the eigenvalues of $T$. 
-        \item If $V$ is a complex vector space, the minimal polynomial has the form $(z-\lambda_1)\cdots(z-\lambda_m)$, where $\lambda_1, \dots, \lambda_m$ are the eigenvalues of $T$, possibly with repetitions. 
+        \item The zeros of the minimal polynomial of $T$ are the eigenvalues of $T$.
+        \item If $V$ is a complex vector space, the minimal polynomial has the form $(z-\lambda_1)\cdots(z-\lambda_m)$, where $\lambda_1, \dots, \lambda_m$ are the eigenvalues of $T$, possibly with repetitions.
     \end{enumerate}
 \end{thm}
 \begin{proof} Let $p$ be the minimal polynomial of $T$.
@@ -197,10 +197,10 @@ If this equation has a unique solution, as happens most of the time $c_0, c_1, c
         \item Suppose $\lambda \in \myF$ is a zero of $p$. $\implies p(z)=(z-\lambda)q(z)$, whre $q$ is a monic polynomial with coefficients in $\myF$ (see \ref{factororingOutZerosOfAPolynomial}) \\
         $p(T)=0\implies 0=(T-\lambda I)(q(T)v) \quad \forall v\in V.$
         Because $q$ is of lesser degree than $p$, there exists at least one vector $v\in V$ sucht that $q(T)v \neq 0$, which makes $q(T)v$ an eigenvector with eigenvalue $\lambda$.
-        
-        Suppose $\lambda \in \myF$ is an eigenvalue of $T$. Thus there exists $v\in V, v \neq 0$ such that $Tv=\lambda v$. Repeated applications of $T$ on both sides of this equation show that $T^kv =\lambda^k v \quad \forall k\in \nat$. 
+
+        Suppose $\lambda \in \myF$ is an eigenvalue of $T$. Thus there exists $v\in V, v \neq 0$ such that $Tv=\lambda v$. Repeated applications of $T$ on both sides of this equation show that $T^kv =\lambda^k v \quad \forall k\in \nat$.
         $\implies p(T)v=p(\lambda)v$. Because $p$ is the minimal polynomial of $T$, we have $p(T)v=0$. $\implies p(\lambda) = 0$. $\implies$ $\lambda$ is a zero of $p$.
-        
+
         \item use (a) and the second version of the fundamental theorem of algebra. (\ref{fundamental-theorem-of-algebra-second-version})
      \end{enumerate}
 \end{proof}
@@ -212,19 +212,19 @@ If this equation has a unique solution, as happens most of the time $c_0, c_1, c
 \end{thm}
 \begin{proof}
     Let $p$ denote the minimal polynomial of $T$.
-    
+
     $\Rightarrow$ direction: Suppose $q(T)=0$.
     By (\ref{division-algorithm-for-polynomials}) there exists $s,r \in \mathcal{P} (\myF)$ such that
     \begin{equation}
         q=ps+r, \quad \deg r < \deg p
     \end{equation}
-    We have                                     
+    We have
     \begin{equation}
         \label{aa}
         0 = q(T) = p(T)s(T) + r(T) = r(T).
     \end{equation}
     The equation above implies that $r=0$. Otherwise, dividing $r$ by its highest-degree coefficient would produce a monic polynomial that wehn applies to $T$ gives $0$. A contradiction because $\deg r < \deg p$ and $p$ is minimal. Thus \ref{aa} becomes the equation $q=ps$, as desired
-    
+
     $\Leftarrow$ direction: Suppose $q=ps$ for $q,p,s \in \mathcal{P}(\myF)$. We have
     \begin{equation}
         q(T) = p(T)s(T)=0s(T)=0,
@@ -255,7 +255,7 @@ If this equation has a unique solution, as happens most of the time $c_0, c_1, c
     \label{conditions for upper-triangular matrix}
     If $T \in \linmap (V)$ and $v_1, \dots, v_n$ is a basis of $V$. Then the following are equivalent.
     \begin{enumerate}[label=(\alph*)]
-        
+
         \item The matrix of $T$ with respect to $v_1, \dots, v_n$ is upper triangular.
         \item $\myspan{v_1, \dots, v_k}$ is invariant under $T$ $\quad \forall k \in \{ 1, \dots, n\}$
         \item $T v_k \in \myspan{v_1, \dots, v_k} \quad \forall k \in \{1, \dots, n\}$
@@ -277,7 +277,7 @@ If this equation has a unique solution, as happens most of the time $c_0, c_1, c
 
 \begin{thm}
     \label{necessary and sufficient condition to have an upper-triangular-matrix}
-    Let $T\in \L(V)$. Then $T$ has an upper-triangular matrix in respect to some basis $V$ $\iff$ the min. polynomial of $T$ equals $(z-\lambda_1) \cdots (z-\lambda_m), \quad \lambda_1, \dots, \lambda_m \in \myF$ 
+    Let $T\in \L(V)$. Then $T$ has an upper-triangular matrix in respect to some basis $V$ $\iff$ the min. polynomial of $T$ equals $(z-\lambda_1) \cdots (z-\lambda_m), \quad \lambda_1, \dots, \lambda_m \in \myF$
 \end{thm}
 
 \begin{thm}
@@ -295,7 +295,7 @@ If this equation has a unique solution, as happens most of the time $c_0, c_1, c
 
 \setcounter{thm}{49}
 \begin{mydef}
-    An operator on $V$ is called ``diagonalizable" if the operator has a diagonal matrix with respect to some basis on $V$  
+    An operator on $V$ is called ``diagonalizable" if the operator has a diagonal matrix with respect to some basis on $V$
 \end{mydef}
 
 \setcounter{thm}{51}
@@ -317,14 +317,15 @@ If this equation has a unique solution, as happens most of the time $c_0, c_1, c
     is a direct sum. Furthermore, if $V$ is finite-dimensional, then
     \begin{equation}
         \begin{aligned}
-        \dim E(\lambda_1, T) + \cdots + \dim E(\lambda_m, T) 
+        \dim E(\lambda_1, T) + \cdots + \dim E(\lambda_m, T)
         & = \dim \left( E(\lambda_1, T)  \oplus \cdots \oplus E(\lambda_m, T) \right) \\
         & \leq \dim V
         \end{aligned}
     \end{equation}
 \end{thm}
 
-\setcounter{thm}{45}
+% TODO: check!!!
+%\setcounter{thm}{45}
 \begin{thm}
     \label{conditions-equivalent-to-diagonalizability}
     Let $\lambda_1, \dots,\lambda_m$ denote the distinct eigenvalues of $T\in \linmap (V)$. Then
@@ -339,7 +340,7 @@ If this equation has a unique solution, as happens most of the time $c_0, c_1, c
 \setcounter{thm}{57}
 \begin{thm}
     \label{enough-eigenvalues-implies-diagonalizability}
-    $T\in \linmap(V)$ has $\dim V$ distinct eigenvalues $\implies$ $T$ is diagonalizable. 
+    $T\in \linmap(V)$ has $\dim V$ distinct eigenvalues $\implies$ $T$ is diagonalizable.
 \end{thm}
 
 \pagebreak
@@ -347,19 +348,23 @@ If this equation has a unique solution, as happens most of the time $c_0, c_1, c
 \setcounter{thm}{61}
 \begin{thm}
     \label{necessary-and-sufficient-condition-for-diagonalizability}
-    Let $T\in \linmap (V)$. Then $T$ is diagonalizable $\iff$ the minimal polynomial of $T$ equals $(z-\lambda_1) \cdots (z-\lambda_m), \quad \lambda_1, \dots, \lambda_m \in \myF, \quad \lambda_1 \neq \cdots \neq \lambda_m$
+    Let $T\in \linmap (V)$. Then $T$ is diagonalizable $\iff$ the minimal polynomial of $T$ equals
+    \begin{equation}
+        (z-\lambda_1) \cdots (z-\lambda_m), \quad \lambda_1, \dots, \lambda_m \in \myF, \quad \lambda_1 \neq \cdots \neq \lambda_m
+    \end{equation}
 \end{thm}
 
 \setcounter{thm}{64}
 \begin{thm}
     \label{restriction-ofdiagonalizable-operator-to-invariant-subspace}
-    Suppose $T\in \linmap(V)$ is diagonalizable and $U$ is a subspace of $V$ that is invariant under $T$. $\implies$ $\left.T\right|_U$ is a diagonalizable operator on $U$. 
+    Suppose $T\in \linmap(V)$ is diagonalizable and $U$ is a subspace of $V$ that is invariant under $T$. $\implies$ $\left.T\right|_U$ is a diagonalizable operator on $U$.
 \end{thm}
 \begin{proof}
-    Diagonazability of $T$ $\mathsmaller{\overset{\text{\ref{necessary-and-sufficient-condition-for-diagonalizability}}}{\iff}}$ the minimal polynomial of $T$ equals $(z-\lambda_1)\cdots(z-\lambda_m)$ for $\lambda_1 \neq \cdots \neq \lambda_m$. By \ref{minimal-polynomial-of-a-restriction-operator}, the minimal polynomial of $T$ is a polynomial multiple of the minimal polynomial of $\left.T\right|_U$. Hence the minimal polynomial of $\left.T\right|_U$  has the form required by \ref{necessary-and-sufficient-condition-for-diagonalizability}, which shows that $\left.T\right|_U$ is diagonalizable. It consits of factors $(z-\lambda_1),(z-\lambda_2), \dots, (z-\lambda_m)$.
+    Diagonazability of $T$ $\mathsmaller{\overset{\text{\ref{necessary-and-sufficient-condition-for-diagonalizability}}}{\iff}}$ the minimal polynomial of $T$ equals $(z-\lambda_1)\cdots(z-\lambda_m)$ for $\lambda_1 \neq \cdots \neq \lambda_m$. By \ref{minimal-polynomial-of-a-restriction-operator}, the minimal polynomial of $T$ is a polynomial multiple of the minimal polynomial of $\left.T\right|_U$. Hence the minimal polynomial of $\left.T\right|_U$  has the form required by \ref{necessary-and-sufficient-condition-for-diagonalizability}, which shows that $\left.T\right|_U$ is diagonalizable. It consists of factors $(z-\lambda_1)$ up to $(z-\lambda_m)$.
 \end{proof}
 
 \subsection{Commuting Operators}
 \begin{mydef}
     Two operators or matrices $A$ and $B$ ``commute" if $ST=TS$
 \end{mydef}
+
