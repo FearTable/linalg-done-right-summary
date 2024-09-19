@@ -1,0 +1,92 @@
+\section{Null Spaces and Ranges}
+
+\subsection{Null Space and Injectivity}
+
+\begin{mydef}
+  $\mynull T :\equiv \ker T :\equiv \{ v \in V \mid Tv=0\} \subseteq V$ for $T \in \lvw$
+\end{mydef}
+
+\setcounter{thm}{12}
+%\textbf{3.13}
+\begin{thm}
+  $\mynull T$ is a subspace of $V$
+\end{thm}
+
+\setcounter{thm}{13}
+%\textbf{3.14}
+\begin{mydef}
+  A function $T: V \to W$ is called injective if
+  \begin{equation}
+    Tu = Tv \implies u = v \quad \forall u,v \in V
+  \end{equation}
+  Or analogous:
+  \begin{equation}
+    u \neq v \implies Tu \neq Tv \quad \forall u,v \in V
+  \end{equation}
+\end{mydef}
+
+\setcounter{thm}{14}
+%\textbf{3.15}
+\begin{mydef}
+  Let $T \in \lvw$. Then
+  \begin{equation}
+    T \text{ is injective } \iff \mynull T = \{0 \}.
+  \end{equation}
+\end{mydef}
+
+\subsection{Range and Surjectivity}
+\setcounter{thm}{15}
+%\textbf{3.16}
+\begin{mydef}
+  $\operatorname{range}T= \{Tv \mid v \in V\} \subseteq W$ for $T \in \lvw$
+\end{mydef}
+
+\setcounter{thm}{17}
+%\textbf{3.18}
+\begin{thm}
+  $T\in \lvw \implies \myrange T$ is a subspace of $W$.
+\end{thm}
+
+\setcounter{thm}{18}
+%\textbf{3.19}
+\begin{mydef}
+  If $\myrange T=W$, $T:V\to W$ is called ``surjektive" or ``onto".
+\end{mydef}
+
+\subsection{Fundamental Theorem of Linear Maps}
+  \setcounter{thm}{20}
+  %\textbf{3.21}
+  \begin{thm}
+    \label{rank-nullity-theorem}
+    Fundamental theorem of linear maps or \bfemph{``rank nullity theorem":} \\
+    For $T \in \lvw$:
+    \begin{equation}
+      \dim V =
+      \underbrace{ \dim \mynull T }_{\text{nullity}}
+      + \underbrace{\dim \myrange T}_{\text{rank}}
+    \end{equation}
+  \end{thm}
+
+  \setcounter{thm}{21}
+  %\textbf{3.22}
+  \begin{thm}
+    If $\dim V > \dim W \implies$ No \lm from $V$ to $W$ is injective.
+  \end{thm}
+
+  \setcounter{thm}{23}
+  %\textbf{3.24}
+  \begin{thm}
+    If $\dim V < \dim W \implies$ No \lm from $V$ to $W$ is surjective.
+  \end{thm}
+
+  \setcounter{thm}{25}
+  %\textbf{3.26}
+  \begin{thm}
+    A homogeneous system of linear equations with more variables then equations has nonzero solutions.
+  \end{thm}
+
+  %\textbf{3.28}
+  \setcounter{thm}{27}
+  \begin{thm}
+    An inhomogeneous system of linear equations with more equations then variables has no solutions for some choice of constant terms.
+  \end{thm}

@@ -1,0 +1,73 @@
+\section{\vs of linear maps}
+
+\subsection{Definition and Examples of Linear Maps}
+
+\begin{mydef}
+  A \lm from $V$ to $W$ is a function $T:V\to W$ with following properties:
+  \begin{itemize}
+    \item additivity: $T(u+v)=Tu + Tv \qquad \forall u,v \in V$
+    \item homogenity: $T(\lambda v)=\lambda (Tv) \qquad
+    \forall \lambda \in \mathbb{F}, \; \forall v\in V$
+  \end{itemize}
+\end{mydef}
+
+\begin{mydef}
+  The set of all linear maps from $V$ to $W$ is denoted by $\mathcal{L}(V,W)$. For the set of all linear maps from $V$ to itself we use $\mathcal{L}(V) :\equiv \mathcal{L}(V,V)$
+\end{mydef}
+
+\setcounter{thm}{3}
+\begin{thm}
+  {\scshape Linear map lemma: }
+  Suppose $\onetilln{v}$ is a basis of $V$ and $\onetilln{w} \in W$, where the $w$'s do not have any specific properties. Then there exist a unique \lm $T:V\to W$ or $T \in \linmap(V,W)$ such that
+  \begin{itemize}
+    \item[] $Tv_{k} = w_k \quad \forall \kinonetilln.$
+  \end{itemize}
+  It is of the form $T(c_1 v_1 + \cdots c_n v_n) \mapsto c_1 w_1 + \cdots + c_n w_n$
+\end{thm}
+
+\setcounter{thm}{4}
+\begin{mydef}
+  Suppose $S, T \in \lvw$ and $\lambda \in \mathbb{F}.$ \\
+  The sum $S+T \in \linmap (V,W)$ and the product $\lambda T \in \linmap (V,W)$ are defined by:
+  \begin{itemize}
+    \item $(S+T)(v) :\equiv Sv+Tv \quad \forall v \in V$
+    \item $(\lambda T)(v) : \equiv \lambda (Tv) \quad \forall v \in V$
+  \end{itemize}
+\end{mydef}
+
+\subsection{Algebraic Operations on $\linmap(V,W)$}
+
+\setcounter{thm}{5}
+%\textbf{3.6}
+\begin{thm}
+  With these operations above, $\lvw$ is itself a \vs.
+\end{thm}
+
+\setcounter{thm}{6}
+%\textbf{3.7}
+\begin{mydef}
+  Let $T \in \lin{U}{V}$ and $S \in \lin{V}{W}$. We define the product $ST \in \lin{U}{W}$ as follows:
+  \begin{itemize}
+    \item[] $(ST)(u) :\equiv S(Tu) \quad \forall u \in U$
+  \end{itemize}
+\end{mydef}
+
+%\textbf{3.8}
+\begin{thm}
+  With these definitions we have
+  \begin{itemize}
+    \item \bfemph{Associativity:} $(T_1 T_2) T_3 = T_1 (T_2 T_3)$, whenever $T_3$ maps into the Domain of $T_2$ and $T_2$ maps into the Domain of $T_1$.
+    \item \bfemph{Identity:} $T I = I T = T$ for $T \in \lvw$ (The first $I$ is the identity operator on $V$ and the second $I$ the identity operator on $W$. \\
+    We could also write $T I_V = I_W T$
+    \item \bfemph{Distributive properties:} For $T, T_1, T_2 \in \lin{U}{V}$ and $S, S_1, S_2 \in \lin{V}{W}$: \\ $(S_1 + S_2)T=S_1 T + S_2 T$ and $S(T_1 + T_2)=S T_1 + S T_2$
+    \item \bfemph{Non-commutative:} $ST \neq TS$ in general.
+  \end{itemize}
+\end{thm}
+
+\setcounter{thm}{9}
+\begin{thm}
+  $T\in \lvw \implies T(0)=0$.
+\end{thm}
+\begin{proof}
+  $T(0) = T(0+0) = T(0) + T(0)$. Now subtract $T(0)$ on both sides.
+\end{proof}

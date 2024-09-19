@@ -1,0 +1,64 @@
+\section{Matrices}
+\subsection{Representing a Liner Map by a Matrix}
+
+\setcounter{thm}{30}
+\begin{mydef}
+  \label{matrix-of-linear-map}
+  \bfemph{Matrix of a linear map} $\mmatrix(T)$: \\
+  Suppose $T \in \linmap (L,W)$ and $v_1, \dots, v_n$ be a basis of $V$ and $w_1, \dots, w_m$ be a basis of $W$. The ``matrix of $T$" with respect to these bases is the $m$-by-$n$ matrix $\mmatrix(T)$ whose entries $A_{j,k}$ are defined by
+  \begin{equation}
+    T v_k = A_{1,k} w_1 + \cdots + A_{m,k} w_m \equiv \sum_{j=1}^{m} A_{j,k} w_j
+  \end{equation}
+  If the bases are not clear from the context, one writes $\mmatrix(T, (v_1, \dots, v_n),(w_1, \dots, w_m))$. One remembers how to construct $\mmatrix(T)$ as follows:
+  \begin{equation}
+    \mathcal{M} (T) :\equiv
+    \begin{blockarray}{cccc}
+      & v_1 \quad \cdots & v_k & \cdots \quad v_n \\
+      \begin{block}{c(ccc)}
+        w_1    & & A_{1,k} & \\
+        \vdots & & \vdots & \\
+        w_m    & & A_{m,k} & \\
+      \end{block}
+    \end{blockarray}
+  \end{equation}
+\end{mydef}
+
+
+\subsection{Addition and Scalar Multiplication of Matrices}
+\setcounter{thm}{34}
+\begin{thm}
+  $\mmatrix(S+T) = \mmatrix(S) + \mmatrix(T)$ for $S, T \in \linmap (V,W)$
+\end{thm}
+
+\setcounter{thm}{37}
+\begin{thm}
+  $\mmatrix(\lambda T) = \lambda \mmatrix(T)$ for $\lambda \in \myF$ and $T \in \linmap (V,W)$
+\end{thm}
+
+\begin{mydef}
+  $\myF^{m,n}$ denotes the set of all $m$-by-$n$ matrices with entries in $F$, where $m,n \in \nat$
+\end{mydef}
+
+\begin{thm}
+  $\myF^{m,n}$ is a vector space with $\dim \myF^{m,n}=mn$.
+\end{thm}
+
+
+\subsection{Matrix Multiplication}
+\setcounter{thm}{40}
+%\textbf{3.41}
+
+\begin{mydef}
+  $(AB)_{j,k} :\equiv \sum_{r=1}^{m} A_{j,r} B_{r,k}$ for $A\in \myF^{m,n}$, $B\in \myF^{n,p}$, $AB \in \myF^{m,p}$
+\end{mydef}
+
+%\textbf{3.46}
+\setcounter{thm}{45}
+\begin{thm}
+  $(AB)_{j,k} = A_{j, \mathsmaller{\bullet}} B_{\mathsmaller{\bullet}, k}$ if $1 \leq j \leq m$ and $1 \leq k \leq p$
+\end{thm}
+
+\setcounter{thm}{49}
+\begin{thm}
+  Suppose $A \in \myF^{m,n}$ and $b=\left(\begin{matrix}b_1\\ \vdots \\ b_n \end{matrix}\right) \in \myF^{n,1}$. Then $Ab = b_1 A_{\mathsmaller{\bullet}, 1} + \dots + b_n A_{\mathsmaller{\bullet},n}$
+\end{thm}

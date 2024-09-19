@@ -1,0 +1,61 @@
+\section{Definition of a vector space}
+
+\setcounter{thm}{19}
+\begin{mydef}
+  A ``vector space" is a set $V$ along with an addition on $V$ and a scalar multiplication on $V$ such that the following properties hold.
+  \begin{itemize}
+    \item \bfemph{Commutativity:}
+    $ u+v = v+u \quad \forall u,v \in V$
+    \item \bfemph{Associativity:}
+    $(u+v)+w=u+(v+w)$ and $(ab)v=a(bv) \quad \forall u,v,w \in V$ and $\forall a,b \in \myF$
+    \item \bfemph{Additive identity:}
+    $\exists 0\in V:v+0=v \quad \forall v\in V$. ($\exists!$ is not a requirement but a property.)
+    \item \bfemph{Additive inverse:}
+    $\forall v\in V \quad \exists w\in V: v+w=0$
+    \item \bfemph{Multiplicative identity:}
+    $1v = v \quad \forall v\in V$
+    \item \bfemph{Distributive properties:}\\
+    $a(u+v) = au+av$ and  \\
+    $(a+b)v \, = av + bv \quad \forall a,b \in \myF$ and
+    $\forall u,v \in V$
+  \end{itemize}
+\end{mydef}
+
+\setcounter{thm}{23}
+\begin{mydef}
+  If $S$ is a set, then $\myF^S$ denotes the set of functions from $S$ to $\myF$. Let $f, g \in \myF^{S}$ and $\lambda \in \myF$:
+  \begin{itemize}
+    \item The ``sum" $f+g \in \myF^{S}$ is defined as follows: $(f+g)(x) :\equiv f(x)+ g(x) \quad \forall x\in S$
+    \item The ``product" $\lambda f \in \myF^{S}$ is defined as follows: $(\lambda f)(x) :\equiv \lambda f(x) \quad \forall x \in S$.
+  \end{itemize}
+  The vector space $\myF^{n} :\equiv \myF^{\{1,2,\dots,n\}}$ is a special case, because each $(x_1, \dots, x_n) \in \myF^{n}$ can be thought of as a function $x$ from the set $\{1, 2, \dots, n\}$ to $\myF$ by writing $x(k)$ instead of $x_k$ for the $k^{\text{th}}$ coordinate of $(x_1, \dots, x_n)$.
+\end{mydef}
+
+\setcounter{thm}{25}
+\begin{thm}
+  A vector space has a unique additive identity.
+\end{thm}
+
+\begin{thm}
+  Every element in a vector space has a unique additive inverse.
+\end{thm}
+
+\begin{mydef}
+  For $v,w\in V$, $-v$ denotes the additive inverse of $v$ and $w-v:\equiv w+(-v)$
+\end{mydef}
+
+\begin{mydef}
+  For the rest of this summary, $V$ denotes a vector space over $\myF$.
+\end{mydef}
+
+\begin{thm}
+  $0v = 0 \quad \forall v\in V$
+\end{thm}
+
+\begin{thm}
+  $a \vec0= \vec0 \quad \forall a\in \myF$
+\end{thm}
+
+\begin{thm}
+  $(-1)v = -v \quad \forall v\in V$
+\end{thm}

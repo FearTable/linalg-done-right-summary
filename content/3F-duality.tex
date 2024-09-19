@@ -1,0 +1,125 @@
+\section{Duality}
+\subsection{Dual Space and Dual Map}
+
+\setcounter{thm}{107}
+%\textbf{3.108}
+\begin{mydef}
+  A ``linear functional" $\phi$ is an element of $\mathcal{L}(V, \mathbb{F})$. So $\phi \in \linmap(V, \myF)$
+\end{mydef}
+
+\textbf{Examples:}
+\begin{equation}
+  \begin{array}{lll}
+    \phi: \mathbb{R}^3  \to \mathbb{R}, &\phi (x,y,z)  & \mapsto 4x-5y-2z \\
+    \phi: \mathbb{F}^n  \to \mathbb{F}, &\phi (x_1, \dots, x_n)
+    & \mapsto c_1x_1 + \dots + c_nx_n  \\
+    \phi: \mathcal{P} (\mathbb{R})  \to \mathbb{R},
+    & \phi(p) & \mapsto 3p''(5) + 7p(4) \\
+    \phi: \mathcal{P}(\mathbb{R}) \to \mathbb{R},
+    & \phi(p)  &\mapsto \textstyle \int_{0}^{1} p(x) dx
+  \end{array}
+\end{equation}
+
+\setcounter{thm}{109}
+%\textbf{3.110}
+\begin{thm}
+  The dual space of $V$, denoted by $V'$ or $V^{*}$, is the vector space of all linear functionals on $V$.
+  \begin{equation}
+    V^{*} :\equiv \linmap(V, \myF)
+  \end{equation}
+\end{thm}
+
+%\textbf{3.111}
+\begin{thm}
+  $\dim V^{*} = \dim V$.
+\end{thm}
+\begin{proof}
+  $\dim V^{*} = \dim \mathcal{L}(V, \mathbb{F})=(\dim V) \cdot (\dim \mathbb{F}) = \dim V $
+\end{proof}
+
+
+%\textbf{3.112}
+\begin{mydef}
+  If $\onetillm{v}$ is a basis of $V$, then the ``dual basis" of $\onetilln{v}$ is the list $\varphi_1, \dots, \varphi_m \in V^{*}$, where each $\varphi_j$ is the linear functional such that
+  $\varphi_j(v_k) = \delta_{j,k} =
+  \begin{cases}
+    1,  & \text{if $k=j$} \\
+    0, & \text{if $k \neq j$}
+  \end{cases}$. \\
+  Note that this is not the definition of each $\varphi_j$.
+\end{mydef}
+
+%\textbf{3.114}
+\setcounter{thm}{113}
+\begin{thm}
+  Suppose $\onetillm{v}$ is a basis of $V$. $\onetillm{\varphi}$ is called ``a dual basis" of $\onetillm{v}$ because for every $v \in V$ we have $v=\varphi_1 (v)v_1 + \cdots \varphi_m(v)v_m$
+\end{thm}
+\begin{proof}
+  Let $V \ni v= c_1v_1 + \cdots c_mv_m$. Applying
+  $\varphi_j$ on both sides gives $\varphi_j(v)=c_j$ $\forall j\in \{1, \dots, m\}$
+  %    \iff$ $\varphi(v)=\phi(c_1v_1 + \cdots + c_mv_m)$ such that $\varphi_j(v)=c_j$, because $\varphi$ is linear and $\varphi_j(v_j)=1$ by definition.
+\end{proof}
+
+%\textbf{3.116}
+\setcounter{thm}{115}
+\begin{thm}
+  The dual basis of a basis of $V$ is a basis of the dual space $V^{*}$
+\end{thm}
+
+%\textbf{3.118}
+\setcounter{thm}{117}
+\begin{mydef}
+
+  The ``dual map" $T^{*}$ of $T \in \linmap(V,W)$ is the linear map $T^{*} \in \lin{W^{*}}{V^{*}}$ defined like this:
+
+  \begin{itemize}
+    \item[] $T^{*}(\varphi) :\equiv \varphi \circ T \quad \forall \phi \in W^{*}$
+    \item $\varphi \in W^{*}=\lin{W}{\mathbb{F}} \text{ and } T^{*}(\varphi) \in V^{*} = \lin{V}{\mathbb{F}}$.
+
+    yo
+    So $T^{*}$ is indeed a map from $W^{*}$ to $V^{*}$
+
+
+    \item $\varphi, \psi \in W^{*} \implies T^{*} (\varphi + \psi) = (\varphi + \psi) \circ T = \varphi \circ T + \psi \circ T = T^{*} (\varphi) + T^{*} (\psi)$
+    \item $\lambda \in \mathbb{F}, \varphi \in W \implies T^{*} (\lambda \varphi) = (\lambda \varphi) \circ T = \lambda (\varphi \circ T) = \lambda T^{*} (\varphi)$
+  \end{itemize}
+
+\end{mydef}
+
+\setcounter{thm}{119}
+\begin{thm}
+  \label{algebraic-properties-of-dual-maps}
+  Algebraic properties of dual maps:  \\
+  $T \in \linmap(V,W)$ $\implies$
+  \begin{enumerate}
+    \item $(S+T)' = S' + T' \quad \forall S \in \linmap(V,W)$
+    \item $(\lambda T)' = \lambda T' \quad \quad \forall \lambda \in \myF$
+    \item $(ST)' = T'S' \quad \; \forall S \in \linmap (W,U)$
+  \end{enumerate}
+\end{thm}
+
+\subsection{Dual Space and Range of Dual of Linear Map}
+\begin{mydef}
+  \label{def-annihiltator}
+  For $U \subseteq V$, the annihilator of $U$, denoted by $U^{0}$, is defined by
+  \begin{equation}
+    U^0 = \{ \varphi \in V' \; \mid \; \varphi (u) = 0 \quad \forall u \in U \}
+  \end{equation}
+\end{mydef}
+
+\setcounter{thm}{123}
+\begin{thm}
+  \label{the-annihilator-is-a-subspace}
+  $U \subseteq V \implies U^{0}$ is a subspace of $V{\mathlarger{\mathlarger{'}}}$
+\end{thm}
+
+
+\subsection{Matrix of Dual of Linear Map}
+
+\setcounter{thm}{131}
+\begin{thm}
+  Suppose $V, W$ are finite-dimensional and $T \in \linmap(V,W)$.
+  \begin{equation}
+    \implies \mmatrix(T^{*}) = (\mmatrix(T))^{\top}
+  \end{equation}
+\end{thm}

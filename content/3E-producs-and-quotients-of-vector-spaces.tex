@@ -1,0 +1,87 @@
+\section{Products and Quotients of Vector Spaces}
+\subsection{Products of Vector Spaces}
+
+\begin{mydef}The product, addition and scalar multiplication of vector spaces $V_1, \cdots, V_m$ is defined as follows:
+  \begin{equation}
+    \begin{aligned}
+      V_1 \times \cdots \times V_m &:\equiv \{ (v_1, \dots, v_m) \mid v_1 \in V_1, \dots, v_m \in V_m\} \\
+      (u_1, \dots, u_m) + (v_1, \dots, v_m) &:\equiv (u_1+v_1, \dots, u_m+v_m) \\
+      \lambda (v_1, \dots, v_m) &:\equiv (\lambda v_1, \dots, \lambda v_m)
+    \end{aligned}
+  \end{equation}
+\end{mydef}
+
+\setcounter{thm}{88}
+%\textbf{3.89}
+\begin{thm}
+  $V_1 \times \cdots \times V_m$ together with addition and scalar multiplication is a vector space over $\mathbb{F}$.
+\end{thm}
+
+\setcounter{thm}{91}
+\begin{thm}
+  $\dim (V_1 \times \cdots \times V_m) = \dim V_1 + \cdots + \dim V_m$
+\end{thm}
+
+%\textbf{3.93}
+\begin{thm}
+  Let $\Gamma: V_1 \times \cdots \times V_m \to V_1 + \cdots + V_m$ and
+  $ \Gamma(v_1, \cdots, v_m) \mapsto v_1 + \cdots + v_m$ \\
+  Then $v_1 + \cdots + v_m$ is a direct sum $\iff$ $\Gamma$ is injective.
+\end{thm}
+
+\begin{thm}$V_1 + \cdots + V_1$ is a direct sum $\iff$
+  $\dim (V_1+\cdots+V_m) = \dim V_1 + \cdots + \dim V_m$
+\end{thm}
+
+\subsection{Quotient Spaces}
+
+\setcounter{thm}{94}
+%\textbf{3.95, 3.97}
+\begin{mydef}
+  $v+U :\equiv \{v+U \mid u\in U\}$ for $v\in V$ and $U\subseteq V$ is said to be ``a translate" of $U$.
+\end{mydef}
+
+\setcounter{thm}{98}
+%\textbf{3.99}
+\begin{mydef}
+  $V/U :\equiv \{v+U \mid v\in V\}$ is called ``quotient space".
+\end{mydef}
+
+\begin{example}
+  If $U=\{ (x,2x)\in \mathbb{R}^2 \mid x\in \mathbb{R} \} \implies \mathbb{R}/U$ is the set of all lines with slope $2$.
+\end{example}
+
+\begin{example}
+  If $U$ is a plane in $\mathbb{R}^3$ $\implies$ $\mathbb{R}^3/U$ is the set of all planes parallel to $U$.
+\end{example}
+
+
+\setcounter{thm}{100}
+%\textbf{3.101}
+\begin{thm}
+  $ U \subseteq V$ and $v,w\in V$. Then
+  \begin{equation}
+    v-w \in U \iff v+U = w + U \iff (v+U) \cap (w+U) \neq \varnothing
+  \end{equation}
+  That means, two translates of a subspaces are equal or disjoint.
+\end{thm}
+
+%\textbf{3.102}
+\begin{mydef}
+  Definition of addition and scalar multiplication on $V/U$.
+  \begin{equation}
+    \begin{aligned}
+      (v+U)+(w+U) & :\equiv (v+w) + U \\
+      \lambda (v+U) & :\equiv (\lambda v) + U \qquad \forall v,w \in V \text{ and } \forall \lambda \in \mathbb{F}
+      \text{ and } U \subseteq V
+    \end{aligned}
+  \end{equation}
+\end{mydef}
+
+
+%\textbf{3.103}
+\begin{thm}
+  $V/U$ is a vector space with additive identity $0+U$ which is equal to $U$ and the additive inverse $(-v)+U$.
+\end{thm}
+
+\textbf{3.104} TODO \textbf{3.105} TODO \\

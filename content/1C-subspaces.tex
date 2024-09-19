@@ -1,0 +1,76 @@
+\section{Subspaces}
+
+\begin{mydef}
+  A subset $U$ of $V$ ($U \subseteq V$) is called a ``subspace" of $V$ if $U$ is also a vector space with the same additive identity, addition, and scalar multiplication as on $V$.
+\end{mydef}
+
+\begin{thm}
+  A subset $U$ of $V$ is a subspace of $V$ $\iff$ $U$ satisfies the following three conditions:
+  \begin{itemize}
+    \item \bfemph{Additive identity:}
+    $0 \in U$
+    \item \bfemph{Closed under addition:}
+    $u,w \in U \implies u+w \in U$
+    \item \bfemph{Closed under scalar multiplication:}
+    $a \in \myF$ and $u \in U \implies au \in U$
+  \end{itemize}
+  The additive identity condition above could be replaced by the condition that $U$ is nonempty (because then taking $u \in U$ and multiplying it by $0$ would imply that $0\in U$).
+\end{thm}
+
+
+%\textbf{1.34} $U\subseteq V$ is a subspace of $V$ $\iff$
+%\begin{itemize}
+%	\item additive identity: $0 \in U$
+%	\item closed under addition: $u,w\in U \implies u+w \in U$
+%	\item closed under scalar multiplication: $a \in \myF$ and $u\in U$ $\implies$ $au \in U$
+%\end{itemize}
+
+\subsection{Sum of Subspaces}
+
+\setcounter{thm}{35}
+
+\begin{mydef}
+  $V_1 + \cdots + V_m :\equiv \{v_1 + \cdots + v_m \mid v_1 \in V_1, \, \dots \, , v_m \in V_m \}$, where $V_i$'s are subspaces of $V$. It is called the ``sum from $V_1$ up to $V_m$." It is the set of all possible sums of elements of $V_1, \ldots, V_m$, since they all contain the zero-vector.
+\end{mydef}
+
+%\textbf{1.40}
+\setcounter{thm}{39}
+\begin{thm}
+  $V_1 + \cdots + V_m$ is the smalles subspace of $V$ containing $V_1, \dots, V_m.$
+\end{thm}
+
+\subsection{Direct Sum}
+
+%\textbf{1.41}
+\setcounter{thm}{40}
+\begin{mydef}
+  \label{def-of-direct-sum}
+  %NO COMMA BEFORE IF ACC TO AXLER
+  $V_1 + \cdots + V_m$ is called a ``direct sum" if each element of $V_1 +\cdots+V_m$ can be written in only one way as a sum $v_1 + \cdots + v_m$, where each $v_k \in V_k$. In this case we write:
+  \begin{equation}
+    V_1 \oplus \cdots \oplus V_m :\equiv V_1 + \cdots + V_m
+  \end{equation}
+\end{mydef}
+
+\begin{example}
+  Example: $\myF^3 =
+  \left \{ \left ( x, y, 0 \right ) \in \myF^3 \mid x,y \in \myF \right \}
+  \oplus
+  \left \{ \left (  0, 0, z  \right ) \in \myF^3 \mid z \in \myF \right \}$
+\end{example}
+
+
+%\textbf{1.45}
+\setcounter{thm}{44}
+\begin{thm}
+  \label{condition-for-a-direct-sum}
+  $V_1 + \cdots + V_m$ is a direct sum $\iff$ the only write $0$ as a sum $v_1 + \cdots + v_m$, where each $v_k \in V_k$, is by taking each $v_k$ equal to $0$.
+\end{thm}
+
+
+%\textbf{1.46}
+\setcounter{thm}{45}
+\begin{thm}
+  \label{direct-sum-of-two-subscpaces}
+  $U+W$ is a direct sum $\iff$ $U \cap W = \{0\}$
+\end{thm}
