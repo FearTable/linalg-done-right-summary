@@ -306,7 +306,6 @@ If this equation has a unique solution, as happens most of the time $c_0, c_1, c
   \label{conditions for upper-triangular matrix}
   If $T \in \linmap (V)$ and $v_1, \dots, v_n$ is a basis of $V$. Then the following are equivalent.
   \begin{enumerate}[label=(\alph*)]
-
     \item The matrix of $T$ with respect to $v_1, \dots, v_n$ is upper triangular.
     \item $\myspan{v_1, \dots, v_k}$ is invariant under $T$ $\quad \forall k \in \{ 1, \dots, n\}$
     \item $T v_k \in \myspan{v_1, \dots, v_k} \quad \forall k \in \{1, \dots, n\}$
@@ -326,22 +325,28 @@ If this equation has a unique solution, as happens most of the time $c_0, c_1, c
   Suppose $T\in \linmap(V)$ has an upper-triangular matrix with respect to some basis of $V$. Then the eigenvalues of $T$ are precisely the entries on the diagonal of that upper-triangular matrix.
 \end{thm}
 
+\setcounter{thm}{43}
 \begin{thm}
   \label{necessary and sufficient condition to have an upper-triangular-matrix}
-  Let $T\in \L(V)$. Then $T$ has an upper-triangular matrix in respect to some basis $V$ $\iff$ the min. polynomial of $T$ equals $(z-\lambda_1) \cdots (z-\lambda_m), \quad \lambda_1, \dots, \lambda_m \in \myF$
+  Let $T\in \linmap(V)$\footnotemark[1]. Then $T$ has an upper-triangular matrix in respect to some basis $V$ $\iff$ the min. polynomial of $T$ equals $(z-\lambda_1) \cdots (z-\lambda_m), \quad \lambda_1, \dots, \lambda_m \in \myF$
 \end{thm}
 
 \begin{thm}
   \label{If-F-equals-C-every-operator-on-V-has-an-upper-triangular-matrix}
-  Let $T\in \linmap (V)$. Then $T$ has an upper-triangular matrix with respect to some basis of $V$.
+  Let $\myF = \compl$. Let $T\in \linmap (V)$\footnotemark[1]. Then $T$ has an upper-triangular matrix with respect to some basis of $V$.
 \end{thm}
+
+\setcounter{footnote}{1}
+\footnotetext{$V$ is finite dimensional.}
+
+\pagebreak
 
 \section{Diagonalizable Operators}
 \subsection{Diagonal Matrices}
 
 \setcounter{thm}{47}
 \begin{mydef}
-  A ``diagonal matrix" is a square matrix that is $0$ everywhere except possibly on the diagonal
+  A ``diagonal matrix" is a square matrix that is $0$ everywhere except possibly on \nopagebreak the diagonal
 \end{mydef}
 
 \setcounter{thm}{49}
@@ -351,12 +356,12 @@ If this equation has a unique solution, as happens most of the time $c_0, c_1, c
 
 \setcounter{thm}{51}
 \label{eigenspace}
-\begin{thm}
+\begin{mydef}
   Let $T \in \linmap(V)$ and $\lambda \in \myF$. The ``eigenspace" of $T$ corresponding to $\lambda$ is the subspace $E(\lambda, T)$ of $V$ defined by
   \begin{equation}
     E(\lambda, T) :\equiv  \mynull(T-\lambda I) = \{ v\in V \mid Tv = \lambda v\}
   \end{equation}
-\end{thm}
+\end{mydef}
 
 \setcounter{thm}{53}
 \begin{thm}
@@ -395,24 +400,28 @@ If this equation has a unique solution, as happens most of the time $c_0, c_1, c
 \end{thm}
 
 \setcounter{thm}{61}
+% 5.62
 \begin{thm}
   \label{necessary-and-sufficient-condition-for-diagonalizability}
-  Let $T\in \linmap (V)$. Then $T$ is diagonalizable $\iff$ the minimal polynomial of $T$ equals
+  Let $T\in \linmap (V)$\footnotemark[1]. Then $T$ is diagonalizable $\iff$ the minimal polynomial of $T$ equals
   \begin{equation}
     (z-\lambda_1) \cdots (z-\lambda_m), \text{ where } \lambda_1, \dots, \lambda_m \in \myF \myand \lambda_1 \neq \cdots \neq \lambda_m
   \end{equation}
 \end{thm}
 
 \setcounter{thm}{64}
+%5.65
 \begin{thm}
   \label{restriction-ofdiagonalizable-operator-to-invariant-subspace}
-  Suppose $T\in \linmap(V)$ is diagonalizable and $U$ is a subspace of $V$ that is invariant under $T$. $\implies$ $\left.T\right|_U$ is a diagonalizable operator on $U$.
+  Suppose $T\in \linmap(V)$. $T$ is diagonalizable and $U$ is a subspace of $V$ that is invariant under $T$. $\implies$ $\left.T\right|_U$ is a diagonalizable operator on $U$.
 \end{thm}
 \begin{proof}
   Diagonazability of $T$ $\mathsmaller{\overset{\text{\ref{necessary-and-sufficient-condition-for-diagonalizability}}}{\iff}}$ the minimal polynomial of $T$ equals $(z-\lambda_1)\cdots(z-\lambda_m)$ for $\lambda_1 \neq \cdots \neq \lambda_m$. By \ref{minimal-polynomial-of-a-restriction-operator}, the minimal polynomial of $T$ is a polynomial multiple of the minimal polynomial of $\left.T\right|_U$. Hence the minimal polynomial of $\left.T\right|_U$  has the form required by \ref{necessary-and-sufficient-condition-for-diagonalizability}, which shows that $\left.T\right|_U$ is diagonalizable. It consits of factors $(z-\lambda_1),(z-\lambda_2), \dots, (z-\lambda_m)$.
 \end{proof}
 
-\subsection{Commuting Operators}
+% TODO: Gerhgorin Disk Theorem Def 5.66 and Theorem 5.67
+
+\section{Commuting Operators}
 \begin{mydef}
   Two operators or matrices $A$ and $B$ ``commute" if $ST=TS$
 \end{mydef}

@@ -159,12 +159,12 @@
     \bfemph{Matrix of product of linear maps:} \\
     Suppose $T\in \mathcal{L}(U,V)$ and $S\in \lvw$. If $\onetillm{u}$ is a basis of $U$, $\onetilln{v}$, is a basis of $V$ and $\onetill{w}{p}$ is a basis of $W$. Note that $\dim U = m$, $\dim V = n$, $\dim W = p$. Then we have:
     \begin{equation}
-    \begin{gathered}
-      \mmatrix(ST, (\onetillm{u}), (\onetill{w}{p})) = \\
-      \mmatrix(S, (\onetilln{v}), (\onetill{w}{p} ))
+    \begin{aligned}
+      &\mmatrix(ST, (\onetillm{u}), (\onetill{w}{p})) = \\
+      &\mmatrix(S, (\onetilln{v}), (\onetill{w}{p} ))
       \cdot
       \mmatrix(T, (\onetillm{u}), (\onetilln{v}   ))
-    \end{gathered}
+    \end{aligned}
     \end{equation}
     Or using different notation:
     \begin{equation}
@@ -179,9 +179,9 @@
     Suppose $T \in \linmap(V)$. Let
     $V = \myspan{\onetillm{u}} = \myspan{\onetillm{v}}$ such that the $u$'s and $v$'s both form a basis. Let $A=\mmatrix(T, (\onetillm{u}))$ and $B=\mmatrix(T,(\onetillm{v}))$. Let
     $C=\mmatrix(I, \onetillm{u}, \onetillm{v})$. Then
-    \begin {equation}
+    \begin{equation}
     A = C^{-1} B C
-    \end {equation}
+    \end{equation}
   \end{thm}
 
   \setcounter{thm}{85}

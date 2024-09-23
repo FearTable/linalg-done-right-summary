@@ -20,6 +20,8 @@
 
 \newcommand\myand{\;\;\, \text{and}\;\;}
 \newcommand\myor{\;\;\, \text{or}\;\;}
+\newcommand\where{\;\;\, \text{where}\;\;}
+\newcommand\whereEach{\;\;\, \text{where each}\;\;}
 \newcommand\dx{\, dx}
 \newcommand\dy{\, dy}
 \newcommand\dz{\, dz}
@@ -102,28 +104,28 @@
 
 %\newcommand{\basis}[2]{\overbrace{ \myspan{#1_1, \dots #1_{#2}}}^{\text{linearly independent}} }}
 
-\def\myimpl{{ \color{black}{\implies}}}
+\def\myimpl{{ \{black}{\implies}}
 
 
 \def\bold#1{{\bf #1}}
 
 \newtheoremstyle{mytheoremstyle} % name
 %{\topsep}                    % Space above
-{0.7em}                    % Space above
+{0.8em}                    % Space above
 {0em}                        % Space below
 {}                           % Body font
 {0em}                           % Indent amount
 %{\ttfamily\fontseries{b}\selectfont}                   % Theorem head font
-{\scshape}                   % Theorem head font
+{\scshape\relscale{1.1}}                   % Theorem head font
 {:\newline}                          % Punctuation after theorem head
 {.3em}                       % Space after theorem head
 {}  					     % Theorem head spec (can be left empty, meaning ‘normal’)
 
 \theoremstyle{mytheoremstyle}
-\newtheorem{thm}{Thm}[chapter]
+\newtheorem{thm}{Theorem}[chapter]
 
 \theoremstyle{mytheoremstyle}
-\newtheorem{mydef}[thm]{Def}
+\newtheorem{mydef}[thm]{Definition}
 \newtheorem*{mydef-non}{Definition}
 
 \theoremstyle{mytheoremstyle}
