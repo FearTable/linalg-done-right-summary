@@ -43,7 +43,7 @@
 
 %\textbf{1.41}
 \setcounter{thm}{40}
-\begin{mydef}
+\begin{mydef}[Direct sum]
   \label{def-of-direct-sum}
   %NO COMMA BEFORE IF ACC TO AXLER
   $V_1 + \cdots + V_m$ is called a ``direct sum" if each element of $V_1 +\cdots+V_m$ can be written in only one way as a sum $v_1 + \cdots + v_m$, where each $v_k \in V_k$. In this case we write:
@@ -62,11 +62,11 @@
 
 %\textbf{1.45}
 \setcounter{thm}{44}
-\begin{thm}
+\begin{thm} [condition for a direct sum]
   \label{condition-for-a-direct-sum}
   $V_1 + \cdots + V_m$ is a direct sum $\iff$ the only write $0$ as a sum $v_1 + \cdots + v_m$, where each $v_k \in V_k$, is by taking each $v_k$ equal to $0$.
 \end{thm}
-\begin{proof} Let  $V_1, \ldots, V_m$ be subspaces of $V$ \\
+\begin{proof} Let  $V_1, \ldots, V_m$ be subspaces of $V$ 
   \begin{description}
     \item{$\Rightarrow$ direction:} First suppose $V_1 + \cdots + V_m$ is a direct sum. Let
     \begin{equation}
@@ -76,6 +76,7 @@
     \begin{equation}
       0 = \lambda0= \lambda v_1 + \cdots + \lambda v_m, \whereEach \lambda v_k \in V_k
     \end{equation}
+    Or a different way to argue, $0 = 0 + \cdots + 0$ is already a solution.
 
     \item{$\Leftarrow$ direction:} Now suppose that the only way to write $0$ as a sum $v_1 + \cdots + v_m$ where each $v_k \in V_k$, is by taking each $v_k = 0$. Let
     \begin{equation}
@@ -107,12 +108,12 @@
     \begin{equation}
       0 = v + (-v), \where v\in U \myand (-v) \in W.
     \end{equation}
-    $\implies v=0$ becauuse $U+W$  is a direct sum. Therefore $U \cup W = \{0\}$
+    $\implies v=0$, because $U+W$  is a direct sum. Therefore $U \cup W = \{0\}$
     \item{$\Leftarrow$ direction:} Suppose $U\cup W = \{0\}$. Let  $u\in U$ and $w \in W$ such that
     \begin{equation}
       0 = u+w
     \end{equation}
-    By \ref{condition-for-a-direct-sum} we know that our gould is to show that $u=w=0$. The equation above implies that $u=-w\in W$  and $w=-u \in U$ for all arbitrary choices of $U$ and $W$. Thus $u,w \in U\cup W \implies u=w=0.$ Therefore, $U+W$ is a direct sum.
+    By \ref{condition-for-a-direct-sum} we know that our goal is to show that $u=w=0$. The equation above implies that $u=-w\in W$  and $w=-u \in U$ for all arbitrary choices of $U$ and $W$. Thus $u,w \in U\cup W \implies u=w=0.$ Therefore, $U+W$ is a direct sum.
   \end{description}
 
 \end{proof}

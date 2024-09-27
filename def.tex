@@ -116,10 +116,10 @@
 {}                           % Body font
 {0em}                           % Indent amount
 %{\ttfamily\fontseries{b}\selectfont}                   % Theorem head font
-{\scshape\relscale{1.1}}                   % Theorem head font
-{:\newline}                          % Punctuation after theorem head
+{}                   % Theorem head font
+{{\bfseries\scshape\relscale{1.1}:}\newline}                          % Punctuation after theorem head
 {.3em}                       % Space after theorem head
-{}  					     % Theorem head spec (can be left empty, meaning ‘normal’)
+{{\bfseries\scshape\relscale{1.1}\thmname{#1}\thmnumber{ #2}}{\normalfont \thmnote{ (#3)}}}  					     % Theorem head spec (can be left empty, meaning ‘normal’)
 
 \theoremstyle{mytheoremstyle}
 \newtheorem{thm}{Theorem}[chapter]
@@ -147,6 +147,10 @@
 \makeatother
 
 
-
 \setlength{\abovedisplayskip}{0pt}
 \setlength{\belowdisplayskip}{0pt}
+
+%\setlength{\abovedisplayshortskip}{0pt}
+%\setlength{\belowdisplayshortskip}{0pt}
+
+\setlength{\jot}{0pt}

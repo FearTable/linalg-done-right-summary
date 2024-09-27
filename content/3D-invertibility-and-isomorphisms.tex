@@ -41,12 +41,13 @@
       \dim V = \dim \mynull T + \dim \myrange T
     \end{equation}
 
-    If $T$ is injective, $\dim \mynull T = 0$ and therefore $\dim \myrange T = \dim V = \dim W$, which means $T$ is surjective ($\myrange T = \dim W$). This is because every linearly independent list of vectors of of length $\dim W$ is a basis by \ref{every-lid-list-of-length-dim-v-is -a-basis-of-v}.
+    If $T$ is injective, $\dim \mynull T = 0$ and therefore $\dim \myrange T = \dim V = \dim W$, which means $T$ is surjective ($\myrange T = \dim W$). This is because every linearly independent list of vectors of of length $\dim W$ is a basis by \ref{every-lid-list-of-length-dim-v-is -a-basis-of-v}. And thats how dimension is defined.
 
     If $T$ is surjective, we have $\dim \myrange T = \dim W$ to begin with and therefore \ref{rank-nullity-nested-equation} becomes
     \begin{equation}
       \dim \mynull T = \dim V - \dim \myrange T = \dim V - \dim W = 0
     \end{equation}
+    
     which makes $T$ also injective. Since injectivity and surjectivy together imply invertibility, this ends the proof.
   \end{proof}
 
@@ -79,7 +80,7 @@
   \begin{thm}
     Suppose $V,W$ are \fd. $\implies \lvw$ is \fd and
     \begin{equation}
-      \dim \lvw = (\dim V)\cdot(dim W)
+      \dim \lvw = (\dim V)\cdot(\dim W)
     \end{equation}
   \end{thm}
 
@@ -147,7 +148,12 @@
   \setcounter{thm}{79}
   %\textbf{3.80}
   \begin{thm}
-    A square matrix $A$ is called invertible, if there is some square matrix B of the same size such that $AB=BA=I$. We call $B$ the inverse of $A$ denoted by $A^{-1} :\equiv B$. Rules:
+    A square matrix $A$ is called invertible, if there is some square matrix B of the same size such that 
+    \begin{equation}
+    	AB=BA=I.
+    \end{equation} 
+    
+    We call $B$ the inverse of $A$ denoted by $A^{-1} :\equiv B$. Rules:
     \begin{itemize}
       \item $(A^{-1})^{-1}=A$
       \item $(AC)^{-1} = C^{-1}A^{-1}$ (Because $(AC)(C^{-1}A^{-1})=I$ and $(C^{-1}A^{-1})(AC)=I$)

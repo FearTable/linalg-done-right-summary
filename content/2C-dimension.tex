@@ -4,13 +4,11 @@
 \begin{thm} Any two bases of a \fdvs have the same length. So the the basis length does not depend on basis.
 \end{thm}
 \begin{proof}
-  Let $B_1$ and $B_2$ be $2$ basis of $V$. Since both are linearly independent and both span $V$, we have $|B_1| \leq |B_2|$ and $|B_2| \leq |B_1|$ by using \ref{length-of-linearly-dependent-list-less-or-equal-length-of-spanning-list}.
-  \begin{equation}
-    \implies |B_1|=|B_2|
-  \end{equation}
+  Let $B_1$ and $B_2$ be $2$ basis of $V$. Since both are linearly independent and both span $V$, we have $|B_1| \leq |B_2|$ and $|B_2| \leq |B_1|$ by using \ref{length-of-linearly-dependent-list-less-or-equal-length-of-spanning-list}. Therefore $|B_1|=|B_2|.$
 \end{proof}
 
-\begin{mydef} $\dim V :\equiv$ length of any basis of $V$
+\begin{mydef} [Dimension]
+	$\dim V :\equiv$ length of any basis of $V$
 \end{mydef}
 
 \setcounter{thm}{36}
@@ -49,11 +47,13 @@
     \end{aligned}
   \end{equation}
 
+as well as
+
   \begin{equation}
     \begin{aligned}
-      \dim (V_1 + V_2 + V_3)  = \dim V_1 + \dim V_2 + \dim V_3 \\
-       - \frac{\dim (V_1 \cap V_2) + \dim (V_1 \cap V_3) + \dim (V2 \cap V3)}{3} \\
-       - \frac{ \dim \left(  (V_1 + V_2) \cap V_3 \right) + \dim \left( (V_1 + V_3) \cap V_2 \right)+ \dim \left( (V2 + V3) \cap V_1 \right) }{3} \\
+      \dim (V_1 + V_2 + V_3)  &= \dim V_1 + \dim V_2 + \dim V_3 \\
+       & - \frac{\dim (V_1 \cap V_2) + \dim (V_1 \cap V_3) + \dim (V2 \cap V3)}{3} \\
+       &- \frac{ \dim \left(  (V_1 + V_2) \cap V_3 \right) + \dim \left( (V_1 + V_3) \cap V_2 \right)+ \dim \left( (V2 + V3) \cap V_1 \right) }{3} \\
     \end{aligned}
   \end{equation}
 \end{thm}

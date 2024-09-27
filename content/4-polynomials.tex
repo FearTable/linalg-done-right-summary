@@ -1,6 +1,6 @@
 $\mathbb{F}$ denotes $\mathbb{R}$ or $\mathbb{C}$.
 
-\subsection{Zeros of polynomials}
+\section{Zeros of polynomials}
 $p: \mathbb{F} \to \mathbb{F}, \, p(z) = a_0 + a_1z + \cdots + a_n z^m$
 
 \setcounter{thm}{4}
@@ -13,7 +13,10 @@ $p: \mathbb{F} \to \mathbb{F}, \, p(z) = a_0 + a_1z + \cdots + a_n z^m$
   % each zero of a polynomial corresponds to a degree-one factor
   \label{factororing-out-zeros-of-a-polynomial-always-possible}
   Factoring out zeros of a polynomial is always possible.
-  $p \in \mathcal{P}_m(\mathbb{F}), \lambda \in \mathbb{F}$ such that $p(\lambda) = 0 \iff \exists q \in \mathcal{P}_{m-1}: p(z) = (z-\lambda)q(z)$
+  $p \in \mathcal{P}_m(\mathbb{F}), \lambda \in \mathbb{F}$ such that 
+  \begin{equation}
+  	p(\lambda) = 0 \iff \exists q \in \mathcal{P}_{m-1}: p(z) = (z-\lambda)q(z)
+  \end{equation}
 \end{thm}
 
 \setcounter{thm}{7}
@@ -22,19 +25,26 @@ $p: \mathbb{F} \to \mathbb{F}, \, p(z) = a_0 + a_1z + \cdots + a_n z^m$
 \end{thm}
 \begin{proof}
   For $m=1$, $a_0+a_1z$ has only one zero, which is $-\frac{a_0}{a_1}$\\
-  Now for $m>1$ and assuming the desired result holds for $m-1$. If $p\in \mathcal{P}_{m}(\myF)$ has no zeros, we are done. If $p$ has a zero $\lambda \in \myF$, by \ref{factororingOutZerosOfAPolynomial}, there is a $q \in \mathcal{P}(\myF)_{m-1}$ such that $p(z)=(z-\lambda)q(z).$ Since $q$ has at most $m-1$ zeros, $p$ has at most $m$ zeros.
+  Now for $m>1$ and assuming the desired result holds for $m-1$. If $p\in \mathcal{P}_{m}(\myF)$ has no zeros, we are done. If $p$ has a zero $\lambda \in \myF$, by \ref{factororingOutZerosOfAPolynomial}, there is a $q \in \mathcal{P}(\myF)_{m-1}$ such that 
+  \begin{equation}
+  	p(z)=(z-\lambda)q(z).
+  \end{equation} 
+  Since $q$ has at most $m-1$ zeros, $p$ has at most $m$ zeros.
 \end{proof}
 
-\subsection{Division Algorithm for Polynomials}
+\section{Division Algorithm for Polynomials}
 
 \setcounter{thm}{8}
 \begin{thm}
   \label{division-algorithm-for-polynomials}
-  Suppose $p,s \in \mathcal{P} (\mathbb{F}), s\neq 0$. Then $\exists q,r \in \mathcal{P} (\mathbb{F})$ such that
-  $p=sq+r$ and $\deg r < \deg s$.
+  Suppose $p,s \in \mathcal{P} (\mathbb{F}), \, s\neq 0$. \\
+  Then $\exists q,r \in \mathcal{P} (\mathbb{F})$ such that
+  \begin{equation}
+  	p=sq+r \myand \deg r < \deg s.
+  \end{equation}
 \end{thm}
 
-\subsection{Factorization of Polynomials over $\compl$}
+\section{Factorization of Polynomials over $\compl$}
 \setcounter{thm}{11}
 \begin{thm}
   \label{fundamental-theorem-of-algebra-first-version}
@@ -42,14 +52,16 @@ $p: \mathbb{F} \to \mathbb{F}, \, p(z) = a_0 + a_1z + \cdots + a_n z^m$
   Every non-constant polynomial with complex coefficients has a zero in $\mathbb{C}$.
 \end{thm}
 
-\begin{thm}
+\begin{thm} [Fundamental theorem of algebra, second version:]
   \label{fundamental-theorem-of-algebra-second-version}
-  Fundamental theorem of algebra, second version: \\
   $p \in \polyn(\mathbb{C}), \; p$ is non-constant $\implies p$ has a unique factorization
-  $$p(z)=c \cdot (z-\lambda_1) \cdots (z-\lambda_m)$$ where $c, \lambda_1, \dots, \lambda_m \in \mathbb{C}$.
+  \begin{equation}
+  	p(z)=c \cdot (z-\lambda_1) \cdots (z-\lambda_m) 
+  \end{equation}
+  where $c, \lambda_1, \dots, \lambda_m \in \compl$.
 \end{thm}
 
-\subsection{Factorization of Polynomials over $\real$}
+\section{Factorization of Polynomials over $\real$}
 \begin{thm}
   Suppose $p\in \mathcal{P} (\mathbb{C})$ is a polynomial with real coefficients. If $\lambda \in \mathbb{C}$ is a zero of $p$, then so is $\overline{\lambda}$.
 \end{thm}
@@ -63,13 +75,13 @@ $p: \mathbb{F} \to \mathbb{F}, \, p(z) = a_0 + a_1z + \cdots + a_n z^m$
   $x^2+bx+c=(x+\sfrac{b}{2})^2+(c-\sfrac{b^2}{4})$. Therefore, if $b^2<4c$, the last term is always positive and no factorization is possible because it has no zeros (\ref{factororing-out-zeros-of-a-polynomial-always-possible}). \\
   If $b^2 \geq 4c$, we define $d^2 :\equiv \sfrac{b^2}{4}-c$ which makes
   \begin{equation}
-  \begin{aligned}
-    p(x)&=x^2+bx+c
-  = \left (x+\sfrac{b}{2} \right )^2-d^2
-  = \left ( (x+\sfrac{b}{2}) +d \right) \cdot \left ( (x+\sfrac{b}{2}) - d \right) \\
-  &= \left (x-(-d -\sfrac{b}{2}) \right) \cdot \left (x-(d-\sfrac{b}{2})\right)
-  =\left(x-\lambda_1 \right) \cdot \left(x-\lambda_2\right)
-  \end{aligned}
+	  \begin{aligned}
+	    p(x)&=x^2+bx+c
+		  = \left (x+\sfrac{b}{2} \right )^2-d^2
+		  = \left ( (x+\sfrac{b}{2}) +d \right) \cdot \left ( (x+\sfrac{b}{2}) - d \right) \\
+		  &= \left (x-(-d -\sfrac{b}{2}) \right) \cdot \left (x-(d-\sfrac{b}{2})\right)
+		  =\left(x-\lambda_1 \right) \cdot \left(x-\lambda_2\right)
+	  \end{aligned}
   \end{equation}
   for $\lambda_1 :\equiv -d-\sfrac{b}{2}$ and $\lambda_2 :\equiv d-\sfrac{b}{2}$.
   which is the same as the well known midnight formula:
@@ -86,3 +98,4 @@ $p: \mathbb{F} \to \mathbb{F}, \, p(z) = a_0 + a_1z + \cdots + a_n z^m$
   \end{equation}
   where $c, \lambda_1, \cdots, \lambda_m, b_1, \cdots, b_M, c_1, \cdots, c_M \in \mathbb{R}$
 \end{thm}
+

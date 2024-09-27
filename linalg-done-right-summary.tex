@@ -1,4 +1,4 @@
-\documentclass[12pt]{report}
+\documentclass[11pt]{report}
 %\usepackage[fleqn]{amsmath}
 \usepackage[fleqn]{amsmath}
 \usepackage{amssymb}
@@ -21,7 +21,7 @@
 \usepackage{breqn}
 \usepackage[colorlinks=false]{hyperref}
 \usepackage{xr-hyper}
-\usepackage[fontsize=14pt]{scrextend}
+%\usepackage[fontsize=14pt]{scrextend}
 \usepackage{relsize}
 \usepackage{enumitem}
 \setlist{nosep}
@@ -62,6 +62,7 @@
   {
     {
       \relscale{1.1}
+      \bfseries
       \scshape
       \itshape
       \selectfont
@@ -71,9 +72,14 @@
     \hfill $\Box$ \\
   }
 
+%\titlespacing{\chapter}{0pt}{6pt}{3pt}
+%\titlespacing{\section}{0pt}{10pt}{3pt}
+%\titlespacing{\subsection}{0pt}{13pt}{3pt}
+%\titlespacing{\subsubsection}{0pt}{6pt}{3pt}
+
 \titlespacing{\chapter}{0pt}{6pt}{3pt}
-\titlespacing{\section}{0pt}{10pt}{3pt}
-\titlespacing{\subsection}{0pt}{13pt}{3pt}
+\titlespacing{\section}{0pt}{25pt}{3pt}
+\titlespacing{\subsection}{0pt}{25pt}{3pt}
 \titlespacing{\subsubsection}{0pt}{6pt}{3pt}
 
 
@@ -85,7 +91,7 @@
 
 %\titleformat*{\chapter}{\ttfamily\fontseries{b}\selectfont\large}
 \titleformat{\chapter}[block]
-{\relscale{1.4}\scshape\selectfont}{\thechapter { } { } #1}{0.5em}{\selectfont\large}
+{\bfseries\relscale{1.4}\scshape\selectfont}{\thechapter { } { } #1}{0.5em}{\selectfont\large}
 
 
 \titlespacing*{\chapter}{0pt}{-19pt}{0pt}
@@ -97,11 +103,11 @@
 %\titleformat*{\subsubsection}{\fontseries{b}\selectfont\normalsize}
 %\titleformat*{\subsubsection}{\fontseries{b}\selectfont\normalsize}
 
-\titleformat{\section}{\relscale{1.3}\scshape\selectfont}{}{0em}{\thesection { } #1} %Large
+\titleformat{\section}{\bfseries\relscale{1.3}\scshape\selectfont}{}{0em}{\thesection { } #1} %Large
 
-\titleformat{\subsection}{\relscale{1.2}\scshape\itshape\selectfont}{}{0em}{#1\  { } (\thesubsection)} %large
+\titleformat{\subsection}{\bfseries\relscale{1.2}\scshape\itshape\selectfont}{}{0em}{#1\  { } (\thesubsection)} %large
 
-\titleformat{\subsubsection}{\relscale{1.1}fontseries{b}\selectfont}{}{0em}{#1\  \thesection}
+\titleformat{\subsubsection}{\relscale{1.1}\selectfont}{}{0em}{#1\  \thesection}
 
 
 %\titlespacing{\chapter}{0pt}{\parskip}{-\parskip}
@@ -113,13 +119,15 @@
 % \usepackage[skip=10pt plus1pt, indent=40pt]{parskip}
 %\usepackage[small]{titlesec} % "big, medium, small, tiny".
 
-%\setlength{\abovedisplayskip}{0pt}
-%\setlength{\belowdisplayskip}{0pt}
+\setlength{\abovedisplayskip}{0pt}
+\setlength{\belowdisplayskip}{0pt}
 
 \begin{document}
 
-  \raggedright
-
+  %\raggedright
+	
+	%\linespread{1.2}
+	
   \input{def}
 
   \chapter{Vector Spaces}
