@@ -44,11 +44,17 @@ Conversely if $Tv = \lambda v$, $\lambda \in \myF$, then $\myspan{v}$ is a one-d
     \item $T-\lambda I$ is not invertible. \label{forth}
   \end{enumerate}
 \end{thm}
-\begin{proof}
-  Conditions \ref{first} and \ref{second} are equivalent because the eigenvector $v$ is a solution to $Tv=\lambda v$ which is equivalent to $(T-\lambda I)v=0$. So there is a non-zero solution to $T-\lambda I$. \\
+\begin{prf}
+  Conditions \ref{first} and \ref{second} are equivalent because the eigenvector $v$ is a solution to 
+  \begin{equation}
+    Tv=\lambda v
+  \end{equation} which is equivalent to 
+  \begin{equation}
+    (T-\lambda I)v=0.
+  \end{equation} So there is a non-zero solution to $T-\lambda I$.
   \ref{second}, \ref{third} and \ref{forth} are equivalent by \ref{injectivity-is-equivalent-to-surjectivity}.
-
-\end{proof}
+  
+\end{prf}
 
 \setcounter{thm}{7}
 \begin{mydef}
@@ -61,7 +67,7 @@ Conversely if $Tv = \lambda v$, $\lambda \in \myF$, then $\myspan{v}$ is a one-d
 \begin{thm}
   Every list of eigenvectors of $T$ corresponding to distinct eigenvalues of $T$ is linearly independent.
 \end{thm}
-\begin{proof}
+\begin{prf}
   Suppose the desired result is false. Then there exists a smallest list of length $m$ of linearly dependent eigenvectors $v_1, \dots, v_m$ with eigenvalues $\lambda_1, \dots, \lambda_m$ of $T$. Since an eigenvector is unequal to the zero vector, $m$ must be $\geq 2$.
 
   Because of the minimality of $m$ and becaue our list is linearly dependent: $\exists a_1, \dots, a_m \neq 0$ such that $a_1 v_1 + \cdots + a_m v_m = 0$. 
@@ -82,7 +88,8 @@ Conversely if $Tv = \lambda v$, $\lambda \in \myF$, then $\myspan{v}$ is a one-d
   \end{equation}
 
   Which contradicts the minimality of $m$. Therefore, no such linearly dependent list of eigenvectors can exist.
-\end{proof}
+  
+\end{prf}
 
 \begin{thm}
   Each operator on $V$ has at most $\dim V$ distinct eigenvalues.
@@ -130,8 +137,16 @@ $\implies T^m T^n = T^{m+n}$ and $(T^m)^n=T^{mn}$ when $m,n \in \mathbb{Z}$ when
   $T \in \linmap(V)$ and $p\in \mathcal{P} (\myF) \implies$
   $\operatorname{null} p(T)$ and $\operatorname{range} p(T)$ are invariant under $T$.
 \end{thm}
-\begin{proof}
-  Suppose $u\in \operatorname{null} p(T) \implies p(T)u = 0$. Assoziativiy and distributivity of linear maps imply hat $(p(T))(Tu)=T(p(T)u)=T(0)=0$.$\implies Tu \in \mynull p(T)$.
+\begin{prf}
+  Suppose $u\in \operatorname{null} p(T) \implies p(T)u = 0$. Assoziativiy and distributivity of linear maps imply that 
+  \begin{equation}
+    (p(T))(Tu)=T(p(T)u)=T(0)=0.
+  \end{equation}
+  
+  Which implies that
+  \begin{equation}
+    Tu \in \mynull p(T).
+  \end{equation}
 
   Suppose $u \in \myrange p(T)$
   \begin{equation}
@@ -141,7 +156,7 @@ $\implies T^m T^n = T^{m+n}$ and $(T^m)^n=T^{mn}$ when $m,n \in \mathbb{Z}$ when
     &\implies Tu \in \myrange p(T)
     \end{aligned}
   \end{equation}
-\end{proof}
+\end{prf}
 
 \section{The Minimal Polynomial}
 \subsection{Existence of Eigenvalues on Complex Vector Spaces}
@@ -149,12 +164,38 @@ $\implies T^m T^n = T^{m+n}$ and $(T^m)^n=T^{mn}$ when $m,n \in \mathbb{Z}$ when
 \begin{thm}
   Every operator on a finite-dimensional nonzero complex vector space has an eigenvalue.
 \end{thm}
-\begin{proof}
-  Suppose $\dim(V)=n>0$ and $T\in \linmap(V).$ Choose $v\in V, v\neq0$. Then $v, Tv, T^2v, \dots, T^nv$ is not linearly independent, because the list has length $n+1$. $\implies$ some linear combination of these vectors equals to $0$. $\implies$ there exists a non-constant polynomial $p$ of smallest degree such that $p(T)v = 0$. By the first version of the fundamental theorem of algebra (\ref{fundamental-theorem-of-algebra-first-version}) $\implies \exists \lambda \in \compl: p(\lambda) = 0.$\\
-  (\ref{factororingOutZerosOfAPolynomial})$\implies \exists q \in \mathcal {P} (\compl): p(z) = (z-\lambda)  q(z) \; \forall z \in \compl$ \\
-  (\ref{multiplicative-properties})$\implies 0=p(T)v=(T-\lambda I) (q(T)v)$. Because $q$ has a smaller degree than $p$, $q(T)v \neq 0$. \\
+\begin{prf}
+  Suppose $\dim(V)=n>0$ and $T\in \linmap(V).$ 
+  
+  Choose $v\in V, v\neq0$. 
+  
+  Then 
+  \begin{equation}
+    v, Tv, T^2v, \dots, T^nv
+  \end{equation} 
+  is not linearly independent, 
+  because the list has length $n+1$. Therefore, some linear combination of these vectors equals to $0$. 
+  
+  $\implies$ there exists a non-constant polynomial $p$ of smallest degree such that $p(T)v = 0$. By the first version of the fundamental theorem of algebra (\ref{fundamental-theorem-of-algebra-first-version}) 
+  \begin{equation}
+    \implies \exists \lambda \in \compl: p(\lambda) = 0.
+  \end{equation}
+  
+  (\ref{factororing-out-zeros-of-a-polynomial-always-possible})
+  \begin{equation}
+    \implies \exists q \in \mathcal {P} (\compl): p(z) = (z-\lambda)  q(z) \; \forall z \in \compl 
+  \end{equation}
+  
+  (\ref{multiplicative-properties})
+  \begin{equation}
+    \implies 0=p(T)v=(T-\lambda I) (q(T)v). 
+  \end{equation}
+  
+  Because $q$ has a smaller degree than $p$, $q(T)v \neq 0$. 
+  
   $\implies$ $\lambda$ is an eigenvalue of $T$ with eigenvector $q(T)v$.
-\end{proof}
+  
+\end{prf}
 
 \subsection{Eigenvalues and the Minimal Polynomial}
 \begin{mydef}
@@ -166,11 +207,15 @@ $\implies T^m T^n = T^{m+n}$ and $(T^m)^n=T^{mn}$ when $m,n \in \mathbb{Z}$ when
 
 \begin{thm}
   \label{unique-monic-polynomial-of-smallest-degree}
-  Suppose $T\in \linmap(V)$. Then there exists a unique monic polynomial $p\in \mathcal{P}(\myF)$ of smallest degree such that $p(T)=0$. Furthermore $\deg p \leq \dim V$
+  Suppose $T\in \linmap(V)$. Then there exists a unique monic polynomial $p\in \mathcal{P}(\myF)$ of smallest degree such that 
+  \begin{equation}
+    p(T)=0. 
+  \end{equation}
+  Furthermore $\deg p \leq \dim V$
 \end{thm}
-\begin{proof}
-  If $\dim V=0$, $I$, is the zero-operator on $V$ and we let $p=1$ such that $1I\vec0=0$. \\
-  Now we use induction on $\dim V$ and we assume $\dim V > 0$ and that the theorem holds for all vector spaces of smaller dimension. \\
+\begin{prf}
+  If $\dim V=0$, $I$, is the zero-operator on $V$ and we let $p=1$ such that $1I\vec0=0$.           Now we use induction on $\dim V$ and we assume $\dim V > 0$ and that the theorem holds for all vector spaces of smaller dimension.
+  
   Let $v\in V, v \neq 0$. The list \begin{equation}
     v, Tv, \dots, T^{\dim V}
   \end{equation}
@@ -205,17 +250,30 @@ $\implies T^m T^n = T^{m+n}$ and $(T^m)^n=T^{mn}$ when $m,n \in \mathbb{Z}$ when
       &\leq \dim V - m
     \end{aligned}
   \end{equation}
-
-
+  
   Because $\myrange q(T)$ is invariant under $T$ (by \ref{null-space-and-range-of-p(T)-are-invariant-under-T}), we can apply our induction hypothesis to the operator $\left.T\right|_{\myrange q(T)}$. \\
-  So there exists monic $s \in \mathcal{P} (\myF): \deg s \leq \dim V - m$ and $s(\left.T\right|_{\myrange q(T)})=0$ \\
-  $\implies \forall v \in V: (sq)(T)(v) = s(T) (q(T)v) = 0$, because $q(T)v \in \myrange q(T)$ and $\left.s(T)\right|_{\myrange q(T)}=s\left( \left.T\right|_{\myrange q(T)} \right )$.
+  So there exists monic $s \in \mathcal{P} (\myF): \deg s \leq \dim V - m$ and $s(\left.T\right|_{\myrange q(T)})=0$ 
+  \begin{equation}
+    \implies \forall v \in V: (sq)(T)(v) = s(T) (q(T)v) = 0, 
+  \end{equation}
+  
+  because $q(T)v \in \myrange q(T)$ and \begin{equation}
+    \left.s(T)\right|_{\myrange q(T)}=s\left( \left.T\right|_{\myrange q(T)} \right ).
+  \end{equation}
   Therefore, $sq$ is a monic polynomial such that $\deg sq \leq \dim V$ and $(sq)(T)=0$.
 
-  Proof of uniqueness: Let $p\in \mathcal{P} (\myF)$ a monic polynomial of smallest degree such that $p(T)=0$. Let $r\in \mathcal{P} ( \myF)$ another monic polynomial of same degree such that $p(T)=0$. \\
-  $\implies (p-r) (T) = 0$(*) and also $\deg (p-r) < \deg p = \deg r$ \\
-  If $p-r \neq 0$, we could devide $p-r$ by the coefficient of the highest order term in $p-r$ to get a monic polynomial that when applied to $T$ gives the $0$-operator(*). This polynomial would have a smaler degree than $p$ or $r$, which would be a contradiction. Therefore $p-r=0 \iff p = r$
-\end{proof}
+  Proof of uniqueness: Let $p\in \mathcal{P} (\myF)$ a monic polynomial of smallest degree such that 
+  \begin{equation}
+    p(T)=0.
+  \end{equation} Let $r\in \mathcal{P} ( \myF)$ another monic polynomial of same degree such that $r(T)=0.$ 
+  \begin{equation}
+    \implies (p-r) (T) = 0
+  \end{equation} 
+  
+  and also $\deg (p-r) < \deg p = \deg r$ If $p-r \neq 0$, we could devide $p-r$ by the coefficient of the highest order term in $p-r$ to get a monic polynomial that when applied to $T$ gives the $0$-operator. This polynomial would have a smaller degree than $p$ or $r$, which would be a contradiction. Therefore $p-r=0 \iff p = r$.
+
+  
+\end{prf}
 
 \setcounter{thm}{23}
 
@@ -231,17 +289,22 @@ If this equation has a unique solution, as happens most of the time $c_0, c_1, c
 
 \setcounter{thm}{26}
 \begin{thm}
-  \label{zeros-of-the-minimal-polynomial-of-T-are-the-eigenvalues-of-T}
+  \label{thm:zeros-of-the-minimal-polynomial-of-T-are-the-eigenvalues-of-T}
   Let $T \in \linmap(V)$. Then
   \begin{enumerate}[label=(\alph*)]
     \item The zeros of the minimal polynomial of $T$ are the eigenvalues of $T$.
-    \item If $V$ is a complex vector space, the minimal polynomial has the form $(z-\lambda_1)\cdots(z-\lambda_m)$, where $\lambda_1, \dots, \lambda_m$ are the eigenvalues of $T$, possibly with repetitions.
+    \item If $V$ is a complex vector space, the minimal polynomial has the form 
+    \begin{equation}
+      (z-\lambda_1)\cdots(z-\lambda_m), \mytext{where} \lambda_1, \dots, \lambda_m
+    \end{equation} are the eigenvalues of $T$, possibly with repetitions.
   \end{enumerate}
 \end{thm}
-\begin{proof} Let $p$ be the minimal polynomial of $T$.
+\begin{prf} Let $p$ be the minimal polynomial of $T$.
   \begin{enumerate}[label=(\alph*)]
-    \item Suppose $\lambda \in \myF$ is a zero of $p$. $\implies p(z)=(z-\lambda)q(z)$, whre $q$ is a monic polynomial with coefficients in $\myF$ (see \ref{factororingOutZerosOfAPolynomial}) \\
-    $p(T)=0\implies 0=(T-\lambda I)(q(T)v) \quad \forall v\in V.$
+    \item Suppose $\lambda \in \myF$ is a zero of $p$. $\implies p(z)=(z-\lambda)q(z)$, whre $q$ is a monic polynomial with coefficients in $\myF$ (see \ref{factororing-out-zeros-of-a-polynomial-always-possible})
+    \begin{equation}
+      p(T)=0\implies 0=(T-\lambda I)(q(T)v) \quad \forall v\in V.
+    \end{equation}
     Because $q$ is of lesser degree than $p$, there exists at least one vector $v\in V$ sucht that $q(T)v \neq 0$, which makes $q(T)v$ an eigenvector with eigenvalue $\lambda$.
 
     Suppose $\lambda \in \myF$ is an eigenvalue of $T$. Thus there exists $v\in V, v \neq 0$ such that $Tv=\lambda v$. Repeated applications of $T$ on both sides of this equation show that $T^kv =\lambda^k v \quad \forall k\in \nat$.
@@ -249,18 +312,22 @@ If this equation has a unique solution, as happens most of the time $c_0, c_1, c
 
     \item use (a) and the second version of the fundamental theorem of algebra. (\ref{fundamental-theorem-of-algebra-second-version})
   \end{enumerate}
-\end{proof}
+\end{prf}
 
 \setcounter{thm}{28}
-\begin{thm}
-  \label{every-zero-polynomial-is-a-multiple-of-the-minimal-polynomial}
-  $T\in \linmap(V)$ and $q \in \mathcal{P} (\myF)$: $q(T)=0$ $\iff$ $q$ is a multiple of the minimal polynomial of $T$.
+\begin{thm}[every ``zero-polynomial" is a multiple of the minimal polynomial]
+  \label{thm:every-zero-polynomial-is-a-multiple-of-the-minimal-polynomial}
+  $T\in \linmap(V)$ and $q \in \mathcal{P} (\myF)$: 
+  \begin{equation}
+    q(T)=0 \iff q \text{is a multiple of the minimal polynomial of} T.
+  \end{equation}
 \end{thm}
-\begin{proof}
+\begin{prf}
   Let $p$ denote the minimal polynomial of $T$.
 
 	\begin{description}
-		\item{$\Rightarrow$ direction:}{
+  
+  \item{$\Rightarrow$ direction:}{
 			Suppose $q(T)=0$.
 			By (\ref{division-algorithm-for-polynomials}) there exists $s,r \in \mathcal{P} (\myF)$ such that
 			\begin{equation}
@@ -278,17 +345,19 @@ If this equation has a unique solution, as happens most of the time $c_0, c_1, c
 			\begin{equation}
 				q(T) = p(T)s(T)=0s(T)=0,
 			\end{equation}
-			as desired.
+			as desired. 
+      
 		}
 	\end{description}
-\end{proof}
+  
+\end{prf}
 
 \setcounter{thm}{30}
 \begin{thm}
   \label{minimal-polynomial-of-a-restriction-operator}
   If $U$ is a subspace of $V$, then the minimal polynomial of $T$ is a polynomial multiple of the minimal polynomial of $\left .T \right | _{ U}$
 \end{thm}
-\begin{proof}
+\begin{prf}
   Suppose $p$ is the minimal polynomial of $T$.
   \begin{equation}
     \implies p(T)v=0 \quad \forall v \in V.
@@ -298,20 +367,22 @@ If this equation has a unique solution, as happens most of the time $c_0, c_1, c
     p(T)u=0 \quad \forall u\in U.
   \end{equation} Thus $p\left( \left.T\right|_{U} \right)=0.$ Now the previous theorem
   \ref{every-zero-polynomial-is-a-multiple-of-the-minimal-polynomial} tells us, that $p$ is a polynomial multiple of the minimal polynomial of $\left. T \right |_U$.
-\end{proof}
+  
+\end{prf}
 
 \begin{thm}
   $T \in \linmap (V):$ $T$ is not invertible $\mathsmaller{\iff}$ the constant term of the minimal polynomial of $T$ is $0$.
 \end{thm}
-\begin{proof}
+\begin{prf}
   $T$ is not invertible $\mathsmaller{\overset{\text{\ref{equivalent-conditions-to-be-an-eigenvalue}}}{\iff}}$ $0$ is an eigenvalue of $T$ $\mathsmaller{\overset{\text{\ref{zeros-of-the-minimal-polynomial-of-T-are-the-eigenvalues-of-T}}}{\iff}}$ $0$ is a zero of $p$ $\mathsmaller{\iff}$ the constant term of $p$ is $0$.
   (In the first equivalence, we have actually used that $0$ is an eigenvalue of $T$ if and only if $T-0I$ is not invertible, according to \ref{equivalent-conditions-to-be-an-eigenvalue}.)
-\end{proof}
+  
+\end{prf}
 
 \section{Upper-Triangular Matrices}
 
 \setcounter{thm}{38}
-\begin{thm}
+\begin{thm} [conditions for upper-triangular matrix]
   \label{conditions for upper-triangular matrix}
   If $T \in \linmap (V)$ and $v_1, \dots, v_n$ is a basis of $V$. Then the following are equivalent.
   \begin{enumerate}[label=(\alph*)]
@@ -320,23 +391,174 @@ If this equation has a unique solution, as happens most of the time $c_0, c_1, c
     \item $T v_k \in \myspan{v_1, \dots, v_k} \quad \forall k \in \{1, \dots, n\}$
   \end{enumerate}
 \end{thm}
+\begin{prf}
+  First suppose (a) holds. So like in \ref{matrix-of-linear-map}, the matrix-diagram $\mmatrix(T)$ looks like this
+  \begin{equation}
+  \mathcal{M} (T) \equiv
+  \begin{blockarray}{cccccc}
+             & v_1     & \cdots & v_j      & \cdots & v_n     \\
+    \begin{block}{c(ccccc)}
+      v_1    & A_{1,1} & \cdots & A_{1,j}  & \cdots & A_{1,n} \\
+      \vdots &         & \ddots & \vdots   &   *    & \vdots  \\
+      \vdots &         &        & A_{j,j}  &   *    & \vdots  \\
+      \vdots &         &        &          & \ddots & \vdots  \\
+      v_n    &         &        &          &        & A_{n,n} \\
+    \end{block}
+  \end{blockarray}
+  \end{equation}
+  
+  Using a modified version of the equation in \ref{matrix-of-linear-map}, we have for $j\in \{1, \ldots n \}$
+  \begin{equation}
+    T v_j = A_{1,j} v_j + \cdots + A_{j,j} v_j = \sum_{l=1}^{j} A_{l,j} v_j
+  \end{equation}
+  
+  which implies
+  \begin{equation}
+    T v_j \in \myspan{v_1, \ldots, v_j}
+  \end{equation}
+  
+  Now suppose $j, k \in \{1 \ldots n \}$ such that $j \leq  k.$ Because
+  \begin{equation}
+    \myspan{v_1, \ldots, v_j} \subseteq \myspan{v_1, \ldots, v_k}
+  \end{equation} 
+  
+  we see that
+  \begin{equation}
+    T v_j \in \myspan{v_1 \ldots v_k} \mytext{for each} j \in \{1 \ldots k\}.
+  \end{equation}
 
-\begin{thm}
-  \label{equation-satisfied-by-operator-with-upper-triangular-matrix}
+  Thus $\myspan{v_1 \ldots v_k}$ is invariant under $T$, completing the proof that (a) implies (b)
+  
+  Now suppose (b) holds, so $\myspan{v_1, \ldots, v_k}$ is invariant under $T$ for each $k \in \{1 \ldots n\}.$ 
+  
+  In particular
+  \begin{equation}
+    T v_k \in \myspan{v_1, \ldots, v_k} \quad \forall k \in \{1 \ldots n\}
+  \end{equation}
+  
+  Thus (b) implies (c).
+  
+  Now suppose (c) hods, so $T v_k \in \myspan{v_1, \ldots, v_k} \quad \forall k \in \{1 \ldots n\}$, which is the same as
+  \begin{equation}
+    T v_k = a_1 v_1 + \cdots + a_k v_k \where a_1, \dots a_k \in \myF
+  \end{equation}
+  
+  Hence all the entries under the diagonal of $\mmatrix (T)$ are $0$, because $v_1, \ldots, v_n$ are linearly independent. Thus $\mmatrix(T)$ is an upper-triangular matrix, completing the proof that (c) implies (a).
+  
+  We have shown that (a) $\implies$ (b) $\implies$ (c) $\implies$ (a)
+  
+\end{prf}
+
+\begin{thm}[equation satisfied by operator with upper-triangular matrix]
+  \label{thm:equation-satisfied-by-operator-with-upper-triangular-matrix}
   Suppose $T\in \linmap(V)$ and $V$ has a basis with respect to which $T$ has an upper-triangular matrix with diagonal entries $\lambda_1, \dots, \lambda_n$.
   \begin{equation}
     \implies (T-\lambda_1I) \cdots (T-\lambda_nI)=0
   \end{equation}
 \end{thm}
+\begin{prf}
+  Let $A :\equiv \mmatrix(T)$. Let $v_1, \ldots, v_n$ denote a basis of $V$ with respect to which $T$ has an upper-triangular matrix with diagonal entries $\lambda_1, \ldots, \lambda_n$.
+  \begin{equation}
+    A=\mmatrix(T) =
+    \left( {\begin{array}{ccc}
+        \lambda_1 &         &  * \\
+                  &  \ddots &    \\
+            0     &         & \lambda_n
+    \end{array} } \right)
+  \end{equation}
+  
+  Then
+  \begin{equation}
+    \label{i-need-a-ref}
+    T v_1 = \lambda_1 v_1 \iff (T-\lambda_1 I)  v_1 = 0,
+  \end{equation}
 
-\begin{thm}
-  \label{determination-of-eigenvalue-from-upper-triangular-matrix}
+  which implies that
+  \begin{equation}
+    (T-\lambda_1 I) \cdots (T-\lambda_m I) v_1 = 0, \mytext{for} m = 1, \ldots, n
+  \end{equation}
+  (using commutativity for linear maps)
+  \bigbreak
+  Note that $(T-\lambda_2 I) v_2 \in \myspan{v_1}$ because $T v_2 = A_{2,1} v_1 + \lambda_2 v_2$. Thus using (\ref{i-need-a-ref})
+  \begin{equation}
+    \label{i-also-need-a-ref}
+    (T- \lambda_1 I) (T- \lambda_2 I) v_2 = 0.
+  \end{equation}
+  
+  which implies that
+  \begin{equation}
+    (T-\lambda_1 I) (T-\lambda_2 I) \cdots (T-\lambda_m I) v_2 = 0, \mytext{for} m = 2, \ldots, n
+  \end{equation}
+  (using commutativity for linear maps)
+  \bigbreak
+  Note that $(T-\lambda_3 I) v_3 \in \myspan{v_1, v_2}$ because $T v_3 = A_{3,1} v_1 +   A_{3,2} v_2 + \lambda_3 v_3$. 
+  Thus using (\ref{i-also-need-a-ref})
+  \begin{equation}
+    (T- \lambda_1 I) (T- \lambda_2 I) (T- \lambda_3 I)v_3 = 0.
+  \end{equation}
+  
+  which implies that
+  \begin{equation}
+    (T-\lambda_1 I) (T-\lambda_2 I) \cdots (T-\lambda_m I) v_3= 0, \mytext{for} m = 3, \ldots, n
+  \end{equation}
+  
+  Continuing this pattern, we see that
+  \begin{equation}
+    (T-\lambda_1 I) \cdots (T- \lambda_n I) v_k = 0 \quad \forall k \in \{ 1\ldots n \}
+  \end{equation}
+  
+  Thus $(T-\lambda_1 I) \cdots (T- \lambda_n I)$ is the $0$ operator because it is $0$ on each vector in a basis of $V$.
+  
+\end{prf}
+
+\begin{thm}[determination of eigenvalues from upper-triangular matrix]
+  \label{thm:determination-of-eigenvalue-from-upper-triangular-matrix}
   Suppose $T\in \linmap(V)$ has an upper-triangular matrix with respect to some basis of $V$. Then the eigenvalues of $T$ are precisely the entries on the diagonal of that upper-triangular matrix.
+
 \end{thm}
+\begin{prf}
+  Let $v_1, \ldots, v_n$ denote a basis of $V$ with respect to which $T$ has an upper-triangular matrix with diagonal entries $\lambda_1, \ldots, \lambda_n$.
+  \begin{equation}
+    \mmatrix(T) =
+    \left( {\begin{array}{ccc}
+        \lambda_1 &         &  * \\
+                  &  \ddots &    \\
+           0      &         & \lambda_n
+    \end{array} } \right)
+  \end{equation}  
+  Because $T v_1 = \lambda_1 v_1$, we see that $\lambda_1$ is an eigenvalue of $T$.
+  
+  Suppose $k \in \{2 \ldots n\}.$ 
+  
+  Then $(T-\lambda_k I) v_k \in \myspan{v_1, \ldots, v_{k-1}}.$ 
+  
+  Thus $T-\lambda_k I$ maps $\myspan{v_1, \ldots, v_k}$ into $\myspan{v_1, \ldots, v_{k-1}}$.
+  
+  Because
+  \begin{equation}
+    \dim \myspan{v_1, \ldots, v_k} = k \myand \dim \myspan{v_1, \ldots, v_{k-1}} = k-1,
+  \end{equation}
+  
+  this implies that $T-\lambda_k I$, which is restricted to $\myspan{v_1, \ldots, v_{k-1}}$, is not injective by \autoref{thm: linear-map-to-a-lower-dimensional-space-is-not-injective}. Thus $\exists v \in \myspan{v_1, \ldots, v_n}: v\neq0$ and $(T-\lambda_k I)v=0$. Thus $\lambda_k$ is an eigenvalue of $T$. Hence we have shown that every entry of the diagonal of $\mmatrix(T)$ is an eigenvalue of $T$.
+  
+  To prove $T$ has no other eigenvalues, let
+  \begin{equation}
+    \begin{aligned}
+      q &:\equiv (z-\lambda_1) \cdots (z-\lambda_2). \\
+      &\implies q(T) = 0 \mytext{by \autoref{thm:equation-satisfied-by-operator-with-upper-triangular-matrix}}
+    \end{aligned}
+  \end{equation}
+  
+  Hence $q$ is a polynomial multiple of the minimal polynomial of $T$ by \autoref{thm:every-zero-polynomial-is-a-multiple-of-the-minimal-polynomial}. Thus every zero of the minimal polynomial is a zero of $q$.
+  
+  Because the zeros of the minimal polynomial of $T$ are the eigenvalues of $T$ by \autoref{thm:zeros-of-the-minimal-polynomial-of-T-are-the-eigenvalues-of-T}, this implies that every eigenvalue of $T$ is a zero of $q$. Hence the eigenvalues of $T$ are all contained in the list $\lambda_1, \ldots, \lambda_n$.
+  
+\end{prf}
+
 
 \setcounter{thm}{43}
 \begin{thm}
-  \label{necessary and sufficient condition to have an upper-triangular-matrix}
+  \label{thm:necessary and sufficient condition to have an upper-triangular-matrix}
   Let $T\in \linmap(V)$\footnotemark[1]. Then $T$ has an upper-triangular matrix in respect to some basis $V$ $\iff$ the min. polynomial of $T$ equals $(z-\lambda_1) \cdots (z-\lambda_m), \quad \lambda_1, \dots, \lambda_m \in \myF$
 \end{thm}
 
@@ -424,9 +646,15 @@ If this equation has a unique solution, as happens most of the time $c_0, c_1, c
   \label{restriction-ofdiagonalizable-operator-to-invariant-subspace}
   Suppose $T\in \linmap(V)$. $T$ is diagonalizable and $U$ is a subspace of $V$ that is invariant under $T$. $\implies$ $\left.T\right|_U$ is a diagonalizable operator on $U$.
 \end{thm}
-\begin{proof}
-  Diagonazability of $T$ $\mathsmaller{\overset{\text{\ref{necessary-and-sufficient-condition-for-diagonalizability}}}{\iff}}$ the minimal polynomial of $T$ equals $(z-\lambda_1)\cdots(z-\lambda_m)$ for $\lambda_1 \neq \cdots \neq \lambda_m$. By \ref{minimal-polynomial-of-a-restriction-operator}, the minimal polynomial of $T$ is a polynomial multiple of the minimal polynomial of $\left.T\right|_U$. Hence the minimal polynomial of $\left.T\right|_U$  has the form required by \ref{necessary-and-sufficient-condition-for-diagonalizability}, which shows that $\left.T\right|_U$ is diagonalizable. It consits of factors $(z-\lambda_1),(z-\lambda_2), \dots, (z-\lambda_m)$.
-\end{proof}
+\begin{prf}
+  Diagonazability of $T$ $\mathsmaller{\overset{\text{\ref{necessary-and-sufficient-condition-for-diagonalizability}}}{\iff}}$ the minimal polynomial of $T$ equals 
+  \begin{equation}
+    (z-\lambda_1)\cdots(z-\lambda_m) \mytext{for} \lambda_1 \neq \cdots \neq \lambda_m.
+  \end{equation} 
+  
+  By \ref{minimal-polynomial-of-a-restriction-operator}, the minimal polynomial of $T$ is a polynomial multiple of the minimal polynomial of $\left.T\right|_U$. Hence the minimal polynomial of $\left.T\right|_U$  has the form required by \ref{necessary-and-sufficient-condition-for-diagonalizability}, which shows that $\left.T\right|_U$ is diagonalizable. It consists of factors $(z-\lambda_1)$ or $(z-\lambda_2), \dots, (z-\lambda_m)$.
+  
+\end{prf}
 
 % TODO: Gerhgorin Disk Theorem Def 5.66 and Theorem 5.67
 

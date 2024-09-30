@@ -66,16 +66,20 @@
   \label{condition-for-a-direct-sum}
   $V_1 + \cdots + V_m$ is a direct sum $\iff$ the only write $0$ as a sum $v_1 + \cdots + v_m$, where each $v_k \in V_k$, is by taking each $v_k$ equal to $0$.
 \end{thm}
-\begin{proof} Let  $V_1, \ldots, V_m$ be subspaces of $V$ 
+\begin{prf} Let  $V_1, \ldots, V_m$ be subspaces of $V$ 
   \begin{description}
-    \item{$\Rightarrow$ direction:} First suppose $V_1 + \cdots + V_m$ is a direct sum. Let
+    \item{$\Rightarrow$ direction:} First suppose $V_1 + \cdots + V_m$ is a direct sum. 
+    
+    Let
     \begin{equation}
       0 = v_1 + \cdots + v_m, \whereEach v_k \in V_k
     \end{equation}
+    
     $\implies$ all the $v_k$'s are equal to $0$, because otherwise multiplying the equation above with a scalar $\lambda \in \myF$ would give a different sum
     \begin{equation}
       0 = \lambda0= \lambda v_1 + \cdots + \lambda v_m, \whereEach \lambda v_k \in V_k
     \end{equation}
+    
     Or a different way to argue, $0 = 0 + \cdots + 0$ is already a solution.
 
     \item{$\Leftarrow$ direction:} Now suppose that the only way to write $0$ as a sum $v_1 + \cdots + v_m$ where each $v_k \in V_k$, is by taking each $v_k = 0$. Let
@@ -94,7 +98,7 @@
       \implies v_1=u_1, \ldots, v_m=u_m
     \end{equation}
   \end{description}
-\end{proof}
+\end{prf}
 
 %\textbf{1.46}
 \setcounter{thm}{45}
@@ -102,7 +106,7 @@
   \label{intersection-of-two-direct-sum-of-two-subscpaces}
   $U+W$ is a direct sum $\iff$ $U \cap W = \{0\}$
 \end{thm}
-\begin{proof}
+\begin{prf} Let $U$ and $W$ be subspaces of the same vector space.
   \begin{description}
     \item{$\Rightarrow$ direction:} First suppose $U+W$ is a direct sum. If $v \in U \cup W$, then $v, -v \in U \myand v, -v \in W$. We also have that
     \begin{equation}
@@ -116,4 +120,4 @@
     By \ref{condition-for-a-direct-sum} we know that our goal is to show that $u=w=0$. The equation above implies that $u=-w\in W$  and $w=-u \in U$ for all arbitrary choices of $U$ and $W$. Thus $u,w \in U\cup W \implies u=w=0.$ Therefore, $U+W$ is a direct sum.
   \end{description}
 
-\end{proof}
+\end{prf}

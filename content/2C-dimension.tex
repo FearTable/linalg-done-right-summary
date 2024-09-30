@@ -3,20 +3,25 @@
 \setcounter{thm}{33}
 \begin{thm} Any two bases of a \fdvs have the same length. So the the basis length does not depend on basis.
 \end{thm}
-\begin{proof}
+\begin{prf}
   Let $B_1$ and $B_2$ be $2$ basis of $V$. Since both are linearly independent and both span $V$, we have $|B_1| \leq |B_2|$ and $|B_2| \leq |B_1|$ by using \ref{length-of-linearly-dependent-list-less-or-equal-length-of-spanning-list}. Therefore $|B_1|=|B_2|.$
-\end{proof}
+  
+\end{prf}
 
 \begin{mydef} [Dimension]
 	$\dim V :\equiv$ length of any basis of $V$
 \end{mydef}
 
 \setcounter{thm}{36}
-\begin{thm} $\dim U \leq \dim V$ if $V$ is \fd  and $U$ is a subspace of $V$.
+\begin{thm} [dimension of a subspace]
+  \label{dimension-of-a-subspace}
+  $\dim U \leq \dim V$ if $V$ is \fd  and $U$ is a subspace of $V$.
 \end{thm}
-\begin{proof}
+
+\begin{prf}
   Since the length of everly linearly independent list is smaller or equal to every spanning list in $V$ (according to \ref{length-of-linearly-dependent-list-less-or-equal-length-of-spanning-list}), we have the situation that the length of the basis of $U$ is less or equal to the length of $V$.
-\end{proof}
+  
+\end{prf}
 
 
 \begin{thm}

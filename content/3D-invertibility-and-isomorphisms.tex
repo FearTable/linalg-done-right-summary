@@ -34,22 +34,32 @@
 
     $T$ is invertible $\iff$ $T$ is injective $\iff$ $T$ is surjective.
   \end{thm}
-  \begin{proof}
+  \begin{prf}
     The rank-nullity theorem (\ref{rank-nullity-theorem}) or fundamental theorem of linear maps states that
     \begin{equation}
       \label{rank-nullity-nested-equation}
       \dim V = \dim \mynull T + \dim \myrange T
     \end{equation}
 
-    If $T$ is injective, $\dim \mynull T = 0$ and therefore $\dim \myrange T = \dim V = \dim W$, which means $T$ is surjective ($\myrange T = \dim W$). This is because every linearly independent list of vectors of of length $\dim W$ is a basis by \ref{every-lid-list-of-length-dim-v-is -a-basis-of-v}. And thats how dimension is defined.
+    If $T$ is injective, $\dim \mynull T = 0$ and therefore 
+    \begin{equation}
+      \dim \myrange T = \dim V = \dim W,
+    \end{equation} 
+    which means $T$ is surjective ($\myrange T = \dim W$). 
+    
+    This is because every linearly independent list of vectors of of length $\dim W$ is a basis by \ref{every-lid-list-of-length-dim-v-is -a-basis-of-v}. And thats how dimension is defined.
 
     If $T$ is surjective, we have $\dim \myrange T = \dim W$ to begin with and therefore \ref{rank-nullity-nested-equation} becomes
     \begin{equation}
-      \dim \mynull T = \dim V - \dim \myrange T = \dim V - \dim W = 0
-    \end{equation}
+      \dim \mynull T = \dim V - \dim \myrange T = \dim V - \dim W = 0.
+    \end{equation} 
     
-    which makes $T$ also injective. Since injectivity and surjectivy together imply invertibility, this ends the proof.
-  \end{proof}
+    
+    which makes $T$ also injective. 
+    Since injectivity and surjectivy together \\ imply invertibility, this ends the proof. 
+    
+    
+  \end{prf}
 
 
 
@@ -68,7 +78,10 @@
 
   %\textbf{3.70}
   \begin{thm}
-    Two \fd vector spaces $U$, $V$ over $\mathbb{F}$ are isomorphic $\iff$ they have the same dimension. $\dim U = \dim V$
+    Two \fd vector spaces $U$, $V$ over $\mathbb{F}$ are isomorphic $\iff$ they have the same dimension. 
+    \begin{equation}
+      \dim U = \dim V
+    \end{equation}
   \end{thm}
 
   %\textbf{3.71}

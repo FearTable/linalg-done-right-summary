@@ -3,7 +3,7 @@
 \usepackage[fleqn]{amsmath}
 \usepackage{amssymb}
 \usepackage{xcolor}
-
+\usepackage[english]{babel}
 \usepackage[dvipsnames]{xcolor}
 \usepackage[skip = 2pt, parfill]{parskip}
 \usepackage{blkarray}
@@ -15,20 +15,26 @@
 \usepackage{lmodern}
 \usepackage{enumitem}
 \usepackage{ragged2e}
-\usepackage{kpfonts}
+\usepackage[rmx]{kpfonts}
 \usepackage{lipsum}
 \usepackage{xfrac}
 \usepackage{breqn}
 \usepackage[colorlinks=false]{hyperref}
 \usepackage{xr-hyper}
-%\usepackage[fontsize=14pt]{scrextend}
+\usepackage[fontsize=12pt]{scrextend}
 \usepackage{relsize}
 \usepackage{enumitem}
+%\usepackage{etoolbox}
+%\usepackage{changepage}
+
+
 \setlist{nosep}
 
-\externaldocument{../linalg-done-right-summary/linalgDoneRight}
-
 \definecolor{darkteal}{RGB}{0, 41, 59}
+
+
+\renewcommand{\bfdefault}{sb}
+\DeclareMathAlphabet{\mathbf}{\encodingdefault}{\familydefault}{\bfdefault}{n}
 
 %o\everymath{\color{darkteal}}
 %\everydisplay{\color{darkteal}}
@@ -58,19 +64,7 @@
 
 %\setcounter{secnumdepth}{0}
 %\renewenvironment{proof}{\underline{\ttfamily Proof:}}{\hfill $\Box$ \\}
-\renewenvironment{proof}
-  {
-    {
-      \relscale{1.1}
-      \bfseries
-      \scshape
-      \itshape
-      \selectfont
-      Proof:}
-  }
-  {
-    \hfill $\Box$ \\
-  }
+
 
 %\titlespacing{\chapter}{0pt}{6pt}{3pt}
 %\titlespacing{\section}{0pt}{10pt}{3pt}
@@ -124,9 +118,9 @@
 
 \begin{document}
 
-  %\raggedright
+  \raggedright
 	
-	%\linespread{1.2}
+	
 	
   \input{def}
 

@@ -23,14 +23,20 @@ $p: \mathbb{F} \to \mathbb{F}, \, p(z) = a_0 + a_1z + \cdots + a_n z^m$
 \begin{thm}
   A polynomial of degree $m$ has at most $m$ zeros.
 \end{thm}
-\begin{proof}
+\begin{prf}
   For $m=1$, $a_0+a_1z$ has only one zero, which is $-\frac{a_0}{a_1}$\\
-  Now for $m>1$ and assuming the desired result holds for $m-1$. If $p\in \mathcal{P}_{m}(\myF)$ has no zeros, we are done. If $p$ has a zero $\lambda \in \myF$, by \ref{factororingOutZerosOfAPolynomial}, there is a $q \in \mathcal{P}(\myF)_{m-1}$ such that 
+  Now for $m>1$ and assuming the desired result holds for $m-1$. 
+  
+  If $p\in \mathcal{P}_{m}(\myF)$ has no zeros, we are done. 
+  
+  If $p$ has a zero $\lambda \in \myF$, by \ref{factororing-out-zeros-of-a-polynomial-always-possible}, there is a $q \in \mathcal{P}(\myF)_{m-1}$ such that 
   \begin{equation}
   	p(z)=(z-\lambda)q(z).
-  \end{equation} 
+  \end{equation}
+   
   Since $q$ has at most $m-1$ zeros, $p$ has at most $m$ zeros.
-\end{proof}
+  
+\end{prf}
 
 \section{Division Algorithm for Polynomials}
 
@@ -66,12 +72,11 @@ $p: \mathbb{F} \to \mathbb{F}, \, p(z) = a_0 + a_1z + \cdots + a_n z^m$
   Suppose $p\in \mathcal{P} (\mathbb{C})$ is a polynomial with real coefficients. If $\lambda \in \mathbb{C}$ is a zero of $p$, then so is $\overline{\lambda}$.
 \end{thm}
 
-\begin{thm}
-  \bfemph{Factorization of a quadratic polynomial:} \\
+\begin{thm} [Factorization of a quadratic polynomial]
   Let $p(x)=x^2+bx+c \in \polyn_2(\real)$ such that $b,c \in \real$. Then $p$ can be written as
   $p(x)=x^2 + bx + c$ $=$ $(x-\lambda_1)(x-\lambda_2)$ with $\lambda_1, \lambda_2 \in \mathbb{R} \iff b^2 \geq 4c$.
 \end{thm}
-\begin{proof}
+\begin{prf}
   $x^2+bx+c=(x+\sfrac{b}{2})^2+(c-\sfrac{b^2}{4})$. Therefore, if $b^2<4c$, the last term is always positive and no factorization is possible because it has no zeros (\ref{factororing-out-zeros-of-a-polynomial-always-possible}). \\
   If $b^2 \geq 4c$, we define $d^2 :\equiv \sfrac{b^2}{4}-c$ which makes
   \begin{equation}
@@ -83,13 +88,18 @@ $p: \mathbb{F} \to \mathbb{F}, \, p(z) = a_0 + a_1z + \cdots + a_n z^m$
 		  =\left(x-\lambda_1 \right) \cdot \left(x-\lambda_2\right)
 	  \end{aligned}
   \end{equation}
-  for $\lambda_1 :\equiv -d-\sfrac{b}{2}$ and $\lambda_2 :\equiv d-\sfrac{b}{2}$.
+  for 
+  \begin{equation}
+    \lambda_1 :\equiv -d-\sfrac{b}{2} \mytext{and} \lambda_2 :\equiv d-\sfrac{b}{2}.
+  \end{equation}
   which is the same as the well known midnight formula:
+  
   \begin{equation}
     \lambda_{1,2} = \frac{-b \pm \sqrt{b^2-4c}}{2}
   \end{equation}
   which also shows, that $b^2 \geq 4c$ is a necessary condition for real solutions for $\lambda_{1,2}$
-\end{proof}
+  
+\end{prf}
 
 \begin{thm}
   Suppose $p \in \mathcal{P}(\mathbb{R})$ is non-constant. Then $p$ has a unique factorization:
