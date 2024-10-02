@@ -129,7 +129,7 @@
 {0em}                           % Indent amount
 %{\ttfamily\fontseries{b}\selectfont}                   % Theorem head font
 {}                   % Theorem head font
-{{\textbf{:}}\newline}                          % Punctuation after theorem head
+{{\textbf{\relsize{1.1}:}}\newline}                          % Punctuation after theorem head
 {.3em}                       % Space after theorem head
 {{\textbf{\relsize{1.1}\scshape{\thmname{#1}\thmnumber{ #2}}}{\normalfont \thmnote{ (#3)}}}}  					     % Theorem head spec (can be left empty, meaning ‘normal’)
 
@@ -146,10 +146,10 @@
 
 
 \newtheoremstyle{indented}
-{0em}% space before
+{.2em}% space before
 {0em}% space after
 {\setlength{\leftskip}{\mathindent}
-  \setlength{\rightskip}{3em}
+ %\setlength{\rightskip}{3em}
  \setlength{\parindent}{0pt}
  %\setlength{\hangindent}{\mathindent}
  \addtolength{\linewidth}{-\mathindent-3em}
@@ -168,7 +168,7 @@
 %  \parshape 1 3em \linewidth}% body font
 {0em}% indent
 {\bfseries}% header font
-{:}% punctuation
+{\textbf{\relsize{1.1}:}}% punctuation
 {.3em}% after theorem header
 %{}% header specification (empty for default)
 {{\textbf{\relsize{1.1}\scshape{\thmname{#1}\thmnumber{ #2}}}{\normalfont \thmnote{ (#3)}}}}
@@ -181,7 +181,9 @@
 %\AtBeginEnvironment{myproof}{\begin{adjustwidth}{2.5em}{2.5em}}
 %\AtEndEnvironment{myproof}{\end{adjustwidth}}
 
-\def\endprf{ \hfill $\mathlarger \blacksquare$ }
+\def\endprf{
+  
+  \setlength{\leftskip}{\mathindent}\setlength{\rightskip}{3em}\setlength{\parindent}{0pt}\addtolength{\linewidth}{-\mathindent-3em}\setlist[enumerate]{align=parleft,left=\mathindent..\mathindent+\mathindent-30pt}\setlist[description]{leftmargin=\mathindent,labelindent=\mathindent-6pt-27pt} \addtolength{\mathindent}{\mathindent}\hfill$\blacksquare$ }
 
 \renewenvironment{proof}
 {
