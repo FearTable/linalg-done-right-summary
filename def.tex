@@ -1,5 +1,8 @@
 
-
+%\DeclarePairedDelimiter\norm{\lVert}{\rVert}
+\DeclarePairedDelimiter\innerproduct{\langle}{\rangle}
+\newcommand{\ip}[2]{\left \langle #1, #2 \right \rangle}
+\newcommand{\norm}[1]{\left \lVert #1 \right \rVert}
 \newcommand{\gt}{>}
 \newcommand{\lt}{<}
 
@@ -99,8 +102,8 @@
 % Matrix symbol:
 \newcommand{\mmatrix}{\mathcal{M}}
 
-%\newcommand{\bfemph}[1]{{\ttfamily\fontseries{b}\selectfont #1}}
-\newcommand{\bfemph}[1]{{\scshape\relscale{1.1} #1}}
+%\newcommand{\}[1]{{\ttfamily\fontseries{b}\selectfont #1}}
+\newcommand{\bfemph}[1]{{\scshape #1}}
 
 %\newcommand{\basis}[2]{\overbrace{ \myspan{#1_1, \dots #1_{#2}}}^{\text{linearly independent}} }}
 
@@ -124,7 +127,7 @@
 \newtheoremstyle{mytheoremstyle} % name
 %{\topsep}                    % Space above
 {0.8em}                    % Space above
-{0em}                        % Space below
+{.2em}                        % Space below
 {}                           % Body font
 {0em}                           % Indent amount
 %{\ttfamily\fontseries{b}\selectfont}                   % Theorem head font
@@ -148,7 +151,8 @@
 \newtheoremstyle{indented}
 {.2em}% space before
 {0em}% space after
-{\setlength{\leftskip}{\mathindent}
+{
+ \setlength{\leftskip}{\mathindent}
  %\setlength{\rightskip}{3em}
  \setlength{\parindent}{0pt}
  %\setlength{\hangindent}{\mathindent}
@@ -181,9 +185,12 @@
 %\AtBeginEnvironment{myproof}{\begin{adjustwidth}{2.5em}{2.5em}}
 %\AtEndEnvironment{myproof}{\end{adjustwidth}}
 
+\AtEndEnvironment{prf}{bla \hfill$\blacksquare$}
+
 \def\endprf{
   
-  \setlength{\leftskip}{\mathindent}\setlength{\rightskip}{3em}\setlength{\parindent}{0pt}\addtolength{\linewidth}{-\mathindent-3em}\setlist[enumerate]{align=parleft,left=\mathindent..\mathindent+\mathindent-30pt}\setlist[description]{leftmargin=\mathindent,labelindent=\mathindent-6pt-27pt} \addtolength{\mathindent}{\mathindent}\hfill$\blacksquare$ }
+  {\setlength{\leftskip}{\mathindent}\setlength{\rightskip}{3em}\setlength{\parindent}{0pt}\addtolength{\linewidth}{-\mathindent-3em}\setlist[enumerate]{align=parleft,left=\mathindent..\mathindent+\mathindent-30pt}\setlist[description]{leftmargin=\mathindent,labelindent=\mathindent-6pt-27pt} \addtolength{\mathindent}{\mathindent} \hfill$\blacksquare$}
+   }
 
 \renewenvironment{proof}
 {

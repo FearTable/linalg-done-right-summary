@@ -1,0 +1,162 @@
+\section{Inner Products and Norms}
+
+\subsection{Inner Products}
+We define the norm of $x=(x_1, \ldots, x_n) \in \real^n$ by
+\begin{equation}
+  \norm{x} = \sqrt{x_1^2 + \cdots + x_n^2}
+\end{equation}
+The norm is not lineaer. The dot product is.
+
+\begin{mydef} [dot product]
+  The ``dot product" of $x,y \in \real^n$ is defined by
+  \begin{equation}
+    x \cdot y :\equiv x_1 y_1 + \cdots + x_n y_n
+  \end{equation}
+\end{mydef}
+
+The dot product on $\real^n$ has the following properties.
+\begin{itemize}
+  \item $x \cdot x = \norm{x}^2 \quad \forall x \in \real^n$ 
+  \item $x \cdot x = 0 \iff x= 0$
+  \item $y\in \real^n:$ The map from $\real^n$ to $\real$ that sends $x \in \real^n$ to $x\cdot y$ is linear. \\
+  $T: \real^n \to \real, T(x) = x \cdot y$. Then $T$ is linear.
+  \item $x \cdot y = y \cdot x$.
+\end{itemize}
+
+For $z \in \compl$, we define the norm of $z$ by
+\begin{equation}
+  \begin{aligned}
+    \norm{z} :\equiv \sqrt{ |z_1|^2 + \cdots + |z_n|^2} = \sqrt{ z_1 \overline {z_1} + \cdots z_n \overline {z_n}} \\
+    \implies \norm{z}^2 = z_1 \overline{z_1} + \cdots + z_n \overline{z_n}
+  \end{aligned}
+\end{equation}
+
+\begin{mydef} [inner product]
+  The ``inner product" of $V$ is a function defined as follows:
+  \begin{itemize}
+    \item \bfemph{Positivity: } $
+    {v,v} \geq 0 \quad \forall v \in V$
+    \item \bfemph{Definiteness: } $\innerproduct{v,v} = 0 \iff v=0$
+    \item \bfemph{Additifity in first slot: } $\ip{u+v}{w}=\ip{u}{w}+\ip{v}{w} \quad \forall u,v,w \in V$
+    \item \bfemph{Conjugate symmetry} $\ip{u}{v} = \overline{\ip{v}{u}} \quad \forall u, v \in V$ 
+  \end{itemize}
+\end{mydef}
+
+\begin{example}
+  (b) $\ip{w}{z} :\equiv c_1 w_1 \overline{z_1} + \cdots + c_n w_n \overline{z_n}$
+\end{example}
+
+\begin{mydef}[inner product space]
+  An ``inner product space" is a vector space $V$ along with an inner product on $V$.
+\end{mydef}
+
+\setcounter{thm}{5}
+
+\begin{thm}[basic properties of an inner product]
+  $\forall u,v,w \in V$ and $\forall \lambda \in \myF$:  
+  \begin{enumerate}[label=(\alph*)]
+    \item $V \ni x \mapsto \ip{u}{x}$ is a linear map from $V$ to $\myF$.
+    \item $\ip{0}{v} = 0 $
+    \item $\ip{v}{0} = 0$
+    \item $\ip{u}{v+w} = \ip{u}{v} + \ip{u}{w} $
+    \item $\ip{u}{\lambda v} = \overline{\lambda} \ip{u}{v}$
+  \end{enumerate}
+\end{thm}
+
+\subsection{Norms}
+
+\begin{mydef} [norm]
+  \begin{equation}
+    \norm{v} :\equiv \sqrt{\ip{v}{v}}, \quad v \in  V
+  \end{equation}
+\end{mydef}
+
+\begin{example}
+  For $f \in C[-1,1]$ and with inner product given as 6.3(c) we have
+  \begin{equation}
+    \norm{f} = \sqrt { \int_{-1}^{1} f^2}
+  \end{equation}
+\end{example}
+
+\begin{thm} [basic properties of the norm]
+  Suppose $v \in V$
+  \begin{enumerate}[label=(\alph*)]
+    \item $\norm{v} = 0 \iff v = 0$
+    \item $\norm{\lambda v} = |\lambda| \,\norm{v} \quad \lambda \in \myF$.
+  \end{enumerate}
+\end{thm}
+\begin{prf}
+  Let $\lambda \in \myF$ and $v \in V$.
+  \begin{enumerate}[label=(\alph*)]
+    \item $\ip{v}{v} = 0 \iff v=0$
+    \item $\norm{\lambda v}^2 = \ip{\lambda v}{\lambda v} = \lambda \overline{\lambda} \ip{v}{v} = |\lambda|^2 \norm{v}^2$
+  \end{enumerate}
+\end{prf}
+
+\setcounter{thm}{9}
+\begin{mydef}[orthogonal]
+  $u,v \in V$ are called ``orthogonal" or ``perpendicular" if $\ip{u}{v} =0$. One also writes $u \perp v$.
+\end{mydef}
+
+\begin{thm} [orthogonality and $0$]
+  \begin{enumerate}[label=(\alph*)]
+    \item $0$ is orthogonal to every vector in $V$.
+    \item $0$ is the only vector that is orthogonal to itself.
+  \end{enumerate}
+\end{thm}
+
+\begin{thm}[Pythagorean theorem]
+  If $u,v \in V$ are orthogonal, then
+  \begin{equation}
+    \norm{u+v}² = \norm{u}^2 + \norm{v}^2
+  \end{equation}
+\end{thm}
+\begin{prf} 
+  $\norm{u+v}^2 = \ip{u+v}{u+v} = \ip{u}{u} + \underbrace{\ip{u}{v}}_{=0} + \underbrace{\ip{v}{u}}_{=0} + \ip{v}{v} = \norm{u}^2 + \norm{v}^2 $
+\end{prf}
+
+\setcounter{thm}{12}
+\begin{thm}[an orthogonal decomposition]
+  \label{thm: an orthogonal decomposition}
+  Suppose $u,v \in V, v\neq 0.$ Set $c :\equiv \frac{\ip{u}{v}}{\norm{v}^2}$ and $w :\equiv u-\frac{\ip{u}{v}}{\norm{v}^2}v$. Then
+  \begin{equation}
+    u = cv+w = \frac{\ip{u}{v}}{\norm{v}^2} v + \left( u- \frac{\ip{u}{v}}{\norm{v}^2} v \right  ) \myand \ip{w}{v}=0
+  \end{equation}
+\end{thm}
+
+\begin{thm}[Cauchy-Schwarz inequality]
+  Suppose $u,v \in V$. Then
+  \begin{equation}
+    |\ip{u}{v}| \leq \norm{u} \, \norm{v}.
+  \end{equation}
+  Equality holds $\iff$ $u,v$ is a scalar multiple of the other. $u=\lambda v$
+\end{thm}
+\begin{prf}
+  If $v=0$, both sides are $0$. Thus $v\neq0 $.
+  
+  Let $u :\equiv cv+w = \frac{\ip{u}{v}}{\norm{v}^2} v + w$ such that $v\perp w: ´\ip{w}{v} = 0$ like above (\autoref{thm: an orthogonal decomposition}). By Pythagoras we have
+  \begin{equation}
+    \begin{aligned}
+      \norm{u}^2 
+      = \norm{ \frac{\ip{u}{v}}{\norm{v}^2} v}^2 + \norm{w}^2 
+      = \sqrt{ \ip{\frac{\ip{u}{v}}{\norm{v}^2}  v}{\frac{\ip{u}{v}}{\norm{v}^2} v}} + \norm{w}^2 \\
+      = \sqrt{ \frac{1}{ \left(\norm{v}^2 \right  )^2}\ip{\ip{u}{v}v}{\ip{u}{v}v}} + \norm{w}^2 
+      = \frac{1}{\norm{v}^4} \ip{u}{v} \overline{\ip{u}{v}} + \norm{w}^2 \\
+      = |\ip{u}{v}| \, \norm {v}^2 \frac{1}{\norm{v}^4} + \norm{w}^2
+      = \frac{|\ip{u}{v}|}{\norm{v}^2} + \norm{w}^2 \\
+      \geq \frac{|\ip{u}{v}|}{\norm{v}^2}
+    \end{aligned}
+  \end{equation} 
+  
+  Multiplying both sides with $\norm{v}^2$ yields the Cauchy-Schwarz inequality. Equality is only given, if $w=0$. So if $u=\lambda v$.
+\end{prf}
+
+\setcounter{thm}{13}
+\begin{thm}[triangle inequality]
+  $u,v \in V:$
+  \begin{equation}
+    \norm{u+v} \leq \norm{u} + \norm{v}
+  \end{equation}
+  This inequality is an equality $\iff$ $u=rv, r\in \real - \{0\}$.
+\end{thm}
+

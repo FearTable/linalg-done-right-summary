@@ -21,11 +21,12 @@
 \usepackage{breqn}
 \usepackage[colorlinks=false]{hyperref}
 \usepackage{xr-hyper}
-\usepackage[fontsize=12pt]{scrextend}
+%\usepackage[fontsize=12pt]{scrextend}
 \usepackage{relsize}
 \usepackage{enumitem}
-%\usepackage{etoolbox}
-%\usepackage{changepage}
+\usepackage{etoolbox}
+\usepackage{changepage}
+\usepackage{mathtools}
 
 
 \setlist{nosep}
@@ -34,6 +35,7 @@
 
 
 \renewcommand{\bfdefault}{sb}
+
 \DeclareMathAlphabet{\mathbf}{\encodingdefault}{\familydefault}{\bfdefault}{n}
 
 %o\everymath{\color{darkteal}}
@@ -150,4 +152,9 @@
   \chapter{Eigenvalues and Eigenvectors}
   \input{content/5-eigenvalues-and-eigenvectors}
 
+  \chapter{Inner Product Spaces}
+  \input{content/6A-inner-products-and-norms}
+  \input{content/6B-orthonormal-bases}
+  \input{content/6C-orthogonal-complements-and-minimization-problems}
+  
 \end{document}
