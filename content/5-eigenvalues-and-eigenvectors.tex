@@ -69,9 +69,12 @@ Conversely if $Tv = \lambda v$, $\lambda \in \myF$, then $\myspan{v}$ is a one-d
   Every list of eigenvectors of $T$ corresponding to distinct eigenvalues of $T$ is linearly independent.
 \end{thm}
 \begin{prf}
-  Suppose the desired result is false. Then there exists a smallest list of length $m$ of linearly dependent eigenvectors $v_1, \dots, v_m$ with eigenvalues $\lambda_1, \dots, \lambda_m$ of $T$. Since an eigenvector is unequal to the zero vector, $m$ must be $\geq 2$.
+  Suppose the desired result is false. Then there exists a smallest list of length $m$ of linearly depen\-dent eigenvectors $v_1, \dots, v_m$ with eigenvalues $\lambda_1, \dots, \lambda_m$ of $T$. Since an eigenvector is unequal to the zero vector, $m$ must be $\geq 2$.
 
-  Because of the minimality of $m$ and becaue our list is linearly dependent: $\exists a_1, \dots, a_m \neq 0$ such that $a_1 v_1 + \cdots + a_m v_m = 0$. 
+  Because of the minimality of $m$ and becaue our list is linearly dependent: 
+  \begin{equation}
+    \exists a_1, \dots, a_m \neq 0$ such that $a_1 v_1 + \cdots + a_m v_m = 0. 
+  \end{equation}
   
   Now we apply $T-\lambda_m I$ on both sides of the equation and get
   \begin{equation}
@@ -131,7 +134,7 @@ $\implies T^m T^n = T^{m+n}$ and $(T^m)^n=T^{mn}$ when $m,n \in \mathbb{Z}$ when
     (p q)(T) = p(T) q(T) = q(T)p(T).
   \end{equation}
 \end{thm}
-\begin{prf} Informal proof: When a product of polynomials is expanded using the distributive property, it does not matter wether the symbol is $z$ or $T$. Suppose $p(z) = \sum_{j=0}^{m} a_j z^j$ and $q(z)=\sum_{k=0}^{n} b_k z^k$ for all $z \in \myF$. Then 
+\begin{prf} When a product of polynomials is expanded using the distributive property, it does not matter if the symbol is $z$ or $T$. Suppose $p(z) = \sum_{j=0}^{m} a_j z^j$ and $q(z)=\sum_{k=0}^{n} b_k z^k$ for all $z \in \myF$. Then  % wether?
   \begin{equation}
     (pq)(z) = \sum_{j=0}^{m} \sum_{k=0}^{n} a_j b_k z^{j+k} \myand
     (pq)(T) = \sum_{j=0}^{m} \sum_{k=0}^{n} a_j b_k T^{j+k}
@@ -222,7 +225,7 @@ $\implies T^m T^n = T^{m+n}$ and $(T^m)^n=T^{mn}$ when $m,n \in \mathbb{Z}$ when
   Furthermore $\deg p \leq \dim V$
 \end{thm}
 \begin{prf}
-  If $\dim V=0$, $I$, is the zero-operator on $V$ and we let $p=1$ such that $1I\vec0=0$.           Now we use induction on $\dim V$ and we assume $\dim V > 0$ and that the theorem holds for all vector spaces of smaller dimension.
+  If $\dim V=0$, then $I$ is the zero-operator on $V$ and we let $p=1$ such that $1I\vec0=0$.           Now we use induction on $\dim V$ and we assume $\dim V > 0$ and that the theorem holds for all vector spaces of smaller dimension.
   
   Let $v\in V, v \neq 0$. The list \begin{equation}
     v, Tv, \dots, T^{\dim V}
@@ -256,7 +259,7 @@ $\implies T^m T^n = T^{m+n}$ and $(T^m)^n=T^{mn}$ when $m,n \in \mathbb{Z}$ when
     \end{aligned} 
   \end{equation}
   
-  Because $\myrange q(T)$ is invariant under $T$ (by \ref{null-space-and-range-of-p(T)-are-invariant-under-T}), we can apply our induction hypothesis to the operator $\left.T\right|_{\myrange q(T)}$. 
+  Because $\myrange q(T)$ is invariant under $T$ (by  \ref{thm: null space and range of p(T) are invariant under T}), we can apply our induction hypothesis to the operator $\left.T\right|_{\myrange q(T)}$. 
   
   So there exists monic $s \in \mathcal{P} (\myF):$
   \begin{equation}
@@ -282,7 +285,6 @@ $\implies T^m T^n = T^{m+n}$ and $(T^m)^n=T^{mn}$ when $m,n \in \mathbb{Z}$ when
   
   and also $\deg (p-r) < \deg p = \deg r$ If $p-r \neq 0$, we could devide $p-r$ by the coefficient of the highest order term in $p-r$ to get a monic polynomial that when applied to $T$ gives the $0$-operator. This polynomial would have a smaller degree than $p$ or $r$, which would be a contradiction. Therefore $p-r=0 \iff p = r$.
 
-  
 \end{prf}
 
 \setcounter{thm}{23}
@@ -326,7 +328,7 @@ If this equation has a unique solution, as happens most of the time $c_0, c_1, c
 
 \setcounter{thm}{28}
 \begin{thm}[every ``zero-polynomial" is a multiple of the minimal polynomial]
-  \label{thm:every-zero-polynomial-is-a-multiple-of-the-minimal-polynomial}
+  \label{thm: every zero polynomial is a multiple of the minimal polynomial}
   $T\in \linmap(V)$ and $q \in \mathcal{P} (\myF)$: 
   \begin{equation}
     q(T)=0 \iff q \text{is a multiple of the minimal polynomial of} T.
@@ -376,7 +378,7 @@ If this equation has a unique solution, as happens most of the time $c_0, c_1, c
   \begin{equation}
     p(T)u=0 \quad \forall u\in U.
   \end{equation} Thus $p\left( \left.T\right|_{U} \right)=0.$ Now the previous theorem
-  \ref{every-zero-polynomial-is-a-multiple-of-the-minimal-polynomial} tells us, that $p$ is a polynomial multiple of the minimal polynomial of $\left. T \right |_U$.
+  \autoref{thm: every zero polynomial is a multiple of the minimal polynomial} tells us, that $p$ is a polynomial multiple of the minimal polynomial of $\left. T \right |_U$.
   
 \end{prf}
 
@@ -392,7 +394,9 @@ If this equation has a unique solution, as happens most of the time $c_0, c_1, c
 \subsection{Eigenvalues on Odd-Dimensional Real Vector Spaces}
 \begin{thm}[even-dimensional null space]
   Suppose $\myF = \real$ and $V$ is finite-dimensional. Suppose also that $T \in \linmap (V)$ and $b,c \in \real$ with $b^2 < 4c$. 
-  $\implies \dim \mynull (T^2 +bT +cI)$ is an even number
+  \begin{equation}
+    \implies \dim \mynull (T^2 +bT +cI) \mytext{is an even number}
+  \end{equation}
 \end{thm}
 
 \begin{thm}[operators on odd-dimensional vectors spaces have eigenvalues]
@@ -545,7 +549,7 @@ If this equation has a unique solution, as happens most of the time $c_0, c_1, c
 
 \begin{thm}[determination of eigenvalues from upper-triangular matrix]
   \label{thm:determination-of-eigenvalue-from-upper-triangular-matrix}
-  Suppose $T\in \linmap(V)$ has an upper-triangular matrix with respect to some basis of $V$. Then the eigenvalues of $T$ are precisely the entries on the diagonal of that upper-triangular matrix.
+  Suppose $T\in \linmap(V)$ has an upper\-/triangular matrix with respect to some basis of $V$. Then the eigenvalues of $T$ are precisely the entries on the diagonal of that upper-triangular matrix. 
 
 \end{thm}
 \begin{prf}
@@ -571,7 +575,11 @@ If this equation has a unique solution, as happens most of the time $c_0, c_1, c
     \dim \myspan{v_1, \ldots, v_k} = k \myand \dim \myspan{v_1, \ldots, v_{k-1}} = k-1,
   \end{equation}
   
-  this implies that $T-\lambda_k I$, which is restricted to $\myspan{v_1, \ldots, v_{k-1}}$, is not injective by \autoref{thm: linear-map-to-a-lower-dimensional-space-is-not-injective}. Thus $\exists v \in \myspan{v_1, \ldots, v_n}: v\neq0$ and $(T-\lambda_k I)v=0$. Thus $\lambda_k$ is an eigenvalue of $T$. Hence we have shown that every entry of the diagonal of $\mmatrix(T)$ is an eigenvalue of $T$.
+  this implies that $T-\lambda_k I$, which is restricted to $\myspan{v_1, \ldots, v_{k-1}}$, is not injective by \autoref{thm: linear-map-to-a-lower-dimensional-space-is-not-injective}. Thus 
+  \begin{equation}
+    \exists v \in \myspan{v_1, \ldots, v_n}: v\neq0$ and $(T-\lambda_k I)v=0. 
+  \end{equation}
+  Thus $\lambda_k$ is an eigenvalue of $T$. Hence we have shown that every entry of the diagonal of $\mmatrix(T)$ is an eigenvalue of $T$.
   
   To prove $T$ has no other eigenvalues, let
   \begin{equation}
@@ -581,9 +589,9 @@ If this equation has a unique solution, as happens most of the time $c_0, c_1, c
     \end{aligned}
   \end{equation}
   
-  Hence $q$ is a polynomial multiple of the minimal polynomial of $T$ by \autoref{thm:every-zero-polynomial-is-a-multiple-of-the-minimal-polynomial}. Thus every zero of the minimal polynomial is a zero of $q$.
+  Hence $q$ is a polynomial multiple of the minimal polynomial of $T$ by \ref{thm: every zero polynomial is a multiple of the minimal polynomial}. Thus every zero of the minimal polynomial is a zero of $q$.
   
-  Because the zeros of the minimal polynomial of $T$ are the eigenvalues of $T$ by \autoref{thm: eigenvalues are the zeros of the minimal polynomial}, this implies that every eigenvalue of $T$ is a zero of $q$. Hence the eigenvalues of $T$ are all contained in the list $\lambda_1, \ldots, \lambda_n$.
+  Because the zeros of the minimal polynomial of $T$ are the eigenvalues of $T$ by \ref{thm: eigenvalues are the zeros of the minimal polynomial}, this implies that every eigenvalue of $T$ is a zero of $q$. Hence the eigenvalues of $T$ are all contained in the list $\lambda_1, \ldots, \lambda_n$.
 \end{prf}
 
 
@@ -683,14 +691,14 @@ If this equation has a unique solution, as happens most of the time $c_0, c_1, c
   $\implies$ $\left.T\right|_U$ is a diagonalizable operator on $U$.
 \end{thm}
 \begin{prf}
-  Diagonazability of $T$ $\mathsmaller{\overset{\text{\ref{necessary-and-sufficient-condition-for-diagonalizability}}}{\iff}}$ the minimal polynomial of $T$ equals 
+  Diagonazability of $T$ $\mathsmaller{\overset{\text{\ref{thm: necessary and sufficient condition for diagonalizability}}}{\iff}}$ the minimal polynomial of $T$ equals 
   \begin{equation}
     (z-\lambda_1)\cdots(z-\lambda_m) \mytext{for} \lambda_1 \neq \cdots \neq \lambda_m.
   \end{equation} 
   
-  By \ref{minimal-polynomial-of-a-restriction-operator}, the minimal polynomial of $T$ is a polynomial multiple of the minimal polynomial of $\left.T\right|_U$.
+  By \ref{thm: minimal polynomial of a restriction operator}, the minimal polynomial of $T$ is a polynomial multiple of the minimal polynomial of $\left.T\right|_U$.
   
-  Hence the minimal polynomial of $\left.T\right|_U$  has the form required by \ref{necessary-and-sufficient-condition-for-diagonalizability}, which shows that $\left.T\right|_U$ is diagonalizable. It consists of factors $(z-\lambda_1)$ or $(z-\lambda_2), \dots, (z-\lambda_m)$.
+  Hence the minimal polynomial of $\left.T\right|_U$  has the form required by \ref{thm: necessary and sufficient condition for diagonalizability}, which shows that $\left.T\right|_U$ is diagonalizable. It consists of factors $(z-\lambda_1)$ or $(z-\lambda_2), \dots, (z-\lambda_m)$.
 \end{prf}
 
 % TODO: Gerhgorin Disk Theorem Def 5.66 and Theorem 5.67

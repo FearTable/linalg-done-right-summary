@@ -1,25 +1,83 @@
 
+% BEGIN custom geometry ************************************
+\setlength{\abovedisplayskip}{0pt}
+\setlength{\belowdisplayskip}{0pt}
+\setlength{\abovedisplayshortskip}{0pt}
+\setlength{\belowdisplayshortskip}{0pt}
+\setlength{\jot}{0pt}
+
+\titlespacing{\chapter}{0pt}{6pt}{3pt}
+\titlespacing{\section}{0pt}{25pt}{3pt}
+\titlespacing{\subsection}{0pt}{25pt}{3pt}
+\titlespacing{\subsubsection}{0pt}{6pt}{3pt}
+\titlespacing*{\chapter}{0pt}{-19pt}{0pt}
+% END custom geometry **************************************
+
+
+% BEGIN custom therem and proof environments ***************
+\newtheoremstyle{mytheoremstyle} % name
+{0.8em}                       % Space above {\topsep} 
+{.2em}                        % Space below
+{}                            % Body font
+{0em}                         % Indent amount
+{}                            % Theorem head font {\ttfamily\fontseries{b}\selectfont}
+{{\textbf{:} \newline}}       % Punctuation after theorem head
+{.3em}                        % Space after theorem head
+{{\textbf{\scshape{\thmname{#1}\thmnumber{ #2}}}{\normalfont \thmnote{ \itshape (#3)}}}} 
+                              % Theorem head spec (can be left empty, meaning ‘normal’)
+
+% Define 'thm', 'thm-non', 'mydef', 'mydef-non', 'example', 'example-non'
+% environments
+\theoremstyle{mytheoremstyle}
+\newtheorem{thm}{Theorem}[chapter]
+\newtheorem*{thm-non}{Theorem}
+\theoremstyle{mytheoremstyle}
+\newtheorem{mydef}[thm]{Definition}
+\newtheorem*{mydef-non}{Definition}
+\theoremstyle{mytheoremstyle}
+\newtheorem{example}[thm]{Example}
+\newtheorem*{example-non}{Example}
+
+\newtheoremstyle{indented-prf}
+{.2em}        % space before
+{0em}         % space after
+{
+ \setlength{\leftskip}{\mathindent}
+ \setlength{\parindent}{0pt}
+ \addtolength{\linewidth}{-\mathindent-3em}
+ \setlist[enumerate]{align=parleft,left=\mathindent..\mathindent+\mathindent-30pt}
+ \setlist[description]{leftmargin=\mathindent,labelindent=\mathindent-6pt-27pt} 
+ \addtolength{\mathindent}{\mathindent}
+}
+{0em}         % indent
+{\bfseries}   % header font
+{\textbf{:}}  % punctuation
+{.3em}        % after theorem header
+{{\textbf{\scshape{\thmname{#1}\thmnumber{ #2}}}{\normalfont \thmnote{ (#3)}}}}
+
+% define 'prf'-environment
+\theoremstyle{indented-prf}
+\newtheorem*{prf}{Proof}
+
+\def\endprf{
+  {\setlength{\leftskip}{\mathindent}\setlength{\rightskip}{3em}\setlength{\parindent}{0pt}\addtolength{\linewidth}{-\mathindent-3em}\setlist[enumerate]{align=parleft,left=\mathindent..\mathindent+\mathindent-30pt}\setlist[description]{leftmargin=\mathindent,labelindent=\mathindent-6pt-27pt} \addtolength{\mathindent}{\mathindent} \hfill$\blacksquare$}
+}
+
+\renewenvironment{proof}
+{{\textbf{Proof:}}}
+{\hfill $\Box$}
+% END custom proof and thereom environments ****************
+
+
+% BEGIN custom commands ************************************
 %\DeclarePairedDelimiter\norm{\lVert}{\rVert}
-\DeclarePairedDelimiter\innerproduct{\langle}{\rangle}
+%\DeclarePairedDelimiter\innerproduct{\langle}{\rangle}
 \newcommand{\ip}[2]{\left \langle #1, #2 \right \rangle}
 \newcommand{\norm}[1]{\left \lVert #1 \right \rVert}
 \newcommand{\gt}{>}
 \newcommand{\lt}{<}
 
-%\def\deltaLow{{ \color{purple}{ \delta_{\text{low}} }}}
-%\def\deltaSup{{ \color{purple}{ \delta_{\text{sup}} }}}
-%\def\deltaHigh{{ \color{purple}{ \delta_{\text{high}} }}}
-%\def\deltaVanilla{{ \color{purple}{ \delta }}}
-%
-%\def\tHigh{{ \color{olive}{ t_{\text{high}} }}}
-%\def\tLow{{ \color{olive}{ t_{\text{low}} }}}
-%
-%\def\supremum{{ \color{RoyalBlue}{ \tilde s }}}
-%\def\SSet{{ \color{RoyalBlue}{ S }}}
-%
-%\def\myEpsilon{{ \color{black}{\epsilon }}}
-%\def\myspan{{ \color{black}{\text{span} }}}
-
+% May be obsolete since you can use '$' inside equation environment
 \newcommand\mytext[1]{\;\;\, \text{#1}\;\;}
 \newcommand\myand{\;\;\, \text{and}\;\;}
 \newcommand\myor{\;\;\, \text{or}\;\;}
@@ -30,8 +88,26 @@
 \newcommand\dz{\, dz}
 \newcommand\du{\, du}
 
+% BFEMPH
+\newcommand{\bfemph}[1]{{\scshape #1}}
+
+% natural numbers, integers, real numbers, complex numbers:
+\newcommand{\nat}{\mathbb{N}}
+\newcommand{\integer}{\mathbb{N}}
+\newcommand{\real}{\mathbb{R}}
+\newcommand{\compl}{\mathbb{C}}
+\newcommand{\myF}{\mathbb{F}}
+
+% polynomial symbol:
+\newcommand{\polyn}{\mathcal{P}}
+
+% degree operator:
 \def\degree{{\operatorname{deg} \,}}
 
+% Matrix symbol M:
+\newcommand{\mmatrix}{\mathcal{M}}
+
+% use \span{..} for span(..)
 \newcommand{\myspan}[1]{\operatorname{span} (#1)}
 
 %Fast way to write v_1 ... v_n
@@ -47,169 +123,62 @@
 \newcommand{\oneTill}[2]{#1_1, \dots, #1_{#2}}
 \newcommand{\onetill}[2]{#1_1, \dots, #1_{#2}}
 
-\newcommand{\kInOneTillM}{k \in \{1, \dots, m \}}
-\newcommand{\kinonetillm}{k \in \{1, \dots, m \}}
-\newcommand{\kInOneTillN}{k \in \{1, \dots, n \}}
-\newcommand{\kinonetilln}{k \in \{1, \dots, n \}}
-\newcommand{\kInOneTillP}{k \in \{1, \dots, p \}}
-\newcommand{\kinonetillp}{k \in \{1, \dots, p \}}
+\newcommand{\kInOneTillM}{k \in \{1, \dots, m \}} % k e {1...m}
+\newcommand{\kinonetillm}{k \in \{1, \dots, m \}} % k e {1...m}
+\newcommand{\kInOneTillN}{k \in \{1, \dots, n \}} % k e {1...n}
+\newcommand{\kinonetilln}{k \in \{1, \dots, n \}} % k e {1...n}
+\newcommand{\kInOneTillP}{k \in \{1, \dots, p \}} % k e {1...p}
+\newcommand{\kinonetillp}{k \in \{1, \dots, p \}} % k e {1...p}
 
-% abreviation for finite-dimensional vector space
+% abbreviation for finite-dimensional vector space
 \newcommand{\findimvecpac}{finite-dimensional vector space }
 \newcommand{\findimvs}{finite-dimensional vector space }
 \newcommand{\fdvs}{finite-dimensional vector space }
 
-%abreviation for linearly independent
+% abbreviation for linearly independent
 \newcommand{\lid}{linearly independent}
 
-%abreviation for linearly independent
+% abbreviation for linearly independent
 \newcommand{\ld}{linearly dependent }
 
-%abreviation for linearly independent
+% abbreviation for linearly independent
 \newcommand{\vs}{vector space }
-
-%abreviation for finite-dimensional
+ 
+% abbreviation for finite-dimensional
 \newcommand{\fd}{{finite-dimensional }}
 
-%abreviation for linear map
+% abbreviation for linear map
 \newcommand{\lm}{{linear map }}
 
-%abbreaviation for L(V,W)
+% abbreaviation for L(V,W)
 \newcommand{\lvw}{{\mathcal{L}(V,W)}}
 
+% use \linmap for L or \lin{arg1}{arg2} for L(arg1, arg2)
 \newcommand{\linmap}{\mathcal{L}}
 \newcommand{\lin}[2]{{\mathcal{L}(#1, #2)}}
 
+% null and range
 \newcommand{\mynull}{\operatorname{null}}
-
 \newcommand{\myrange}{\operatorname{range}}
 
+% even and odd
 \newcommand{\even}{\operatorname{even}}
 \newcommand{\odd}{\operatorname{odd}}
 
-%\newcommand{\mmatrix}{\mathcal{M}}
+% legacy
 
-% Natural numbers, integers, real numbers, complex numbers:
-\newcommand{\nat}{\mathbb{N}}
-\newcommand{\integer}{\mathbb{N}}
-\newcommand{\real}{\mathbb{R}}
-\newcommand{\compl}{\mathbb{C}}
-\newcommand{\myF}{\mathbb{F}}
+% \newcommand{\basis}[2]{\overbrace{ \myspan{#1_1, \dots #1_{#2}}}^{\text{linearly independent}} }}
+\def\myimpl{{\{black}{\implies}}
 
-% Polynomial symbol:
-\newcommand{\polyn}{\mathcal{P}}
+% END custom comands ***************************************
 
-% Matrix symbol:
-\newcommand{\mmatrix}{\mathcal{M}}
+% BEGIN custom chapter format ******************************
+\renewcommand*{\thechapter}{\arabic{chapter}}
+\renewcommand*{\thesection}{\arabic{chapter}\Alph{section}}
+\renewcommand*{\thesubsection}{\arabic{chapter}\Alph{section}\arabic{subsection}}
 
-%\newcommand{\}[1]{{\ttfamily\fontseries{b}\selectfont #1}}
-\newcommand{\bfemph}[1]{{\scshape #1}}
-
-%\newcommand{\basis}[2]{\overbrace{ \myspan{#1_1, \dots #1_{#2}}}^{\text{linearly independent}} }}
-
-\def\myimpl{{ \{black}{\implies}}
-
-
-\def\bold#1{{\bf #1}}
-
-%\newtheoremstyle{mytheoremstyle} % name
-%%{\topsep}                    % Space above
-%{0.8em}                    % Space above
-%{0em}                        % Space below
-%{}                           % Body font
-%{0em}                           % Indent amount
-%%{\ttfamily\fontseries{b}\selectfont}                   % Theorem head font
-%{}                   % Theorem head font
-%{{\bfseries\scshape\relscale{1.1}:}\newline}                          % Punctuation after theorem head
-%{.3em}                       % Space after theorem head
-%{{\bfseries\scshape\relscale{1.1}\thmname{#1}\thmnumber{ #2}}{\normalfont \thmnote{ (#3)}}}  					     % Theorem head spec (can be left empty, meaning ‘normal’)
-
-\newtheoremstyle{mytheoremstyle} % name
-%{\topsep}                    % Space above
-{0.8em}                    % Space above
-{.2em}                        % Space below
-{}                           % Body font
-{0em}                           % Indent amount
-%{\ttfamily\fontseries{b}\selectfont}                   % Theorem head font
-{}                   % Theorem head font
-{{\textbf{\relsize{1.1}:}}\newline}                          % Punctuation after theorem head
-{.3em}                       % Space after theorem head
-{{\textbf{\relsize{1.1}\scshape{\thmname{#1}\thmnumber{ #2}}}{\normalfont \thmnote{ (#3)}}}}  					     % Theorem head spec (can be left empty, meaning ‘normal’)
-
-\theoremstyle{mytheoremstyle}
-\newtheorem{thm}{Theorem}[chapter]
-
-\theoremstyle{mytheoremstyle}
-\newtheorem{mydef}[thm]{Definition}
-\newtheorem*{mydef-non}{Definition}
-
-\theoremstyle{mytheoremstyle}
-\newtheorem{example}[thm]{Example}
-
-
-
-\newtheoremstyle{indented}
-{.2em}% space before
-{0em}% space after
-{
- \setlength{\leftskip}{\mathindent}
- %\setlength{\rightskip}{3em}
- \setlength{\parindent}{0pt}
- %\setlength{\hangindent}{\mathindent}
- \addtolength{\linewidth}{-\mathindent-3em}
- %\rightskip\leftskip
- 
- %\addtolength{\itemindent}{2em}
- \setlist[enumerate]{align=parleft,left=\mathindent..\mathindent+\mathindent-30pt}
- %\setlist[description]{align=parleft,left=2em..4em}
- \setlist[description]{leftmargin=\mathindent,labelindent=\mathindent-6pt-27pt} 
- %\setlist[description]{align=parleft,left=2em..4em}
-  
- \addtolength{\mathindent}{\mathindent}
-}
-%{\addtolength{\totalleftmargin}{3em}
-%  \addtolength{\linewidth}{-3em}
-%  \parshape 1 3em \linewidth}% body font
-{0em}% indent
-{\bfseries}% header font
-{\textbf{\relsize{1.1}:}}% punctuation
-{.3em}% after theorem header
-%{}% header specification (empty for default)
-{{\textbf{\relsize{1.1}\scshape{\thmname{#1}\thmnumber{ #2}}}{\normalfont \thmnote{ (#3)}}}}
-
-
-\theoremstyle{indented}
-  
-\newtheorem*{prf}{Proof}
-
-%\AtBeginEnvironment{myproof}{\begin{adjustwidth}{2.5em}{2.5em}}
-%\AtEndEnvironment{myproof}{\end{adjustwidth}}
-
-\AtEndEnvironment{prf}{bla \hfill$\blacksquare$}
-
-\def\endprf{
-  
-  {\setlength{\leftskip}{\mathindent}\setlength{\rightskip}{3em}\setlength{\parindent}{0pt}\addtolength{\linewidth}{-\mathindent-3em}\setlist[enumerate]{align=parleft,left=\mathindent..\mathindent+\mathindent-30pt}\setlist[description]{leftmargin=\mathindent,labelindent=\mathindent-6pt-27pt} \addtolength{\mathindent}{\mathindent} \hfill$\blacksquare$}
-   }
-
-\renewenvironment{proof}
-{
-  {
-    %\relscale{1.1}
-    %\scshape
-    %\itshape
-    %\selectfont
-    \textbf{Proof:}}
-}
-{
-  \hfill $\Box$ \\
-}
-
-
-\setlength{\abovedisplayskip}{0pt}
-\setlength{\belowdisplayskip}{0pt}
-
-%\setlength{\abovedisplayshortskip}{0pt}
-%\setlength{\belowdisplayshortskip}{0pt}
-
-\setlength{\jot}{0pt}
+\titleformat{\chapter}[block]
+{\bfseries\scshape}{{\relscale{1.1} chapter} {\relscale{1.1} \thechapter \newline} { } { }  \relscale{1.3} #1}{0.5em}{\selectfont\large}
+\titleformat{\section}{\bfseries\relscale{1.2}\scshape}{}{0em}{\thesection { } #1} %Large
+\titleformat{\subsection}{\relscale{1.1}\bfseries\scshape}{}{0em}{#1 (\thesubsection)} %large
+% END custom chapter format ********************************

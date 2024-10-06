@@ -36,7 +36,7 @@ For $z \in \compl$, we define the norm of $z$ by
   \begin{itemize}
     \item \bfemph{Positivity: } $
     {v,v} \geq 0 \quad \forall v \in V$
-    \item \bfemph{Definiteness: } $\innerproduct{v,v} = 0 \iff v=0$
+    \item \bfemph{Definiteness: } $\ip{v}{v} = 0 \iff v=0$
     \item \bfemph{Additifity in first slot: } $\ip{u+v}{w}=\ip{u}{w}+\ip{v}{w} \quad \forall u,v,w \in V$
     \item \bfemph{Conjugate symmetry} $\ip{u}{v} = \overline{\ip{v}{u}} \quad \forall u, v \in V$ 
   \end{itemize}
@@ -72,10 +72,8 @@ For $z \in \compl$, we define the norm of $z$ by
 \end{mydef}
 
 \begin{example}
-  For $f \in C[-1,1]$ and with inner product given as 6.3(c) we have
-  \begin{equation}
-    \norm{f} = \sqrt { \int_{-1}^{1} f^2}
-  \end{equation}
+  For $f \in C[-1,1]$ and with inner product given as in 6.3(c) we have $\norm{f} = \sqrt { \int_{-1}^{1} f^2}$
+
 \end{example}
 
 \begin{thm} [basic properties of the norm]
@@ -108,11 +106,12 @@ For $z \in \compl$, we define the norm of $z$ by
 \begin{thm}[Pythagorean theorem]
   If $u,v \in V$ are orthogonal, then
   \begin{equation}
-    \norm{u+v}² = \norm{u}^2 + \norm{v}^2
+    \norm{u+v}^2 = \norm{u}^2 + \norm{v}^2
   \end{equation}
 \end{thm}
 \begin{prf} 
   $\norm{u+v}^2 = \ip{u+v}{u+v} = \ip{u}{u} + \underbrace{\ip{u}{v}}_{=0} + \underbrace{\ip{v}{u}}_{=0} + \ip{v}{v} = \norm{u}^2 + \norm{v}^2 $
+  
 \end{prf}
 
 \setcounter{thm}{12}
@@ -134,7 +133,7 @@ For $z \in \compl$, we define the norm of $z$ by
 \begin{prf}
   If $v=0$, both sides are $0$. Thus $v\neq0 $.
   
-  Let $u :\equiv cv+w = \frac{\ip{u}{v}}{\norm{v}^2} v + w$ such that $v\perp w: ´\ip{w}{v} = 0$ like above (\autoref{thm: an orthogonal decomposition}). By Pythagoras we have
+  Let $u :\equiv cv+w = \frac{\ip{u}{v}}{\norm{v}^2} v + w$ such that $v\perp w: \ip{w}{v} = 0$ like above (\autoref{thm: an orthogonal decomposition}). By Pythagoras we have
   \begin{equation}
     \begin{aligned}
       \norm{u}^2 
@@ -149,6 +148,7 @@ For $z \in \compl$, we define the norm of $z$ by
   \end{equation} 
   
   Multiplying both sides with $\norm{v}^2$ yields the Cauchy-Schwarz inequality. Equality is only given, if $w=0$. So if $u=\lambda v$.
+  
 \end{prf}
 
 \setcounter{thm}{13}

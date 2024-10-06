@@ -1,6 +1,7 @@
+\chapter{polynomials}
 $\mathbb{F}$ denotes $\mathbb{R}$ or $\mathbb{C}$.
 
-\section{Zeros of polynomials}
+\subsection{Zeros of polynomials}
 $p: \mathbb{F} \to \mathbb{F}, \, p(z) = a_0 + a_1z + \cdots + a_n z^m$
 
 \setcounter{thm}{4}
@@ -52,9 +53,8 @@ $p: \mathbb{F} \to \mathbb{F}, \, p(z) = a_0 + a_1z + \cdots + a_n z^m$
 
 \section{Factorization of Polynomials over $\compl$}
 \setcounter{thm}{11}
-\begin{thm}
+\begin{thm}[Fundamental theorem of algebra, first version]
   \label{fundamental-theorem-of-algebra-first-version}
-  Fundamental theorem of algebra, first version: \\
   Every non-constant polynomial with complex coefficients has a zero in $\mathbb{C}$.
 \end{thm}
 
@@ -77,7 +77,7 @@ $p: \mathbb{F} \to \mathbb{F}, \, p(z) = a_0 + a_1z + \cdots + a_n z^m$
   $p(x)=x^2 + bx + c$ $=$ $(x-\lambda_1)(x-\lambda_2)$ with $\lambda_1, \lambda_2 \in \mathbb{R} \iff b^2 \geq 4c$.
 \end{thm}
 \begin{prf}
-  $x^2+bx+c=(x+\sfrac{b}{2})^2+(c-\sfrac{b^2}{4})$. Therefore, if $b^2<4c$, the last term is always positive and no factorization is possible because it has no zeros (\ref{factororing-out-zeros-of-a-polynomial-always-possible}). \\
+  Let $x^2+bx+c=(x+\sfrac{b}{2})^2+(c-\sfrac{b^2}{4})$. Therefore, if $b^2<4c$, the last term is always positive and no factoriza\-tion is possible because it has no zeros (\ref{factororing-out-zeros-of-a-polynomial-always-possible}). \\
   If $b^2 \geq 4c$, we define $d^2 :\equiv \sfrac{b^2}{4}-c$ which makes
   \begin{equation}
 	  \begin{aligned}
@@ -92,8 +92,8 @@ $p: \mathbb{F} \to \mathbb{F}, \, p(z) = a_0 + a_1z + \cdots + a_n z^m$
   \begin{equation}
     \lambda_1 :\equiv -d-\sfrac{b}{2} \mytext{and} \lambda_2 :\equiv d-\sfrac{b}{2}.
   \end{equation}
-  which is the same as the well known midnight formula:
   
+  which is the same as the well known midnight formula:
   \begin{equation}
     \lambda_{1,2} = \frac{-b \pm \sqrt{b^2-4c}}{2}
   \end{equation}
