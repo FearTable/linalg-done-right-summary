@@ -1,5 +1,4 @@
 \documentclass[draft]{report}
-%\usepackage[fleqn]{amsmath}
 \usepackage[fleqn]{amsmath}
 \usepackage{amssymb}
 \usepackage{xcolor}
@@ -20,13 +19,14 @@
 \usepackage{breqn}
 \usepackage[colorlinks=false]{hyperref}
 \usepackage{xr-hyper}
-%\usepackage[fontsize=12pt]{scrextend}
+\usepackage[fontsize=12pt]{scrextend}
 \usepackage{relsize}
 \usepackage{enumitem}
 \usepackage{etoolbox}
 \usepackage{changepage}
 \usepackage{mathtools}
 \usepackage[shortcuts]{extdash}
+\usepackage[framemethod=tikz]{mdframed}
 
 \setlist{nosep}
 
@@ -47,10 +47,12 @@
   top=15mm,
 }
 
+\linespread{1.2}
+
 
 \begin{document}
-
-
+  
+  
   %customizations:
   \input{def}
 

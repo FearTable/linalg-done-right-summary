@@ -31,7 +31,7 @@
 \setcounter{thm}{8}
 %\textbf{2.9}
 \begin{mydef} [Finite-dimensional vector space]
-  Such a vector space is called finite-dimensional. We write $\dim V \neq \infty$ or $\dim V < \infty$
+  Such a vector space is called finite\-/dimensional. We write $\dim V \neq \infty$ or $\dim V < \infty$
 \end{mydef}
 
 %\textbf{2.10, 2.11, 2.12}
@@ -99,8 +99,10 @@
 \begin{thm} [Linear dependence lemma]
   \label{linear-dependence-lemma}
   Suppose $v_{1}, \dots, v_{m}\in V$ is a linearly dependent list.
-  $\implies \exists k \in \{ 1, \dots, m \} : v_k \in \myspan {v_1, \dots, v_{k-1}}$. \\
-  Furthermore, if $k$ satisfies the conditions above and the $k^{\text{th}}$-term is removed from $v_1, \dots, v_m$, then the span of the remaining list equals $\myspan {v_1, \dots, v_{k-1}}$:
+  \begin{equation}
+    \implies \exists k \in \{ 1, \dots, m \} : v_k \in \myspan {v_1, \dots, v_{k-1}}.
+  \end{equation}
+  Furthermore, if $k$ satisfies the conditions above and the $k^{\text{th}}$-term is removed from $v_1, \dots, v_m$, then the span of the remaining list equals $\myspan {v_1, \dots, v_{m}}$:
   \begin{equation}
     \myspan {v_1, \dots, v_{k-1}, v_{k+1}, \dots, v_m} = \myspan {v_1, \dots, v_m}
   \end{equation}

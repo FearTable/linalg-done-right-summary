@@ -53,7 +53,6 @@ Conversely if $Tv = \lambda v$, $\lambda \in \myF$, then $\myspan{v}$ is a one-d
     (T-\lambda I)v=0.
   \end{equation} So there is a non-zero solution to $T-\lambda I$.
   \ref{second}, \ref{third} and \ref{forth} are equivalent by \ref{injectivity-is-equivalent-to-surjectivity}.
-  
 \end{prf}
 
 \setcounter{thm}{7}
@@ -284,7 +283,6 @@ $\implies T^m T^n = T^{m+n}$ and $(T^m)^n=T^{mn}$ when $m,n \in \mathbb{Z}$ when
   \end{equation} 
   
   and also $\deg (p-r) < \deg p = \deg r$ If $p-r \neq 0$, we could devide $p-r$ by the coefficient of the highest order term in $p-r$ to get a monic polynomial that when applied to $T$ gives the $0$-operator. This polynomial would have a smaller degree than $p$ or $r$, which would be a contradiction. Therefore $p-r=0 \iff p = r$.
-
 \end{prf}
 
 \setcounter{thm}{23}
@@ -379,28 +377,27 @@ If this equation has a unique solution, as happens most of the time $c_0, c_1, c
     p(T)u=0 \quad \forall u\in U.
   \end{equation} Thus $p\left( \left.T\right|_{U} \right)=0.$ Now the previous theorem
   \autoref{thm: every zero polynomial is a multiple of the minimal polynomial} tells us, that $p$ is a polynomial multiple of the minimal polynomial of $\left. T \right |_U$.
-  
 \end{prf}
 
 \begin{thm} [invertibility and the constant term of the minimal polynomial]
-  $T \in \linmap (V):$ $T$ is not invertible $\mathsmaller{\iff}$ the constant term of the minimal polynomial of $T$ is $0$.
+  Let $T \in \linmap (V)$. Then we have: $T$ is not invertible $\iff$ the constant term of the minimal polynomial of $T$ is $0$.
 \end{thm}
 \begin{prf}
-  $T$ is not invertible $\mathsmaller{\overset{\text{\ref{equivalent-conditions-to-be-an-eigenvalue}}}{\iff}}$ $0$ is an eigenvalue of $T$ $\mathsmaller{\overset{\text{\ref{thm: eigenvalues are the zeros of the minimal polynomial}}}{\iff}}$ $0$ is a zero of $p$ $\mathsmaller{\iff}$ the constant term of $p$ is $0$.
+  $T$ is not invertible $\iff_{\text{(\ref{equivalent-conditions-to-be-an-eigenvalue})}}$ $0$ is an eigenvalue of $T$ $\iff_{\text{\ref{thm: eigenvalues are the zeros of the minimal polynomial}}}$ $0$ is a zero of $p$ $\mathsmaller{\iff}$ the constant term of $p$ is $0$.
   (In the first equivalence, we have actually used that $0$ is an eigenvalue of $T$ if and only if $T-0I$ is not invertible, according to \ref{equivalent-conditions-to-be-an-eigenvalue}.)
-  
 \end{prf}
 
 \subsection{Eigenvalues on Odd-Dimensional Real Vector Spaces}
 \begin{thm}[even-dimensional null space]
-  Suppose $\myF = \real$ and $V$ is finite-dimensional. Suppose also that $T \in \linmap (V)$ and $b,c \in \real$ with $b^2 < 4c$. 
+  Suppose $\myF = \real$ and $V$ is finite-dimensional. \\
+  Suppose also that $T \in \linmap (V)$ and $b,c \in \real$ with $b^2 < 4c$. 
   \begin{equation}
     \implies \dim \mynull (T^2 +bT +cI) \mytext{is an even number}
   \end{equation}
 \end{thm}
 
 \begin{thm}[operators on odd-dimensional vectors spaces have eigenvalues]
-  Every operator on an odd-dimensional vector space has an eigenvalue.
+  Every operator on an odd\-/dimensional vector space has an eigenvalue.
 \end{thm}
 
 \section{Upper-Triangular Matrices}
@@ -470,7 +467,6 @@ If this equation has a unique solution, as happens most of the time $c_0, c_1, c
   Hence all the entries under the diagonal of $\mmatrix (T)$ are $0$, because $v_1, \ldots, v_n$ are linearly independent. Thus $\mmatrix(T)$ is an upper-triangular matrix, completing the proof that (c) implies (a).
   
   We have shown that (a) $\implies$ (b) $\implies$ (c) $\implies$ (a)
-  
 \end{prf}
 
 \begin{thm}[equation satisfied by operator with upper-triangular matrix]
@@ -544,7 +540,6 @@ If this equation has a unique solution, as happens most of the time $c_0, c_1, c
   \end{equation}
   
   Thus $(T-\lambda_1 I) \cdots (T- \lambda_n I)$ is the $0$ operator because it is $0$ on each vector in a basis of $V$.
-  
 \end{prf}
 
 \begin{thm}[determination of eigenvalues from upper-triangular matrix]
@@ -691,7 +686,8 @@ If this equation has a unique solution, as happens most of the time $c_0, c_1, c
   $\implies$ $\left.T\right|_U$ is a diagonalizable operator on $U$.
 \end{thm}
 \begin{prf}
-  Diagonazability of $T$ $\mathsmaller{\overset{\text{\ref{thm: necessary and sufficient condition for diagonalizability}}}{\iff}}$ the minimal polynomial of $T$ equals 
+%  Diagonazability of $T$ $\mathsmaller{\overset{\text{\ref{thm: necessary and sufficient condition for diagonalizability}}}{\iff}}$ the minimal polynomial of $T$ equals 
+    Diagonazability of $T$ $\iff_{(\ref{thm: necessary and sufficient condition for diagonalizability})}$ the minimal polynomial of $T$ equals 
   \begin{equation}
     (z-\lambda_1)\cdots(z-\lambda_m) \mytext{for} \lambda_1 \neq \cdots \neq \lambda_m.
   \end{equation} 

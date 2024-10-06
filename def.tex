@@ -13,6 +13,43 @@
 \titlespacing*{\chapter}{0pt}{-19pt}{0pt}
 % END custom geometry **************************************
 
+% new mdframed style that places the edges at the corners (.675em):
+\mdfdefinestyle{proof-style}{
+  skipabove         = 0.3em,% .5\baselineskip ,
+  skipbelow         = 0,%.5\baselineskip ,
+  leftmargin        = 0.5em ,
+  rightmargin       = 0.5em ,
+  innermargin       = 0pt ,
+  innertopmargin    = 0.5em, %0.6 %.675em ,
+  innerleftmargin   = 0.5em, %.675em ,
+  innerrightmargin  = 0.5em,
+  innerbottommargin = 0.5em, %.675em +3pt,
+  hidealllines      = true,
+  singleextra       = {
+    \draw (O) -- ++(0,.7em) (O) -- ++(.7em,0) ;
+    \draw (P-|O) -- ++(0,-.7em) (P-|O) -- ++(.7em,0) ;
+  },
+  firstextra        = {
+    \draw (P-|O) -- ++(0,-.7em) (P-|O) -- ++(.7em,0) ;
+  },
+  secondextra       = {
+    \draw (O) -- ++(0,.7em) (O) -- ++(.7em,0) ;
+  },
+}
+
+\surroundwithmdframed[style=proof-style]{prf}
+\newtheorem*{prf}{Proof}
+
+% custom QED Symbol
+%\newcommand*\closedbox{%
+%    \leavevmode\hbox to.77778em{\rule{.675em}{.675em}}}
+%\let\qedsymbol\closedbox
+
+\renewenvironment{prf}{{\textbf{\scshape \slshape Proof:}}}{\hfill $\qedsymbol$}
+
+% put the new mdframed style around the 'proof' and 'xmpl0 environment:
+\surroundwithmdframed[style=proof]{proof}
+%\surroundwithmdframed[style=proof]{xmpl}
 
 % BEGIN custom therem and proof environments ***************
 \newtheoremstyle{mytheoremstyle} % name
@@ -21,9 +58,9 @@
 {}                            % Body font
 {0em}                         % Indent amount
 {}                            % Theorem head font {\ttfamily\fontseries{b}\selectfont}
-{{\textbf{:} \newline}}       % Punctuation after theorem head
+{{\textbf{:} }}       % Punctuation after theorem head
 {.3em}                        % Space after theorem head
-{{\textbf{\scshape{\thmname{#1}\thmnumber{ #2}}}{\normalfont \thmnote{ \itshape (#3)}}}} 
+{{\textbf{\scshape{\thmname{#1}\thmnumber{ #2}}}{\normalfont \thmnote{ \slshape (#3)}}}} 
                               % Theorem head spec (can be left empty, meaning ‘normal’)
 
 % Define 'thm', 'thm-non', 'mydef', 'mydef-non', 'example', 'example-non'
@@ -57,15 +94,15 @@
 
 % define 'prf'-environment
 \theoremstyle{indented-prf}
-\newtheorem*{prf}{Proof}
+%\newtheorem*{prf}{Proof}
 
-\def\endprf{
-  {\setlength{\leftskip}{\mathindent}\setlength{\rightskip}{3em}\setlength{\parindent}{0pt}\addtolength{\linewidth}{-\mathindent-3em}\setlist[enumerate]{align=parleft,left=\mathindent..\mathindent+\mathindent-30pt}\setlist[description]{leftmargin=\mathindent,labelindent=\mathindent-6pt-27pt} \addtolength{\mathindent}{\mathindent} \hfill$\blacksquare$}
-}
+%\def\endprf{
+%  {\setlength{\leftskip}{\mathindent}\setlength{\rightskip}{3em}\setlength{\parindent}{0pt}\addtolength{\linewidth}{-\mathindent-3em}\setlist[enumerate]{align=parleft,left=\mathindent..\mathindent+\mathindent-30pt}\setlist[description]{leftmargin=\mathindent,labelindent=\mathindent-6pt-27pt} \addtolength{\mathindent}{\mathindent} \hfill$\blacksquare$}
+%}
 
-\renewenvironment{proof}
-{{\textbf{Proof:}}}
-{\hfill $\Box$}
+%\renewenvironment{proof}
+%{{\textbf{Proof:}}}
+%{\hfill $\Box$}
 % END custom proof and thereom environments ****************
 
 
