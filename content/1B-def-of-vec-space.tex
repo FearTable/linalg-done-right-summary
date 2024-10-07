@@ -1,20 +1,20 @@
 \section{Definition of a vector space}
 
 \setcounter{thm}{19}
-\begin{mydef}
+\begin{mydef} [vector space]
   A ``vector space" is a set $V$ along with an addition on $V$ and a scalar multiplication on $V$ such that the following properties hold.
   \begin{itemize}
-    \item \bfemph{Commutativity:}
+    \item \emph{Commutativity:}
     $ u+v = v+u \quad \forall u,v \in V$
-    \item \bfemph{Associativity:}
+    \item \emph{Associativity:}
     $(u+v)+w=u+(v+w)$ and $(ab)v=a(bv) \quad \forall u,v,w \in V$ and $\forall a,b \in \myF$
-    \item \bfemph{Additive identity:}
+    \item \emph{Additive identity:}
     $\exists 0\in V:v+0=v \quad \forall v\in V$. ($\exists!$ is not a requirement but a property.)
-    \item \bfemph{Additive inverse:}
+    \item \emph{Additive inverse:}
     $\forall v\in V \quad \exists w\in V: v+w=0$
-    \item \bfemph{Multiplicative identity:}
+    \item \emph{Multiplicative identity:}
     $1v = v \quad \forall v\in V$
-    \item \bfemph{Distributive properties:}\\
+    \item \emph{Distributive properties:}\\
     $a(u+v) = au+av \myand$  \\
     $(a+b)v \, = av + bv \quad \forall a,b \in \myF \myand$
     $\forall u,v \in V$
@@ -22,7 +22,7 @@
 \end{mydef}
 
 \setcounter{thm}{23}
-\begin{mydef}
+\begin{mydef} [notation $\myF^S$]
   If $S$ is a set, then $\myF^S$ denotes the set of functions from $S$ to $\myF$. Let $f, g \in \myF^{S}$ and $\lambda \in \myF$:
   \begin{itemize}
     \item The ``sum" $f+g \in \myF^{S}$ is defined as follows: $(f+g)(x) :\equiv f(x)+ g(x) \quad \forall x\in S$
@@ -32,11 +32,18 @@
 \end{mydef}
 
 \setcounter{thm}{25}
-\begin{thm}
+\begin{thm} [additive identity]
   A vector space has a unique additive identity.
 \end{thm}
+\begin{prf}
+  $v\in V.$ Suppose $w,w' \in V$ are additive inverses of $v$. Then using associativity and the definition of the additive inverse we get
+  \begin{equation}
+    w = w + 0 = w + (v + w') = (w+v) + w' = 0 + w' = w'
+  \end{equation}
+  Thus $w = w'$, as desired^
+\end{prf}
 
-\begin{thm}
+\begin{thm} [additive inverse]
   Every element in a vector space has a unique additive inverse.
 \end{thm}
 
@@ -48,14 +55,25 @@
   For the rest of this summary, $V$ denotes a vector space over $\myF$.
 \end{mydef}
 
-\begin{thm}
+% 1.30
+\begin{thm} [the number $0$ times a vector]
   $0v = 0 \quad \forall v\in V$
 \end{thm}
+\begin{prf}
+  $v \in V: 0v = (0+0)v = 0v +0v \implies 0 = 0v$. Using the definition of additive identity and the distributive property in $\myF$. After that, we subtract $0v$ on both sides of the equation.
+\end{prf}
 
-\begin{thm}
+\begin{thm} [a number times the vector $0$]
   $a \vec0= \vec0 \quad \forall a\in \myF$
 \end{thm}
+\begin{prf}
+  $a \in \myF: a0 = a(0+0) = a0 + a0 \implies 0 = a0$. Using the definition of additive identity and the distributive property for $0 \in V, a \in \myF$. After that, we subtract $0a$ on both sides of the equation.
+\end{prf}
 
-\begin{thm}
+\begin{thm} [a number $-1$ times a vector]
+  \label{thm: minus one times a vector}
   $(-1)v = -v \quad \forall v\in V$
 \end{thm}
+\begin{prf}
+  $v \in V: v + (-1)v = 1v + (-1)v = (1 + (-1)v) = 0v = 0$ using the distributive property and the defintion of the multiplicative identity. This equation ($v+(-1)v=0$) tells us, that $(-1)v$ is the additive inverse of $v$, therefore $(-1)v = -v$.
+\end{prf}
