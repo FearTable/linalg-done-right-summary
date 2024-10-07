@@ -22,10 +22,14 @@
   (Sometimes, $\operatorname{null} T = \{0\}$ and $\operatorname{range} T=V$ if $T$ is invertible.)
 \end{example}
 
-\bigbreak
+\bfemph{Invariant subspaces of dimension one: } 
 
-\bfemph{Invariant subspaces of dimension one:} \\
-Take any $v\in V, v\neq 0$ and let $U :\equiv \{  \lambda v \mid \lambda \in \myF \} = \myspan{v}$, then $U$ is a one-dimensional subspace of $V$. \\
+Take any $v\in V, v\neq 0$ and let 
+\begin{equation}
+  U :\equiv \{  \lambda v \mid \lambda \in \myF \} = \myspan{v},
+\end{equation}
+then $U$ is a one\-/dimensional subspace of $V$. 
+
 If $U$ is invariant under an operator $T \in \linmap (V)$, then $Tv  \in U$. $\implies \exists \lambda \in \myF: Tv = \lambda v$. \\
 Conversely if $Tv = \lambda v$, $\lambda \in \myF$, then $\myspan{v}$ is a one-dimensional subspace of $V$ invariant under $T$.
 
@@ -68,7 +72,7 @@ Conversely if $Tv = \lambda v$, $\lambda \in \myF$, then $\myspan{v}$ is a one-d
   Every list of eigenvectors of $T$ corresponding to distinct eigenvalues of $T$ is linearly independent.
 \end{thm}
 \begin{prf}
-  Suppose the desired result is false. Then there exists a smallest list of length $m$ of linearly depen\-dent eigenvectors $v_1, \dots, v_m$ with eigenvalues $\lambda_1, \dots, \lambda_m$ of $T$. Since an eigenvector is unequal to the zero vector, $m$ must be $\geq 2$.
+  Suppose the desired result is false. Then there exists a smallest list of length $m$ of linearly depen\-dent eigenvectors $v_1, \dots, v_m$ with eigenvalues $\lambda_1,$ $\dots$ $,\lambda_m$ of $T$. Since an eigenvector is unequal to the zero vector, $m$ must be $\geq 2$.
 
   Because of the minimality of $m$ and becaue our list is linearly dependent: 
   \begin{equation}
@@ -91,7 +95,6 @@ Conversely if $Tv = \lambda v$, $\lambda \in \myF$, then $\myspan{v}$ is a one-d
   \end{equation}
 
   Which contradicts the minimality of $m$. Therefore, no such linearly dependent list of eigenvectors can exist.
-  
 \end{prf}
 
 \begin{thm}
@@ -179,7 +182,7 @@ $\implies T^m T^n = T^{m+n}$ and $(T^m)^n=T^{mn}$ when $m,n \in \mathbb{Z}$ when
 
 \begin{thm} [existence of eigenvalues]
   \label{thm: existence of eigenvalues}
-  Every operator on a finite-dimensional nonzero complex vector space has an eigenvalue.
+  Every operator on a \fd non\-/zero complex vector space has an eigenvalue.
 \end{thm}
 \begin{prf}
   Suppose $\dim(V)=n>0$ and $T\in \linmap(V).$ 
@@ -224,7 +227,7 @@ $\implies T^m T^n = T^{m+n}$ and $(T^m)^n=T^{mn}$ when $m,n \in \mathbb{Z}$ when
   Furthermore $\deg p \leq \dim V$
 \end{thm}
 \begin{prf}
-  If $\dim V=0$, then $I$ is the zero-operator on $V$ and we let $p=1$ such that $1I\vec0=0$.           Now we use induction on $\dim V$ and we assume $\dim V > 0$ and that the theorem holds for all vector spaces of smaller dimension.
+  If $\dim V=0$, then $I$ is the zero-operator on $V$ and we let $p=1$ such that $1I\vec0=0$. Now we use induction on $\dim V$ and we assume $\dim V > 0$ and that the theorem holds for all vector spaces of smaller dimension than $\dim V$.
   
   Let $v\in V, v \neq 0$. The list \begin{equation}
     v, Tv, \dots, T^{\dim V}
@@ -293,8 +296,15 @@ $\implies T^m T^n = T^{m+n}$ and $(T^m)^n=T^{mn}$ when $m,n \in \mathbb{Z}$ when
 \bfemph{Computation:} Find the smallest $m \in \nat$ such that: \\
 $c_0I + c_1 T + \cdots + c_{m-1} T^{m-1} = -T^{m}$ has a solution $c_0, \dots, c_{m-1} \in \myF$. Solve for $m=1,2,\dots,\dim V$
 
-Even faster (usually), pick $v \in V$ with $v \neq 0$ and consider the equation $c_0v + c_1Tv + \cdots + C_{\dim V-1}T^{\dim V-1}v=-T^{\dim V}v$.
-If this equation has a unique solution, as happens most of the time $c_0, c_1, c_2, \dots, c_{\dim V-1}, 1$ are the coefficients of the minimal polynomial of $T$.
+Even faster (usually), pick $v \in V$ with $v \neq 0$ and consider the equation 
+\begin{equation}
+  c_0v + c_1Tv + \cdots + C_{\mydim V-1}T^{\mydim V-1}v=-T^{\mydim V}v.
+\end{equation}
+If this equation has a unique solution, as happens most of the time 
+\begin{equation}
+  c_0, c_1, c_2, \dots, c_{\dim V-1}, 1
+\end{equation}
+are the coefficients of the minimal polynomial of $T$.
 %TODO: do more.
 
 \setcounter{thm}{26}
@@ -329,7 +339,7 @@ If this equation has a unique solution, as happens most of the time $c_0, c_1, c
   \label{thm: every zero polynomial is a multiple of the minimal polynomial}
   $T\in \linmap(V)$ and $q \in \mathcal{P} (\myF)$: 
   \begin{equation}
-    q(T)=0 \iff q \text{is a multiple of the minimal polynomial of} T.
+    q(T)=0 \iff q \mytext{is a multiple of the minimal polynomial of} T.
   \end{equation}
 \end{thm}
 \begin{prf}
@@ -348,7 +358,7 @@ If this equation has a unique solution, as happens most of the time $c_0, c_1, c
 				\label{aa}
 				0 = q(T) = p(T)s(T) + r(T) = r(T).
 			\end{equation}
-			The equation above implies that $r=0$. Otherwise, dividing $r$ by its highest-degree coefficient would produce a monic polynomial that when applied to $T$ gives $0$. A contradiction because $\deg r < \deg p$ and $p$ is minimal. Thus \ref{aa} becomes the equation $q=ps$, as desired
+			The equation above implies that $r=0$. Otherwise, dividing $r$ by its highest\-/degree coefficient would produce a monic polynomial that when applied to $T$ gives $0$. A contradiction because $\deg r < \deg p$ and $p$ is minimal. Thus \ref{aa} becomes the equation $q=ps$, as desired
 		}
 		\item{$\Leftarrow$ direction:}{
 			Suppose $q=ps$ for $q,p,s \in \mathcal{P}(\myF)$. We have
@@ -356,10 +366,9 @@ If this equation has a unique solution, as happens most of the time $c_0, c_1, c
 				q(T) = p(T)s(T)=0s(T)=0,
 			\end{equation}
 			as desired. 
-      
 		}
 	\end{description}
-  
+  Which proves both directions.
 \end{prf}
 
 \setcounter{thm}{30}
@@ -383,13 +392,13 @@ If this equation has a unique solution, as happens most of the time $c_0, c_1, c
   Let $T \in \linmap (V)$. Then we have: $T$ is not invertible $\iff$ the constant term of the minimal polynomial of $T$ is $0$.
 \end{thm}
 \begin{prf}
-  $T$ is not invertible $\iff_{\text{(\ref{equivalent-conditions-to-be-an-eigenvalue})}}$ $0$ is an eigenvalue of $T$ $\iff_{\text{\ref{thm: eigenvalues are the zeros of the minimal polynomial}}}$ $0$ is a zero of $p$ $\mathsmaller{\iff}$ the constant term of $p$ is $0$.
+  $T$ is not invertible $\iff_{\text{(\ref{equivalent-conditions-to-be-an-eigenvalue})}}$ $0$ is an eigenvalue of $T$ $\iff_{(\text{\ref{thm: eigenvalues are the zeros of the minimal polynomial})}}$ $0$ is a zero of $p$ $\mathsmaller{\iff}$ the constant term of $p$ is $0$.
   (In the first equivalence, we have actually used that $0$ is an eigenvalue of $T$ if and only if $T-0I$ is not invertible, according to \ref{equivalent-conditions-to-be-an-eigenvalue}.)
 \end{prf}
 
 \subsection{Eigenvalues on Odd-Dimensional Real Vector Spaces}
 \begin{thm}[even-dimensional null space]
-  Suppose $\myF = \real$ and $V$ is finite-dimensional. \\
+  Suppose $\myF = \real$ and $V$ is \fd.
   Suppose also that $T \in \linmap (V)$ and $b,c \in \real$ with $b^2 < 4c$. 
   \begin{equation}
     \implies \dim \mynull (T^2 +bT +cI) \mytext{is an even number}
@@ -412,10 +421,10 @@ If this equation has a unique solution, as happens most of the time $c_0, c_1, c
     \item $T v_k \in \myspan{v_1, \dots, v_k} \quad \forall k \in \{1, \dots, n\}$
   \end{enumerate}
 \end{thm}
-\begin{prf}
-  First suppose (a) holds. So like in \ref{matrix-of-linear-map}, the matrix-diagram $\mmatrix(T)$ looks like this
+\begin{proof}
+  First suppose (a) holds. So like in \ref{matrix-of-linear-map}, the matrix $\mmatrix(T)$ looks like this
   \begin{equation}
-  \mathcal{M} (T) \equiv
+  \mathcal{M} (T) =
   \begin{blockarray}{cccccc}
              & v_1     & \cdots & v_j      & \cdots & v_n     \\
     \begin{block}{c(ccccc)}
@@ -465,9 +474,9 @@ If this equation has a unique solution, as happens most of the time $c_0, c_1, c
   \end{equation}
   
   Hence all the entries under the diagonal of $\mmatrix (T)$ are $0$, because $v_1, \ldots, v_n$ are linearly independent. Thus $\mmatrix(T)$ is an upper-triangular matrix, completing the proof that (c) implies (a).
-  
+   
   We have shown that (a) $\implies$ (b) $\implies$ (c) $\implies$ (a)
-\end{prf}
+\end{proof}
 
 \begin{thm}[equation satisfied by operator with upper-triangular matrix]
   \label{thm:equation-satisfied-by-operator-with-upper-triangular-matrix}
@@ -500,13 +509,15 @@ If this equation has a unique solution, as happens most of the time $c_0, c_1, c
   (using commutativity for linear maps)
   \bigbreak
   Note that $(T-\lambda_2 I) v_2 \in \myspan{v_1}$ because $T v_2 = A_{2,1} v_1 + \lambda_2 v_2$. Thus using (\ref{i-need-a-ref})
-  \begin{dmath}
-    \label{i-also-need-a-ref}
-    (T- \lambda_1 I) (T- \lambda_2 I) v_2 
-    = (T- \lambda_1 I) A_{2,1}v_1  
-    = A_{2,1}(T- \lambda_1 I) v_1
-    =0.
-  \end{dmath}
+  \begin{equation}
+    \begin{aligned}
+      \label{i-also-need-a-ref}
+      (T- \lambda_1 I) (T- \lambda_2 I) v_2 
+      &= (T- \lambda_1 I) A_{2,1}v_1  \\
+      &= A_{2,1}(T- \lambda_1 I) v_1  \\
+      &=0. 
+    \end{aligned}
+  \end{equation}
   
   which implies that
   \begin{equation}
@@ -520,10 +531,10 @@ If this equation has a unique solution, as happens most of the time $c_0, c_1, c
   \begin{equation}
     \begin{aligned}
     (T- \lambda_1 I) (T- \lambda_2 I) (T- \lambda_3 I)v_3 
-    &=(T- \lambda_1 I) (T- \lambda_2 I)(A_{3,1} v_1 +   A_{3,2} v_2)  \\
-    &= (T- \lambda_1 I)A_{3,1} v_1(T- \lambda_2 I)+(T- \lambda_1 I)(T- \lambda_2 I)A_{3,2} v_2 \\
-    &= A_{3,1}(T- \lambda_1 I) v_1(T- \lambda_2 I)+A_{3,2}(T- \lambda_1 I)(T- \lambda_2 I) v_2 \\
-    &= 0
+    =(T- \lambda_1 I) (T- \lambda_2 I)(A_{3,1} v_1 +   A_{3,2} v_2)  \\
+    = (T- \lambda_1 I)A_{3,1} v_1(T- \lambda_2 I)+(T- \lambda_1 I)(T- \lambda_2 I)A_{3,2} v_2 \\
+    = A_{3,1}(T- \lambda_1 I) v_1(T- \lambda_2 I)+A_{3,2}(T- \lambda_1 I)(T- \lambda_2 I) v_2 \\
+    = 0
     \end{aligned}
   \end{equation}
   
@@ -593,7 +604,7 @@ If this equation has a unique solution, as happens most of the time $c_0, c_1, c
 \setcounter{thm}{43}
 \begin{thm}[necessary and sufficient condition to have an upper-triangular-matrix]
   \label{thm:necessary and sufficient condition to have an upper-triangular-matrix}
-  Let $T\in \linmap(V)$\footnotemark[1]. Then $T$ has an upper-triangular matrix in respect to some basis $V$ $\iff$ the min. polynomial of $T$ equals $(z-\lambda_1) \cdots (z-\lambda_m), \where \lambda_1, \dots \lambda_m \in \myF$
+  Let $T\in \linmap(V)$\footnotemark[1]. Then $T$ has an upper-triangular matrix in respect to some basis $V$ $\iff$ the min. polynomial of $T$ equals $(z-\lambda_1) \cdots (z-\lambda_m)$, where $\lambda_1, \dots \lambda_m \in \myF$
 \end{thm}
 
 \setcounter{thm}{46}

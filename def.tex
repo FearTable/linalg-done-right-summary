@@ -1,3 +1,4 @@
+\DeclareEmphSequence{\scshape}
 
 % BEGIN custom geometry ************************************
 \setlength{\abovedisplayskip}{0pt}
@@ -11,6 +12,13 @@
 \titlespacing{\subsection}{0pt}{25pt}{3pt}
 \titlespacing{\subsubsection}{0pt}{6pt}{3pt}
 \titlespacing*{\chapter}{0pt}{-19pt}{0pt}
+
+%For item, enumerate, description, lists
+\setitemize{noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt}
+\setenumerate{noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt}
+\setdescription{noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt}
+\setlist{noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt}
+
 % END custom geometry **************************************
 
 % new mdframed style that places the edges at the corners (.675em):
@@ -38,6 +46,7 @@
 }
 
 \surroundwithmdframed[style=proof-style]{prf}
+\surroundwithmdframed[style=proof-style]{proof}
 \newtheorem*{prf}{Proof}
 
 % custom QED Symbol
@@ -46,9 +55,9 @@
 %\let\qedsymbol\closedbox
 
 \renewenvironment{prf}{{\textbf{\scshape \slshape Proof:}}}{\hfill $\qedsymbol$}
+\renewenvironment{proof}{{\textbf{\scshape \slshape Proof:}}}{\hfill $\qedsymbol$}
 
 % put the new mdframed style around the 'proof' and 'xmpl0 environment:
-\surroundwithmdframed[style=proof]{proof}
 %\surroundwithmdframed[style=proof]{xmpl}
 
 % BEGIN custom therem and proof environments ***************
@@ -66,11 +75,11 @@
 % Define 'thm', 'thm-non', 'mydef', 'mydef-non', 'example', 'example-non'
 % environments
 \theoremstyle{mytheoremstyle}
-\newtheorem{thm}{Theorem}[chapter]
-\newtheorem*{thm-non}{Theorem}
+\newtheorem{thm}{Thm}[chapter]
+\newtheorem*{thm-non}{Thm}
 \theoremstyle{mytheoremstyle}
-\newtheorem{mydef}[thm]{Definition}
-\newtheorem*{mydef-non}{Definition}
+\newtheorem{mydef}[thm]{Def}
+\newtheorem*{mydef-non}{Def}
 \theoremstyle{mytheoremstyle}
 \newtheorem{example}[thm]{Example}
 \newtheorem*{example-non}{Example}
@@ -154,6 +163,8 @@
 %Fast way to write v_1 ... v_m
 \newcommand{\oneTillM}[1]{#1_1, \dots, #1_m}
 \newcommand{\onetillm}[1]{#1_1, \dots, #1_m}
+\newcommand{\setOneTillM}{\{ 1, \ldots, m \}}
+\newcommand{\setonetillm}{\{ 1, \ldots, m \}}
 
 % fast way to write v_1 ... v_{#2}
 % usage \onetill{v}{k-1} yields v_1 \dots v_{k-1}
@@ -168,9 +179,9 @@
 \newcommand{\kinonetillp}{k \in \{1, \dots, p \}} % k e {1...p}
 
 % abbreviation for finite-dimensional vector space
-\newcommand{\findimvecpac}{finite-dimensional vector space }
-\newcommand{\findimvs}{finite-dimensional vector space }
-\newcommand{\fdvs}{finite-dimensional vector space }
+\newcommand{\findimvecpac}{finite\-/dimensional vector space }
+\newcommand{\findimvs}{finite\-/dimensional vector space }
+\newcommand{\fdvs}{finite\-/dimensional vector space }
 
 % abbreviation for linearly independent
 \newcommand{\lid}{linearly independent}
@@ -182,7 +193,7 @@
 \newcommand{\vs}{vector space }
  
 % abbreviation for finite-dimensional
-\newcommand{\fd}{{finite-dimensional }}
+\newcommand{\fd}{{finite\-/dimensional }}
 
 % abbreviation for linear map
 \newcommand{\lm}{{linear map }}
@@ -197,6 +208,9 @@
 % null and range
 \newcommand{\mynull}{\operatorname{null}}
 \newcommand{\myrange}{\operatorname{range}}
+
+% dimension
+\newcommand{\mydim}{\operatorname{dim}}
 
 % even and odd
 \newcommand{\even}{\operatorname{even}}
@@ -215,7 +229,7 @@
 \renewcommand*{\thesubsection}{\arabic{chapter}\Alph{section}\arabic{subsection}}
 
 \titleformat{\chapter}[block]
-{\bfseries\scshape}{{\relscale{1.1} chapter} {\relscale{1.1} \thechapter \newline} { } { }  \relscale{1.3} #1}{0.5em}{\selectfont\large}
+{\bfseries\scshape}{{\relscale{1.1} { }Chapter} {\relscale{1.1} \thechapter \newline} { } { }  \relscale{1.3} #1}{0.5em}{\selectfont\large}
 \titleformat{\section}{\bfseries\relscale{1.2}\scshape}{}{0em}{\thesection { } #1} %Large
 \titleformat{\subsection}{\relscale{1.1}\bfseries\scshape}{}{0em}{#1 (\thesubsection)} %large
 % END custom chapter format ********************************

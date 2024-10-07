@@ -20,19 +20,55 @@
 \end{thm}
 
 \setcounter{thm}{29}
-\begin{thm} [Reduction of a spanning list] 
+\begin{thm} [every spanning list contains a basis] 
+  \label{thm: every spanning list contains a basis}
   Every spanning list of a \vs can be reduced to a basis of the \vs.
 \end{thm}
+\begin{prf}
+  Suppose $V=\myspan{v_1, \ldots, v_n}.$ Let $B_0 :\equiv (v_1, \ldots, v_n)$.
+  
+  \emph{\bfseries Step 1: } If $v_1 = 0$, delete $v_1$ from $B_0$: 
+  \begin{equation}
+    $Let $B_1 :\equiv (v_2, \ldots, v_n).
+  \end{equation} 
+  
+  If $v_1 \neq 0$, then leave $B_0$ unchanged. $B_1 :\equiv B_0=(v_1, \ldots, v_n)$.
+  
+  \emph{\bfseries Step k: } If $v_k$ $\in$ $\myspan{v_1, \ldots, v_{k-1}}$, then delete $v_k$ from list $B_{k-1}$ sucht that:
+  \begin{equation}
+    $Let $B_k :\equiv B_{k-1} - v_k = (v_{1}^*, \ldots, v_{k-1}^*, v_{k+1}, \ldots, v_n)
+  \end{equation} 
+  
+  where $v_1^*, \ldots, v_{k-1}^*$ are not necessarily the original elements $v_1, \ldots, v_{k-1}$.
+  
+  If $v_k \in \myspan{v_1, \ldots, v_{k-1}}$, leave the basis unchanged: $B_k :\equiv B_{k-1}$.
+  
+  Stop the process after step $n$, getting a list $B_n$. The list $B_n$ spans $V$ because our original list $B_0$ spanned $V$  have discarded only vectors that were already in the span of the previous vectors. The process ensures that no vector in $B$ is in the span of the previous ones. Thus $B$ is linearly independent. Hence $B$ is a basis of $V$.
+  %TODO: Why does axler cite linear dependence lemma 2.19.
+\end{prf}
 
 \setcounter{thm}{30}
-\begin{thm} 
+\begin{thm} [basis of finite\-/ dimensional vector space] 
   Every \findimvs has a basis.
 \end{thm}
+\begin{prf}
+  By definition, a \fdvs has a spanning list. The previous result tells us that each spanning list can be reduced to a basis. 
+\end{prf}
 
 \begin{thm} 
   Every \lid list of vectors in a  \findimvs can be extended to a basis of the \vs. 
 \end{thm}
+\begin{prf}
+  Let $u_1, \ldots, u_m \in V$ be linearly independent. Let $V=\myspan{w_1, \cdots, w_n}.$
+  \begin{equation}
+    \implies V=\myspan{u_1, \cdots, u_m, w_1, \cdots, w_n }
+  \end{equation}
+  Applying the procedure of the proof of \ref{thm: every spanning list contains a basis} to reduce this list to a basis of $V$ produces a basis consisting of vectors $u_1, \cdots, u_m$ and some $w$'s.
+\end{prf}
 
 \begin{thm} 
-  Suppose $V$ is \fd and $U$ is a subspace of $V$. Then there is a subspace $W$ of $V$ such that $V=U \oplus W$. 
+  If $V$ is \fd and $U$ is a subspace of $V$. Then there is a subspace $W$ of $V$ such that 
+  \begin{equation}
+    V=U \oplus W. 
+  \end{equation}
 \end{thm}

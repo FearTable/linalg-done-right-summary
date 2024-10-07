@@ -25,7 +25,7 @@
 
 %\textbf{2.7}
 \begin{mydef} [Spanning a vector space]
-  If $\myspan{\oneTillM{v}} = V$, we say $\oneTillM{v}$ ``spans" $V$.
+  If $V=\myspan{\oneTillM{v}}$, we say $\oneTillM{v}$ ``spans" $V$.
 \end{mydef}
 
 \setcounter{thm}{8}
@@ -46,10 +46,9 @@
 
 \setcounter{thm}{12}
 \begin{mydef}
-  A vector space is called ``infinite-dimensional" if it is not finite-dimensional.
+  A vector space is called ``infinite\-/dimensional" if it is not \fd. 
 \end{mydef}
 
-\pagebreak
 
 \subsection{Linear Independence}
 
@@ -97,7 +96,7 @@
 \setcounter{thm}{18}
 %\textbf{2.19}
 \begin{thm} [Linear dependence lemma]
-  \label{linear-dependence-lemma}
+  \label{thm: linear dependence lemma}
   Suppose $v_{1}, \dots, v_{m}\in V$ is a linearly dependent list.
   \begin{equation}
     \implies \exists k \in \{ 1, \dots, m \} : v_k \in \myspan {v_1, \dots, v_{k-1}}.
@@ -106,17 +105,85 @@
   \begin{equation}
     \myspan {v_1, \dots, v_{k-1}, v_{k+1}, \dots, v_m} = \myspan {v_1, \dots, v_m}
   \end{equation}
-  TODO: mistake
-  %TODO : mistake
 \end{thm}
-
+\begin{prf}
+  Because $\onetillm{v}$ are linearly dependent, we have 
+  \begin{multline}
+    a_1 v_1 + \cdots + a_m v_m = 0 \\
+    $ where $a_1, \ldots, a_m \in \myF$ and $a_i \neq 0$ and $a_j \neq 0 $ for $i,j \in \{1 \cdots m\}
+  \end{multline} 
+  
+  So we know, at least $2$ $a$'s are not $0$. Let $k$ be the largest element of $\setonetillm$ such that $a_k \neq 0$. Then
+  \begin{equation}
+    v_k = - \frac{a_1}{a_n}v_1 - \cdots - \frac{a_{k-1}}{a_k}v_k,
+  \end{equation}
+  
+  which proves that $v_k \in \myspan{v_1, \cdots, v_{k-1}}$.
+  
+  Now for the second claim, suppose $k$ is any element of $\setonetillm$ such that $v_k \in \myspan{v_1, \cdots, v_{k-1}}.$ Then we have 
+  \begin{equation}
+    v_k = b_1v_1 + \cdots + b_{k-1}v_{k-1}, $ where $b_1, \cdots, b_{k-1} \in \myF.
+    \label{eq: equation for v_k}
+  \end{equation}
+  
+  Suppose $u \in \myspan{v_1, \ldots, v_m}.$ Then
+  \begin{equation}
+  u_k = c_1v_1 + \cdots + c_kv_k + \cdots +c_{m}u_{m} = , $ where $c_1, \cdots, c_{m} \in \myF.
+  \end{equation}
+  
+  Of course, for $k=1$ or $k=2$ the equation looks different. Now we can replace $v_k$ with the right side of \ref{eq: equation for v_k}.
+  \begin{equation}
+    u = (c_1+b_1)v_1 + \cdots + (c_{k-1} + b_{k-1})v_{k-1} + c_{k+1} v_{k+1} + \cdots + c_m v_m
+  \end{equation}
+  
+  Which shows $u \in \myspan {v_1, \dots, v_{k-1}, v_{k+1}, \dots, v_m} = \myspan {v_1, \dots, v_m}$
+\end{prf}
 \setcounter{thm}{21}
-%\textbf{2.22}
 
-\begin{thm}  [Length of linearly independent list $\mathbb{\leq}$ length of spanning list]
-  \label{length-of-linearly-dependent-list-less-or-equal-length-of-spanning-list}
-  In a finite dimensional vector space, the length of every linearly independent list of vectors is less then or equal to the length of every spanning list of vectors.
+%\textbf{2.22}
+\begin{thm}  [length of linearly independent list $\mathbb{\leq}$ length of spanning list]
+  \label{thm: length of linearly dependent list less or equal to length of spanning list}
+  In a \fd vector space, the length of every linearly independent list of vectors is less than or equal to the length of every spanning list of vectors.
 \end{thm}
+\begin{prf}
+  Let $u_1, \ldots, u_m$ be a linearly independent list of vectors in $V$. Let $V=\myspan{w_1, \ldots, w_n}.$ We need to prove that $m \leq n$. We do this with following algorithm: Let $B_0 :\equiv  (w_1, \ldots, w_n)$. Note that $V=\myspan{B_0}$.
+  
+  \emph{\bfseries Step 1:} Let $B_1^* :\equiv (u_1, w_1, \ldots, w_n)$, which yields a linearly dependent list of length $n+1$, because $u_1$ can be written as a linear combination of $w_1, \ldots, w_n$. In other words, the list 
+  \begin{equation}
+    (u_1, w_1, \ldots, w_n) = B_1^*
+  \end{equation}
+  
+  is linearly dependent.
+  
+  Thus by the linear dependence lemma (\ref{thm: linear dependence lemma}), one of the vectors of $B_1^*$ can be written as a linear combination of the of the previous vectors in the list. Since $u_1 \neq 0$, \ref{thm: linear dependence lemma} implies that we can remove one of the $w$'s, say $w_j$, so that the new list 
+  \begin{equation}
+    B_1 :\equiv B_1^* - {w_j} = (u_1 w_1, \ldots, w_{j-1}, w_{j+1}, \ldots, w_n)
+  \end{equation}
+  
+  of length $n$ consisting of $u_1$ and the remaining $w$'s spans $V$. \begin{equation}
+    V=\myspan{B_1}
+  \end{equation}
+  
+  \emph{\bfseries Step k, for k$=\mathbf{\mathsmaller{2}, \ldots,}$m:} The list $B_{k-1}$ of length $n$ from previous step $k-1$ spans $V$. So we have, $u_k \in \myspan{B_{k-1}}$, because the span never changed by our algorithm. If we add $u_k$ to the list, our list becomes linearly dependent. Let
+  \begin{equation}
+    B_k^* :\equiv (u_1, \ldots, u_{k-1}, u_k, \underbrace{\tilde w_{1}, \ldots, \tilde w_{n-(k-1)})}_{\text{remaining $w$'s}} 
+  \end{equation}
+  where $\tilde w_{1}, \ldots, \tilde w_{n-(k-1)}$ are our remaining $n-(k-1)$ $w$'s at our current step $k$, which are the same as from the previous list $B_{k-1}$$=$$(u_1, \ldots,u_{k-1},$$ \tilde w_{1}, \ldots, \tilde w_{n-(k-1)})$. Our new list has length $(n+1) = k + (n-(k-1))$. With the linear dependence lemma (\ref{thm: linear dependence lemma}), we can remove one vector of the list, since our new list $B_{k}^*$ was linearly dependent and spans $V$. 
+  \begin{equation}
+    V=\myspan{B_{k}^*}. 
+  \end{equation}
+  
+  Because $u_1, \ldots, u_k$ are linearly independent, this vector can not be one of the $u's$. Hence there still must be at least one remaining $w$ at this step. $n-(k-1)$ $w's$ to be precise. So we can remove a $w$, lets say $\tilde w_j$, so that the new list $B_k$ of length $n$ consisting of $u_1, \cdots, u_k$ and the remaining $w$'s spans $V$. 
+  \begin{equation}
+    B_k = B_k^* - \tilde w_j$ such that $ V=\myspan{B_k}$ and length $|B_k|=n
+  \end{equation}
+  
+  \emph{\bfseries Conclusion:} After step $m$, we have added all the $u's$ and the precess stops. At each step $k$, as we add a $u$ to $B_{k-1}$, the linear dependence lemma implies that there is some $w$ to remove from $B_{k}^*$. Thus there are at least as many $w$'s as $u's$.
+  \begin{equation}
+    \implies m \leq n
+  \end{equation}
+  $\implies$ the length of $u_1, \ldots, u_m$ $\leq$ the length of $w_1, \ldots, w_n$.
+\end{prf}
 
 \setcounter{thm}{24}
 \begin{thm} [Finite-dimensional subspace]

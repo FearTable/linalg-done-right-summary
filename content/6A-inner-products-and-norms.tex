@@ -93,7 +93,10 @@ For $z \in \compl$, we define the norm of $z$ by
 
 \setcounter{thm}{9}
 \begin{mydef}[orthogonal]
-  $u,v \in V$ are called ``orthogonal" or ``perpendicular" if $\ip{u}{v} =0$. One also writes $u \perp v$.
+  $u,v \in V$ are called ``orthogonal" or ``perpendicular" if 
+  \begin{equation}
+    \ip{u}{v} =0$. One also writes $u \perp v.
+  \end{equation}
 \end{mydef}
 
 \begin{thm} [orthogonality and $0$]
@@ -129,7 +132,7 @@ For $z \in \compl$, we define the norm of $z$ by
   \end{equation}
   Equality holds $\iff$ $u,v$ is a scalar multiple of the other. $u=\lambda v$
 \end{thm}
-\begin{prf}
+\begin{proof}
   If $v=0$, both sides are $0$. Thus $v\neq0 $.
   
   Let $u :\equiv cv+w = \frac{\ip{u}{v}}{\norm{v}^2} v + w$ such that $v\perp w: \ip{w}{v} = 0$ like above (\autoref{thm: an orthogonal decomposition}). By Pythagoras we have
@@ -147,7 +150,7 @@ For $z \in \compl$, we define the norm of $z$ by
   \end{equation} 
   
   Multiplying both sides with $\norm{v}^2$ yields the Cauchy-Schwarz inequality. Equality is only given, if $w=0$. So if $u=\lambda v$.
-\end{prf}
+\end{proof}
 
 \setcounter{thm}{13}
 \begin{thm}[triangle inequality]
