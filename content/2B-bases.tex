@@ -34,12 +34,12 @@
   
   If $v_1 \neq 0$, then leave $B_0$ unchanged. $B_1 :\equiv B_0=(v_1, \ldots, v_n)$.
   
-  \emph{\bfseries Step k: } If $v_k$ $\in$ $\myspan{v_1, \ldots, v_{k-1}}$, then delete $v_k$ from list $B_{k-1}$ sucht that:
+  \emph{\bfseries Step k: } If $v_k$ $\in$ $\myspan{v_1^*, \ldots, v_{k-1}^*}$, then delete $v_k$ from list $B_{k-1}$ sucht that:
   \begin{equation}
-    $Let $B_k :\equiv B_{k-1} - v_k = (v_{1}^*, \ldots, v_{k-1}^*, v_{k+1}, \ldots, v_n)
+    B_k :\equiv B_{k-1} - v_k = (v_{1}^*, \ldots, v_{k-1}^*, v_{k+1}, \ldots, v_n)
   \end{equation} 
   
-  where $v_1^*, \ldots, v_{k-1}^*$ are not necessarily the original elements $v_1, \ldots, v_{k-1}$.
+  where $v_1^*, \ldots, v_{k-1}^*$ are not necessarily the original elements $v_1, \ldots, v_{k-1}$ from $B_0$.
   
   If $v_k \in \myspan{v_1, \ldots, v_{k-1}}$, leave the basis unchanged: $B_k :\equiv B_{k-1}$.
   

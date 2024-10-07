@@ -130,17 +130,18 @@
 \end{thm}
 \begin{prf} Let $U$ and $W$ be subspaces of the same vector space.
   \begin{description}
-    \item{$\Rightarrow$ direction:} First suppose $U+W$ is a direct sum. If $v \in U \cup W$, then $v, -v \in U \myand v, -v \in W$. We also have that
+    \item{$\Rightarrow$ direction:} First suppose $U+W$ is a direct sum. If $v \in U \cap W$, then $v, -v \in U \myand v, -v \in W$. We also have that
     \begin{equation}
       0 = v + (-v), \where v\in U \myand (-v) \in W.
     \end{equation}
-    $\implies v=0$, because $U+W$  is a direct sum. Therefore $U \cup W = \{0\}$ 
+    $\implies v=0$, because $U+W$  is a direct sum. Therefore $U \cap W = \{0\}$ 
     
-    \item{$\Leftarrow$ direction:} Suppose $U\cup W = \{0\}$. Let  $u\in U$ and $w \in W$ such that
+    \item{$\Leftarrow$ direction:} Suppose $U\cap W = \{0\}$. Let  $u\in U$ and $w \in W$ such that
     \begin{equation}
+      \label{eq: zero equals u plus w}
       0 = u+w
     \end{equation}
-    By \ref{thm: condition for a direct sum} we know that our goal is to show that $u=w=0$. The equation above implies that $u=-w\in W$  and $w=-u \in U$ for all arbitrary choices of $U$ and $W$. Thus $u,w \in U\cup W \implies u=w=0.$ Therefore, $U+W$ is a direct sum.
+    By \ref{thm: condition for a direct sum} we know that our goal is to show that $u=w=0$. The equation (\ref{eq: zero equals u plus w}) above implies that $u=-w\in W$  and $w=-u \in U$ for all arbitrary choices of $U$ and $W$. Thus $u,w \in U\cap W \implies u=w=0.$ Therefore, $U+W$ is a direct sum.
   \end{description}
   Now we have proven both directions.
 \end{prf}
