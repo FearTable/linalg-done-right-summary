@@ -2,19 +2,22 @@
 
 \subsection{Null Space and Injectivity}
 
-\begin{mydef}
+\begin{mydef} [null space, null $T$]
   $\mynull T :\equiv \ker T :\equiv \{ v \in V \mid Tv=0\} \subseteq V$ for $T \in \lvw$
 \end{mydef}
 
+% 3.13
 \setcounter{thm}{12}
-%\textbf{3.13}
-\begin{thm}
-  For $T=\linmap(V)$, $\mynull T$ is a subspace of $V$ 
+\begin{thm} [null space]
+  For $T=\linmap(V, W)$, $\mynull T$ is a subspace of $V$ 
 \end{thm}
+\begin{prf}
+  $0 \in \mynull T$ because $T(0) = 0$. Suppose $u,v \in \null T$ and $\lambda \in \myF.$ $\implies T(u+v)=Tu+Tv=0+0=0.$ Hence $u+v \in \mynull T$. We also have $T(\lambda u)= \lambda Tu = \lambda 0 = 0.$
+\end{prf}
 
+% 3.14
 \setcounter{thm}{13}
-%\textbf{3.14}
-\begin{mydef}
+\begin{mydef} [injective]
   A function $T: V \to W$ is called injective if
   \begin{equation}
     Tu = Tv \implies u = v \quad \forall u,v \in V
@@ -25,40 +28,43 @@
   \end{equation}
 \end{mydef}
 
+% 3.15
 \setcounter{thm}{14}
-%\textbf{3.15}
-\begin{mydef} [inectivity]
-  \label{def: injectivity}
-  Let $T \in \lvw$. Then
+\begin{thm} [injectivity and null space]
+  \label{thm: injectivity iff null space equals zero-set}
+  Let $T \in \linmap(V,W)$. Then
   \begin{equation}
     T \text{ is injective } \iff \mynull T = \{0 \}.
   \end{equation}
-\end{mydef}
+\end{thm}
 
 \subsection{Range and Surjectivity}
+
+% 3.16
 \setcounter{thm}{15}
-%\textbf{3.16}
-\begin{mydef}
+\begin{mydef} [range]
   $\operatorname{range}T= \{Tv \mid v \in V\} \subseteq W$ for $T \in \lvw$
 \end{mydef}
 
+% 3.18
 \setcounter{thm}{17}
-%\textbf{3.18}
-\begin{thm}
-  $T\in \lvw \implies \myrange T$ is a subspace of $W$.
+\begin{thm} [range]
+  \label{thm: the range is a subspace}
+  $T\in \linmap(V,W) \implies \myrange T$ is a subspace of $W$.
 \end{thm}
 
+%3.19
 \setcounter{thm}{18}
-%\textbf{3.19}
 \begin{mydef} [surjectivity]
-  \label{def:surjectivity}
+  \label{def: surjectivity}
   If $\myrange T=W$, $T:V\to W$ is called ``surjektive" or ``onto".
 \end{mydef}
 
 \subsection{Fundamental Theorem of Linear Maps}
+
+  % 3.21
   \setcounter{thm}{20}
-  %\textbf{3.21}
-  \begin{thm} [Fundamental theorem of linear maps or ``rank nullity theorem"]
+  \begin{thm} [fundamental theorem of linear maps or ``rank nullity theorem"]
     \label{rank-nullity-theorem}
     For $T \in \lvw$, where $T$ is finite-dimensional, we have
     \begin{equation}
@@ -68,8 +74,8 @@
     \end{equation}
   \end{thm}
 
+  %3.22
   \setcounter{thm}{21}
-  %\textbf{3.22}
   \begin{thm} [linear map to a lower-dimensional space is not injective]
     \label{thm: linear-map-to-a-lower-dimensional-space-is-not-injective}
     If $\dim V$ $>$ $\dim W$ \\ 
@@ -82,8 +88,8 @@
     The first inequality follows from \ref{dimension-of-a-subspace}, because $\myrange T \subseteq W$. Now we have that $\dim \mynull T > 0.$ Thus $T$ is not injective by \autoref{def: injectivity}.
   \end{prf}
 
+  % 3.24
   \setcounter{thm}{23}
-  %\textbf{3.24}
   \begin{thm} [linear map to a higher-dimensional space is not surjective]
     If $\dim V < \dim W$ $\implies$ No \lm from $V$ to $W$ is surjective.
   \end{thm}
@@ -95,14 +101,14 @@
     Thus we have $\dim \myrange T < \dim W$. So $\myrange T \neq W$. Thus $T$ is not surjective by \autoref{def:surjectivity}.
   \end{prf}
    
+  %3.26
   \setcounter{thm}{25}
-  %\textbf{3.26}
-  \begin{thm}
+  \begin{thm} [homogenenous system of linear equations]
     A homogeneous system of linear equations with more variables then equations has nonzero solutions.
   \end{thm}
 
   %\textbf{3.28}
   \setcounter{thm}{27}
-  \begin{thm}
+  \begin{thm} [system of lienar equations with more equations than variables]
     An inhomogeneous system of linear equations with more equations then variables has no solutions for some choice of constant terms.
   \end{thm}

@@ -160,4 +160,18 @@ For $z \in \compl$, we define the norm of $z$ by
   \end{equation}
   This inequality is an equality $\iff$ $u=rv, r\in \real - \{0\}$.
 \end{thm}
-
+\begin{prf}
+  \begin{equation}
+    \begin{aligned}
+      \norm{u+v}^2 
+      &=    \ip{u+v}{u+v} & \\
+      &=    \ip{u}{u+v}+\ip{v}{u+v} & \\
+      &=    \ip{u}{u}+\ip{u}{v}+\ip{v}{u}+\ip{v}{v} & \\
+      &=    \ip{u}{u}+\ip{v}{v}+\ip{u}{v}+\overline{\ip{u}{v}} & \text{conjugate symetrie}\\
+      &=    \norm{u}^2+\norm{v}^2+2\operatorname{Re} \ip{u}{v} & \text{positivity}\\
+      &\leq \norm{u}^2+\norm{v}^2+2|\ip{u}{v}| & \text{prop. of complex numbers} \\
+      &\leq \norm{u}^2+\norm{v}^2+2\norm{u}\norm{v} & \text{Cauchy-Schwarz} \\
+      &=    (\norm{u} + \norm{v})^2 &
+    \end{aligned}   
+  \end{equation}
+\end{prf}

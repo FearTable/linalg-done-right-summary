@@ -1,64 +1,203 @@
 \section{Matrices}
 \subsection{Representing a Liner Map by a Matrix}
 
+%3.31
 \setcounter{thm}{30}
-\begin{mydef}
-  \label{matrix-of-linear-map}
-  \bfemph{Matrix of a linear map} $\mmatrix(T)$: \\
-  Suppose $T \in \linmap (L,W)$ and $v_1, \dots, v_n$ be a basis of $V$ and $w_1, \dots, w_m$ be a basis of $W$. The ``matrix of $T$" with respect to these bases is the $m$-by-$n$ matrix $\mmatrix(T)$ whose entries $A_{j,k}$ are defined by
+\begin{mydef}[matrix of a linear map, $\mmatrix(T)$]
+  \label{def: matrix of a linear map}
+  Let $T \in \linmap (L,W)$ and let $v_1, \dots, v_n$ be a basis of $V$ and let $w_1, \dots, w_m$ be a basis of $W$. The ``matrix of $T$" with respect to these bases is the $m$-by-$n$ matrix $\mmatrix(T)$ whose entries $A_{j,k}$ are defined by
   \begin{equation}
     T v_k = A_{1,k} w_1 + \cdots + A_{m,k} w_m \equiv \sum_{j=1}^{m} A_{j,k} w_j
   \end{equation}
   If the bases are not clear from the context, one writes $\mmatrix(T, (v_1, \dots, v_n),(w_1, \dots, w_m))$. One remembers how to construct $\mmatrix(T)$ as follows:
   \begin{equation}
     \mathcal{M} (T) :\equiv
-    \begin{blockarray}{cccc}
-      & v_1 \quad \cdots & v_k & \cdots \quad v_n \\
-      \begin{block}{c(ccc)}
-        w_1    & & A_{1,k} & \\
-        \vdots & & \vdots & \\
-        w_m    & & A_{m,k} & \\
-      \end{block}
-    \end{blockarray}
+      \begin{blockarray}{cccccc}
+                 & v_1 & \cdots & v_k     & \cdots & v_n \\
+        \begin{block}{c(ccccc)}
+          w_1    &     &        & A_{1,k} &        &     \\
+          \vdots &     &        & \vdots  &        &     \\
+          w_m    &     &        & A_{m,k} &        &     \\
+        \end{block}
+      \end{blockarray}
   \end{equation}
 \end{mydef}
 
-
 \subsection{Addition and Scalar Multiplication of Matrices}
+
+% 3.35
 \setcounter{thm}{34}
-\begin{thm}
+\begin{thm}[matrix of the sum of linear maps]
   $\mmatrix(S+T) = \mmatrix(S) + \mmatrix(T)$ for $S, T \in \linmap (V,W)$
 \end{thm}
 
+% 3.38
 \setcounter{thm}{37}
-\begin{thm}
+\begin{thm}[matrix of a scalar times a linear map]
   $\mmatrix(\lambda T) = \lambda \mmatrix(T)$ for $\lambda \in \myF$ and $T \in \linmap (V,W)$
 \end{thm}
 
-\begin{mydef}
+\begin{mydef} [notation $\myF^{m,n}$]
   $\myF^{m,n}$ denotes the set of all $m$-by-$n$ matrices with entries in $F$, where $m,n \in \nat$
 \end{mydef}
 
-\begin{thm}
+\begin{thm} % no []
   $\myF^{m,n}$ is a vector space with $\dim \myF^{m,n}=mn$.
 \end{thm}
 
 
 \subsection{Matrix Multiplication}
-\setcounter{thm}{40}
-%\textbf{3.41}
 
-\begin{mydef}
-  $(AB)_{j,k} :\equiv \sum_{r=1}^{m} A_{j,r} B_{r,k}$ for $A\in \myF^{m,n}$, $B\in \myF^{n,p}$, $AB \in \myF^{m,p}$
+Let $v_1, \ldots, v_n$ be a basis of $V$ and $w_1, \ldots, w_m$ be a basis of $W.$ Suppose also, that $u_1, \ldots, u_p$ is a basis of $U$.
+
+Consider the linear maps $T: U \to V$ and $S: V \to W$. The composition $ST$ is a linear map from $U$ to $W$. Does
+\begin{equation}
+  \mmatrix(ST) = \mmatrix(S) \mmatrix(T) \;?
+\end{equation}
+
+One can choose a definition of matrix multiplication that forces this question to have a positive answer. Let $A :\equiv \mmatrix(S)$ and $B :\equiv \mmatrix(T)$. For $1 \leq k \leq p$, we have
+\begin{equation}
+  \begin{aligned}
+    (ST) u_k 
+    = S \left ( \sum_{r=1}^{n} B_{r,k} v_r \right )
+    =  \sum_{r=1}^{n} B_{r,k} S v_r 
+    =  \sum_{r=1}^{n} B_{r,k} \sum_{j=1}^{m} A_{j,r}  w_j 
+    =  \sum_{j=1}^{m} \left( \sum_{r=1}^{n} A_{j,r}  B_{r,j} \right) w_j 
+  \end{aligned}
+\end{equation}
+
+Thus $\mmatrix(ST)$ is the $m$-by-$p$ matrix whose entry in row $j$, columns $k$ equals $\sum_{r=1}^{n} A_{j,r}  B_{r,k}$.
+\begin{equation}
+  \mathcal{M} (ST) =
+  \begin{blockarray}{cccccc}
+             & v_1 & \cdots &  v_k      & \cdots & v_n \\
+    \begin{block}{c(ccccc)}
+      w_1    &     &        &  
+        \sum_{r=1}^{n} A_{1,r}  B_{r,k} &        &     \\
+      \vdots &     &        &  \vdots   &        &     \\
+      w_j    &     &        &  
+        \sum_{r=1}^{n} A_{j,r}  B_{r,k} &        &     \\
+      \vdots &     &        &  \vdots   &        &     \\
+      w_m    &     &        &  
+        \sum_{r=1}^{n} A_{m,r}  B_{r,k} &        &     \\
+    \end{block}
+  \end{blockarray}
+\end{equation}
+
+%3.41
+\setcounter{thm}{40}
+\begin{mydef} [matrix multiplication]
+  \label{def: matrix multiplication}
+  Let $A \in \myF^{m,n}$ and $B \in \myF^{n,p}$. Then $AB \in \myF^{m,p}$ whose entry in row $j$, column $k$, is given by the equation
+  \begin{equation}
+    (AB)_{j,k} :\equiv \sum_{r=1}^{n} A_{j,r} B_{r,k}.
+  \end{equation} %for $A\in \myF^{m,n}$, $B\in \myF^{n,p}$, $AB \in \myF^{m,p}$
 \end{mydef}
 
-%\textbf{3.46}
+% 3.43
+\setcounter{thm}{42}
+\begin{thm}[matrix of product of linear maps]
+  If $T \in \linmap(U,V)$ and $S\in \linmap(V,W)$, then $\mmatrix(ST) = \mmatrix(S) \mmatrix(T).$
+\end{thm}
+\begin{prf}
+  See at the beginning of the section.
+\end{prf}
+
+\begin{mydef} [notation: $A_{j, \mathsmaller{\bullet}}, A_{\mathsmaller{\bullet}, k}$ ] Let $A\in \myF{m,n}$. Then
+  \begin{itemize}
+    \item If $1 \leq j \leq m$, then $A_{j, \mathsmaller{\bullet}}$ denotes the $1$-by-$n$ matrix consisting of row $j$ of $A$. 
+    \item If $1 \leq k \leq n$, then  $A_{\mathsmaller{\bullet}, k}$ denotes the $m$-by-$1$ matrix consisting of the column $k$ of $A$.
+  \end{itemize}
+\end{mydef}
+
+% 3.46
 \setcounter{thm}{45}
-\begin{thm}
+\begin{thm} [entry of matrix product equals row times column]
   $(AB)_{j,k} = A_{j, \mathsmaller{\bullet}} B_{\mathsmaller{\bullet}, k}$ if $1 \leq j \leq m$ and $1 \leq k \leq p$
+\end{thm}
+
+% 3.48
+\setcounter{thm}{47}
+\begin{thm}[column of matrix product equals matrix times column]
+  If $A \in \myF{m,b}$ and $B \in \myF^{n,p}$, then
+  \begin{equation}
+    (AB)_{\mathsmaller{\bullet}, k} = AB_{\mathsmaller{\bullet}, k}
+  \end{equation}
+  
+  if $1 \leq k \leq p$. In other words, column $k$ of $AB$ equals $A$ times column $k$ of $B$.
 \end{thm}
 
 \setcounter{thm}{49}
 \begin{thm}
-  Suppose $A \in \myF^{m,n}$ and $b=\left(\begin{matrix}b_1\\ \vdots \\ b_n \end{matrix}\right) \in \myF^{n,1}$. Then $Ab = b_1 A_{\mathsmaller{\bullet}, 1} + \dots + b_n A_{\mathsmaller{\bullet},n}$
+%  $b=\left(\begin{matrix}b_1\\ \vdots \\ b_n \end{matrix}\right)
+  Suppose $A \in \myF^{m,n}$ and  $b = (b_1, \ldots, b_n)^{\top}\in \myF^{n,1}$. Then 
+  \begin{equation}
+    Ab = b_1 A_{\mathsmaller{\bullet}, 1} + \dots + b_n A_{\mathsmaller{\bullet},n}
+  \end{equation}
 \end{thm}
+
+\begin{thm}[linear combinations of columns or rows]
+  Let $C\in\myF^{m,c}$ and $R\in\myF^{c,n}$.
+  \begin{enumerate}
+    \item If $k \in \{1,\ldots,n\},$, then column $k$ of $CR$ is a linear combination of the columns of $C$, with the coefficients of this linear combination coming from column $k$ of $R$.
+    \begin{equation}
+\begin{aligned}
+        CR = 
+      \left (
+        \ldots
+        \left(\begin{matrix}C_{1,1}\\ \vdots \\ C_{m,1} \end{matrix}\right) R_{1,k}+ \cdots + \left(\begin{matrix}C_{1,c}\\ \vdots \\ C_{m,c} \end{matrix}\right) R_{c,k}
+        \ldots
+      \right)
+\end{aligned}
+    \end{equation}
+    \item If $j\in \{1, \ldots, m\}$, then row $j$ of $CR$ is a linear combination of the rows of $R$, with the coefficients of this linear combination comming from row $j$ of $C$
+    \begin{equation}
+      CR = 
+      \left(
+        \begin{matrix}
+          C_{1,1} (R_{1,1}, \ldots, R_{1,n}) + C_{1,2} (R_{1,1}, \ldots, R_{1,n}) + \ldots + C_{1,c} (R_{1,1}, \ldots, R_{1,n}) \\
+          C_{2,1} (R_{2,1}, \ldots, R_{2,n}) + C_{2,2} (R_{2,1}, \ldots, R_{2,n}) + \ldots + C_{2,c} (R_{2,1}, \ldots, R_{2,n}) \\
+          \vdots \\
+          C_{j,1} (R_{p,1}, \ldots, R_{p,n}) + C_{j,2} (R_{p,1}, \ldots, R_{p,n}) + \ldots + C_{j,c} (R_{p,1}, \ldots, R_{p,n}) \\
+          \vdots \\
+          C_{m,1} (R_{p,1}, \ldots, R_{p,n}) + C_{m,2} (R_{p,1}, \ldots, R_{p,n}) + \ldots + C_{m,c} (R_{p,1}, \ldots, R_{p,n}) \\
+        \end{matrix}
+      \right)
+    \end{equation}
+  \end{enumerate}
+\end{thm}
+
+\subsection{Column-Row Factorization and Rank of a Matrix}
+
+% 3.52
+\setcounter{thm}{51}
+\begin{mydef}
+  For $A \in \myF{m,n}$, the ``column rank" of $A$ is the dimension of the span of the columns of $A$ in $\myF^{m,1}$. The ``row rank" of $A$ is the dimension of the span of the rows of $A$ in $\myF{1,n}$.
+\end{mydef}
+
+% 3.54
+\setcounter{thm}{53}
+\begin{mydef}
+  The ``transpose" of a matrix $A\in \myF^{m,n}$, denoted by $A^t\in \myF^{n,m}$, is obtained by interchanging rows and columns. Its entries are given by the equation
+  \begin{equation}
+    \left(A^t\right)_{k,j} = A_{j,k}.´
+  \end{equation}
+\end{mydef}
+
+% 3.56
+\setcounter{thm}{55}
+\begin{thm}[column-row factorization]
+  Suppose $A \in \myF^{m,n}$ with column rank $c \geq 1.$ $\implies \exists C\in \myF^{m,c}$ and $R\in \myF^{c,n}$ such that
+  \begin{equation}
+    A = CR
+  \end{equation}
+\end{thm}
+
+ % 3.57}
+\begin{thm}[column rank and row rank]
+  $A\in \myF^{m,n} \implies$ column rank of $A$ $=$ row rank of $A$.
+\end{thm}
+
+\begin{mydef} [rank]
+  The ``rank" of a matrix $A \in  \myF^{m,n}$ is the column rank of $A$.
+\end{mydef}

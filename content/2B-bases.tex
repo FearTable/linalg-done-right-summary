@@ -49,6 +49,7 @@
 
 \setcounter{thm}{30}
 \begin{thm} [basis of finite\-/ dimensional vector space] 
+  \label{thm: every finite-dimensional vector space has a basis}
   Every \findimvs has a basis.
 \end{thm}
 \begin{prf}
@@ -66,9 +67,32 @@
   Applying the procedure of the proof of \ref{thm: every spanning list contains a basis} to reduce this list to a basis of $V$ produces a basis consisting of vectors $u_1, \cdots, u_m$ and some $w$'s.
 \end{prf}
 
-\begin{thm} 
+\begin{thm} [every subspace of $V$ is part of a direct sum equal to $V$]
+  \label{thm: every subspace of V is part of a direct sum equal to V}
   If $V$ is \fd and $U$ is a subspace of $V$. Then there is a subspace $W$ of $V$ such that 
   \begin{equation}
     V=U \oplus W. 
   \end{equation}
 \end{thm}
+\begin{prf}
+  Let $U$ be a subspace of a \fdvs $V$. $\implies$ $U$ is also \fd (by \ref{thm: finite-dimensional subspace}).
+
+  $\implies_{(\ref{thm: every finite-dimensional vector space has a basis})} \quad \exists u_1, \ldots, u_m \in U $ such that $u_1, \ldots, u_m $ form a basis of $U.$
+
+  
+  $\implies_{(2.32)}$ $u_1, \ldots, u_m$ can be extended to a basis $u_1, \ldots, u_m, w_1, \ldots, w_n$ of $V$.
+  \begin{equation}
+    $Let $W :\equiv \myspan{w_1, \ldots, w_n}.
+  \end{equation}
+  
+  To prove $V=U\oplus W$, by $\ref{thm: intersection of direct sum of two subscpaces}$ we only need to show that 
+  \begin{equation}
+    V = U+W$ and $U \cap W = \{0\}
+  \end{equation}
+  
+  \begin{description}
+    \item{Proof of $V=U+W$:} \lipsum[1]
+    \item{Proof of $U \cap W = \{0\}$:} \lipsum[2]
+  \end{description}
+  So we have proven $V = U \oplus W$.
+\end{prf}

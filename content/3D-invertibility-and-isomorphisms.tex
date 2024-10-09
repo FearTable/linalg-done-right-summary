@@ -2,37 +2,41 @@
 
 \subsection{Invertible Linear Maps}
   \setcounter{thm}{58}
-  %\textbf{3.59}
-  \begin{mydef}
+  %\ 3.59
+  \begin{mydef} [ivertible, inverse]
     $S\in \lvw$ with $ST=I_V \myand TW = I_W$ is called the ``inverse" (map?) of the invertible linear map $T \in \lvw$
   \end{mydef}
 
-  %\textbf{3.60}
-  \begin{thm}
+  % 3.60
+  \begin{thm} [inverse is unique]
     An invertible  linear map has a unique inverse.
   \end{thm}
   \begin{prf}
     Suppose $T\in \lvw$ is invertible and $S_1$ and $S_2$ are inverses of $T$. $\implies S_1 = S_1 I = S_1 (T S_2) = (S_1 T) S_2 = I S_2 = S_2 \implies S_1 = S_2$ 
   \end{prf}
 
-  %\textbf{3.61}
-  \begin{thm}
-    The inverse is denoted by $T^{-1}$. $T^{-1}T=I_V$ and $T T^{-1} = I_W$ (?)
-  \end{thm}
+  % 3.61
+  \begin{mydef} [notation $T^{-1}$]
+    The inverse is denoted by $T^{-1}\in \linmap(W,V)$ for $T\in \linmap(V,W).$ We have
+    \begin{equation}
+      T^{-1}T=I_V$ and $T T^{-1} = I_W
+    \end{equation}
+  \end{mydef}
 
   %\setcounter{thm}{62}
   %\textbf{3.63}
-  \begin{thm}
-    Invertibility of a linear map $\in \lvw$ $\iff$ injectivity and surjectivity.
+  \begin{thm} [invertibility, injectivity and surjectivity]
+    A linear map is invertible $\iff$ it is injective and surjective.
   \end{thm}
 
+  % 3.65
   \setcounter{thm}{64}
-  %\textbf{3.65}
-  \begin{thm}
+  \begin{thm} [injectivity is equivalent to surjectivity]
     \label{injectivity-is-equivalent-to-surjectivity}
-    If $\dim V = \dim W \neq \infty$, injectivity is equivalent to surjectivity for $T\in \linmap(V,W):$
-
-    $T$ is invertible $\iff$ $T$ is injective $\iff$ $T$ is surjective.
+    For $T\in \linmap(V,W)$, if $\dim V = \dim W \neq \infty$, injectivity is equivalent to surjectivity:
+    \begin{equation}
+        T$ is invertible $\iff$ $T$ is injective $\iff$ $T$ is surjective.$
+    \end{equation}
   \end{thm}
   \begin{prf}
     The rank-nullity theorem (\ref{rank-nullity-theorem}) or fundamental theorem of linear maps states that
@@ -63,7 +67,7 @@
 
   \setcounter{thm}{67}
   %\textbf{3.68}
-  \begin{thm}
+  \begin{thm} (vector spaces of the same dimension)
     $ST = I \Leftrightarrow TS=I$
   \end{thm}
 
@@ -174,8 +178,7 @@
   \end{thm}
 
   %\textbf{3.81}
-  \begin{thm}
-    \bfemph{Matrix of product of linear maps:} \\
+  \begin{thm} [matrix of product of linear maps]
     Suppose $T\in \mathcal{L}(U,V)$ and $S\in \lvw$. If $\onetillm{u}$ is a basis of $U$, $\onetilln{v}$, is a basis of $V$ and $\onetill{w}{p}$ is a basis of $W$. Note that $\dim U = m$, $\dim V = n$, $\dim W = p$. Then we have:
     \begin{equation}
     \begin{aligned}

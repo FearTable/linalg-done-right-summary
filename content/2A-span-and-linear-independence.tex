@@ -113,14 +113,20 @@
     $ where $a_1, \ldots, a_m \in \myF$ and $a_i \neq 0$ and $a_j \neq 0 $ for $i,j \in \{1 \cdots m\}
   \end{multline} 
   
-  So we know, at least $2$ $a$'s are not $0$. Let $k$ be the largest element of $\setonetillm$ such that $a_k \neq 0$. Then
+  So we know, at least $2$ $a$'s are not $0$. 
+  Let $k$ be the largest element of $\setonetillm$ such that $a_k \neq 0$. Then
   \begin{equation}
     v_k = - \frac{a_1}{a_n}v_1 - \cdots - \frac{a_{k-1}}{a_k}v_k,
   \end{equation}
   
   which proves that $v_k \in \myspan{v_1, \cdots, v_{k-1}}$.
   
-  Now for the second claim, suppose $k$ is any element of $\setonetillm$ such that $v_k \in \myspan{v_1, \cdots, v_{k-1}}.$ Then we have 
+  Now for the second claim, suppose $k$ is any element of $\setonetillm$ such that 
+  \begin{equation}
+    v_k \in \myspan{v_1, \cdots, v_{k-1}}.
+  \end{equation}
+  
+  Then we have 
   \begin{equation}
     v_k = b_1v_1 + \cdots + b_{k-1}v_{k-1}, $ where $b_1, \cdots, b_{k-1} \in \myF.
     \label{eq: equation for v_k}
@@ -187,5 +193,6 @@
 
 \setcounter{thm}{24}
 \begin{thm} [Finite-dimensional subspace]
+  \label{thm: finite-dimensional subspace}
   Every subspace of a \findimvs is finite\-/dimensional
 \end{thm}
