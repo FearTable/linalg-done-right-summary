@@ -5,7 +5,7 @@
 \setcounter{thm}{107}
 %\textbf{3.108}
 \begin{mydef}
-  A ``linear functional" $\phi$ is an element of $\mathcal{L}(V, \mathbb{F})$. So $\phi \in \linmap(V, \myF)$
+  A ``linear functional'' $\phi$ is an element of $\mathcal{L}(V, \mathbb{F})$. So $\phi \in \linmap(V, \myF)$
 \end{mydef}
 
 \textbf{Examples:}
@@ -41,7 +41,7 @@
 
 %\textbf{3.112}
 \begin{mydef}
-  If $\onetillm{v}$ is a basis of $V$, then the ``dual basis" of $\onetilln{v}$ is the list $\varphi_1, \dots, \varphi_m \in V^{*}$, where each $\varphi_j$ is the linear functional such that
+  If $\onetillm{v}$ is a basis of $V$, then the ``dual basis'' of $\onetilln{v}$ is the list $\varphi_1, \dots, \varphi_m \in V^{*}$, where each $\varphi_j$ is the linear functional such that
   \begin{equation}
     \varphi_j(v_k) = \delta_{j,k} =
   \begin{cases}
@@ -55,7 +55,7 @@
 %\textbf{3.114}
 \setcounter{thm}{113}
 \begin{thm}
-  Suppose $\onetillm{v}$ is a basis of $V$. $\onetillm{\varphi}$ is called ``a dual basis" of $\onetillm{v}$ because for every $v \in V$ we have $v=\varphi_1 (v)v_1 + \cdots \varphi_m(v)v_m$
+  Suppose $\onetillm{v}$ is a basis of $V$. $\onetillm{\varphi}$ is called ``a dual basis'' of $\onetillm{v}$ because for every $v \in V$ we have $v=\varphi_1 (v)v_1 + \cdots \varphi_m(v)v_m$
 \end{thm}
 \begin{prf}
   Let $V \ni v= c_1v_1 + \cdots c_mv_m$. Applying
@@ -73,7 +73,7 @@
 \setcounter{thm}{117}
 \begin{mydef}
 
-  The ``dual map" $T^{*}$ of $T \in \linmap(V,W)$ is the linear map $T^{*} \in \lin{W^{*}}{V^{*}}$ defined like this:
+  The ``dual map'' $T^{*}$ of $T \in \linmap(V,W)$ is the linear map $T^{*} \in \lin{W^{*}}{V^{*}}$ defined like this:
 
   \begin{itemize}
     \item[] $T^{*}(\varphi) :\equiv \varphi \circ T \quad \forall \phi \in W^{*}$
@@ -101,28 +101,90 @@
   \end{enumerate}
 \end{thm}
 
+
+
 \subsection{Dual Space and Range of Dual of Linear Map}
-\begin{mydef}
-  \label{def-annihiltator}
-  For $U \subseteq V$, the annihilator of $U$, denoted by $U^{0}$, is defined by
+
+\begin{mydef} [annihilator, $U^0$]
+  \label{def: annihiltator}
+  For $U \subseteq V$, the ``annihilator'' of $U$, denoted by $U^{0}$, is defined by
   \begin{equation}
-    U^0 = \{ \varphi \in V' \; \mid \; \varphi (u) = 0 \quad \forall u \in U \}
+    U^0 = \{ \varphi \in \dual{V} \; \mid \; \varphi (u) = 0 \quad \forall u \in U \}
   \end{equation}
 \end{mydef}
 
+% 3.124
 \setcounter{thm}{123}
-\begin{thm}
-  \label{the-annihilator-is-a-subspace}
+\begin{thm}[the annihilator is a subspace]
+  \label{thm: the annihilator is a subspace}
   $U \subseteq V \implies U^{0}$ is a subspace of $V{\mathlarger{\mathlarger{'}}}$
 \end{thm}
 
+% 3.125
+\setcounter{thm}{124}
+\begin{thm} [dimension of the annihilator]
+    $U\subseteq V$ and $\dim V < \infty \implies$
+    \begin{equation}
+      \dim U^0 = \dim V - \dim U.
+    \end{equation}
+\end{thm}
+
+% 3.127
+\setcounter{thm}{126}
+\begin{thm} [condition for the annihilator to equal $\{0\}$ or the whole space]
+  If $\dim V < \infty$ and $U\subseteq V$. Then
+  \begin{enumerate}
+    \item $U^0 = \{0 \} \iff U = V$;
+    \item $U^0 = \dual{V} \iff U = \{0\}$;
+   \end{enumerate}
+\end{thm}
+
+% 3.128
+\begin{thm}[the null space of $\dual{T}$]
+  If $\dim V < \infty$, $\dim W<\infty$ and $T \in \linmap (V,W),$ then
+  \begin{enumerate}
+    \item $\mynull \dual{T} = (\myrange T)^0$;
+    \item $\dim \mynull \dual{T} = \dim \mynull T + \dim W - \dim V$
+  \end{enumerate} 
+\end{thm}
+
+% 3.129
+\begin{thm}[$T$ surjective, $\dual{T}$ injective]
+    If $\dim V < \infty$, $\dim W<\infty$ and $T \in \linmap (V,W),$ then
+  \begin{equation}
+    T$ is surjective $ \iff \dual{T} $ is injective$
+  \end{equation}
+\end{thm}
+
+% 3.130
+\begin{thm}[the range of $\dual{T}$]
+    If $\dim V < \infty$, $\dim W<\infty$ and $T \in \linmap (V,W),$ then
+    \begin{enumerate}
+      \item $\dim \myrange \dual{T} = \dim \myrange T$;
+      \item $\myrange \dual{T} = (\mynull T)^0$;
+    \end{enumerate}
+\end{thm}
+
+% 3.131
+\begin{thm} [$T$ injective, $\dual{T}$ surjective]
+    If $\dim V < \infty$, $\dim W<\infty$ and $T \in \linmap (V,W),$ then
+    \begin{equation}
+      T $ is injective $ \iff \dual{T} $ is surjective. $
+    \end{equation}
+\end{thm}
 
 \subsection{Matrix of Dual of Linear Map}
 
+% 3.132
 \setcounter{thm}{131}
 \begin{thm}
   Suppose $V, W$ are finite-dimensional and $T \in \linmap(V,W)$.
   \begin{equation}
     \implies \mmatrix(T^{*}) = (\mmatrix(T))^{\top}
   \end{equation}
+\end{thm}
+
+%3.133
+\begin{thm}
+  If $A \in myF^{m,n}$, then the column rank of $A$ equals the row rank of $A$.
 \end{thm}

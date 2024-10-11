@@ -5,7 +5,7 @@
 \setcounter{thm}{30}
 \begin{mydef}[matrix of a linear map, $\mmatrix(T)$]
   \label{def: matrix of a linear map}
-  Let $T \in \linmap (L,W)$ and let $v_1, \dots, v_n$ be a basis of $V$ and let $w_1, \dots, w_m$ be a basis of $W$. The ``matrix of $T$" with respect to these bases is the $m$-by-$n$ matrix $\mmatrix(T)$ whose entries $A_{j,k}$ are defined by
+  Let $T \in \linmap (L,W)$ and let $v_1, \dots, v_n$ be a basis of $V$ and let $w_1, \dots, w_m$ be a basis of $W$. The ``matrix of $T$'' with respect to these bases is the $m$-by-$n$ matrix $\mmatrix(T)$ whose entries $A_{j,k}$ are defined by
   \begin{equation}
     T v_k = A_{1,k} w_1 + \cdots + A_{m,k} w_m \equiv \sum_{j=1}^{m} A_{j,k} w_j
   \end{equation}
@@ -66,7 +66,12 @@ One can choose a definition of matrix multiplication that forces this question t
   \end{aligned}
 \end{equation}
 
-Thus $\mmatrix(ST)$ is the $m$-by-$p$ matrix whose entry in row $j$, columns $k$ equals $\sum_{r=1}^{n} A_{j,r}  B_{r,k}$.
+Thus $\mmatrix(ST)$ is the $m$-by-$p$ matrix whose entry in row $j$, columns $k$ equals 
+\begin{equation}
+  \sum_{r=1}^{n} A_{j,r}  B_{r,k}.
+\end{equation}
+
+The Matrix of $ST$ denoted as $\mmatrix(ST)$ looks as follows:
 \begin{equation}
   \mathcal{M} (ST) =
   \begin{blockarray}{cccccc}
@@ -172,15 +177,15 @@ Thus $\mmatrix(ST)$ is the $m$-by-$p$ matrix whose entry in row $j$, columns $k$
 % 3.52
 \setcounter{thm}{51}
 \begin{mydef}
-  For $A \in \myF{m,n}$, the ``column rank" of $A$ is the dimension of the span of the columns of $A$ in $\myF^{m,1}$. The ``row rank" of $A$ is the dimension of the span of the rows of $A$ in $\myF{1,n}$.
+  For $A \in \myF{m,n}$, the ``column rank'' of $A$ is the dimension of the span of the columns of $A$ in $\myF^{m,1}$. The ``row rank'' of $A$ is the dimension of the span of the rows of $A$ in $\myF{1,n}$.
 \end{mydef}
 
 % 3.54
 \setcounter{thm}{53}
 \begin{mydef}
-  The ``transpose" of a matrix $A\in \myF^{m,n}$, denoted by $A^t\in \myF^{n,m}$, is obtained by interchanging rows and columns. Its entries are given by the equation
+  The ``transpose'' of a matrix $A\in \myF^{m,n}$, denoted by $A^t\in \myF^{n,m}$, is obtained by interchanging rows and columns. Its entries are given by the equation
   \begin{equation}
-    \left(A^t\right)_{k,j} = A_{j,k}.´
+    \left( A^{t} \right)_{k,j} = A_{j,k}.
   \end{equation}
 \end{mydef}
 
@@ -199,5 +204,5 @@ Thus $\mmatrix(ST)$ is the $m$-by-$p$ matrix whose entry in row $j$, columns $k$
 \end{thm}
 
 \begin{mydef} [rank]
-  The ``rank" of a matrix $A \in  \myF^{m,n}$ is the column rank of $A$.
+  The ``rank'' of a matrix $A \in  \myF^{m,n}$ is the column rank of $A$.
 \end{mydef}

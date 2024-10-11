@@ -1,0 +1,215 @@
+\section{Upper-Triangular Matrices}
+
+\setcounter{thm}{38}
+\begin{thm} [conditions for upper-triangular matrix]
+  \label{conditions for upper-triangular matrix}
+  If $T \in \linmap (V)$ and $v_1, \dots, v_n$ is a basis of $V$. Then the following are equivalent.
+  \begin{enumerate}[label=(\alph*)]
+    \item The matrix of $T$ with respect to $v_1, \dots, v_n$ is upper triangular.
+    \item $\myspan{v_1, \dots, v_k}$ is invariant under $T$ $\quad \forall k \in \{ 1, \dots, n\}$
+    \item $T v_k \in \myspan{v_1, \dots, v_k} \quad \forall k \in \{1, \dots, n\}$
+  \end{enumerate}
+\end{thm}
+\begin{proof}
+  First suppose (a) holds. So like in \ref{def: matrix of a linear map}, the matrix $\mmatrix(T)$ looks like this
+  \begin{equation}
+    \mathcal{M} (T) =
+    \begin{blockarray}{cccccc}
+      & v_1     & \cdots & v_j      & \cdots & v_n     \\
+      \begin{block}{c(ccccc)}
+        v_1    & A_{1,1} & \cdots & A_{1,j}  & \cdots & A_{1,n} \\
+        \vdots &         & \ddots & \vdots   &   *    & \vdots  \\
+        \vdots &         &        & A_{j,j}  &   *    & \vdots  \\
+        \vdots &         &        &          & \ddots & \vdots  \\
+        v_n    &         &        &          &        & A_{n,n} \\
+      \end{block}
+    \end{blockarray}
+  \end{equation}
+  
+  Using a modified version of the equation in \ref{def: matrix of a linear map}, we have for $j\in \{1, \ldots n \}$
+  \begin{equation}
+    T v_j = A_{1,j} v_j + \cdots + A_{j,j} v_j = \sum_{l=1}^{j} A_{l,j} v_j
+  \end{equation}
+  
+  which implies
+  \begin{equation}
+    T v_j \in \myspan{v_1, \ldots, v_j}
+  \end{equation}
+  
+  Now suppose $j, k \in \{1 \ldots n \}$ such that $j \leq  k.$ Because
+  \begin{equation}
+    \myspan{v_1, \ldots, v_j} \subseteq \myspan{v_1, \ldots, v_k}
+  \end{equation} 
+  
+  we see that
+  \begin{equation}
+    T v_j \in \myspan{v_1 \ldots v_k} \mytext{for each} j \in \{1 \ldots k\}.
+  \end{equation}
+  
+  Thus $\myspan{v_1 \ldots v_k}$ is invariant under $T$, completing the proof that (a) implies (b)
+  
+  Now suppose (b) holds, so $\myspan{v_1, \ldots, v_k}$ is invariant under $T$ for each $k \in \{1 \ldots n\}.$ 
+  
+  In particular
+  \begin{equation}
+    T v_k \in \myspan{v_1, \ldots, v_k} \quad \forall k \in \{1 \ldots n\}
+  \end{equation}
+  
+  Thus (b) implies (c).
+  
+  Now suppose (c) hods, so $T v_k \in \myspan{v_1, \ldots, v_k} \quad \forall k \in \{1 \ldots n\}$, which is the same as
+  \begin{equation}
+    T v_k = a_1 v_1 + \cdots + a_k v_k \where a_1, \dots a_k \in \myF
+  \end{equation}
+  
+  Hence all the entries under the diagonal of $\mmatrix (T)$ are $0$, because $v_1, \ldots, v_n$ are linearly independent. Thus $\mmatrix(T)$ is an upper-triangular matrix, completing the proof that (c) implies (a).
+  
+  We have shown that (a) $\implies$ (b) $\implies$ (c) $\implies$ (a)
+\end{proof}
+
+\begin{thm}[equation satisfied by operator with upper-triangular matrix]
+  \label{thm:equation-satisfied-by-operator-with-upper-triangular-matrix}
+  Suppose $T\in \linmap(V)$ and $V$ has a basis with respect to which $T$ has an upper-triangular matrix with diagonal entries $\lambda_1, \dots, \lambda_n$.
+  \begin{equation}
+    \implies (T-\lambda_1I) \cdots (T-\lambda_nI)=0
+  \end{equation}
+\end{thm}
+\begin{prf}
+  Let $A :\equiv \mmatrix(T)$. Let $v_1, \ldots, v_n$ denote a basis of $V$ with respect to which $T$  has an upper-triangular matrix with diagonal entries $\lambda_1, \ldots, \lambda_n$.
+  \begin{equation}
+    A=\mmatrix(T) =
+    \left( {\begin{array}{ccc}
+        \lambda_1 &         &  * \\
+        &  \ddots &    \\
+        0     &         & \lambda_n
+    \end{array} } \right)
+  \end{equation}
+  
+  Then
+  \begin{equation}
+    \label{i-need-a-ref}
+    T v_1 = \lambda_1 v_1 \iff (T-\lambda_1 I)  v_1 = 0,
+  \end{equation}
+  
+  which implies that
+  \begin{equation}
+    (T-\lambda_1 I) \cdots (T-\lambda_m I) v_1 = 0, \mytext{for} \mathbf{m = 1, \ldots, n}
+  \end{equation}
+  (using commutativity for linear maps)
+  \bigbreak
+  Note that $(T-\lambda_2 I) v_2 \in \myspan{v_1}$ because $T v_2 = A_{2,1} v_1 + \lambda_2 v_2$. Thus using (\ref{i-need-a-ref})
+  \begin{equation}
+    \begin{aligned}
+      \label{i-also-need-a-ref}
+      (T- \lambda_1 I) (T- \lambda_2 I) v_2 
+      &= (T- \lambda_1 I) A_{2,1}v_1  \\
+      &= A_{2,1}(T- \lambda_1 I) v_1  \\
+      &=0. 
+    \end{aligned}
+  \end{equation}
+  
+  which implies that
+  \begin{equation}
+    (T-\lambda_1 I) (T-\lambda_2 I) \cdots (T-\lambda_m I) v_2 = 0, \mytext{for} \mathbf{m = 2, \ldots, n}
+  \end{equation}
+  (using commutativity for linear maps)
+  \bigbreak
+  
+  Note that $(T-\lambda_3 I) v_3 \in \myspan{v_1, v_2}$ because $T v_3 = A_{3,1} v_1 +   A_{3,2} v_2 + \lambda_3 v_3$. \\
+  Thus using (\ref{i-need-a-ref}) and (\ref{i-also-need-a-ref}), we get
+  \begin{equation}
+    \begin{aligned}
+      (T- \lambda_1 I) (T- \lambda_2 I) (T- \lambda_3 I)v_3 
+      =(T- \lambda_1 I) (T- \lambda_2 I)(A_{3,1} v_1 +   A_{3,2} v_2)  \\
+      = (T- \lambda_1 I)A_{3,1} v_1(T- \lambda_2 I)+(T- \lambda_1 I)(T- \lambda_2 I)A_{3,2} v_2 \\
+      = A_{3,1}(T- \lambda_1 I) v_1(T- \lambda_2 I)+A_{3,2}(T- \lambda_1 I)(T- \lambda_2 I) v_2 \\
+      = 0
+    \end{aligned}
+  \end{equation}
+  
+  which implies that
+  \begin{equation}
+    (T-\lambda_1 I) (T-\lambda_2 I) \cdots (T-\lambda_m I) v_3= 0, \mytext{for} \mathbf{m = 3, \ldots, n}
+  \end{equation}
+  (using commutativity for linear maps)
+  \bigbreak
+  
+  Continuing this pattern, we see that
+  \begin{equation}
+    (T-\lambda_1 I) \cdots (T- \lambda_n I) v_k = 0 \quad \forall k \in \{ 1\ldots n \}
+  \end{equation}
+  
+  Thus $(T-\lambda_1 I) \cdots (T- \lambda_n I)$ is the $0$ operator because it is $0$ on each vector in a basis of $V$.
+\end{prf}
+
+\begin{example-non}
+  To test this  in octave or matlab, type: \\
+  \texttt{
+    A=rand(4,4); I=eye(4); T=triu(A); \\
+    ZERO=(T-T(1,1)*I)*(T-T(2,2)*I)*(T-T(3,3)*I)*(T-T(4,4)*I) 
+  } \\
+  which should yield a $4$-by-$4$ zero\-/matrix. 
+\end{example-non}
+
+\begin{thm}[determination of eigenvalues from upper-triangular matrix]
+  \label{thm:determination-of-eigenvalue-from-upper-triangular-matrix}
+  Suppose $T\in \linmap(V)$ has an upper\-/triangular matrix with respect to some basis of $V$. Then the eigenvalues of $T$ are precisely the entries on the diagonal of that upper-triangular matrix. 
+  
+\end{thm}
+\begin{prf}
+  Let $v_1, \ldots, v_n$ denote a basis of $V$ with respect to which $T$ has an upper-triangular matrix with diagonal entries $\lambda_1, \ldots, \lambda_n$.
+  \begin{equation}
+    \mmatrix(T) =
+    \left( {\begin{array}{ccc}
+        \lambda_1 &         &  * \\
+        &  \ddots &    \\
+        0      &         & \lambda_n
+    \end{array} } \right)
+  \end{equation}  
+  Because $T v_1 = \lambda_1 v_1$, we see that $\lambda_1$ is an eigenvalue of $T$.
+  
+  Suppose $k \in \{2 \ldots n\}.$ 
+  
+  Then $(T-\lambda_k I) v_k \in \myspan{v_1, \ldots, v_{k-1}}.$ 
+  
+  Thus $T-\lambda_k I$ maps $\myspan{v_1, \ldots, v_k}$ into $\myspan{v_1, \ldots, v_{k-1}}$.
+  
+  Because
+  \begin{equation}
+    \dim \myspan{v_1, \ldots, v_k} = k \myand \dim \myspan{v_1, \ldots, v_{k-1}} = k-1,
+  \end{equation}
+  
+  this implies that $T-\lambda_k I$, which is restricted to $\myspan{v_1, \ldots, v_{k-1}}$, is not injective by \autoref{thm: linear-map-to-a-lower-dimensional-space-is-not-injective}. Thus 
+  \begin{equation}
+    \exists v \in \myspan{v_1, \ldots, v_n}: v\neq0$ and $(T-\lambda_k I)v=0. 
+  \end{equation}
+  Thus $\lambda_k$ is an eigenvalue of $T$. Hence we have shown that every entry of the diagonal of $\mmatrix(T)$ is an eigenvalue of $T$.
+  
+  To prove $T$ has no other eigenvalues, let
+  \begin{equation}
+    \begin{aligned}
+      q &:\equiv (z-\lambda_1) \cdots (z-\lambda_2). \\
+      &\implies q(T) = 0 \mytext{by \autoref{thm:equation-satisfied-by-operator-with-upper-triangular-matrix}}
+    \end{aligned}
+  \end{equation}
+  
+  Hence $q$ is a polynomial multiple of the minimal polynomial of $T$ by \ref{thm: every zero polynomial is a multiple of the minimal polynomial}. Thus every zero of the minimal polynomial is a zero of $q$.
+  
+  Because the zeros of the minimal polynomial of $T$ are the eigenvalues of $T$ by \ref{thm: eigenvalues are the zeros of the minimal polynomial}, this implies that every eigenvalue of $T$ is a zero of $q$. Hence the eigenvalues of $T$ are all contained in the list $\lambda_1, \ldots, \lambda_n$.
+\end{prf}
+
+
+\setcounter{thm}{43}
+\begin{thm}[necessary and sufficient condition to have an upper-triangular-matrix]
+  \label{thm:necessary and sufficient condition to have an upper-triangular-matrix}
+  Let $T\in \linmap(V)$\footnotemark[1]. Then $T$ has an upper-triangular matrix in respect to some basis $V$ $\iff$ the min. polynomial of $T$ equals $(z-\lambda_1) \cdots (z-\lambda_m)$, where $\lambda_1, \dots \lambda_m \in \myF$
+\end{thm}
+
+\setcounter{thm}{46}
+\begin{thm}[necessary condition for every operator on $V$ to have an upper-triangular matrix]
+  \label{thm: necessary condition for every operator to have an upper-triangular matrix}
+  Let $\myF = \compl$. Let $T\in \linmap (V)$\footnotemark[1]. Then $T$ has an upper-triangular matrix with respect to some basis of $V$.
+\end{thm}
+
+\setcounter{footnote}{1}
+\footnotetext{$V$ is finite dimensional.}

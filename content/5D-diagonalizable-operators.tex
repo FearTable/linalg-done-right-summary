@@ -3,18 +3,18 @@
 
 \setcounter{thm}{47}
 \begin{mydef} [diagonal matrix]
-  A ``diagonal matrix" is a square matrix that is $0$ everywhere except possibly on \nopagebreak the diagonal
+  A ``diagonal matrix'' is a square matrix that is $0$ everywhere except possibly on \nopagebreak the diagonal
 \end{mydef}
 
 \setcounter{thm}{49}
 \begin{mydef} [diagonalizable]
-  An operator on $V$ is called ``diagonalizable" if the operator has a diagonal matrix with respect to some basis on $V$
+  An operator on $V$ is called ``diagonalizable'' if the operator has a diagonal matrix with respect to some basis on $V$
 \end{mydef}
 
 \setcounter{thm}{51}
 \label{eigenspace}
 \begin{mydef} [eigenspace, $E(\lambda, T)$]
-  Let $T \in \linmap(V)$ and $\lambda \in \myF$. The ``eigenspace" of $T$ corresponding to $\lambda$ is the subspace $E(\lambda, T)$ of $V$ defined by
+  Let $T \in \linmap(V)$ and $\lambda \in \myF$. The ``eigenspace'' of $T$ corresponding to $\lambda$ is the subspace $E(\lambda, T)$ of $V$ defined by
   \begin{equation}
     E(\lambda, T) :\equiv  \mynull(T-\lambda I) = \{ v\in V \mid Tv = \lambda v\}
   \end{equation}
@@ -77,8 +77,8 @@
   $\implies$ $\left.T\right|_U$ is a diagonalizable operator on $U$.
 \end{thm}
 \begin{prf}
-%  Diagonazability of $T$ $\mathsmaller{\overset{\text{\ref{thm: necessary and sufficient condition for diagonalizability}}}{\iff}}$ the minimal polynomial of $T$ equals 
-    Diagonazability of $T$ $\iff_{(\ref{thm: necessary and sufficient condition for diagonalizability})}$ the minimal polynomial of $T$ equals 
+  %  Diagonazability of $T$ $\mathsmaller{\overset{\text{\ref{thm: necessary and sufficient condition for diagonalizability}}}{\iff}}$ the minimal polynomial of $T$ equals 
+  Diagonazability of $T$ $\iff_{(\ref{thm: necessary and sufficient condition for diagonalizability})}$ the minimal polynomial of $T$ equals 
   \begin{equation}
     (z-\lambda_1)\cdots(z-\lambda_m) \mytext{for} \lambda_1 \neq \cdots \neq \lambda_m.
   \end{equation} 
@@ -89,8 +89,3 @@
 \end{prf}
 
 % TODO: Gerhgorin Disk Theorem Def 5.66 and Theorem 5.67
-
-\section{Commuting Operators}
-\begin{mydef}
-  Two operators or matrices $A$ and $B$ ``commute" if $ST=TS$
-\end{mydef}

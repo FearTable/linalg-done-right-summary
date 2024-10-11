@@ -1,40 +1,59 @@
 \section{Dimension}
 
+% 2.34
 \setcounter{thm}{33}
-\begin{thm} Any two bases of a \fdvs have the same length. So the the basis length does not depend on basis.
+\begin{thm} [basis length] Any two bases of a \fdvs have the same length. So the the basis length does not depend on basis.
 \end{thm}
 \begin{prf}
   Let $B_1$ and $B_2$ be $2$ basis of $V$. Since both are linearly independent and both span $V$, we have $|B_1| \leq |B_2|$ and $|B_2| \leq |B_1|$ by using \ref{length-of-linearly-dependent-list-less-or-equal-length-of-spanning-list}. Therefore $|B_1|=|B_2|.$
 \end{prf}
 
-\begin{mydef} [Dimension]
-	$\dim V :\equiv$ length of any basis of $V$
+\begin{mydef} [dimension]
+  $\dim V :\equiv$ length of any basis of $V$
 \end{mydef}
 
+% 2.37
 \setcounter{thm}{36}
 \begin{thm} [dimension of a subspace]
-  \label{dimension-of-a-subspace}
-  $\dim U \leq \dim V$ if $V$ is \fd  and $U$ is a subspace of $V$.
+  \label{thm: dimension of a subspace}
+  If $V$ is \fd and $U$ is a subspace of $V$, then
+  \begin{equation}
+    \dim U \leq \dim V 
+  \end{equation}
 \end{thm}
-
 \begin{prf}
-  Since the length of everly linearly independent list is smaller or equal to every spanning list in $V$ (according to \ref{length-of-linearly-dependent-list-less-or-equal-length-of-spanning-list}), we have the situation that the length of the basis of $U$ is less or equal to the length of $V$.
+  Since the length of everly linearly independent list is smaller or equal to every spanning list in $V$ according to
+  \ref{thm: length of linearly dependent list less or equal to length of spanning list}, we have the situation that the length of the basis of $U$ is less or equal to the length of the basis of $V$.
 \end{prf}
 
-\begin{thm}
-  \label{every-lid-list-of-length-dim-v-is -a-basis-of-v}
+
+% 2.38
+\begin{thm} [lineparly independent list of the right length]
+  \label{every-lid-list-of-length-dim-v-is-a-basis-of-v}
+  \label{thm: linearly independent list of the right length is a basis}
   Every \lid list of vectors of length $\dim V$ is a basis. (by 2.32)
 \end{thm}
 
-\begin{thm} If $U$ is a subspace of $V$ and $\dim U = \dim V$, then $U=V$. (by 2.38)
+% 2.39
+\begin{thm} [subspace of full dimension] 
+  \label{thm: subspace of full dimension equals the whole space}
+  If $U$ is a subspace of $V$ and $\dim U = \dim V<\infty$, then $U=V$. (by 2.38)
 \end{thm}
 
+% 2.42
 \setcounter{thm}{41} 
-\begin{thm}
-  Every spanning list of vectors in $V$ of length $\dim V$ is a basis of $V$
+\begin{thm} [spanning list of the right length]
+  \label{thm: spanning list of the right length}
+  Every spanning list of vectors in $V(\dim V <\infty)$ with length $\dim V$ is a basis of $V$.
 \end{thm}
+\begin{prf}
+  Suppose $\dim V = n$ and $v_1, \ldots, v_n$ spans $V$. The list $v_1, \ldots, v_n$ can be reduced to a basis of $V$ by \ref{thm: every spanning list contains a basis}. But our list already has length $n$, so no elements will get deleted. Thus $v_1, \ldots, v_n$ is a basis of $V$, as desired.
+\end{prf}
 
-\begin{thm} $V_1$ and $V_2$ are subspaces of a \fdvs we have
+% 2.43
+\begin{thm} [dimension of a sum] 
+  \label{dimension of a sum}
+  $V_1$ and $V_2$ are subspaces of a \fdvs we have
   \begin{equation}
     \implies \dim (V_1 + V_2) = \dim V_1 + \dim V_2 - \dim (V_1 \cap V_2)
   \end{equation}

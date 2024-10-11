@@ -4,7 +4,7 @@
   \setcounter{thm}{58}
   %\ 3.59
   \begin{mydef} [ivertible, inverse]
-    $S\in \lvw$ with $ST=I_V \myand TW = I_W$ is called the ``inverse" (map?) of the invertible linear map $T \in \lvw$
+    $S\in \lvw$ with $ST=I_V \myand TW = I_W$ is called the ``inverse'' (map?) of the invertible linear map $T \in \lvw$
   \end{mydef}
 
   % 3.60
@@ -58,15 +58,13 @@
       \dim \mynull T = \dim V - \dim \myrange T = \dim V - \dim W = 0.
     \end{equation} 
     
-    
     which makes $T$ also injective. 
     Since injectivity and surjectivy together imply invertibility, this ends the proof. 
   \end{prf}
 
 
-
+  % 3.68
   \setcounter{thm}{67}
-  %\textbf{3.68}
   \begin{thm} (vector spaces of the same dimension)
     $ST = I \Leftrightarrow TS=I$
   \end{thm}
@@ -103,18 +101,20 @@
 
   \subsection{Linear Maps Thought of as Matrix Multiplication}
 
-  \begin{mydef}
-    Let $v \in V$ and $\onetillm{v}$ be a basis of $V$ such that $v=b_1v_1+\dots+b_mv_m$.
+  \begin{mydef} [matrix of a vector, $\mmatrix(u)$]
+    Let $u \in V$ and $\onetillm{v}$ be a basis of $V$ such that $u=b_1v_1+\dots+b_mv_m$.
     \\
     We define
     $
-    \mathcal{M}(v) :\equiv
+    \mathcal{M}(u) :\equiv
     \left (
     \begin{matrix}
       b_1 \\ \vdots \\ b_m
     \end{matrix}
     \right )
-    $. The vector depends on the basis, but it is not included in the notation.
+    $. 
+    
+    The vector depends on the basis, but it is not included in the notation. 
   \end{mydef}
 
   Recall: $
@@ -132,13 +132,14 @@
 
   \setcounter{thm}{74}
   %\textbf{3.75}
-  \begin{thm}
-    $\mathcal{M}_{\mathsmaller{\bullet}, k} = M(T v_k)$. The $k^{\text{th}}$ column of $\mathcal{M}(T)$ equals $(A_{1,k}, \dots, A_{m,k})^\top$
+  \begin{thm} [$\mmatrix(T)_{\mathsmaller{\bullet}, k} = \mmatrix(T v_k)$]
+    Suppose $T \in \linmap(V,W)$ and $v_1, \ldots, v_n$ is a basis of $V$ and $w_1, \ldots, w_m$ is a basis of $W$. Let $1\leq k \leq n$. Then the $k^{\text{th}}$ column of $\mmatrix(T)$, which is denoted by $\mmatrix(T)_{\mathsmaller{\bullet}, k}$ equals $\mmatrix(Tv_k)$.
+%    $\mmatrix_{\mathsmaller{\bullet}, k} = M(T v_k)$. The $k^{\text{th}}$ column of $\mmatrix_{\mathsmaller{\bullet}, k}$ equals $(A_{1,k}, \dots, A_{m,k})^\top$
   \end{thm}
 
-  %\textbf{3.76}
-  \begin{thm}
-    Linear maps act like matrix multiplication: Suppose $T\in \lvw$ and $v\in V$. Suppose $\onetilln{v}$ is a basis of $V$ and $\onetillm{w}$ is a basis of $W$. Then
+  %3.76
+  \begin{thm} [linear maps act like matrix multiplication]
+    Suppose $T\in \lvw$ and $v\in V$. Suppose $\onetilln{v}$ is a basis of $V$ and $\onetillm{w}$ is a basis of $W$. Then
     \begin{equation}
       \mathcal{M} (Tv)=\mathcal{M}(T) \cdot \mathcal{M}(v)
     \end{equation}
@@ -150,21 +151,24 @@
 
   \end{thm}
 
+  % 3.78
   \setcounter{thm}{77}
-  %\textbf{3.78}
-  \begin{thm}
-    For $T \in \lvw: \dim \myrange T = \text{column rank of } \mathcal{M} (T)$
+  \begin{thm} [dimension of $\myrange T$ and column rank of $\mmatrix(T)$]
+    Suppose $\dim V < \infty$ and $\dim W < \infty$. Then for $T \in \linmap(V,W):$ 
+    \begin{equation}
+      \dim \myrange T = $ column rank of $ \mmatrix (T)
+    \end{equation}
+  \begin{mydef-non}
+  $\mathcal{M}(T, (\onetilln{v})) :\equiv \mathcal{M}(T, (\onetilln{v}),(\onetilln{v}))$
+\end{mydef-non}
   \end{thm}
 
   \subsection{Change of basis}
 
-  \begin{mydef-non}
-    $\mathcal{M}(T, (\onetilln{v})) :\equiv \mathcal{M}(T, (\onetilln{v}),(\onetilln{v}))$
-  \end{mydef-non}
 
+  % 3.80
   \setcounter{thm}{79}
-  %\textbf{3.80}
-  \begin{thm}
+  \begin{mydef}[invertible, inverse, $A^{-1}$]
     A square matrix $A$ is called invertible, if there is some square matrix B of the same size such that 
     \begin{equation}
     	AB=BA=I.
@@ -175,9 +179,9 @@
       \item $(A^{-1})^{-1}=A$
       \item $(AC)^{-1} = C^{-1}A^{-1}$ (Because $(AC)(C^{-1}A^{-1})=I$ and $(C^{-1}A^{-1})(AC)=I$)
     \end{itemize}
-  \end{thm}
+  \end{mydef}
 
-  %\textbf{3.81}
+  % 3.81 
   \begin{thm} [matrix of product of linear maps]
     Suppose $T\in \mathcal{L}(U,V)$ and $S\in \lvw$. If $\onetillm{u}$ is a basis of $U$, $\onetilln{v}$, is a basis of $V$ and $\onetill{w}{p}$ is a basis of $W$. Note that $\dim U = m$, $\dim V = n$, $\dim W = p$. Then we have:
     \begin{equation}
@@ -194,10 +198,9 @@
     \end{equation}
   \end{thm}
 
+  % 3.84
   \setcounter{thm}{83}
-  %\textbf{3.84}
-  \begin{thm}
-    \bfemph{Change-of-basis formula:}\\
+  \begin{thm}[change-of-basis formula:]
     Suppose $T \in \linmap(V)$. Let
     $V = \myspan{\onetillm{u}} = \myspan{\onetillm{v}}$ such that the $u$'s and $v$'s both form a basis. Let $A=\mmatrix(T, (\onetillm{u}))$ and $B=\mmatrix(T,(\onetillm{v}))$. Let
     $C=\mmatrix(I, \onetillm{u}, \onetillm{v})$. Then
@@ -206,8 +209,8 @@
     \end{equation}
   \end{thm}
 
+  % 3.86
   \setcounter{thm}{85}
-  %\textbf{3.86}
   \begin{thm}
     If $\onetillm{v}$ is a basis $V$ and $T\in \mathcal{L}$ is invertible, then
     \begin{equation}

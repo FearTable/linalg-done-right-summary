@@ -69,7 +69,7 @@
 {}                            % Theorem head font {\ttfamily\fontseries{b}\selectfont}
 {{\textbf{:}} }       % Punctuation after theorem head
 {.2em}                        % Space after theorem head
-{{\textbf{\scshape{\thmname{#1}\thmnumber{ #2}}}{\normalfont \thmnote{ \slshape (#3)}}}} 
+{{\textbf{\scshape{\thmname{#1}\thmnumber{ #2}}}{\normalfont \thmnote{ ({\slshape#3})}}}} 
                               % Theorem head spec (can be left empty, meaning ‘normal’)
 
 % Define 'thm', 'thm-non', 'mydef', 'mydef-non', 'example', 'example-non'
@@ -216,6 +216,9 @@
 \newcommand{\even}{\operatorname{even}}
 \newcommand{\odd}{\operatorname{odd}}
 
+% dual space
+\newcommand{\dual}[1]{#1\mathlarger{'}}
+
 % legacy
 
 % \newcommand{\basis}[2]{\overbrace{ \myspan{#1_1, \dots #1_{#2}}}^{\text{linearly independent}} }}
@@ -231,5 +234,5 @@
 \titleformat{\chapter}[block]
 {\bfseries\scshape}{{\relscale{1.1} { }Chapter} {\relscale{1.1} \thechapter \newline} { } { }  \relscale{1.3} #1}{0.5em}{\selectfont\large}
 \titleformat{\section}{\bfseries\relscale{1.2}\scshape}{}{0em}{\thesection { } #1} %Large
-\titleformat{\subsection}{\relscale{1.1}\bfseries\scshape}{}{0em}{#1 (\thesubsection)} %large
+\titleformat{\subsection}{\relscale{1.1}\bfseries\scshape\slshape}{}{0em}{#1 (\thesubsection)} %large
 % END custom chapter format ********************************
