@@ -9,8 +9,8 @@ function retval = column_wise_matrix_mult (C,R)
   end
 
   for (j=1:m)
-    for (l=1:c)
-      retval(j,:)=retval(j,:)+C(j,l)*R(l,:);
+    for (i=1:c)
+      retval(j,:)=retval(j,:)+C(j,l)*R(i,:);
     end
   end
 end
