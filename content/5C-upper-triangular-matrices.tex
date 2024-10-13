@@ -120,10 +120,10 @@
   \begin{equation}
     \begin{aligned}
       (T- \lambda_1 I) (T- \lambda_2 I) (T- \lambda_3 I)v_3 
-      =(T- \lambda_1 I) (T- \lambda_2 I)(A_{3,1} v_1 +   A_{3,2} v_2)  \\
-      = (T- \lambda_1 I)A_{3,1} v_1(T- \lambda_2 I)+(T- \lambda_1 I)(T- \lambda_2 I)A_{3,2} v_2 \\
-      = A_{3,1}(T- \lambda_1 I) v_1(T- \lambda_2 I)+A_{3,2}(T- \lambda_1 I)(T- \lambda_2 I) v_2 \\
-      = 0
+      &=(T- \lambda_1 I) (T- \lambda_2 I)(A_{3,1} v_1 +   A_{3,2} v_2)  \\
+        &= (T- \lambda_1 I)A_{3,1} v_1(T- \lambda_2 I)+(T- \lambda_1 I)(T- \lambda_2 I)A_{3,2} v_2 \\
+        &= A_{3,1}(T- \lambda_1 I) v_1(T- \lambda_2 I)+A_{3,2}(T- \lambda_1 I)(T- \lambda_2 I) v_2 \\
+            &= 0
     \end{aligned}
   \end{equation}
   
@@ -143,11 +143,24 @@
 \end{prf}
 
 \begin{example-non}
-  To test this  in octave or matlab, type: \\
-  \texttt{
-    A=rand(4,4); I=eye(4); T=triu(A); \\
-    ZERO=(T-T(1,1)*I)*(T-T(2,2)*I)*(T-T(3,3)*I)*(T-T(4,4)*I) 
-  } \\
+  To test this  in octave or matlab, type: 
+  
+  \begin{center}
+    \begin{minipage}{\linewidth}
+      \addtolength{\linewidth}{-7em} 
+      \begin{lstlisting}[
+        aboveskip=0.5em,
+        frame=single,
+        numbers=left,
+        style=Matlab-bw,
+        basicstyle=\scriptsize\ttfamily]
+  A=rand(4,4); I=eye(4); T=triu(A); \\
+  ZERO=(T-T(1,1)*I)*(T-T(2,2)*I)*(T-T(3,3)*I)*(T-T(4,4)*I) 
+      \end{lstlisting}
+      \addtolength{\linewidth}{+7em} 
+    \end{minipage}
+  \end{center}
+
   which should yield a $4$-by-$4$ zero\-/matrix. 
 \end{example-non}
 

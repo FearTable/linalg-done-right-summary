@@ -52,7 +52,7 @@ Let $v_1, \ldots, v_n$ be a basis of $V$ and $w_1, \ldots, w_m$ be a basis of $W
 
 Consider the linear maps $T: U \to V$ and $S: V \to W$. The composition $ST$ is a linear map from $U$ to $W$. Does
 \begin{equation}
-  \mmatrix(ST) = \mmatrix(S) \mmatrix(T) \;?
+  \mmatrix(ST) = \mmatrix(S) \mmatrix(T) \; {\mathlarger ?}
 \end{equation}
 
 One can choose a definition of matrix multiplication that forces this question to have a positive answer. Let $A :\equiv \mmatrix(S)$ and $B :\equiv \mmatrix(T)$. For $1 \leq k \leq p$, we have
@@ -67,9 +67,8 @@ One can choose a definition of matrix multiplication that forces this question t
 \end{equation}
 
 Thus $\mmatrix(ST)$ is the $m$-by-$p$ matrix whose entry in row $j$, columns $k$ equals 
-\begin{equation}
-  \sum_{r=1}^{n} A_{j,r}  B_{r,k}.
-\end{equation}
+  $\sum_{r=1}^{n} A_{j,r}  B_{r,k}.$
+
 
 The Matrix of $ST$ denoted as $\mmatrix(ST)$ looks as follows:
 \begin{equation}
@@ -163,12 +162,13 @@ The Matrix of $ST$ denoted as $\mmatrix(ST)$ looks as follows:
       \end{aligned}
     \end{equation}
     
-  The octave\-/code for row-wise multiplication looks like this
+  The octave\-/code for row-wise multiplication looks like this:
+  
   \begin{center}    
     \begin{minipage}{\linewidth}
       \addtolength{\linewidth}{-7em}  
       \lstinputlisting[
-      aboveskip=0.2em,
+      aboveskip=0.5em,
       frame=single,
       numbers=left,
       style=Matlab-bw,
@@ -193,12 +193,13 @@ The Matrix of $ST$ denoted as $\mmatrix(ST)$ looks as follows:
     \end{equation}
     
 
-    The octave\-/code for column-wise multiplication looks like this.
+    The octave\-/code for column-wise multiplication looks like this:
+    
     \begin{center}
       \begin{minipage}{\linewidth}
         \addtolength{\linewidth}{-7em} 
         \lstinputlisting[
-        aboveskip=0.2em,
+        aboveskip=0.5em,
         frame=single,
         numbers=left,
         style=Matlab-bw,

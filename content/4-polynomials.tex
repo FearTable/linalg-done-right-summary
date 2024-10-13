@@ -1,23 +1,57 @@
 
 $\mathbb{F}$ denotes $\mathbb{R}$ or $\mathbb{C}$.
 
-\subsection{Zeros of polynomials}
+\section{Zeros of polynomials}
 $p: \mathbb{F} \to \mathbb{F}, \, p(z) = a_0 + a_1z + \cdots + a_n z^m$
 
 \setcounter{thm}{4}
-\begin{thm}
-  $\lambda \in \mathbb{F}$ is called a zero (or root) of a polynomial if $p(\lambda) = 0$.
-\end{thm}
+\begin{mydef}[zero of a polynomial]
+  $\lambda \in \mathbb{F}$ is called a ``zero''  (or ``root'') of a polynomial if $p(\lambda) = 0$.
+\end{mydef}
 
 \setcounter{thm}{5}
 \begin{thm}[each zero of a polynomial corresponds to a degree\-/one factor]
-  % each zero of a polynomial corresponds to a degree-one factor
   \label{factororing-out-zeros-of-a-polynomial-always-possible}
-  $\forall p \in \mathcal{P}_m(\mathbb{F}) \; \exists \lambda \in \mathbb{F}$ such that 
+  $\forall p \in \mathcal{P}_m(\mathbb{F}): \; \exists \lambda \in \mathbb{F}$ s.t.
   \begin{equation}
   	p(\lambda) = 0 \iff \exists q \in \mathcal{P}_{m-1}: p(z) = (z-\lambda)q(z)
   \end{equation}
 \end{thm}
+\begin{prf} Let $p\in \polyn(\myF)_m$ for $m\in \nat$.
+  
+  ``$\Leftarrow$ direction:'' Suppose there is $q \in \polyn(\myF)$ s.t. $p(z) = (z-\lambda)q(z) \quad \forall z \in \myF$. Then
+  \begin{equation}
+    p(\lambda) = (\lambda -\lambda)q(\lambda) = 0,$ as desired.$
+  \end{equation}
+  
+  ``$\Rightarrow$ direction:'' Now suppose $p(\lambda)=0$. Let $a_0, a_1, \ldots, a_m \in \myF"$ be s.t.
+  \begin{equation}
+    p(z) :\equiv a_0 + a_1z + \cdots a_mz^m \quad \forall z \in  \myF.
+  \end{equation}
+  
+  Then
+  \begin{equation}
+    \label{eq: second formula of pz: pz = pz - plambda}
+    p(z) = p(z)- p(\lambda) = a_1 (z-\lambda) + a_2 (z^2 - \lambda^2) + \cdots+ a_m (z^m- \lambda^m) \quad \forall z \in \myF.
+  \end{equation}
+  
+  Using the binomic formula 
+  $z^k - \lambda^k = (z-\lambda) \sum_{j=1}^{k} \lambda^{j-1}z^{k-j} \quad \forall k\in \setonetillm$, we get 
+  \begin{equation}
+    p(z) = (z-\lambda)
+    \underbrace{
+      \left(
+        a_1 + a_2 (z+\lambda) + a_3(z^2 + \lambda z + \lambda^2) +
+        a_4 (z^3 + \lambda z^2 + \lambda^2 z + \lambda^3) 
+        + \cdots +
+        a_m \sum_{j=1}^{m} \lambda^{j-1} z^{m-j}
+      \right)}_{\text{a polynomial with degree $m-1$}}´
+  \end{equation}
+  
+  Thus $p$ equals $z-\lambda$ times some polyomial of degree $m-1$, as desired.
+\end{prf}
+
+In case you are wondering where the $a_0$ went by subtracting $p(\lambda)$ from $p(z)$, it is hidden int the roots! For example $p\in \polyn_1(\myF): p=a_0+a_1z = \left(z- \left(-\frac{a_0}{a_1}\right)\right)(a_1)$ where $\left(-\frac{a_0}{a_1}\right)$ is the only root!
 
 \setcounter{thm}{7}
 \begin{thm}
@@ -25,7 +59,7 @@ $p: \mathbb{F} \to \mathbb{F}, \, p(z) = a_0 + a_1z + \cdots + a_n z^m$
 \end{thm}
 \begin{prf} 
   For $m=1$, $a_0+a_1z$ has only one zero, which is $-\frac{a_0}{a_1}$\\
-  Now for $m>1$ and assuming the desired result holds for $m-1$. 
+  Now for $m>1$ let us assume the desired result holds for $m-1$. 
   
   If $p\in \mathcal{P}_{m}(\myF)$ has no zeros, we are done. 
   
@@ -42,21 +76,46 @@ $p: \mathbb{F} \to \mathbb{F}, \, p(z) = a_0 + a_1z + \cdots + a_n z^m$
 \setcounter{thm}{8}
 \begin{thm}
   \label{division-algorithm-for-polynomials}
-  Suppose $p,s \in \mathcal{P} (\mathbb{F}), \, s\neq 0$. \\
-  Then $\exists q,r \in \mathcal{P} (\mathbb{F})$ such that
+  Suppose $p,s \in \mathcal{P} (\mathbb{F}), \, s\neq 0$. 
+  Then $\exists q,r \in \mathcal{P} (\mathbb{F})$ s.t.
   \begin{equation}
-  	p=sq+r \myand \deg r < \deg s.
+    p=sq+r \myand \deg r < \deg s.
   \end{equation}
 \end{thm}
-
+\begin{prf}
+  Let $n:\equiv \deg p$ and $m:\equiv \deg s$. 
+  
+  If $n<m$, then take $q=0$ and $r=p$.
+  
+  Thus now we assume $n \geq m$. The list
+  \begin{equation}
+    \label{eq: basis of P_n(F)}
+    1, z, \ldots, z^{m-1}, s, zs, \ldots, z^{n-m}s
+  \end{equation}
+  
+  is linearly independent because each polynomial in this list has a different degree.
+  
+  The list has length $1+(m-1)+1+(n-m)=n+1$, which equals $\dim \polyn_n(\myF)$. Hence \eqref{eq: basis of P_n(F)} is a basis of $\polyn_n(\myF)$ by \ref{thm: linearly independent list of the right length is a basis}. Therefore, we have $a_0, a_1, \ldots, a_{m-1} \in \myF$ and $b_0, b_1, \ldots, b_{n-m} \in \myF$ s.t.
+  \begin{equation}
+    \begin{aligned}
+          p&=a_0 + a_1z + a_2z^2 + \cdots + a_{m-1} z^{m-1}
+          + b_0 s + b_1 zs + b_2 z^2 s + \cdots + b_{n-m}z^{n-m}s \\
+           &=\underbrace{\left(a_0 + a_1z + a_2z^2 + \cdots + a_{m-1} z^{m-1} \right)}_{r} + \underbrace{\Big(s\Big)}_{s} \underbrace{\left( b_0 + b_1 z + b_2 z^2 + \cdots + b_{n-m} z^{n-m} \right)}_{q} \\
+           &=r+sq=sq+r, \mytext{with} \deg r = m-1 \leq \deg s = m,
+    \end{aligned}
+  \end{equation}
+  as desired.
+  
+  The uniqueness of $q,r \in \polyn(\myF)$ follows from the uniqueness of the $a$'s and $b$'s, because \eqref{eq: basis of P_n(F)} is a basis of $\polyn_n(\myF)$.
+\end{prf}
 \section{Factorization of Polynomials over $\compl$}
 \setcounter{thm}{11}
-\begin{thm}[Fundamental theorem of algebra, first version]
+\begin{thm}[\emph{fundamental theorem of algebra}, first version]
   \label{fundamental-theorem-of-algebra-first-version}
   Every non\-/constant polynomial with complex coefficients has a zero in $\mathbb{C}$.
 \end{thm}
 
-\begin{thm} [Fundamental theorem of algebra, second version:]
+\begin{thm} [\emph{fundamental theorem of algebra}, second version:]
   \label{fundamental-theorem-of-algebra-second-version}
   $p \in \polyn(\mathbb{C}), \; p$ is non-constant $\implies p$ has a unique factorization
   \begin{equation}
@@ -66,11 +125,28 @@ $p: \mathbb{F} \to \mathbb{F}, \, p(z) = a_0 + a_1z + \cdots + a_n z^m$
 \end{thm}
 
 \section{Factorization of Polynomials over $\real$}
-\begin{thm}
+
+% 4.14
+\begin{thm}[polynomials with real coefficients have nonreal zeros in pairs]
+  \label{thm: polynomials with real coefficients have nonreal zeros in pairs}
   Suppose $p\in \mathcal{P} (\mathbb{C})$ is a polynomial with real coefficients. If $\lambda \in \mathbb{C}$ is a zero of $p$, then so is $\overline{\lambda}$.
 \end{thm}
+\begin{prf}
+  Let $p(z) :\equiv a_0 + a_1 z + \ldots + a_m z^m$, where $a_0, \ldots, a_m \in \real$. Suppose $\lambda \in \compl$ is a zero of $p$. Then 
+  \begin{equation}
+    \begin{aligned}
+      a_0+a_1\lambda+\cdots+a_m\lambda^m&=0\\
+      \overline{a_0+a_1\lambda+\cdots+a_m\lambda^m}&=\overline{0}\\
+      \overline{a_0}+\overline{a_1\lambda}+\cdots+\overline{a_m\lambda^m}&=0\\
+      a_0+a_1\overline{\lambda}+\cdots+a_m\overline{\lambda}^m&=0
+    \end{aligned}
+  \end{equation}
+  
+  The equation above shows that $\overline{\lambda}$ is a zero of $p$.
+\end{prf}
 
-\begin{thm} [Factorization of a quadratic polynomial]
+\begin{thm} [factorization of a quadratic polynomial]
+  \label{thm: factorization of a quadratic polynomial}
   Let $p(x)=x^2+bx+c \in \polyn_2(\real)$ such that $b,c \in \real$. Then $p$ can be written as
   $p(x)=x^2 + bx + c$ $=$ $(x-\lambda_1)(x-\lambda_2)$ with $\lambda_1, \lambda_2 \in \mathbb{R} \iff b^2 \geq 4c$.
 \end{thm}
