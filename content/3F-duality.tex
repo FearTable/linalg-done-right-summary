@@ -24,18 +24,18 @@
 \setcounter{thm}{109}
 %\textbf{3.110}
 \begin{thm}
-  The dual space of $V$, denoted by $V'$ or $V^{*}$, is the vector space of all linear functionals on $V$.
+  The dual space of $V$, denoted by $\dual{V}$ or $V^{*}$, is the vector space of all linear functionals on $V$.
   \begin{equation}
-    V^{*} :\equiv \linmap(V, \myF)
+    \dual{V} :\equiv \linmap(V, \myF)
   \end{equation}
 \end{thm}
 
 %\textbf{3.111}
 \begin{thm}
-  $\dim V^{*} = \dim V$.
+  $\dim \dual{V} = \dim V$.
 \end{thm}
 \begin{prf}
-  $\dim V^{*} = \dim \mathcal{L}(V, \mathbb{F})=(\dim V) \cdot (\dim \mathbb{F}) = \dim V $
+  $\dim \dual{V} = \dim \mathcal{L}(V, \mathbb{F})=(\dim V) \cdot (\dim \mathbb{F}) = \dim V $
 \end{prf}
 
 
@@ -73,18 +73,18 @@
 \setcounter{thm}{117}
 \begin{mydef}
 
-  The ``dual map'' $T^{*}$ of $T \in \linmap(V,W)$ is the linear map $T^{*} \in \lin{W^{*}}{V^{*}}$ defined like this:
+  The ``dual map'' $T'$ of $T \in \linmap(V,W)$ is the linear map $T' \in \lin{W'}{V'}$ defined like this:
 
   \begin{itemize}
-    \item[] $T^{*}(\varphi) :\equiv \varphi \circ T \quad \forall \phi \in W^{*}$
-    \item $\varphi \in W^{*}=\lin{W}{\mathbb{F}} \text{ and } T^{*}(\varphi) \in V^{*} = \lin{V}{\mathbb{F}}$.
+    \item[] $T'(\varphi) :\equiv \varphi \circ T \quad \forall \phi \in W'$
+    \item $\varphi \in W'=\lin{W}{\mathbb{F}} \text{ and } T'(\varphi) \in V' = \lin{V}{\mathbb{F}}$.
 
     yo
-    So $T^{*}$ is indeed a map from $W^{*}$ to $V^{*}$
+    So $T'$ is indeed a map from $W'$ to $V'$
 
 
-    \item $\varphi, \psi \in W^{*} \implies T^{*} (\varphi + \psi) = (\varphi + \psi) \circ T = \varphi \circ T + \psi \circ T = T^{*} (\varphi) + T^{*} (\psi)$
-    \item $\lambda \in \mathbb{F}, \varphi \in W \implies T^{*} (\lambda \varphi) = (\lambda \varphi) \circ T = \lambda (\varphi \circ T) = \lambda T^{*} (\varphi)$
+    \item $\varphi, \psi \in W' \implies T' (\varphi + \psi) = (\varphi + \psi) \circ T = \varphi \circ T + \psi \circ T = T' (\varphi) + T'(\psi)$
+    \item $\lambda \in \mathbb{F}, \varphi \in W \implies T' (\lambda \varphi) = (\lambda \varphi) \circ T = \lambda (\varphi \circ T) = \lambda T' (\varphi)$
   \end{itemize}
 
 \end{mydef}
@@ -95,9 +95,9 @@
   Algebraic properties of dual maps:  \\
   $T \in \linmap(V,W)$ $\implies$
   \begin{enumerate}
-    \item $(S+T)' = S' + T' \quad \forall S \in \linmap(V,W)$
-    \item $(\lambda T)' = \lambda T' \quad \quad \forall \lambda \in \myF$
-    \item $(ST)' = T'S' \quad \; \forall S \in \linmap (W,U)$
+    \item $\dual{(S+T)} = \dual{S} + \dual{T} \quad \forall S \in \linmap(V,W)$
+    \item $\dual{(\lambda T)} = \lambda \dual{T} \quad \quad \forall \lambda \in \myF$
+    \item $\dual{(ST)} = \dual{T}\dual{S} \quad \; \forall S \in \linmap (W,U)$
   \end{enumerate}
 \end{thm}
 
@@ -117,7 +117,7 @@
 \setcounter{thm}{123}
 \begin{thm}[the annihilator is a subspace]
   \label{thm: the annihilator is a subspace}
-  $U \subseteq V \implies U^{0}$ is a subspace of $V{\mathlarger{\mathlarger{'}}}$
+  $U \subseteq V \implies U^{0}$ is a subspace of $\dual{V}$
 \end{thm}
 
 % 3.125
@@ -180,11 +180,11 @@
 \begin{thm}
   Suppose $V, W$ are finite-dimensional and $T \in \linmap(V,W)$.
   \begin{equation}
-    \implies \mmatrix(T^{*}) = (\mmatrix(T))^{\top}
+    \implies \mmatrix(\dual{T}) = (\mmatrix(T))^{\top}
   \end{equation}
 \end{thm}
 
 %3.133
 \begin{thm}
-  If $A \in myF^{m,n}$, then the column rank of $A$ equals the row rank of $A$.
+  If $A \in \myF^{m,n}$, then the column rank of $A$ equals the row rank of $A$.
 \end{thm}

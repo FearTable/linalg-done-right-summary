@@ -57,6 +57,7 @@
 \end{prf}
 
 \begin{thm} 
+  \label{thm: every linearly independent list of vectors in a finite-dimensional vector space can be extended to a basis of the vector space}
   Every \lid list of vectors in a  \findimvs can be extended to a basis of the \vs. 
 \end{thm}
 \begin{prf}
@@ -69,18 +70,16 @@
 
 \begin{thm} [every subspace of $V$ is part of a direct sum equal to $V$]
   \label{thm: every subspace of V is part of a direct sum equal to V}
-  If $V$ is \fd and $U$ is a subspace of $V$. Then there is a subspace $W$ of $V$ such that 
-  \begin{equation}
-    V=U \oplus W. 
-  \end{equation}
+  If $V$ is \fd and $U$ is a subspace of $V$. Then there is a subspace $W$ of $V$ such that $V=U \oplus W.$
 \end{thm}
 \begin{prf}
-  Let $U$ be a subspace of a \fdvs $V$. $\implies$ $U$ is also \fd (by \ref{thm: finite-dimensional subspace}).
-
-  $\implies_{(\ref{thm: every finite-dimensional vector space has a basis})} \quad \exists u_1, \ldots, u_m \in U $ such that $u_1, \ldots, u_m $ form a basis of $U.$
-
+  Suppose $U$ is a subspace of a \fdvs $V$. 
   
-  $\implies_{(2.32)}$ $u_1, \ldots, u_m$ can be extended to a basis $u_1, \ldots, u_m, w_1, \ldots, w_n$ of $V$.
+  $\implies$ $U$ is also \fd (by \ref{thm: finite-dimensional subspace}). 
+  
+  $\implies$ $\exists u_1, \ldots, u_m \in U $ such that $u_1, \ldots, u_m $ form a basis of $U$. (by \ref{thm: every finite-dimensional vector space has a basis}) 
+  
+  $\implies$ $u_1, \ldots, u_m$ can be extended to a basis $u_1, \ldots, u_m, w_1, \ldots, w_n$ of $V$. (by \ref{thm: every linearly independent list of vectors in a finite-dimensional vector space can be extended to a basis of the vector space})
   \begin{equation}
     $Let $W :\equiv \myspan{w_1, \ldots, w_n}.
   \end{equation}
@@ -91,8 +90,87 @@
   \end{equation}
   
   \begin{description}
-    \item{Proof of $V=U+W$:} \lipsum[1]
-    \item{Proof of $U \cap W = \{0\}$:} \lipsum[2]
+    \item{Proof of $V=U+W$:} Let $v \in V$. Since $u_1, \ldots, u_m, w_1, \ldots, w_n$ is a basis of $V$, it spans $V$. $V = \myspan{u_1, \ldots, u_m, w_1, \ldots, w_n}$
+    
+    So we have $\exists a_1, \ldots, a_m, b_1, \ldots, b_n \in \myF$ s.t. \\
+    $v = \underbrace{a_1 u_1 + \cdots a_m u_m}_{u} + \underbrace{b_1 w_1 + \cdots b_m w_m}_{w}.$
+    
+    With $u$ and $w$ defined as above, we have $v=u+w$, where $u \in U$ and $w \in W$. Thus $v \in U+W,$ completing the proof that $V=U+W$.
+    
+    \item{Proof of $U \cap W = \{0\}$:} Let $v \in U \cap W$. $\implies$ $\exists a_1, \ldots, a_m, b_1, \ldots, b_n \in \myF$ s. t. $v= a_1 u _1 + \cdots + a_m u_m$ and $v= b_1 w_1 + \cdots + b_n w_n$. Thus $a_1 u_1 + \cdots + a_m u_m - b_1 w_1 - \cdots - b_n w_n = 0$.
+    
+    Because $u_1, \ldots, u_m, w_1, \ldots, w_n$ is linearly independent, this implies that
+    \begin{equation}
+      a_1 = \cdots = a_m = b_1 = \cdots= b_n = 0.
+    \end{equation}
+    
+    Thus $v=0$, completing the proof that $U\cap W = \{0\}.$
+    
   \end{description}
   So we have proven $V = U \oplus W$.
+\end{prf}
+
+\subsection{Exercises}
+
+\setcounter{xrcs}{5}
+
+% E 6
+\begin{xrcs}
+   Claim: If $v_1, v_2, v_3, v_4$ is a basis of $V$, then
+  \begin{equation}
+    v_1 + v_2, v_2 + v_3, v_3+v_4, v_4 $ is also a basis of $V.
+  \end{equation}
+  
+  
+  \begin{prf}
+    Let $a_1, a_2, a_3, a_4 \in \myF$ s.t.
+    \begin{equation*}
+      a_1 (v_1+v_2) + a_2(v_2+v_3) + a_3(v_3+v_4)+a_4 v_4 = 0.
+    \end{equation*}
+    
+    This is the case if and only if
+    \begin{multline*}
+      a_1 v_1 + a_1 v_2 + a_2 v_2 + a_2 v_3 + a_3 v_3 + a_3 v_4 + a_4 v_4 \\
+      = a_1 v_1 + (a_1 + a_2) v_2 + (a_2 + a_3) v_3 + (a_3 + a_4)v_4=0
+    \end{multline*}
+    
+    Since $v_1, \ldots, v_4$ are linearly independent, this is only the case if $0 = a_1 = a_1 + a_2 = a_2 + a_3 = a_3 + a_4$ and therefore $\iff$ $a_1 = \cdots = a_4 = 0$. So $v_1 + v_2, v_2 + v_3, v_3+v_4, v_4$ are linearly independent as well.
+    
+    Now we also have to show, that it spans $V$. Let $u \in V$. If with our old basis, $u$ would have been written as 
+    \begin{equation*}
+      u = b_1 v_1 + \cdots + b_4 v_4.
+    \end{equation*}
+    
+    Then with our new basis, we would write $a_1 = b_1.$ Next we would have $a_1 + a_2 = b_2$ and therefore $a_2 = b_2 - a_1 = b_2-b_1$. Next we would have $a_2+a_3=b_3$ and thus $a_3= b_3-a_2 = b_3 - (b_2-b_1)$. Lastly $a_4 = b_4-a_3 = b_4-(b_3 - (b_2-b_1))$. As we can see, our new basis also spans $V$.
+  \end{prf}
+\end{xrcs}
+
+% E 8
+\begin{xrcs}
+  Claim: If $v_1, v_2, v_3, v_4$ is a basis of $V$ and $U \subseteq V$, such that $v_1, v_2 \in U$ and $v_3 \notin U$ and $v_4 \notin U$, then $v_1, v_2$ is a basis of $U$.
+\end{xrcs}
+\begin{prf}
+  Any vector in $U$ can be represented as a unique linear combination of $v_1, \cdots, v_4$. Let $u\in U$ s.t. $u=a_1 v_1 + a_2 v_2 + a_3 v_3 + a_4 v_4$. In this case, $a_3$ must equal to $0$, because otherwise, due to closedness under addition and multiplication, we could have subtract $a_1 v_1 + a_2 v_2+a_4v_4$ from $u$ and multiply by $\sfrac{1}{a_3}$ to get $v_3$, which is not in $U$. The same goes for $a_4$, which must be $0$. So every vector in $U$ is of the form $u=a_1 v_1 + a_2 v_2$, since $v_1, v_2 \in U$ and $v_3, v_4 \notin U$. Since every basis has the same length and $v_1$ and $v_2$ are linearly independent, the list $v_1, v_2$ forms a basis of $U$.
+\end{prf}
+
+\begin{xrcs}
+  Suppose $v_1, \cdots, v_m$ is a list of vectors in $V$. For $k \in \{1, \ldots, m\},$ let
+  \begin{equation}
+    w_k = v_1 + \cdots + v_k
+  \end{equation}
+  
+  Show that $v_1, \ldots, v_m$ is a basis of $V$ if and only if $w_1, \ldots, w_m$ is a basis of $V$.
+\end{xrcs}
+\begin{prf}
+  Let us first obseve the following two patterns
+  \begin{equation}
+    \begin{aligned}
+      w_1 &= v_1                    & \qquad v_1 &= w_1       \\
+      w_2 &= v_1 + v_2              & \qquad v_2 &= w_2 - w_1 \\
+      w_3 &= v_1 + v_2 + v_3        & \qquad v_3 &= w_3 - w_2 \\
+      w_4 &= v_1 + v_2 + v_3 + v_4  & \qquad v_4 &= w_4 - w_3 \\
+          &\;\;\vdots               &            &\;\;\vdots \\
+      w_n &= v_1 + \cdots + v_n     & \qquad v_n &= w_n - w_{n-1}
+    \end{aligned}
+  \end{equation}
 \end{prf}

@@ -1,6 +1,6 @@
 \section{Subspaces}
 
-\begin{mydef}
+\begin{mydef} [subspace]
   A subset $U$ of $V$ ($U \subseteq V$) is called a ``subspace'' of $V$ if $U$ is also a vector space with the same additive identity, addition, and scalar multiplication as on $V$.
 \end{mydef}
 
@@ -92,10 +92,7 @@
 \end{thm}
 \begin{prf} Let  $V_1, \ldots, V_m$ be subspaces of $V$ 
   \begin{description}
-    \item{$\Rightarrow$ direction:} First suppose $V_1 + \cdots + V_m$ is a direct sum. 
-
-    Let $0 = v_1 + \cdots + v_m, \whereEach v_k \in V_k $
-    
+    \item{$\Rightarrow$ direction:} First suppose $V_1 + \cdots + V_m$ is a direct sum. Let $0 = v_1 + \cdots + v_m,$ where each $v_k \in V_k$.
     $\implies$ all the $v_k$'s are equal to $0$, because otherwise multiplying the equation above with a scalar $\lambda \in \myF$ would give a different sum (a different way to add them up).
     \begin{equation}
       0 = \lambda0= \lambda v_1 + \cdots + \lambda v_m, \whereEach \lambda v_k \in V_k
@@ -110,10 +107,12 @@
         v&=u_1 + \cdots + u_m  \where u_1 \in V_1, \ldots, u_m \in V_m
       \end{aligned}
     \end{equation}
+    
     Subtracting these two equations, we have
     \begin{equation}
       0=(v_1-u_1)+\cdots+(v_m-u_m).
     \end{equation}
+    
     Because $v_1 - u_1 \in V_1, \ldots, v_m - u_m \in V_m$, the equation above implies that each $v_k -u_k$ equals $0$.
     \begin{equation}
       \implies v_1=u_1, \ldots, v_m=u_m

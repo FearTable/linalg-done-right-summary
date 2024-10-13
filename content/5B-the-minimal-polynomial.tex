@@ -34,7 +34,7 @@
 
 \subsection{Eigenvalues and the Minimal Polynomial}
 \begin{mydef} [monic polynomials]
-  A ``monic polynomial'' is a polynomial whose highest-degree coefficient equals $1$.
+  A ``monic polynomial'' is a polynomial whose highest\-/degree coefficient equals $1$.
 \end{mydef}
 \begin{example}
   $p(z)=2+9z^2+z^7, \quad \deg p = 7$
@@ -58,10 +58,10 @@
   $\implies$ linear dependence.
   
   By the linear dependence lemma (\ref{thm: linear dependence lemma}), there is a smallest positive integer $m\leq \dim V$ such that
-  \begin{equation}
+  \begin{equation*}
     c_0 v + c_1 Tv + \cdots + c_{m-1} T^{m-1} v + 1\cdot T^m v = 0
-  \end{equation}
-  for some $c_0, c_1, \dots, c_{m-1} \in \myF$. 
+   $ for some $c_0, c_1, \dots, c_{m-1} \in \myF. 
+  \end{equation*}
   
   Let
   \[ q(z) :\equiv c_0 + c_1z + \cdots + c_{m-1} z^{m-1} +z^{m} \in \mathcal{P}_m (\myF) \]
@@ -112,7 +112,7 @@
 
 \setcounter{thm}{23}
 
-\begin{mydef} [minimal polynomial]
+\begin{mydef} minimal polynomial]
   Let $T\in \linmap (v)$. The ``minimal polynomial of $T$'' is the unique monic polynomial $p\in \mathcal{P}(\myF)$ of smallest degree s.t. $p(T)=0$
 \end{mydef}
 \bfemph{Computation:} Find the smallest $m \in \nat$ such that: \\
@@ -207,14 +207,14 @@ are the coefficients of the minimal polynomial of $T$.
   \begin{equation}
     p(T)u=0 \quad \forall u\in U.
   \end{equation} Thus $p\left( \left.T\right|_{U} \right)=0.$ Now the previous theorem
-  \autoref{thm: every zero polynomial is a multiple of the minimal polynomial} tells us, that $p$ is a polynomial multiple of the minimal polynomial of $\left. T \right |_U$.
+  \ref{thm: every zero polynomial is a multiple of the minimal polynomial} tells us, that $p$ is a polynomial multiple of the minimal polynomial of $\left. T \right |_U$.
 \end{prf}
 
 \begin{thm} [invertibility and the constant term of the minimal polynomial]
   Let $T \in \linmap (V)$. Then we have: $T$ is not invertible $\iff$ the constant term of the minimal polynomial of $T$ is $0$.
 \end{thm}
 \begin{prf}
-  $T$ is not invertible $\iff_{\text{(\ref{equivalent-conditions-to-be-an-eigenvalue})}}$ $0$ is an eigenvalue of $T$ $\iff_{(\text{\ref{thm: eigenvalues are the zeros of the minimal polynomial})}}$ $0$ is a zero of $p$ $\mathsmaller{\iff}$ the constant term of $p$ is $0$.
+  $T$ is not invertible $\iff_{\text{(\ref{thm: equivalent conditions to be an eigenvalue})}}$ $0$ is an eigenvalue of $T$ $\iff_{(\text{\ref{thm: eigenvalues are the zeros of the minimal polynomial})}}$ $0$ is a zero of $p$ $\mathsmaller{\iff}$ the constant term of $p$ is $0$.
   (In the first equivalence, we have actually used that $0$ is an eigenvalue of $T$ if and only if $T-0I$ is not invertible, according to \ref{thm: equivalent conditions to be an eigenvalue}.)
 \end{prf}
 

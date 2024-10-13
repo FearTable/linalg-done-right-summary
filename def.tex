@@ -1,17 +1,17 @@
 \DeclareEmphSequence{\scshape}
 
 % BEGIN custom geometry ************************************
-\setlength{\abovedisplayskip}{0pt}
-\setlength{\belowdisplayskip}{0pt}
+\setlength{\abovedisplayskip}{0.1em}
+\setlength{\belowdisplayskip}{0.2em}
 \setlength{\abovedisplayshortskip}{0pt}
 \setlength{\belowdisplayshortskip}{0pt}
 \setlength{\jot}{0pt}
 
-\titlespacing{\chapter}{0pt}{6pt}{3pt}
-\titlespacing{\section}{0pt}{25pt}{3pt}
-\titlespacing{\subsection}{0pt}{25pt}{3pt}
-\titlespacing{\subsubsection}{0pt}{6pt}{3pt}
-\titlespacing*{\chapter}{0pt}{-19pt}{0pt}
+\titlespacing{\chapter}{0pt}{0em}{0.4em}
+\titlespacing{\section}{0pt}{1.3em}{0.4em} %15pt, 3pt
+\titlespacing{\subsection}{0pt}{1em}{0.4em} %15pt, 3pt
+%\titlespacing{\subsubsection}{0pt}{6pt}{3pt}
+%\titlespacing*{\chapter}{0pt}{-19pt}{0pt}
 
 %For item, enumerate, description, lists
 \setitemize{noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt}
@@ -23,15 +23,15 @@
 
 % new mdframed style that places the edges at the corners (.675em):
 \mdfdefinestyle{proof-style}{
-  skipabove         = 0.3em,% .5\baselineskip ,
+  skipabove         = 0.2em,% .5\baselineskip ,
   skipbelow         = 0,%.5\baselineskip ,
-  leftmargin        = 0.5em ,
-  rightmargin       = 0.5em ,
+  leftmargin        = 0.4em ,
+  rightmargin       = 0.4em ,
   innermargin       = 0pt ,
-  innertopmargin    = 0.5em, %0.6 %.675em ,
-  innerleftmargin   = 0.5em, %.675em ,
-  innerrightmargin  = 0.5em,
-  innerbottommargin = 0.5em, %.675em +3pt,
+  innertopmargin    = 0.4em, %0.6 %.675em ,
+  innerleftmargin   = 0.4em, %.675em ,
+  innerrightmargin  = 0.4em,
+  innerbottommargin = 0.2em, %.675em +3pt,
   hidealllines      = true,
   singleextra       = {
     \draw (O) -- ++(0,.7em) (O) -- ++(.7em,0) ;
@@ -62,47 +62,53 @@
 
 % BEGIN custom therem and proof environments ***************
 \newtheoremstyle{mytheoremstyle} % name
-{0.8em}                       % Space above {\topsep} 
+{0.4em}                       % Space above {\topsep} 
 {.2em}                        % Space below
 {}                            % Body font
 {0em}                         % Indent amount
 {}                            % Theorem head font {\ttfamily\fontseries{b}\selectfont}
-{{\textbf{:}} }       % Punctuation after theorem head
+{\textbf{:\,}}       % Punctuation after theorem head
 {.2em}                        % Space after theorem head
-{{\textbf{\scshape{\thmname{#1}\thmnumber{ #2}}}{\normalfont \thmnote{ ({\slshape#3})}}}} 
+{{\textbf{\scshape{\thmname{#1}\thmnumber{ #2}}}{\normalfont \thmnote{ ({\itshape#3})}}}} 
                               % Theorem head spec (can be left empty, meaning ‘normal’)
 
 % Define 'thm', 'thm-non', 'mydef', 'mydef-non', 'example', 'example-non'
 % environments
+
 \theoremstyle{mytheoremstyle}
 \newtheorem{thm}{Thm}[chapter]
 \newtheorem*{thm-non}{Thm}
-\theoremstyle{mytheoremstyle}
+
+%\theoremstyle{mytheoremstyle}
 \newtheorem{mydef}[thm]{Def}
 \newtheorem*{mydef-non}{Def}
-\theoremstyle{mytheoremstyle}
+
+%\theoremstyle{mytheoremstyle}
 \newtheorem{example}[thm]{Example}
 \newtheorem*{example-non}{Example}
 
-\newtheoremstyle{indented-prf}
-{.2em}        % space before
-{0em}         % space after
-{
- \setlength{\leftskip}{\mathindent}
- \setlength{\parindent}{0pt}
- \addtolength{\linewidth}{-\mathindent-3em}
- \setlist[enumerate]{align=parleft,left=\mathindent..\mathindent+\mathindent-30pt}
- \setlist[description]{leftmargin=\mathindent,labelindent=\mathindent-6pt-27pt} 
- \addtolength{\mathindent}{\mathindent}
-}
-{0em}         % indent
-{\bfseries}   % header font
-{\textbf{:}}  % punctuation
-{.3em}        % after theorem header
-{{\textbf{\scshape{\thmname{#1}\thmnumber{ #2}}}{\normalfont \thmnote{ (#3)}}}}
+\newtheorem{xrcs}{E}
+\newtheorem*{xrcs-non}{Exercise}
+
+%\newtheoremstyle{indented-prf}
+%{.2em}        % space before
+%{0em}         % space after
+%{
+% \setlength{\leftskip}{\mathindent}
+% \setlength{\parindent}{0pt}
+% \addtolength{\linewidth}{-\mathindent-3em}
+% \setlist[enumerate]{align=parleft,left=\mathindent..\mathindent+\mathindent-30pt}
+% \setlist[description]{leftmargin=\mathindent,labelindent=\mathindent-6pt-27pt} 
+% \addtolength{\mathindent}{\mathindent}
+%}
+%{0em}         % indent
+%{\bfseries}   % header font
+%{\textbf{:}}  % punctuation
+%{.3em}        % after theorem header
+%{{\textbf{\scshape{\thmname{#1}\thmnumber{ #2}}}{\normalfont \thmnote{ (#3)}}}}
 
 % define 'prf'-environment
-\theoremstyle{indented-prf}
+%\theoremstyle{indented-prf}
 %\newtheorem*{prf}{Proof}
 
 %\def\endprf{
@@ -232,7 +238,7 @@
 \renewcommand*{\thesubsection}{\arabic{chapter}\Alph{section}\arabic{subsection}}
 
 \titleformat{\chapter}[block]
-{\bfseries\scshape}{{\relscale{1.1} { }Chapter} {\relscale{1.1} \thechapter \newline} { } { }  \relscale{1.3} #1}{0.5em}{\selectfont\large}
-\titleformat{\section}{\bfseries\relscale{1.2}\scshape}{}{0em}{\thesection { } #1} %Large
-\titleformat{\subsection}{\relscale{1.1}\bfseries\scshape\slshape}{}{0em}{#1 (\thesubsection)} %large
+{\bfseries\scshape}{\relscale{1.1}#1 {\footnotesize (Chapter \thechapter)}}{0.5em}{\large}
+\titleformat{\section}{\bfseries\scshape}{}{0em}{{\relscale{1.1}#1} {\footnotesize(Section  \thesection)}} %Large
+\titleformat{\subsection}{\relscale{1.1}\bfseries\scshape}{}{0em}{#1 {\footnotesize (Subsubsection \thesubsection)}} %large
 % END custom chapter format ********************************

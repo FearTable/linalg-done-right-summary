@@ -105,7 +105,7 @@ The Matrix of $ST$ denoted as $\mmatrix(ST)$ looks as follows:
   If $T \in \linmap(U,V)$ and $S\in \linmap(V,W)$, then $\mmatrix(ST) = \mmatrix(S) \mmatrix(T).$
 \end{thm}
 \begin{prf}
-  See at the beginning of the section.
+  See at the beginning of the subsection.
 \end{prf}
 
 \begin{mydef} [notation: $A_{j, \mathsmaller{\bullet}}, A_{\mathsmaller{\bullet}, k}$ ] Let $A\in \myF{m,n}$. Then
@@ -144,31 +144,68 @@ The Matrix of $ST$ denoted as $\mmatrix(ST)$ looks as follows:
 \begin{thm}[linear combinations of columns or rows]
   Let $C\in\myF^{m,c}$ and $R\in\myF^{c,n}$.
   \begin{enumerate}
-    \item If $k \in \{1,\ldots,n\},$, then column $k$ of $CR$ is a linear combination of the columns of $C$, with the coefficients of this linear combination coming from column $k$ of $R$.
+    \item If $k \in \{1,\ldots,n\},$, then column $k$ of $CR\in \myF^{m,n}$ is a linear combination of the columns of $C$, with the coefficients of this linear combination coming from column $k$ of $R$.
     \begin{equation}
-\begin{aligned}
+      \begin{aligned}
         CR = 
-      \left (
-        \ldots
-        \left(\begin{matrix}C_{1,1}\\ \vdots \\ C_{m,1} \end{matrix}\right) R_{1,k}+ \cdots + \left(\begin{matrix}C_{1,c}\\ \vdots \\ C_{m,c} \end{matrix}\right) R_{c,k}
-        \ldots
-      \right)
-\end{aligned}
+          \left ( \ldots \left(
+            \begin{matrix}C_{1,1} 
+              \\ \vdots \\ C_{m,1} 
+            \end{matrix}
+          \right) R_{1,k} 
+          + \cdots + 
+          \left(
+            \begin{matrix}C_{1,c}
+              \\ \vdots \\ C_{m,c} 
+            \end{matrix}\right) R_{c,k}
+          \ldots
+        \right)
+      \end{aligned}
     \end{equation}
+    
+  The octave\-/code for row-wise multiplication looks like this
+  \begin{center}    
+    \begin{minipage}{\linewidth}
+      \addtolength{\linewidth}{-7em}  
+      \lstinputlisting[
+      aboveskip=0.2em,
+      frame=single,
+      numbers=left,
+      style=Matlab-bw,
+      basicstyle=\scriptsize\ttfamily]{octave/row_wise_matrix_mult.m}
+      \addtolength{\linewidth}{+7em}
+    \end{minipage}
+  \end{center}
+  
     \item If $j\in \{1, \ldots, m\}$, then row $j$ of $CR$ is a linear combination of the rows of $R$, with the coefficients of this linear combination comming from row $j$ of $C$
     \begin{equation}
       CR = 
       \left(
         \begin{matrix}
-          C_{1,1} (R_{1,1}, \ldots, R_{1,n}) + C_{1,2} (R_{1,1}, \ldots, R_{1,n}) + \ldots + C_{1,c} (R_{1,1}, \ldots, R_{1,n}) \\
-          C_{2,1} (R_{2,1}, \ldots, R_{2,n}) + C_{2,2} (R_{2,1}, \ldots, R_{2,n}) + \ldots + C_{2,c} (R_{2,1}, \ldots, R_{2,n}) \\
+          C_{1,1} (R_{1,1}, \ldots, R_{1,n}) + C_{1,2} (R_{2,1}, \ldots, R_{2,n}) + \cdots + C_{1,c} (R_{c,1}, \ldots, R_{c,n}) \\
+          C_{2,1} (R_{1,1}, \ldots, R_{1,n}) + C_{2,2} (R_{2,1}, \ldots, R_{2,n}) + \cdots + C_{2,c} (R_{c,1}, \ldots, R_{c,n}) \\
           \vdots \\
-          C_{j,1} (R_{p,1}, \ldots, R_{p,n}) + C_{j,2} (R_{p,1}, \ldots, R_{p,n}) + \ldots + C_{j,c} (R_{p,1}, \ldots, R_{p,n}) \\
+          C_{j,1} (R_{1,1}, \ldots, R_{1,n}) + C_{j,2} (R_{2,1}, \ldots, R_{2,n}) + \cdots + C_{j,c} (R_{c,1}, \ldots, R_{c,n}) \\
           \vdots \\
-          C_{m,1} (R_{p,1}, \ldots, R_{p,n}) + C_{m,2} (R_{p,1}, \ldots, R_{p,n}) + \ldots + C_{m,c} (R_{p,1}, \ldots, R_{p,n}) \\
+          C_{m,1} (R_{1,1}, \ldots, R_{1,n}) + C_{m,2} (R_{2,1}, \ldots, R_{2,n}) + \cdots + C_{m,c} (R_{c,1}, \ldots, R_{c,n}) \\
         \end{matrix}
       \right)
     \end{equation}
+    
+
+    The octave\-/code for column-wise multiplication looks like this.
+    \begin{center}
+      \begin{minipage}{\linewidth}
+        \addtolength{\linewidth}{-7em} 
+        \lstinputlisting[
+        aboveskip=0.2em,
+        frame=single,
+        numbers=left,
+        style=Matlab-bw,
+        basicstyle=\scriptsize\ttfamily]{octave/column_wise_matrix_mult.m}
+        \addtolength{\linewidth}{+7em}
+      \end{minipage}
+    \end{center}
   \end{enumerate}
 \end{thm}
 

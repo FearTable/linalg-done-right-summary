@@ -187,7 +187,7 @@
     \begin{equation}
     \begin{aligned}
       &\mmatrix(ST, (\onetillm{u}), (\onetill{w}{p})) = \\
-      &\mmatrix(S, (\onetilln{v}), (\onetill{w}{p} ))
+      &\quad \mmatrix(S, (\onetilln{v}), (\onetill{w}{p} ))
       \cdot
       \mmatrix(T, (\onetillm{u}), (\onetilln{v}   ))
     \end{aligned}
@@ -202,8 +202,17 @@
   \setcounter{thm}{83}
   \begin{thm}[change-of-basis formula:]
     Suppose $T \in \linmap(V)$. Let
-    $V = \myspan{\onetillm{u}} = \myspan{\onetillm{v}}$ such that the $u$'s and $v$'s both form a basis. Let $A=\mmatrix(T, (\onetillm{u}))$ and $B=\mmatrix(T,(\onetillm{v}))$. Let
-    $C=\mmatrix(I, \onetillm{u}, \onetillm{v})$. Then
+    $V = \myspan{\onetillm{u}}$ and $V= \myspan{\onetillm{v}}$ such that the $u$'s and $v$'s both form a basis. Let 
+    \begin{equation}
+      A=\mmatrix(T, (\onetillm{u}))$ and $B=\mmatrix(T,(\onetillm{v})). 
+    \end{equation}
+    
+    Let
+    \begin{equation}
+      C=\mmatrix(I, \onetillm{u}, \onetillm{v}).
+    \end{equation} 
+    
+    Then
     \begin{equation}
     A = C^{-1} B C
     \end{equation}
