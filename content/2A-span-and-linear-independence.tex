@@ -3,12 +3,12 @@
 
 \setcounter{thm}{1}
 \begin{mydef} [Linear combination]
-  $a_1 v_1 + \cdots + a_m v_m$ is called a ``linear combination'' of a list of vectors $v_1, \dots, v_m$
+  $a_1 v_1 + \cdots + a_m v_m$ is called a \qt{linear combination} of a list of vectors $v_1, \dots, v_m$
 \end{mydef}
 
 \setcounter{thm}{3}
 \begin{mydef} [Span of a list of vectors]
-	The ``span" of a list of vectors $\onetillm{v}$ is defined as follows:
+	The \qt{span} of a list of vectors $\onetillm{v}$ is defined as follows:
   \begin{equation}
     \begin{aligned}
       \myspan {v_1, \dots, v_m} &:\equiv \{a_1 v_1 + \cdots + a_m v_m \mid a_1, \dots a_m \in \mathbb{F} \}\\
@@ -25,7 +25,7 @@
 
 %\textbf{2.7}
 \begin{mydef} [Spanning a vector space]
-  If $V=\myspan{\oneTillM{v}}$, we say $\oneTillM{v}$ ``spans'' $V$.
+  If $V=\myspan{\oneTillM{v}}$, we say $\oneTillM{v}$ \qt{spans} $V$.
 \end{mydef}
 
 \setcounter{thm}{8}
@@ -46,7 +46,7 @@
 
 \setcounter{thm}{12}
 \begin{mydef}
-  A vector space is called ``infinite\-/dimensional'' if it is not \fd. 
+  A vector space is called \qt{infinite\-/dimensional} if it is not \fd. 
 \end{mydef}
 
 
@@ -54,7 +54,7 @@
 
 \setcounter{thm}{14}
 \begin{mydef} [Linear independence]
-  There are $2$ ways to think about ``linear independence''. Lets first start with the motivation. A list of vectors $\oneTillM{v}$ is ``\lid'', if every combination of these vectors $w = b_1v_1 + \dots+ b_mv_m$ $\in \myspan{\oneTillM{v}}$ has a unique choice of scalars $b_1, \dots, b_m \in \myF$.
+  There are $2$ ways to think about \qt{linear independence}. Lets first start with the motivation. A list of vectors $\oneTillM{v}$ is \qt{\lid}, if every combination of these vectors $w = b_1v_1 + \dots+ b_mv_m$ $\in \myspan{\oneTillM{v}}$ has a unique choice of scalars $b_1, \dots, b_m \in \myF$.
 
   \bfemph{The actual definition of linear independence:} \\
   A list of vectors $\oneTillM{v}$ is also called \lid, if the only way to combine them together and yield zero, is if we choose every coefficient $\lambda_i$ to be zero.
@@ -79,11 +79,9 @@
 \end{mydef}
 
 
-
-
 %\textbf{2.16}
 \begin{mydef} [linear dependence]
-  Otherwise, $\oneTillM{v}$ is called ``linearly dependent''.
+  Otherwise, $\oneTillM{v}$ is called \qt{linearly dependent}.
 \end{mydef}
 
 %	\textbf{2.19} Linear dependence lemma:\\
@@ -108,10 +106,10 @@
 \end{thm}
 \begin{prf}
   Because $\onetillm{v}$ are linearly dependent, we have 
-  \begin{multline}
-    a_1 v_1 + \cdots + a_m v_m = 0 \\
+  \begin{equation}
+    a_1 v_1 + \cdots + a_m v_m = 0 
     $ where $a_1, \ldots, a_m \in \myF$ and $a_i \neq 0$ and $a_j \neq 0 $ for $i,j \in \{1 \cdots m\}
-  \end{multline} 
+  \end{equation} 
   
   So we know, at least $2$ $a$'s are not $0$. 
   Let $k$ be the largest element of $\setonetillm$ such that $a_k \neq 0$. Then

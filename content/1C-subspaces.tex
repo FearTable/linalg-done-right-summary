@@ -1,7 +1,7 @@
 \section{Subspaces}
 
 \begin{mydef} [subspace]
-  A subset $U$ of $V$ ($U \subseteq V$) is called a ``subspace'' of $V$ if $U$ is also a vector space with the same additive identity, addition, and scalar multiplication as on $V$.
+  A subset $U$ of $V$ ($U \subseteq V$) is called a \qt{subspace} of $V$ if $U$ is also a vector space with the same additive identity, addition, and scalar multiplication as on $V$.
 \end{mydef}
 
 \begin{thm} [conditions for a subspace]
@@ -39,17 +39,22 @@
 
 % 1.36
 \setcounter{thm}{35}
-\begin{mydef}
-  $V_1 + \cdots + V_m :\equiv \{v_1 + \cdots + v_m \mid v_1 \in V_1, \, \dots \, , v_m \in V_m \}$, where $V_i$'s are subspaces of $V$. It is called the ``sum from $V_1$ up to $V_m$.'' It is the set of all possible sums of elements of $V_1, \ldots, V_m$, since they all contain the zero-vector.
+\begin{mydef}[definition: sum of subspaces]
+  If $V_1, \ldots, V_m$ are subspaces of $V$, the \qt{sum} of $V_1, \ldots, V_m$, denoted by $V_1 + \cdots + V_m$, is the set of all possible sums of elements of $V_1, \ldots, V_m$. More precisely,
+\begin{equation}
+    V_1 + \cdots + V_m :\equiv \{v_1 + \cdots + v_m \mid v_1 \in V_1, \, \dots \, , v_m \in V_m \}.
+\end{equation}
 \end{mydef}
 
 %\textbf{1.40}
 \setcounter{thm}{39}
 \begin{thm}
-  $V_1 + \cdots + V_m$ is the smallest subspace of $V$ containing $V_1, \dots, V_m.$
+  $V_1 + \cdots + V_m$ is the smallest subspace of $V$ containing $V_1, \dots, V_m$.
 \end{thm}
 \begin{prf}
   The reader can verify that $V_1 + \cdots + V_m$ is a subspace of $V$.
+  
+  First we need to show, that $V_1 + \cdots + V_m$ is a subspace of $V$. Let $u,w \in V_1 + \cdots + V_m$. Then we have 
   
   The subspaces $V_1, \cdots, V_m$ are all contained in $V_1+\cdots+V_m$. 
   
@@ -58,7 +63,7 @@
     V_k = \{ v \mid v \in V_k \} \subseteq \{v_1 + \cdots + v_m \mid v_1 \in V_1,  \ldots , v_m \in V_m \} = V_1 + \cdots + V_m
   \end{equation}
   
-  Conversly, every subspace of $V$ containing $V_1, \ldots, V_m$ contains $V_1 + \cdots + V_m$, because its closed under addition.
+  Conversely, every subspace of $V$ containing $V_1, \ldots, V_m$ contains $V_1 + \cdots + V_m$, because its closed under addition.
   
   Thus $V_1 + \cdots + V_m$ is the smallest subspace of $V$ containing $V_1, \ldots, V_m$.
 \end{prf}
@@ -70,7 +75,7 @@
 \begin{mydef}[Direct sum, $\oplus$]
   \label{def: direct sum}
   %NO COMMA BEFORE IF ACC TO AXLER
-  $V_1 + \cdots + V_m$ is called a ``direct sum'' if each element of $V_1 +\cdots+V_m$ can be written in only one way as a sum $v_1 + \cdots + v_m$, where each $v_k \in V_k$. In this case we write:
+  $V_1 + \cdots + V_m$ is called a \qt{direct sum} if each element of $V_1 +\cdots+V_m$ can be written in only one way as a sum $v_1 + \cdots + v_m$, where each $v_k \in V_k$. In this case we write:
   \begin{equation}
     V_1 \oplus \cdots \oplus V_m :\equiv V_1 + \cdots + V_m
   \end{equation}

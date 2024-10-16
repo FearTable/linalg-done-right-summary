@@ -49,33 +49,57 @@
 
 \subsection{Matrix Multiplication}
 
-Let $v_1, \ldots, v_n$ be a basis of $V$ and $w_1, \ldots, w_m$ be a basis of $W.$ Suppose also, that $u_1, \ldots, u_p$ is a basis of $U$.
+Let $v_1, \ldots, v_n$ be a basis of $V$, $w_1, \ldots, w_m$ be a basis of $W$ and $u_1, \ldots, u_p$ be a basis of $U$.
 
-Consider the linear maps $T: U \to V$ and $S: V \to W$. The composition $ST$ is a linear map from $U$ to $W$. Does
+Consider the linear maps $T: U \to V$ and $S: V \to W$. The composition $ST$ is a linear map from $U$ to $W$. Is it the case that
 \begin{equation}
   \mmatrix(ST) = \mmatrix(S) \mmatrix(T) \; {\mathlarger ?}
 \end{equation}
 
-One can choose a definition of matrix multiplication that forces this question to have a positive answer. Let $A :\equiv \mmatrix(S)$ and $B :\equiv \mmatrix(T)$. For $1 \leq k \leq p$, we have
+One can choose a definition of matrix multiplication that forces this question to have a positive answer. 
+
+Let $A :\equiv \mmatrix(S)\in \myF^{m,n}$ and $B :\equiv \mmatrix(T)\in \myF^{m,p}$. Here are the matrices of $A$ and $B$.
+\begin{equation}
+  A=\mathcal{M} (S) =
+  \begin{blockarray}{cccccc}
+    & v_1 & \cdots & v_r     & \cdots & v_n \\
+    \begin{block}{c(ccccc)}
+      w_1    &     &        & A_{1,r} &        &     \\
+      \vdots &     &        & \vdots  &        &     \\
+      w_m    &     &        & A_{m,r} &        &     \\
+    \end{block}
+  \end{blockarray},
+  \quad
+  B=\mathcal{M} (T) =
+  \begin{blockarray}{cccccc}
+    & u_1 & \cdots & u_k     & \cdots & u_p \\
+    \begin{block}{c(ccccc)}
+      v_1    &     &        & B_{1,k} &        &     \\
+      \vdots &     &        & \vdots  &        &     \\
+      v_n    &     &        & B_{n,k} &        &     \\
+    \end{block}
+  \end{blockarray}
+\end{equation}
+
+For $1 \leq k \leq p$, we have
 \begin{equation}
   \begin{aligned}
     (ST) u_k 
+    = S (Tu_k)
     = S \left ( \sum_{r=1}^{n} B_{r,k} v_r \right )
     =  \sum_{r=1}^{n} B_{r,k} S v_r 
     =  \sum_{r=1}^{n} B_{r,k} \sum_{j=1}^{m} A_{j,r}  w_j 
-    =  \sum_{j=1}^{m} \left( \sum_{r=1}^{n} A_{j,r}  B_{r,j} \right) w_j 
+    =  \sum_{j=1}^{m} \left( \sum_{r=1}^{n} A_{j,r}  B_{r,k} \right) w_j 
   \end{aligned}
 \end{equation}
 
-Thus $\mmatrix(ST)$ is the $m$-by-$p$ matrix whose entry in row $j$, columns $k$ equals 
-  $\sum_{r=1}^{n} A_{j,r}  B_{r,k}.$
-
-
-The Matrix of $ST$ denoted as $\mmatrix(ST)$ looks as follows:
+\begin{minipage}{\linewidth}
+  Thus $\mmatrix(ST)$ should be the $m$-by-$p$ matrix whose entry in row $j$, column $k$ equals 
+  $\sum_{r=1}^{n} A_{j,r}  B_{r,k}.$ It would look as follows:
 \begin{equation}
   \mathcal{M} (ST) =
   \begin{blockarray}{cccccc}
-             & v_1 & \cdots &  v_k      & \cdots & v_n \\
+             & u_1 & \cdots &  u_k      & \cdots & u_p \\
     \begin{block}{c(ccccc)}
       w_1    &     &        &  
         \sum_{r=1}^{n} A_{1,r}  B_{r,k} &        &     \\
@@ -88,6 +112,8 @@ The Matrix of $ST$ denoted as $\mmatrix(ST)$ looks as follows:
     \end{block}
   \end{blockarray}
 \end{equation}
+\end{minipage}
+
 
 %3.41
 \setcounter{thm}{40}
@@ -108,7 +134,7 @@ The Matrix of $ST$ denoted as $\mmatrix(ST)$ looks as follows:
   \end{equation}
 \end{thm}
 \begin{prf}
-  See at the beginning of the subsection.
+  See at the beginning of the sub-subsection.
 \end{prf}
 
 \begin{mydef} [notation: $A_{j, \mathsmaller{\bullet}}, A_{\mathsmaller{\bullet}, k}$ ] Let $A\in \myF^{m,n}$. Then
