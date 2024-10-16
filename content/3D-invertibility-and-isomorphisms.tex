@@ -77,7 +77,8 @@
   \end{thm}
 
   %\textbf{3.70}
-  \begin{thm}
+  \begin{thm}[dimension shows whether vector spaces are isomorphic]
+    \label{thm: dimension shows whether vector spaces are isomorphic}
     Two \fd vector spaces $U$, $V$ over $\mathbb{F}$ are isomorphic $\iff$ they have the same dimension. 
     \begin{equation}
       \dim U = \dim V
@@ -86,6 +87,7 @@
 
   %\textbf{3.71}
   \begin{thm}
+    \label{thm: the space of linear maps and the space of all matrices are isomorphic}
     Suppose $\oneTillN{v}$ is a basis of $V$ and $\oneTillM{w}$ is a basis of $W$. Then $\mathcal{M}$ is an isomorphism between $\lvw$ and $\mathbb{F}^{m,n}$
   \end{thm}
 
@@ -98,27 +100,27 @@
       \dim \lvw = (\dim V)\cdot(\dim W)
     \end{equation}
   \end{thm}
+  \begin{prf}
+    The desired result follows from \ref{thm: the space of linear maps and the space of all matrices are isomorphic}, \ref{thm: dimension shows whether vector spaces are isomorphic}, and \ref{thm: the dimension of the vector space of all m by n matrices is mn}. (Why?)
+  \end{prf}
 
   \subsection{Linear Maps Thought of as Matrix Multiplication}
 
   \begin{mydef} [matrix of a vector, $\mmatrix(u)$]
     Let $u \in V$ and $\onetillm{v}$ be a basis of $V$ such that $u=b_1v_1+\dots+b_mv_m$.
-    \\
     We define
-    $
-    \mathcal{M}(u) :\equiv
-    \left (
-    \begin{matrix}
-      b_1 \\ \vdots \\ b_m
-    \end{matrix}
-    \right )
-    $. 
-    
-    The vector depends on the basis, but it is not included in the notation. 
-  \end{mydef}
-
-  Recall: $
-  \mathcal{M} (T) :\equiv
+  \begin{equation}
+        \mathcal{M}(u) :\equiv
+      \left (
+      \begin{matrix}
+        b_1 \\ \vdots \\ b_m
+      \end{matrix}
+      \right ). 
+  \end{equation}
+  
+    The vector depends on the basis, but it is not included in the notation. Recall:
+\begin{equation}
+    \mathcal{M} (T) :\equiv
   \begin{blockarray}{cccc}
     & v_1 \quad \cdots & v_k & \cdots \quad v_n \\
     \begin{block}{c(ccc)}
@@ -127,8 +129,9 @@
       w_m    & & A_{m,k} & \\
     \end{block}
   \end{blockarray}
-  $
-
+\end{equation}
+ 
+  \end{mydef}
 
   \setcounter{thm}{74}
   %\textbf{3.75}
@@ -187,7 +190,7 @@
     \begin{equation}
     \begin{aligned}
       &\mmatrix(ST, (\onetillm{u}), (\onetill{w}{p})) = \\
-      &\quad \mmatrix(S, (\onetilln{v}), (\onetill{w}{p} ))
+      &\qquad \mmatrix(S, (\onetilln{v}), (\onetill{w}{p} ))
       \cdot
       \mmatrix(T, (\onetillm{u}), (\onetilln{v}   ))
     \end{aligned}
@@ -202,17 +205,14 @@
   \setcounter{thm}{83}
   \begin{thm}[change-of-basis formula:]
     Suppose $T \in \linmap(V)$. Let
-    $V = \myspan{\onetillm{u}}$ and $V= \myspan{\onetillm{v}}$ such that the $u$'s and $v$'s both form a basis. Let 
     \begin{equation}
-      A=\mmatrix(T, (\onetillm{u}))$ and $B=\mmatrix(T,(\onetillm{v})). 
-    \end{equation}
-    
-    Let
-    \begin{equation}
-      C=\mmatrix(I, \onetillm{u}, \onetillm{v}).
+          V = \myspan{\onetillm{u}}
+          $ and $V= \myspan{\onetillm{v}}
     \end{equation} 
+
+  such that the $u$'s and $v$'s both form a basis. Let $A=\mmatrix(T, (\onetillm{u}))$ and $B=\mmatrix(T,(\onetillm{v})).$
     
-    Then
+   Let $C=\mmatrix(I, \onetillm{u}, \onetillm{v}).$ Then
     \begin{equation}
     A = C^{-1} B C
     \end{equation}

@@ -45,7 +45,7 @@ $p: \mathbb{F} \to \mathbb{F}, \, p(z) = a_0 + a_1z + \cdots + a_n z^m$
         a_4 (z^3 + \lambda z^2 + \lambda^2 z + \lambda^3) 
         + \cdots +
         a_m \sum_{j=1}^{m} \lambda^{j-1} z^{m-j}
-      \right)}_{\text{a polynomial with degree $m-1$}}´
+      \right)}_{\text{a polynomial with degree $m-1$}}
   \end{equation}
   
   Thus $p$ equals $z-\lambda$ times some polyomial of degree $m-1$, as desired.
@@ -151,7 +151,8 @@ In case you are wondering where the $a_0$ went by subtracting $p(\lambda)$ from 
   $p(x)=x^2 + bx + c$ $=$ $(x-\lambda_1)(x-\lambda_2)$ with $\lambda_1, \lambda_2 \in \mathbb{R} \iff b^2 \geq 4c$.
 \end{thm}
 \begin{prf}
-  Let $x^2+bx+c=(x+\sfrac{b}{2})^2+(c-\sfrac{b^2}{4})$. Therefore, if $b^2<4c$, the last term is always positive and no factoriza\-tion is possible because it has no zeros (\ref{factororing-out-zeros-of-a-polynomial-always-possible}). \\
+  Let $x^2+bx+c=(x+\sfrac{b}{2})^2+(c-\sfrac{b^2}{4})$. Therefore, if $b^2<4c$, the last term is always positive and no factoriza\-tion is possible because it has no zeros by \ref{factororing-out-zeros-of-a-polynomial-always-possible}.
+  
   If $b^2 \geq 4c$, we define $d^2 :\equiv \sfrac{b^2}{4}-c$ which makes
   \begin{equation}
 	  \begin{aligned}

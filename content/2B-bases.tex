@@ -84,20 +84,18 @@
     $Let $W :\equiv \myspan{w_1, \ldots, w_n}.
   \end{equation}
   
-  To prove $V=U\oplus W$, by $\ref{thm: intersection of direct sum of two subscpaces}$ we only need to show that 
-  \begin{equation}
-    V = U+W$ and $U \cap W = \{0\}
-  \end{equation}
+  To prove $V=U\oplus W$, by $\ref{thm: intersection of direct sum of two subscpaces}$ we only need to show that $V = U+W$ and $U \cap W = \{0\}$.
+
   
   \begin{description}
-    \item{Proof of $V=U+W$:} Let $v \in V$. Since $u_1, \ldots, u_m, w_1, \ldots, w_n$ is a basis of $V$, it spans $V$. $V = \myspan{u_1, \ldots, u_m, w_1, \ldots, w_n}$
+    \item{\emph{Proof of $V=U+W$:}} Let $v \in V$. Since $u_1, \ldots, u_m, w_1, \ldots, w_n$ is a basis of $V$, it spans $V$. $V = \myspan{u_1, \ldots, u_m, w_1, \ldots, w_n}$
     
     So we have $\exists a_1, \ldots, a_m, b_1, \ldots, b_n \in \myF$ s.t. \\
     $v = \underbrace{a_1 u_1 + \cdots a_m u_m}_{u} + \underbrace{b_1 w_1 + \cdots b_m w_m}_{w}.$
     
     With $u$ and $w$ defined as above, we have $v=u+w$, where $u \in U$ and $w \in W$. Thus $v \in U+W,$ completing the proof that $V=U+W$.
     
-    \item{Proof of $U \cap W = \{0\}$:} Let $v \in U \cap W$. $\implies$ $\exists a_1, \ldots, a_m, b_1, \ldots, b_n \in \myF$ s. t. $v= a_1 u _1 + \cdots + a_m u_m$ and $v= b_1 w_1 + \cdots + b_n w_n$. Thus $a_1 u_1 + \cdots + a_m u_m - b_1 w_1 - \cdots - b_n w_n = 0$.
+    \item{\emph{Proof of $U \cap W = \{0\}$:}} Let $v \in U \cap W$. $\implies$ $\exists a_1, \ldots, a_m, b_1, \ldots, b_n \in \myF$ s. t. $v= a_1 u _1 + \cdots + a_m u_m$ and $v= b_1 w_1 + \cdots + b_n w_n$. Thus $a_1 u_1 + \cdots + a_m u_m - b_1 w_1 - \cdots - b_n w_n = 0$.
     
     Because $u_1, \ldots, u_m, w_1, \ldots, w_n$ is linearly independent, this implies that
     \begin{equation}
@@ -107,7 +105,7 @@
     Thus $v=0$, completing the proof that $U\cap W = \{0\}.$
     
   \end{description}
-  So we have proven $V = U \oplus W$.
+  \vspace{-1em}
 \end{prf}
 
 \subsection{Exercises}

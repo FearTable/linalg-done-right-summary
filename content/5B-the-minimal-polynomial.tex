@@ -11,7 +11,8 @@
     v, Tv, T^2v, \dots, T^nv
   \end{equation} 
   is not linearly independent, 
-  because the list has length $n+1$. Therefore some linear combination of these vectors equals $0$. 
+  because the list has length $n+1$. Therefore some linear combination of these vectors equals $0$.
+   
   $\implies$ there exists a non-constant polynomial $p$ of smallest degree such that 
   \begin{equation}
     p(T)v = 0. 
@@ -27,17 +28,19 @@
     \end{aligned} 
   \end{equation}
   
-  Because $q$ has a smaller degree than $p \implies q(T)v \neq 0$. (Why?) 
+  Because $q$ has a smaller degree than $p \implies q(T)v \neq 0$. (Why? May be because $q(T)v$ consists of $n=\dim V$ linearly independent vectors added together. The sum of zero is unique in this case.) 
   
   $\implies$ $\lambda$ is an eigenvalue of $T$ with eigenvector $q(T)v$.
 \end{prf}
 
 \subsection{Eigenvalues and the Minimal Polynomial}
+
+
 \begin{mydef} [monic polynomials]
-  A ``monic polynomial'' is a polynomial whose highest\-/degree coefficient equals $1$.
+  A \qt{monic polynomial} is a polynomial whose highest\-/degree coefficient equals $1$.
 \end{mydef}
 \begin{example}
-  $p(z)=2+9z^2+z^7, \quad \deg p = 7$
+  $p(z)=2+9z^2+z^7, \quad \deg p = 7$.
 \end{example}
 
 \begin{thm}[existence, uniqueness, and degree of minimal polynomial]
@@ -48,24 +51,62 @@
   \end{equation}
   Furthermore $\deg p \leq \dim V$
 \end{thm}
-\begin{prf}
-  If $\dim V=0$, then $I$ is the zero-operator on $V$ and we let $p=1$ such that $1I\vec0=0$. Now we use induction on $\dim V$ and we assume $\dim V > 0$ and that the theorem holds for all vector spaces of smaller dimension than $\dim V$.
+\begin{prf} Before we can start our proof with induction, let us look at some base cases.
+  
+  If $\dim V=0$, then identity operator $I$ is the zero-operator on $V$ and we let $p=1$ such that 
+\begin{equation}
+    1I\vec0=0. 
+\end{equation}
+  
+  If $\dim V=1$, the list $v, Tv$ is linearly dependent for $v \in V, v\neq 0$ because it has length $2$ and we have $c_0v + Tv = 0$ where $c_0 \in \myF$. If we have $q(z) :\equiv c_0+z$ then $q(T)v=0$. So we have $\dim \mynull q(T) = 1$ and therefore $\dim \myrange q(T) = \dim V - \dim \myrange q(T) = 0$. So every vector on our one dimensional line is a multiple of $v$ and maps to zero if $q(T)$ is applied. So we have found our polynomial $q(T)$.
+  
+  If $\dim V=2$, the list $v, Tv, T^2v$ is linearly dependent for $v\in V, v\neq0$ because it has length $3$ and we have 
+ \begin{equation}
+     c_0v + Tv = 0 \mytext{or} 
+     c_0v + c_1Tv + T^2v = 0 \mytext{where} c_0, c_1 \in  \myF.
+ \end{equation}
+  
+  if we define $q(z) :\equiv c_0+\cdots c_mz^m$ accordingly for $m\in \{1,2\}$ then $q(T)v=0$. Note that if $k \in \nat$, then
+  $q(T)(T^kv)=T^k(q(T)v) =T^k (0) =0.$ In the case of $m=1$, the vector $v$ by itself is linearly independent and thus $\dim \mynull q(T) \geq 1$ and therefore 
+  \begin{equation}
+    \dim \myrange q(T) \leq \dim V - \dim \mynull q(T) \leq 1.
+  \end{equation} 
+  
+  We already now how to construct such a polynomial, let us call it $s$ such that 
+  \begin{equation}
+    \begin{aligned}
+        &s (\left. T \right |_{\text{range $q(T)$}})=0 
+        \implies \forall u \in V: \left((sq)(T)\right) = s(T)(q(T)u)=0
+    \end{aligned}
+  \end{equation}
+  
+  A similar reasoning goes for the case where $m=2$ where we have $v$ and $Tv$ as linearly independent vectors. Here we get, that $\dim \mynull q(T) \geq 2$ and therefore $\dim \myrange q(T) = 0$. Here we would multiply the identity operator $I$ with our polynomial $q(T)$ to get our wanted minimal polynomial. Another way to look at it: Since $\dim \mynull q(T) = 2$ we have that 
+  \begin{equation}
+    \mynull q(T) = V.
+  \end{equation} 
+  This means, every vector of $V$ gets maped to $0$ if $q(T)$ is applied. So we have found our minimal monic polynomial !
+  
+  As we can now see a pattern, we can use induction on $\dim V$ and we assume $\dim V > 0$ and that the theorem holds for all vector spaces of smaller dimension than $\dim V$.
   
   Let $v\in V, v \neq 0$. The list \begin{equation}
     v, Tv, \dots, T^{\dim V}
   \end{equation}
   has length $1+\dim V.$
-  $\implies$ linear dependence.
+  $\implies$ the list is linearly dependent.
   
   By the linear dependence lemma (\ref{thm: linear dependence lemma}), there is a smallest positive integer $m\leq \dim V$ such that
-  \begin{equation*}
-    c_0 v + c_1 Tv + \cdots + c_{m-1} T^{m-1} v + 1\cdot T^m v = 0
-   $ for some $c_0, c_1, \dots, c_{m-1} \in \myF. 
-  \end{equation*}
+  \begin{equation}
+    \begin{aligned}
+      &c_0 v + c_1 Tv + \cdots + c_{m-1} T^{m-1} v + 1\cdot T^m v = 0
+      \mytext {for some} c_0, c_1, \ldots, c_{m-1} \in \myF. \mytext{ Let }\\
+      &q(z) :\equiv c_0 + c_1z + \cdots + c_{m-1} z^{m-1} +z^{m} \in \mathcal{P}_m (\myF) 
+    \end{aligned}
+  \end{equation}
   
-  Let
-  \[ q(z) :\equiv c_0 + c_1z + \cdots + c_{m-1} z^{m-1} +z^{m} \in \mathcal{P}_m (\myF) \]
-  $\implies q(T) v=0$. Note that $q(z)$ is a monic polynomial.
+  Thus we have
+  \begin{equation}
+    q(T) v=0. $ Note that $q(z)$ is a monic polynomial.$
+  \end{equation} 
   
   If $k \in \nat$, then
   \begin{equation}
@@ -83,18 +124,17 @@
     \end{aligned} 
   \end{equation}
   
-  Because $\myrange q(T)$ is invariant under $T$ (by  \ref{thm: null space and range of p(T) are invariant under T}), we can apply our induction hypothesis to the operator $\left.T\right|_{\myrange q(T)}$. 
+  Because $\myrange q(T)$ is invariant under $T$ by  \ref{thm: null space and range of p(T) are invariant under T}, we can apply our induction hypothesis to the operator $\left.T\right|_{\myrange q(T)}$. 
   
   So there exists monic $s \in \mathcal{P} (\myF):$
   \begin{equation}
-    \deg s \leq \dim V - m \myand s(\left.T\right|_{\myrange q(T)})=0
+  \begin{aligned}
+    &\deg s \leq \dim V - m \myand s(\left.T\right|_{\myrange q(T)})=0 \\
+    &\implies \forall u \in V: \left((sq)(T)\right)(u) = s(T) (q(T)u) = 0, 
+  \end{aligned}
   \end{equation}
   
-  \begin{equation}
-    \implies \forall v \in V: \left((sq)(T)\right)(v) = s(T) (q(T)v) = 0, 
-  \end{equation}
-  
-  because $q(T)v \in \myrange q(T)$ and \begin{equation}
+  because $q(T)u \in \myrange q(T)$ and \begin{equation}
     \left.s(T)\right|_{\myrange q(T)}=s\left( \left.T\right|_{\myrange q(T)} \right ).
   \end{equation}
   Therefore, $sq$ is a monic polynomial such that $\deg sq \leq \dim V$ and $(sq)(T)=0$.
@@ -112,8 +152,8 @@
 
 \setcounter{thm}{23}
 
-\begin{mydef} minimal polynomial]
-  Let $T\in \linmap (v)$. The ``minimal polynomial of $T$'' is the unique monic polynomial $p\in \mathcal{P}(\myF)$ of smallest degree s.t. $p(T)=0$
+\begin{mydef} [minimal polynomial]
+  Let $T\in \linmap (v)$. The \qt{minimal polynomial of $T$} is the unique monic polynomial $p\in \mathcal{P}(\myF)$ of smallest degree s.t. $p(T)=0$
 \end{mydef}
 \bfemph{Computation:} Find the smallest $m \in \nat$ such that: \\
 $c_0I + c_1 T + \cdots + c_{m-1} T^{m-1} = -T^{m}$ has a solution $c_0, \dots, c_{m-1} \in \myF$. Solve for $m=1,2,\dots,\dim V$
@@ -154,6 +194,7 @@ are the coefficients of the minimal polynomial of $T$.
     
     \item use (a) and the second version of the fundamental theorem of algebra. (\ref{fundamental-theorem-of-algebra-second-version})
   \end{enumerate}
+  \vspace{-1.1em}
 \end{prf}
 
 \setcounter{thm}{28}
@@ -187,10 +228,10 @@ are the coefficients of the minimal polynomial of $T$.
       \begin{equation}
         q(T) = p(T)s(T)=0s(T)=0,
       \end{equation}
-      as desired. 
+      as desired. Which proves both directions.
     }
   \end{description}
-  Which proves both directions.
+   \vspace{-1.1em}
 \end{prf}
 
 \setcounter{thm}{30}

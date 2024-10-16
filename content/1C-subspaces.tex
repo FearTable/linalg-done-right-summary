@@ -7,25 +7,25 @@
 \begin{thm} [conditions for a subspace]
   A subset $U$ of $V$ is a subspace of $V$ $\iff$ $U$ satisfies the following three conditions:
   \begin{itemize}
-    \item \bfemph{Additive identity:}
+    \item \emph{Additive identity:}
     $0 \in U$
-    \item \bfemph{Closed under addition:}
+    \item \emph{Closed under addition:}
     $u,w \in U \implies u+w \in U$
-    \item \bfemph{Closed under scalar multiplication:}
+    \item \emph{Closed under scalar multiplication:}
     $a \in \myF$ and $u \in U \implies au \in U$
   \end{itemize}
   The additive identity condition above could be replaced by the condition that $U$ is nonempty (because then taking $u \in U$ and multiplying it by $0$ would imply that $0\in U$).
 \end{thm}
 \begin{prf} We need to shot the proposition in two directions.
   \begin{description} 
-    \item{$\Rightarrow$ direction:} If $U$ is a subspace of $V$, then $U$ satisfies the three conditions above by the definition of a vector space.
-    \item{$\Leftarrow$ direction:} The first condition ensures, that the additive identiy $0$ of $U$ is in $U$. The other two conditions make sure, that addition and scalar multiplication make sense on $U$.
+    \item{``$\Rightarrow$ direction:''} If $U$ is a subspace of $V$, then $U$ satisfies the three conditions above by the definition of a vector space.
+    \item{``$\Leftarrow$ direction:''} The first condition ensures, that the additive identiy $0$ of $U$ is in $U$. The other two conditions make sure, that addition and scalar multiplication make sense on $U$.
     
     Thanks to \ref{thm: minus one times a vector} and the third condition, every $u \in U$ has an additive inverse $-u = (-1) u$.
     
     The other parts of the definition of a vector space, such ass associativity and commutativity, are automatically satisfied for $U$ because they hold on the larger space $V$. Thus $U$ is a vector space and hence a subspace of $V$.
   \end{description}
-  Now we have proven both directions.
+  \vspace{-1.1em}
 \end{prf}
 
 %\textbf{1.34} $U\subseteq V$ is a subspace of $V$ $\iff$
@@ -90,9 +90,10 @@
   \label{thm: condition for a direct sum}
   $V_1 + \cdots + V_m$ is a direct sum $\iff$ the only write $0$ as a sum $v_1 + \cdots + v_m$, where each $v_k \in V_k$, is by taking each $v_k$ equal to $0$.
 \end{thm}
-\begin{prf} Let  $V_1, \ldots, V_m$ be subspaces of $V$ 
-  \begin{description}
-    \item{$\Rightarrow$ direction:} First suppose $V_1 + \cdots + V_m$ is a direct sum. Let $0 = v_1 + \cdots + v_m,$ where each $v_k \in V_k$.
+\begin{prf} 
+    Let  $V_1, \ldots, V_m$ be subspaces of $V$ 
+  
+    ``$\Rightarrow$ direction:'' First suppose $V_1 + \cdots + V_m$ is a direct sum. Let $0 = v_1 + \cdots + v_m,$ where each $v_k \in V_k$.
     $\implies$ all the $v_k$'s are equal to $0$, because otherwise multiplying the equation above with a scalar $\lambda \in \myF$ would give a different sum (a different way to add them up).
     \begin{equation}
       0 = \lambda0= \lambda v_1 + \cdots + \lambda v_m, \whereEach \lambda v_k \in V_k
@@ -100,7 +101,7 @@
     
     Or a different way to argue, $0 = 0 + \cdots + 0$ is already a unique solution. 
     
-    \item{$\Leftarrow$ direction:} Now suppose that the only way to write $0$ as a sum $v_1 + \cdots + v_m$ where each $v_k \in V_k$, is by taking each $v_k = 0$. Let
+    ``$\Leftarrow$ direction:'' Now suppose that the only way to write $0$ as a sum $v_1 + \cdots + v_m$ where each $v_k \in V_k$, is by taking each $v_k = 0$. Let
     \begin{equation}
       \begin{aligned}
         v&=v_1 + \cdots + v_m \where v_1 \in V_1, \ldots, v_m \in V_m \myand \\
@@ -117,8 +118,8 @@
     \begin{equation}
       \implies v_1=u_1, \ldots, v_m=u_m
     \end{equation}
-  \end{description}
-  Now we have proven both directions.
+    
+    Thus $u=v$ if $0$ has a unique representation.
 \end{prf}
 
 %\textbf{1.46}
@@ -129,18 +130,18 @@
 \end{thm}
 \begin{prf} Let $U$ and $W$ be subspaces of the same vector space.
   \begin{description}
-    \item{$\Rightarrow$ direction:} First suppose $U+W$ is a direct sum. If $v \in U \cap W$, then $v, -v \in U \myand v, -v \in W$. We also have that
+    \item{``$\Rightarrow$ direction:''} First suppose $U+W$ is a direct sum. If $v \in U \cap W$, then $v, -v \in U \myand v, -v \in W$. We also have that
     \begin{equation}
       0 = v + (-v), \where v\in U \myand (-v) \in W.
     \end{equation}
     $\implies v=0$, because $U+W$  is a direct sum. Therefore $U \cap W = \{0\}$ 
     
-    \item{$\Leftarrow$ direction:} Suppose $U\cap W = \{0\}$. Let  $u\in U$ and $w \in W$ such that
+    \item{``$\Leftarrow$ direction:''} Suppose $U\cap W = \{0\}$. Let  $u\in U$ and $w \in W$ such that
     \begin{equation}
       \label{eq: zero equals u plus w}
       0 = u+w
     \end{equation}
     By \ref{thm: condition for a direct sum} we know that our goal is to show that $u=w=0$. The equation (\ref{eq: zero equals u plus w}) above implies that $u=-w\in W$  and $w=-u \in U$ for all arbitrary choices of $U$ and $W$. Thus $u,w \in U\cap W \implies u=w=0.$ Therefore, $U+W$ is a direct sum.
   \end{description}
-  Now we have proven both directions.
+  \vspace{-1em}
 \end{prf}

@@ -12,7 +12,7 @@
   For $T=\linmap(V, W)$, $\mynull T$ is a subspace of $V$ 
 \end{thm}
 \begin{prf}
-  $0 \in \mynull T$ because $T(0) = 0$. Suppose $u,v \in \null T$ and $\lambda \in \myF.$ $\implies T(u+v)=Tu+Tv=0+0=0.$ Hence $u+v \in \mynull T$. We also have $T(\lambda u)= \lambda Tu = \lambda 0 = 0.$
+  $0 \in \mynull T$ because $T(0) = 0$. Suppose $u,v \in \mynull T$ and $\lambda \in \myF.$ $\implies T(u+v)=Tu+Tv=0+0=0.$ Hence $u+v \in \mynull T$. We also have $T(\lambda u)= \lambda Tu = \lambda 0 = 0.$
 \end{prf}
 
 % 3.14
@@ -70,8 +70,8 @@
     For $T \in \lvw$, where $T$ is finite-dimensional, we have
     \begin{equation}
       \dim V =
-      \underbrace{ \dim \mynull T }_{\text{nullity}}
-      + \underbrace{\dim \myrange T}_{\text{rank}}
+      \underbrace{ \dim\mynull T\phantom{g}\!\!\!\!\!}_{\text{nullity}}
+      \; + \; \underbrace{\dim \myrange T}_{\text{rank}}
     \end{equation}
   \end{thm}
 

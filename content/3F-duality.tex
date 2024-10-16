@@ -55,44 +55,48 @@
 %\textbf{3.114}
 \setcounter{thm}{113}
 \begin{thm}
-  Suppose $\onetillm{v}$ is a basis of $V$. $\onetillm{\varphi}$ is called ``a dual basis'' of $\onetillm{v}$ because for every $v \in V$ we have $v=\varphi_1 (v)v_1 + \cdots \varphi_m(v)v_m$
+  Let $\onetillm{v}$ be a basis of $V$. $\onetillm{\varphi}$ is called \qt{a dual basis} of $\onetillm{v}$ because for every $v \in V$ we have 
+  \begin{equation}
+    v=\varphi_1 (v)v_1 + \cdots \varphi_m(v)v_m
+  \end{equation}
 \end{thm}
 \begin{prf}
-  Let $V \ni v= c_1v_1 + \cdots c_mv_m$. Applying
-  $\varphi_j$ on both sides gives $\varphi_j(v)=c_j$ $\forall j\in \{1, \dots, m\}$
-  %    \iff$ $\varphi(v)=\phi(c_1v_1 + \cdots + c_mv_m)$ such that $\varphi_j(v)=c_j$, because $\varphi$ is linear and $\varphi_j(v_j)=1$ by definition.
+  Let $v \in V$ such that $v= c_1v_1 + \cdots c_mv_m$. Applying
+  $\varphi_j$ on both sides gives $\varphi_j(v)=c_j$ $\forall j\in \{1, \dots, m\}$. Hence
+  \begin{equation}
+  v=\varphi_1 (v)v_1 + \cdots \varphi_m(v)v_m
+  \end{equation}
+  \vspace{-1em}
 \end{prf}
 
 %\textbf{3.116}
 \setcounter{thm}{115}
-\begin{thm}
-  The dual basis of a basis of $V$ is a basis of the dual space $V^{*}$
+\begin{thm}[basis of the dual space]
+  The dual basis of a basis of $V$ is a basis of the dual space $\dual{V}$
 \end{thm}
 
 %\textbf{3.118}
 \setcounter{thm}{117}
-\begin{mydef}
+\begin{mydef}[dual map, $T'$]
+  The \qt{dual map} $\dual{T}$ of $T \in \linmap(V,W)$ is the linear map $T' \in \lin{W'}{V'}$ defined like this:
+\begin{equation}
+    \dual{T}(\varphi) :\equiv \varphi \circ T \quad \forall \phi \in W'
+\end{equation}
 
-  The ``dual map'' $T'$ of $T \in \linmap(V,W)$ is the linear map $T' \in \lin{W'}{V'}$ defined like this:
+    So we have for a $\varphi \in \dual{W}=\lin{W}{\mathbb{F}}$ that $T'(\varphi) \in V' = \lin{V}{\mathbb{F}}$. So $T'$ is indeed a map from $W'$ to $V'$
 
-  \begin{itemize}
-    \item[] $T'(\varphi) :\equiv \varphi \circ T \quad \forall \phi \in W'$
-    \item $\varphi \in W'=\lin{W}{\mathbb{F}} \text{ and } T'(\varphi) \in V' = \lin{V}{\mathbb{F}}$.
+    Dual maps are indeed linear maps. 
+\begin{itemize}
+      \item $\varphi, \psi \in W' \implies T' (\varphi + \psi) = (\varphi + \psi) \circ T = \varphi \circ T + \psi \circ T = T' (\varphi) + T'(\psi)$
+    \item $\lambda \in \mathbb{F}, \varphi \in W' \implies T' (\lambda \varphi) = (\lambda \varphi) \circ T = \lambda (\varphi \circ T) = \lambda T' (\varphi)$
+\end{itemize}
 
-    yo
-    So $T'$ is indeed a map from $W'$ to $V'$
-
-
-    \item $\varphi, \psi \in W' \implies T' (\varphi + \psi) = (\varphi + \psi) \circ T = \varphi \circ T + \psi \circ T = T' (\varphi) + T'(\psi)$
-    \item $\lambda \in \mathbb{F}, \varphi \in W \implies T' (\lambda \varphi) = (\lambda \varphi) \circ T = \lambda (\varphi \circ T) = \lambda T' (\varphi)$
-  \end{itemize}
 
 \end{mydef}
 
 \setcounter{thm}{119}
-\begin{thm}
+\begin{thm} [algebraic properties of dual maps]
   \label{algebraic-properties-of-dual-maps}
-  Algebraic properties of dual maps:  \\
   $T \in \linmap(V,W)$ $\implies$
   \begin{enumerate}
     \item $\dual{(S+T)} = \dual{S} + \dual{T} \quad \forall S \in \linmap(V,W)$
@@ -107,7 +111,7 @@
 
 \begin{mydef} [annihilator, $U^0$]
   \label{def: annihiltator}
-  For $U \subseteq V$, the ``annihilator'' of $U$, denoted by $U^{0}$, is defined by
+  For $U \subseteq V$, the \qt{annihilator} of $U$, denoted by $U^{0}$, is defined by
   \begin{equation}
     U^0 = \{ \varphi \in \dual{V} \; \mid \; \varphi (u) = 0 \quad \forall u \in U \}
   \end{equation}

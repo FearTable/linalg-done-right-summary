@@ -5,7 +5,7 @@
 \setcounter{thm}{30}
 \begin{mydef}[matrix of a linear map, $\mmatrix(T)$]
   \label{def: matrix of a linear map}
-  Let $T \in \linmap (L,W)$ and let $v_1, \dots, v_n$ be a basis of $V$ and let $w_1, \dots, w_m$ be a basis of $W$. The ``matrix of $T$'' with respect to these bases is the $m$-by-$n$ matrix $\mmatrix(T)$ whose entries $A_{j,k}$ are defined by
+  Let $T \in \linmap (L,W)$ and let $v_1, \dots, v_n$ be a basis of $V$ and let $w_1, \dots, w_m$ be a basis of $W$. The \qt{matrix of $T$} with respect to these bases is the $m$-by-$n$ matrix $\mmatrix(T)$ whose entries $A_{j,k}$ are defined by
   \begin{equation}
     T v_k = A_{1,k} w_1 + \cdots + A_{m,k} w_m \equiv \sum_{j=1}^{m} A_{j,k} w_j
   \end{equation}
@@ -38,10 +38,11 @@
 \end{thm}
 
 \begin{mydef} [notation $\myF^{m,n}$]
-  $\myF^{m,n}$ denotes the set of all $m$-by-$n$ matrices with entries in $F$, where $m,n \in \nat$
+  $\myF^{m,n}$ denotes the set of all $m$-by-$n$ matrices with entries in $\myF$, where $m,n \in \nat$
 \end{mydef}
 
 \begin{thm} % no []
+  \label{thm: the dimension of the vector space of all m by n matrices is mn}
   $\myF^{m,n}$ is a vector space with $\dim \myF^{m,n}=mn$.
 \end{thm}
 
@@ -101,13 +102,16 @@ The Matrix of $ST$ denoted as $\mmatrix(ST)$ looks as follows:
 % 3.43
 \setcounter{thm}{42}
 \begin{thm}[matrix of product of linear maps]
-  If $T \in \linmap(U,V)$ and $S\in \linmap(V,W)$, then $\mmatrix(ST) = \mmatrix(S) \mmatrix(T).$
+  If $T \in \linmap(U,V)$ and $S\in \linmap(V,W)$, then 
+  \begin{equation}
+    \mmatrix(ST) = \mmatrix(S) \mmatrix(T).
+  \end{equation}
 \end{thm}
 \begin{prf}
   See at the beginning of the subsection.
 \end{prf}
 
-\begin{mydef} [notation: $A_{j, \mathsmaller{\bullet}}, A_{\mathsmaller{\bullet}, k}$ ] Let $A\in \myF{m,n}$. Then
+\begin{mydef} [notation: $A_{j, \mathsmaller{\bullet}}, A_{\mathsmaller{\bullet}, k}$ ] Let $A\in \myF^{m,n}$. Then
   \begin{itemize}
     \item If $1 \leq j \leq m$, then $A_{j, \mathsmaller{\bullet}}$ denotes the $1$-by-$n$ matrix consisting of row $j$ of $A$. 
     \item If $1 \leq k \leq n$, then  $A_{\mathsmaller{\bullet}, k}$ denotes the $m$-by-$1$ matrix consisting of the column $k$ of $A$.
@@ -117,30 +121,35 @@ The Matrix of $ST$ denoted as $\mmatrix(ST)$ looks as follows:
 % 3.46
 \setcounter{thm}{45}
 \begin{thm} [entry of matrix product equals row times column]
-  $(AB)_{j,k} = A_{j, \mathsmaller{\bullet}} B_{\mathsmaller{\bullet}, k}$ if $1 \leq j \leq m$ and $1 \leq k \leq p$
+  If $A \in \myF^{m,n}$ and $B \in \myF^{n,p}$, then we have for $1 \leq j \leq m$ and $1 \leq k \leq p$
+  \begin{equation}
+    (AB)_{j,k} = A_{j, \mathsmaller{\bullet}} B_{\mathsmaller{\bullet}, k}
+  \end{equation}
 \end{thm}
 
 % 3.48
 \setcounter{thm}{47}
 \begin{thm}[column of matrix product equals matrix times column]
-  If $A \in \myF{m,b}$ and $B \in \myF^{n,p}$, then
+  If $A \in \myF^{m,n}$ and $B \in \myF^{n,p}$, then we have for $1 \leq k \leq p$
   \begin{equation}
     (AB)_{\mathsmaller{\bullet}, k} = AB_{\mathsmaller{\bullet}, k}
   \end{equation}
   
-  if $1 \leq k \leq p$. In other words, column $k$ of $AB$ equals $A$ times column $k$ of $B$.
+  In other words, column $k$ of $AB$ equals $A$ times column $k$ of $B$.
 \end{thm}
 
 \setcounter{thm}{49}
 \begin{thm}
 %  $b=\left(\begin{matrix}b_1\\ \vdots \\ b_n \end{matrix}\right)
-  Suppose $A \in \myF^{m,n}$ and  $b = (b_1, \ldots, b_n)^{\top}\in \myF^{n,1}$. Then 
+  Suppose $A \in \myF^{m,n}$ and  $b = (b_1, \ldots, b_n)^{t}\in \myF^{n,1}$. Then 
   \begin{equation}
-    Ab = b_1 A_{\mathsmaller{\bullet}, 1} + \dots + b_n A_{\mathsmaller{\bullet},n}
+    Ab = b_1 A_{\mathsmaller{\bullet}, 1} + \dots + b_n A_{\mathsmaller{\bullet},n}. \quad $See \ref{def: transpose} for the definition of $^t.
   \end{equation}
 \end{thm}
 
-\begin{thm}[linear combinations of columns or rows]
+\begin{thm}[matrix multiplication as linear combinations of columns or rows]
+  \phantom{.}
+  
   Let $C\in\myF^{m,c}$ and $R\in\myF^{c,n}$.
   \begin{enumerate}
     \item If $k \in \{1,\ldots,n\},$, then column $k$ of $CR\in \myF^{m,n}$ is a linear combination of the columns of $C$, with the coefficients of this linear combination coming from column $k$ of $R$.
@@ -162,13 +171,13 @@ The Matrix of $ST$ denoted as $\mmatrix(ST)$ looks as follows:
       \end{aligned}
     \end{equation}
     
-  The octave\-/code for row-wise multiplication looks like this:
+  The octave\-/code for row-wise multiplication looks like follows.
   
   \begin{center}    
     \begin{minipage}{\linewidth}
       \addtolength{\linewidth}{-7em}  
       \lstinputlisting[
-      aboveskip=0.5em,
+      aboveskip=0.7em,
       frame=single,
       numbers=left,
       style=Matlab-bw,
@@ -193,13 +202,13 @@ The Matrix of $ST$ denoted as $\mmatrix(ST)$ looks as follows:
     \end{equation}
     
 
-    The octave\-/code for column-wise multiplication looks like this:
+    The octave\-/code for column-wise multiplication looks like follows.
     
     \begin{center}
       \begin{minipage}{\linewidth}
         \addtolength{\linewidth}{-7em} 
         \lstinputlisting[
-        aboveskip=0.5em,
+        aboveskip=0.7em,
         frame=single,
         numbers=left,
         style=Matlab-bw,
@@ -214,16 +223,17 @@ The Matrix of $ST$ denoted as $\mmatrix(ST)$ looks as follows:
 
 % 3.52
 \setcounter{thm}{51}
-\begin{mydef}
-  For $A \in \myF{m,n}$, the ``column rank'' of $A$ is the dimension of the span of the columns of $A$ in $\myF^{m,1}$. The ``row rank'' of $A$ is the dimension of the span of the rows of $A$ in $\myF{1,n}$.
+\begin{mydef}[column rank, row rank]
+  For $A \in \myF^{m,n}$, the \qt{column rank} of $A$ is the dimension of the span of the columns of $A$ in $\myF^{m,1}$. The \qt{row rank} of $A$ is the dimension of the span of the rows of $A$ in $\myF^{1,n}$.
 \end{mydef}
 
 % 3.54
 \setcounter{thm}{53}
-\begin{mydef}
-  The ``transpose'' of a matrix $A\in \myF^{m,n}$, denoted by $A^t\in \myF^{n,m}$, is obtained by interchanging rows and columns. Its entries are given by the equation
+\begin{mydef}[transpose, $A^t$]
+  \label{def: transpose}
+  The \qt{transpose} of a matrix $A\in \myF^{m,n}$, denoted by $A^t\in \myF^{n,m}$, is obtained by interchanging rows and columns. Its entries are given by the equation
   \begin{equation}
-    \left( A^{t} \right)_{k,j} = A_{j,k}.
+    \left( A^{t} \right)_{k,j} = A_{j,k} \quad \forall k \in \{1, \ldots, m\}, j \in \{1, \ldots, n\}. 
   \end{equation}
 \end{mydef}
 
@@ -242,5 +252,5 @@ The Matrix of $ST$ denoted as $\mmatrix(ST)$ looks as follows:
 \end{thm}
 
 \begin{mydef} [rank]
-  The ``rank'' of a matrix $A \in  \myF^{m,n}$ is the column rank of $A$.
+  The \qt{rank} of a matrix $A \in  \myF^{m,n}$ is the column rank of $A$.
 \end{mydef}

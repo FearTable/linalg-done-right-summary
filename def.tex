@@ -5,7 +5,7 @@
 
 % BEGIN custom geometry ************************************
 \setlength{\abovedisplayskip}{0.1em}
-\setlength{\belowdisplayskip}{0.2em}
+\setlength{\belowdisplayskip}{0.1em}
 \setlength{\abovedisplayshortskip}{0pt}
 \setlength{\belowdisplayshortskip}{0pt}
 \setlength{\jot}{0pt}
@@ -127,6 +127,8 @@
 % BEGIN custom commands ************************************
 %\DeclarePairedDelimiter\norm{\lVert}{\rVert}
 %\DeclarePairedDelimiter\innerproduct{\langle}{\rangle}
+\newcommand\qt[1]{\textit{``#1''}}
+
 \newcommand{\ip}[2]{\left \langle #1, #2 \right \rangle}
 \newcommand{\norm}[1]{\left \lVert #1 \right \rVert}
 \newcommand{\gt}{>}
@@ -144,7 +146,7 @@
 \newcommand\du{\, du}
 
 % BFEMPH
-\newcommand{\bfemph}[1]{{\scshape #1}}
+\newcommand{\bfemph}[1]{{\textbf{\scshape #1}}}
 
 % natural numbers, integers, real numbers, complex numbers:
 \newcommand{\nat}{\mathbb{N}}
