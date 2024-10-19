@@ -19,12 +19,12 @@ $p: \mathbb{F} \to \mathbb{F}, \, p(z) = a_0 + a_1z + \cdots + a_n z^m$
 \end{thm}
 \begin{prf} Let $p\in \polyn(\myF)_m$ for $m\in \nat$.
   
-  ``$\Leftarrow$ direction:'' Suppose there is $q \in \polyn(\myF)$ s.t. $p(z) = (z-\lambda)q(z) \quad \forall z \in \myF$. Then
+  \qt{$\Leftarrow$ direction:} Suppose there is $q \in \polyn(\myF)$ s.t. $p(z) = (z-\lambda)q(z) \quad \forall z \in \myF$. Then
   \begin{equation}
     p(\lambda) = (\lambda -\lambda)q(\lambda) = 0,$ as desired.$
   \end{equation}
   
-  ``$\Rightarrow$ direction:'' Now suppose $p(\lambda)=0$. Let $a_0, a_1, \ldots, a_m \in \myF"$ be s.t.
+  \qt{$\Rightarrow$ direction:} Now suppose $p(\lambda)=0$. Let $a_0, a_1, \ldots, a_m \in \myF"$ be \st
   \begin{equation}
     p(z) :\equiv a_0 + a_1z + \cdots a_mz^m \quad \forall z \in  \myF.
   \end{equation}
@@ -95,7 +95,7 @@ In case you are wondering where the $a_0$ went by subtracting $p(\lambda)$ from 
   
   is linearly independent because each polynomial in this list has a different degree.
   
-  The list has length $1+(m-1)+1+(n-m)=n+1$, which equals $\dim \polyn_n(\myF)$. Hence \eqref{eq: basis of P_n(F)} is a basis of $\polyn_n(\myF)$ by \ref{thm: linearly independent list of the right length is a basis}. Therefore, we have $a_0, a_1, \ldots, a_{m-1} \in \myF$ and $b_0, b_1, \ldots, b_{n-m} \in \myF$ s.t.
+  The list has length $1+(m-1)+1+(n-m)=n+1$, which equals $\dim \polyn_n(\myF)$. Hence \eqref{eq: basis of P_n(F)} is a basis of $\polyn_n(\myF)$ by \ref{thm: linearly independent list of the right length is a basis}. Therefore, we have $a_0, a_1, \ldots, a_{m-1} \in \myF$ and $b_0, b_1, \ldots, b_{n-m} \in \myF$  \st
   \begin{equation}
     \begin{aligned}
           p&=a_0 + a_1z + a_2z^2 + \cdots + a_{m-1} z^{m-1}

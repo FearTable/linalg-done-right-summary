@@ -5,7 +5,7 @@
 \begin{thm} [basis length] Any two bases of a \fdvs have the same length. So the the basis length does not depend on basis.
 \end{thm}
 \begin{prf}
-  Let $B_1$ and $B_2$ be $2$ basis of $V$. Since both are linearly independent and both span $V$, we have $|B_1| \leq |B_2|$ and $|B_2| \leq |B_1|$ by using \ref{length-of-linearly-dependent-list-less-or-equal-length-of-spanning-list}. Therefore $|B_1|=|B_2|.$
+  Let $B_1$ and $B_2$ be $2$ basis of $V$. Since both are linearly independent and both span $V$, we have $|B_1| \leq |B_2|$ and $|B_2| \leq |B_1|$ by using \ref{thm: length of linearly dependent list less or equal to length of spanning list}. Therefore $|B_1|=|B_2|.$
 \end{prf}
 
 \begin{mydef} [dimension]
@@ -29,16 +29,21 @@
 
 % 2.38
 \begin{thm} [lineparly independent list of the right length]
-  \label{every-lid-list-of-length-dim-v-is-a-basis-of-v}
   \label{thm: linearly independent list of the right length is a basis}
   Every linearly independent list of vectors of length $\dim V$ is a basis. (by 2.32)
 \end{thm}
+\begin{prf}
+  Let $\dim V = n$ and $v_1, \ldots, v_n$ be linearly independent in $V$. This list can be extended to a basis of $V$ by \ref{thm: every linearly independent list of vectors in a finite-dimensional vector space can be extended to a basis of the vector space}. However, every basis of $V$ has length $n$ so no elements are adjoined to $v_1, \ldots, v_n$.
+\end{prf}
 
 % 2.39
 \begin{thm} [subspace of full dimension] 
   \label{thm: subspace of full dimension equals the whole space}
   If $U$ is a subspace of $V$ and $\dim U = \dim V<\infty$, then $U=V$. (by 2.38)
 \end{thm}
+\begin{prf}
+  Let $u_1, \ldots, u_n$ be a basis of $U$. Thus $n = \dim U$, and by the hypothesis we also have $n = \dim V$. Thus $u_1, \ldots, u_n$ is a linearly independent list of vectors in $V$ of length $\dim V$. So by our previous theorem \ref{thm: linearly independent list of the right length is a basis}, we see that $u_1, \ldots, u_n$ is a basis of $V$. In particular, every vector in $V$ is a linear combination of $u_1, \ldots, u_n$. Thus $U=V$.
+\end{prf}
 
 % 2.42
 \setcounter{thm}{41} 

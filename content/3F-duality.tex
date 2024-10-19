@@ -66,7 +66,6 @@
   \begin{equation}
   v=\varphi_1 (v)v_1 + \cdots \varphi_m(v)v_m
   \end{equation}
-  \vspace{-1em}
 \end{prf}
 
 %\textbf{3.116}
@@ -121,13 +120,13 @@
 \setcounter{thm}{123}
 \begin{thm}[the annihilator is a subspace]
   \label{thm: the annihilator is a subspace}
-  $U \subseteq V \implies U^{0}$ is a subspace of $\dual{V}$
+  If $U \subseteq V$, then $U^{0}$ is a subspace of $\dual{V}$
 \end{thm}
 
 % 3.125
 \setcounter{thm}{124}
 \begin{thm} [dimension of the annihilator]
-    $U\subseteq V$ and $\dim V < \infty \implies$
+    If $U\subseteq V$ and $\dim V < \infty$, then
     \begin{equation}
       \dim U^0 = \dim V - \dim U.
     \end{equation}
@@ -136,10 +135,10 @@
 % 3.127
 \setcounter{thm}{126}
 \begin{thm} [condition for the annihilator to equal $\{0\}$ or the whole space]
-  If $\dim V < \infty$ and $U\subseteq V$. Then
+  If $\dim V < \infty$ and $U\subseteq V,$ then
   \begin{enumerate}
-    \item $U^0 = \{0 \} \iff U = V$;
-    \item $U^0 = \dual{V} \iff U = \{0\}$;
+    \item $U^0 = \{0 \} \iff U = V$
+    \item $U^0 = \dual{V} \iff U = \{0\}$
    \end{enumerate}
 \end{thm}
 
@@ -147,7 +146,7 @@
 \begin{thm}[the null space of $\dual{T}$]
   If $\dim V < \infty$, $\dim W<\infty$ and $T \in \linmap (V,W),$ then
   \begin{enumerate}
-    \item $\mynull \dual{T} = (\myrange T)^0$;
+    \item $\mynull \dual{T} = (\myrange T)^0$
     \item $\dim \mynull \dual{T} = \dim \mynull T + \dim W - \dim V$
   \end{enumerate} 
 \end{thm}
@@ -164,8 +163,8 @@
 \begin{thm}[the range of $\dual{T}$]
     If $\dim V < \infty$, $\dim W<\infty$ and $T \in \linmap (V,W),$ then
     \begin{enumerate}
-      \item $\dim \myrange \dual{T} = \dim \myrange T$;
-      \item $\myrange \dual{T} = (\mynull T)^0$;
+      \item $\dim \myrange \dual{T} = \dim \myrange T$
+      \item $\myrange \dual{T} = (\mynull T)^0$
     \end{enumerate}
 \end{thm}
 

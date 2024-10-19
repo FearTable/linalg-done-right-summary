@@ -3,14 +3,13 @@ function retval = column_wise_matrix_mult (C,R)
   c = columns(C); % = rows(R)
   n = columns (R);
   retval=zeros(m,n);
-
   if (columns(C) != rows(R))
     error('columns of C and rows of R dont match');
   end
-
-  for (j=1:m)
+  for (k=1:n)
     for (i=1:c)
-      retval(j,:)=retval(j,:)+C(j,l)*R(i,:);
+      retval(:,k)=retval(:,k)+C(:,i)*R(i,k);
     end
   end
 end
+

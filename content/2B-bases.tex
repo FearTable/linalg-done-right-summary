@@ -3,7 +3,7 @@
 
 \setcounter{thm}{25}
 %\textbf{2.26}
-\begin{mydef} [Basis]
+\begin{mydef} [basis]
   A \qt{basis} $\beta$ of $V$ is a list of vectors $\beta = \onetilln{v}$ in $V$ that is linearly independent and spans $V$.
   \begin{equation}
     V = \myspan{v_1, \dots, v_n} = \myspan{ \beta }
@@ -11,12 +11,12 @@
 \end{mydef}
 
 \setcounter{thm}{27}
-\begin{thm} [Condition for a basis]
+\begin{thm} [condition for a basis]
   $\onetilln{v}$ is a basis of $V$ $\iff$ every $v \in V$ can be written uniquely in the form
   \begin{equation}
     v=a_1 v_1 + \dots + a_n v_n $, where $ a_1, \dots, a_n \in \myF
   \end{equation}
-  Note that the definition of linear dependence says nothing about uniqueness. That is just the motivation behind the definition!
+  Note that the definition of linear dependence has said nothing about uniqueness.
 \end{thm}
 
 \setcounter{thm}{29}
@@ -88,14 +88,14 @@
 
   
   \begin{description}
-    \item{\emph{Proof of $V=U+W$:}} Let $v \in V$. Since $u_1, \ldots, u_m, w_1, \ldots, w_n$ is a basis of $V$, it spans $V$. $V = \myspan{u_1, \ldots, u_m, w_1, \ldots, w_n}$
+    \item{\bfemph{\slshape Proof of $V=U+W$:}} Let $v \in V$. Since $u_1, \ldots, u_m, w_1, \ldots, w_n$ is a basis of $V$, it spans $V$. $V = \myspan{u_1, \ldots, u_m, w_1, \ldots, w_n}$
     
     So we have $\exists a_1, \ldots, a_m, b_1, \ldots, b_n \in \myF$ s.t. \\
     $v = \underbrace{a_1 u_1 + \cdots a_m u_m}_{u} + \underbrace{b_1 w_1 + \cdots b_m w_m}_{w}.$
     
     With $u$ and $w$ defined as above, we have $v=u+w$, where $u \in U$ and $w \in W$. Thus $v \in U+W,$ completing the proof that $V=U+W$.
     
-    \item{\emph{Proof of $U \cap W = \{0\}$:}} Let $v \in U \cap W$. $\implies$ $\exists a_1, \ldots, a_m, b_1, \ldots, b_n \in \myF$ s. t. $v= a_1 u _1 + \cdots + a_m u_m$ and $v= b_1 w_1 + \cdots + b_n w_n$. Thus $a_1 u_1 + \cdots + a_m u_m - b_1 w_1 - \cdots - b_n w_n = 0$.
+    \item{\bfemph{\slshape Proof of $U \cap W = \{0\}$:}} Let $v \in U \cap W$. $\implies$ $\exists a_1, \ldots, a_m, b_1, \ldots, b_n \in \myF$ s. t. $v= a_1 u _1 + \cdots + a_m u_m$ and $v= b_1 w_1 + \cdots + b_n w_n$. Thus $a_1 u_1 + \cdots + a_m u_m - b_1 w_1 - \cdots - b_n w_n = 0$.
     
     Because $u_1, \ldots, u_m, w_1, \ldots, w_n$ is linearly independent, this implies that
     \begin{equation}

@@ -5,7 +5,7 @@
 
 % BEGIN custom geometry ************************************
 \setlength{\abovedisplayskip}{0.1em}
-\setlength{\belowdisplayskip}{0.1em}
+\setlength{\belowdisplayskip}{0.2em}
 \setlength{\abovedisplayshortskip}{0pt}
 \setlength{\belowdisplayshortskip}{0pt}
 \setlength{\jot}{0pt}
@@ -127,6 +127,11 @@
 % BEGIN custom commands ************************************
 %\DeclarePairedDelimiter\norm{\lVert}{\rVert}
 %\DeclarePairedDelimiter\innerproduct{\langle}{\rangle}
+
+% such that, s. t.
+\newcommand\st{{ s. t. }}
+
+% quotes
 \newcommand\qt[1]{\textit{``#1''}}
 
 \newcommand{\ip}[2]{\left \langle #1, #2 \right \rangle}
@@ -234,6 +239,50 @@
 
 % \newcommand{\basis}[2]{\overbrace{ \myspan{#1_1, \dots #1_{#2}}}^{\text{linearly independent}} }}
 \def\myimpl{{\{black}{\implies}}
+
+% octave or matlab
+\newcommand{\octave}[1]{
+
+\begin{center}
+  \begin{minipage}{\linewidth}
+
+    \addtolength{\linewidth}{-7em}
+    \lstinputlisting[
+    aboveskip=0.7em,
+    frame=single,
+    numbers=left,
+    style=Matlab-bw,
+    basicstyle=\scriptsize\ttfamily]{octave/#1}
+    \addtolength{\linewidth}{+7em}
+
+  \end{minipage}
+\end{center}
+
+}
+
+% real part, imagenary part
+\newcommand{\realpart}{\operatorname{Re}}
+\newcommand{\impart}{\operatorname{Im}}
+
+% dashed box
+\newtcbox{\dashedbox}[1][]{
+  math upper,
+baseline=0.4\baselineskip,
+equal height group=dashedbox,
+nobeforeafter,
+colback=white,
+boxrule=0pt,
+enhanced jigsaw,
+boxsep=0pt,
+top=2pt,
+bottom=2pt,
+left=2pt,
+right=2pt,
+borderline horizontal={0.5pt}{0pt}{dashed},
+borderline vertical={0.5pt}{0pt}{dashed},
+drop lifted shadow,
+#1
+}
 
 % END custom comands ***************************************
 

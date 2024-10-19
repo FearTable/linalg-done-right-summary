@@ -34,21 +34,24 @@
 \end{mydef}
 
 \setcounter{thm}{25}
-\begin{thm} [additive identity]
+\begin{thm} [unique additive identity]
   \label{thm: unique additive identity}
   A vector space has a unique additive identity.
 \end{thm}
 \begin{prf}
-  Let $v\in V.$ Suppose $w,w' \in V$ are additive inverses of $v$. Then using associativity and the definition of the additive inverse we get
-  \begin{equation}
-    w = w + 0 = w + (v + w') = (w+v) + w' = 0 + w' = w'
-  \end{equation}
-  Thus $w = w'$, as desired.
+  Suppose $0$ and $0'$ are both additive identities. Then $0' = 0'+ 0 = 0 + 0' = 0.$
 \end{prf}
 
-\begin{thm} [additive inverse]
+\begin{thm} [unique additive inverse]
   Every element in a vector space has a unique additive inverse.
 \end{thm}
+\begin{prf}
+  Let $v\in V.$ Suppose $u,w \in V$ are additive inverses of $v$. Then using associativity and the definition of the additive inverse we get
+  \begin{equation}
+    u = u + 0 = u + (v + w) = (u+v) + w = 0 + w =w
+  \end{equation}
+  Thus $u = w$, as desired.
+\end{prf}
 
 \begin{mydef}
   For $v,w\in V$, $-v$ denotes the additive inverse of $v$ and $w-v:\equiv w+(-v)$

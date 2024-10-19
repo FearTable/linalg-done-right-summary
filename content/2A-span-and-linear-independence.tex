@@ -2,12 +2,12 @@
 \subsection{Linear Combinations and Span}
 
 \setcounter{thm}{1}
-\begin{mydef} [Linear combination]
+\begin{mydef} [linear combination]
   $a_1 v_1 + \cdots + a_m v_m$ is called a \qt{linear combination} of a list of vectors $v_1, \dots, v_m$
 \end{mydef}
 
 \setcounter{thm}{3}
-\begin{mydef} [Span of a list of vectors]
+\begin{mydef} [span of a list of vectors]
 	The \qt{span} of a list of vectors $\onetillm{v}$ is defined as follows:
   \begin{equation}
     \begin{aligned}
@@ -19,33 +19,57 @@
 
 \setcounter{thm}{5}
 %\textbf{2.6}
-\begin{thm} [The span of a list of vectors is a subspace]
+\begin{thm} [the span of a list of vectors is a subspace]
   The  span of a list of vectors in $V$ is the smallest subspace of $V$ containing all vectors in the list.
 \end{thm}
 
-%\textbf{2.7}
-\begin{mydef} [Spanning a vector space]
+% 2.8
+\begin{mydef} [spanning a vector space]
   If $V=\myspan{\oneTillM{v}}$, we say $\oneTillM{v}$ \qt{spans} $V$.
 \end{mydef}
 
+% 2.9
 \setcounter{thm}{8}
-%\textbf{2.9}
-\begin{mydef} [Finite-dimensional vector space]
+\begin{mydef} [finite-dimensional vector space]
   Such a vector space is called finite\-/dimensional. We write $\dim V \neq \infty$ or $\dim V < \infty$
 \end{mydef}
 
-%\textbf{2.10, 2.11, 2.12}
-\begin{mydef}
-  The set of all polynomials is denoted by $\polyn (\myF) \subseteq \myF^\myF$.
-\end{mydef}
-\begin{mydef}
-  $\polyn_m (\myF )=\myspan{1,z,\dots,z^m}$ denotes the set of all polynomials with coefficients in $\myF$ and degree at most $m$. The degree $m$ of a polynomial $p=a_0+a_1z+a_2z^2+\cdots+a_mz^m$ is denoted with $\degree p=m$.
-  We also define for the zero polynomial $\degree 0 : \equiv -\infty$ \\
-  (One should actually use the lambda notation $\lambda z.z^m$ to speak of functions)
+
+% 2.10
+\begin{mydef}[polynomial, $\polyn(\myF)$]
+  \phantom{.}
+  \begin{itemize}
+    \item $p: \myF \to \myF$ is called a \qt{polynomial} with coefficients in $\myF$ if there exists $a_0, \ldots, a_m \in \myF$ s. t.
+    \begin{equation}
+      p(z)=a_0 + a_1 + a_2z^2 + \cdots + a_m z^m \quad \forall z \in \myF.
+    \end{equation}
+    \item $\polyn (\myF)$ is the set of all polynomials with coefficients in $\myF$.
+  \end{itemize}
 \end{mydef}
 
-\setcounter{thm}{12}
+% 2.11
+\begin{mydef}[degree of a polynomial, $\deg p$]
+  The degree $m$ of a polynomial $p=a_0+a_1z+a_2z^2+\cdots+a_mz^m$ is denoted with \begin{equation}
+    \deg p :\equiv m.
+  \end{equation}
+  
+  We also define for the zero polynomial $p=0$ 
+  \begin{equation}
+    \degree 0 : \equiv -\infty.
+  \end{equation}
+\end{mydef}
+
+% 2.12
 \begin{mydef}
+  $\polyn_m (\myF )=\myspan{1,z,\dots,z^m}$ denotes the set of all polynomials with coefficients in $\myF$ and degree at most $m$ (One should actually use the lambda notation $\lambda z.z^m$ to speak of functions). Note that
+  \begin{equation}
+    \dim \polyn_m(\myF) = m+1
+  \end{equation}
+\end{mydef}
+
+%2.13
+\setcounter{thm}{12}
+\begin{mydef}[infinite\-/dimensional]
   A vector space is called \qt{infinite\-/dimensional} if it is not \fd. 
 \end{mydef}
 
@@ -53,7 +77,7 @@
 \subsection{Linear Independence}
 
 \setcounter{thm}{14}
-\begin{mydef} [Linear independence]
+\begin{mydef} [linear independence]
   There are $2$ ways to think about \qt{linear independence}. Lets first start with the motivation. A list of vectors $\oneTillM{v}$ is \qt{\lid}, if every combination of these vectors $w = b_1v_1 + \dots+ b_mv_m$ $\in \myspan{\oneTillM{v}}$ has a unique choice of scalars $b_1, \dots, b_m \in \myF$.
 
   \bfemph{The actual definition of linear independence:} \\
@@ -192,8 +216,23 @@
   $\implies$ the length of $u_1, \ldots, u_m$ $\leq$ the length of $w_1, \ldots, w_n$.
 \end{prf}
 
+% 2.25
 \setcounter{thm}{24}
-\begin{thm} [Finite-dimensional subspace]
+\begin{thm} [finite-dimensional subspace]
   \label{thm: finite-dimensional subspace}
   Every subspace of a finite\-/dimensional vector space is finite\-/dimensional.
 \end{thm}
+\begin{prf}
+  Let $\dim V \neq \infty$ and $U \subseteq V$.
+  
+  \emph{Step 1:} If $U = \{0\}$, the $U$ is finite\-/dimensional and we are done. If $u_1 \neq \{0\},$ then choose a nonzero vector $u_1 \in U$.
+  
+  \emph{Step k:} If $ U = \myspan{u_1, \ldots, u_{k-1}},$ then $U$ is \fd and we are done. If $U\neq \myspan{u_1, \ldots, u_{k-1}}$, then choose a vector $u_k \in U$ \st 
+  \begin{equation}
+    u_k \notin \myspan{u_1, \ldots, u_{k-1}}
+  \end{equation}
+  
+  After each stept, as long as the precess continues, we have constructed a list of vectors, such that no vector in the list is in the span of the previous vectors. Thus after each step we have constructed a linearly independent list, by the negation of of the linear dependence lemma (\ref{thm: linear dependence lemma}).
+  This list can not be longer than any spanning list of $V$ (by \ref{thm: length of linearly dependent list less or equal to length of spanning list}).
+  Thus the process eventually terminates, which means $U$ is \fd.
+\end{prf}

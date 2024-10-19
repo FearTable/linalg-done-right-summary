@@ -94,8 +94,8 @@ For $1 \leq k \leq p$, we have
 \end{equation}
 
 \begin{minipage}{\linewidth}
-  Thus $\mmatrix(ST)$ should be the $m$-by-$p$ matrix whose entry in row $j$, column $k$ equals 
-  $\sum_{r=1}^{n} A_{j,r}  B_{r,k}.$ It would look as follows:
+  Thus $\mmatrix(ST)$ is  the $m$-by-$p$ matrix whose entry in row $j$, column $k$ equals 
+  $\sum_{r=1}^{n} A_{j,r}  B_{r,k}.$ 
 \begin{equation}
   \mathcal{M} (ST) =
   \begin{blockarray}{cccccc}
@@ -123,6 +123,11 @@ For $1 \leq k \leq p$, we have
   \begin{equation}
     (AB)_{j,k} :\equiv \sum_{r=1}^{n} A_{j,r} B_{r,k}.
   \end{equation} %for $A\in \myF^{m,n}$, $B\in \myF^{n,p}$, $AB \in \myF^{m,p}$
+  \begin{minipage}{\linewidth}
+    The octave code for calculating the entry $j,k$ of the result of $A, B$ with the \qt{sum-scheme} like above looks as follows
+    
+    \octave{standard_matrix_mult.m}
+  \end{minipage}
 \end{mydef}
 
 % 3.43
@@ -151,6 +156,12 @@ For $1 \leq k \leq p$, we have
   \begin{equation}
     (AB)_{j,k} = A_{j, \mathsmaller{\bullet}} B_{\mathsmaller{\bullet}, k}
   \end{equation}
+  
+  \begin{minipage}{\linewidth}
+    The octave code for multiplying rows and columns directly at entry $j,k$ looks as follows
+    
+    \octave{row_times_column_matrix_mult.m}
+  \end{minipage}
 \end{thm}
 
 % 3.48
@@ -161,7 +172,10 @@ For $1 \leq k \leq p$, we have
     (AB)_{\mathsmaller{\bullet}, k} = AB_{\mathsmaller{\bullet}, k}
   \end{equation}
   
-  In other words, column $k$ of $AB$ equals $A$ times column $k$ of $B$.
+  In other words, column $k$ of $AB$ equals $A$ times column $k$ of $B$. The octave looks as follows
+
+  \octave{matrix_times_columns_matrix_mult.m}
+
 \end{thm}
 
 \setcounter{thm}{49}
@@ -173,76 +187,86 @@ For $1 \leq k \leq p$, we have
   \end{equation}
 \end{thm}
 
-\begin{thm}[matrix multiplication as linear combinations of columns or rows]
-  \phantom{.}
-  
-  Let $C\in\myF^{m,c}$ and $R\in\myF^{c,n}$.
-  \begin{enumerate}
-    \item If $k \in \{1,\ldots,n\},$, then column $k$ of $CR\in \myF^{m,n}$ is a linear combination of the columns of $C$, with the coefficients of this linear combination coming from column $k$ of $R$.
-    \begin{equation}
-      \begin{aligned}
-        CR = 
-          \left ( \ldots \left(
-            \begin{matrix}C_{1,1} 
-              \\ \vdots \\ C_{m,1} 
-            \end{matrix}
-          \right) R_{1,k} 
-          + \cdots + 
-          \left(
-            \begin{matrix}C_{1,c}
-              \\ \vdots \\ C_{m,c} 
-            \end{matrix}\right) R_{c,k}
-          \ldots
-        \right)
-      \end{aligned}
-    \end{equation}
+\begin{thm}[matrix multiplication as linear comb. of columns or rows]
+  \phantom{.} Let $C\in\myF^{m,c}$ and $R\in\myF^{c,n}$.
     
-  The octave\-/code for row-wise multiplication looks like follows.
-  
-  \begin{center}    
-    \begin{minipage}{\linewidth}
-      \addtolength{\linewidth}{-7em}  
-      \lstinputlisting[
-      aboveskip=0.7em,
-      frame=single,
-      numbers=left,
-      style=Matlab-bw,
-      basicstyle=\scriptsize\ttfamily]{octave/row_wise_matrix_mult.m}
-      \addtolength{\linewidth}{+7em}
-    \end{minipage}
-  \end{center}
-  
-    \item If $j\in \{1, \ldots, m\}$, then row $j$ of $CR$ is a linear combination of the rows of $R$, with the coefficients of this linear combination comming from row $j$ of $C$
-    \begin{equation}
-      CR = 
+  \bfemph{Column-wise:} If $k \in \{1,\ldots,n\}$, then column $k$ of $CR\in \myF^{m,n}$ is a linear combination of the columns of $C$, with the coefficients of this linear combination coming from column $k$ of $R$ [$R_{\mathsmaller{\bullet}, k}$].
+  \begin{equation}
+    \begin{aligned}
+      &CR = \\
+      &\left(
       \left(
-        \begin{matrix}
-          C_{1,1} (R_{1,1}, \ldots, R_{1,n}) + C_{1,2} (R_{2,1}, \ldots, R_{2,n}) + \cdots + C_{1,c} (R_{c,1}, \ldots, R_{c,n}) \\
-          C_{2,1} (R_{1,1}, \ldots, R_{1,n}) + C_{2,2} (R_{2,1}, \ldots, R_{2,n}) + \cdots + C_{2,c} (R_{c,1}, \ldots, R_{c,n}) \\
-          \vdots \\
-          C_{j,1} (R_{1,1}, \ldots, R_{1,n}) + C_{j,2} (R_{2,1}, \ldots, R_{2,n}) + \cdots + C_{j,c} (R_{c,1}, \ldots, R_{c,n}) \\
-          \vdots \\
-          C_{m,1} (R_{1,1}, \ldots, R_{1,n}) + C_{m,2} (R_{2,1}, \ldots, R_{2,n}) + \cdots + C_{m,c} (R_{c,1}, \ldots, R_{c,n}) \\
-        \end{matrix}
+       \left(
+          \begin{matrix}C_{1,1} 
+            \\ \vdots \\ C_{m,1} 
+          \end{matrix}
+        \right) R_{1,1} 
+        + \cdots + 
+        \left(
+          \begin{matrix}C_{1,c}
+            \\ \vdots \\ C_{m,c} 
+          \end{matrix}
+        \right) R_{c,1} 
+        \right)
+      \ldots 
+      \boxed{
+        \left(
+          \begin{matrix}C_{1,1} 
+            \\ \vdots \\ C_{m,1} 
+          \end{matrix}
+        \right) R_{1,k} 
+        + \cdots + 
+        \left(
+          \begin{matrix}C_{1,c}
+            \\ \vdots \\ C_{m,c} 
+          \end{matrix}
+        \right) R_{c,k}
+      }
+      \ldots
+      \left(
+        \left(
+          \begin{matrix}C_{1,1} 
+            \\ \vdots \\ C_{m,1} 
+          \end{matrix}
+        \right) R_{1,n} 
+        + \cdots + 
+        \left(
+          \begin{matrix}C_{1,c}
+            \\ \vdots \\ C_{m,c} 
+          \end{matrix}
+        \right) R_{c,n}
+       \right)
       \right)
-    \end{equation}
-    
+    \end{aligned}
+  \end{equation}
 
-    The octave\-/code for column-wise multiplication looks like follows.
+\begin{minipage}{\linewidth}
+  The octave\-/code for column-wise multiplication looks like follows.
+  
+  \octave{column_wise_matrix_mult.m}
+\end{minipage}
+  
+  \bfemph{Row-wise:} If $j\in \{1, \ldots, m\}$, then row $j$ of $CR$ is a linear combination of the rows of $R$, with the coefficients of this linear combination comming from row $j$ of $C$ [$C_{j,\mathsmaller{\bullet}}$]
+  \begin{equation}
+    CR = 
+    \left(
+      \begin{matrix}
+        C_{1,1} (R_{1,1}, \ldots, R_{1,n}) + C_{1,2} (R_{2,1}, \ldots, R_{2,n}) + \cdots + C_{1,c} (R_{c,1}, \ldots, R_{c,n}) \\
+        C_{2,1} (R_{1,1}, \ldots, R_{1,n}) + C_{2,2} (R_{2,1}, \ldots, R_{2,n}) + \cdots + C_{2,c} (R_{c,1}, \ldots, R_{c,n}) \\
+        \vdots \\
+        C_{j,1} (R_{1,1}, \ldots, R_{1,n}) + C_{j,2} (R_{2,1}, \ldots, R_{2,n}) + \cdots + C_{j,c} (R_{c,1}, \ldots, R_{c,n}) \\
+        \vdots \\
+        C_{m,1} (R_{1,1}, \ldots, R_{1,n}) + C_{m,2} (R_{2,1}, \ldots, R_{2,n}) + \cdots + C_{m,c} (R_{c,1}, \ldots, R_{c,n}) \\
+      \end{matrix}
+    \right)
+  \end{equation}
+  
+  \begin{minipage}{\linewidth}
+    The octave\-/code for row-wise multiplication looks like follows.
     
-    \begin{center}
-      \begin{minipage}{\linewidth}
-        \addtolength{\linewidth}{-7em} 
-        \lstinputlisting[
-        aboveskip=0.7em,
-        frame=single,
-        numbers=left,
-        style=Matlab-bw,
-        basicstyle=\scriptsize\ttfamily]{octave/column_wise_matrix_mult.m}
-        \addtolength{\linewidth}{+7em}
-      \end{minipage}
-    \end{center}
-  \end{enumerate}
+    \octave{row_wise_matrix_mult.m}
+  \end{minipage}
+
 \end{thm}
 
 \subsection{Column-Row Factorization and Rank of a Matrix}
