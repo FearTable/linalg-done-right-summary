@@ -16,13 +16,13 @@
   \end{itemize}
   The additive identity condition above could be replaced by the condition that $U$ is nonempty (because then taking $u \in U$ and multiplying it by $0$ would imply that $0\in U$).
 \end{thm}
-\begin{prf} We need to shot the proposition in two directions.
-  \begin{description} 
+\begin{prf} We need to sho2 the proposition in two directions.
+  \begin{description}
     \item{\qt{$\Rightarrow$ direction:}} If $U$ is a subspace of $V$, then $U$ satisfies the three conditions above by the definition of a vector space.
     \item{\qt{$\Leftarrow$ direction:}} The first condition ensures, that the additive identiy $0$ of $U$ is in $U$. The other two conditions make sure, that addition and scalar multiplication make sense on $U$.
-    
+
     Thanks to \ref{thm: minus one times a vector} and the third condition, every $u \in U$ has an additive inverse $-u = (-1) u$.
-    
+
     The other parts of the definition of a vector space, such associativity and commutativity, are automatically satisfied for $U$ because they hold on the larger space $V$. Thus $U$ is a vector space and hence a subspace of $V$.
   \end{description}
   \vspace{-1.1em}
@@ -54,22 +54,22 @@
 \end{thm}
 \begin{prf}
   First we need to show, that $V_1 + \cdots + V_m$ is a subspace of $V$. Clearly, the additive identity $0 = 0 + \cdots + 0 \in V_1 + \cdots + V_m \in V$.
-  Let $u,w \in V_1 + \cdots + V_m$.  Then we have $u = v_1 + \cdots + v_m$ \st $v_1 \in V_1, \dots, v_m \in V_m$ and $w=v'_1 + \cdots v'_m$ \st $v'_1, \dots, v'_m \in V_m$. Therefore
+  Let $u,w \in V_1 + \cdots + V_m$.  Then we have $u = v_1 + \cdots + v_m$ \st $v_1 \in V_1, \dots, v_m \in V_m$ and $w=v'_1 + \cdots + v'_m$ \st $v'_1, \dots, v'_m \in V_m$. Therefore
   \begin{equation}
-    u+w = \underbrace{(v_1+v'_1)}_{\in V_1} + \cdots + \underbrace{(v_m+v'_m)}_{\in V_m} \in  V_1 + \cdots + V_m \in V,
+    u+w = \underbrace{(v_1+v'_1)}_{\in V_1} + \cdots + \underbrace{(v_m+v'_m)}_{\in V_m} \in  V_1 + \cdots + V_m \in V.
   \end{equation}
-  
-  So $V_1 + \cdots + V_m$ is closed under addition. For $\lambda \in \myF$ we have that 
+
+  So $V_1 + \cdots + V_m$ is closed under addition. For $\lambda \in \myF$ we have that
   \begin{equation}
       \lambda u = \lambda(v_1 \cdots v_m) = \underbrace{\lambda v_1}_{\in V_1} + \cdots + \underbrace{\lambda v_m}_{\in V_m} \in V_1 + \cdots + V_m \in V,
   \end{equation}
-  
-  so its closed under scalar multiplication. So we have shown that $V_1 + \cdots + V_m$ is a subspace of $V$. Now we have to show the minimality.
+
+  so it is closed under scalar multiplication. So we have shown that $V_1 + \cdots + V_m$ is a subspace of $V$. Now we have to show the minimality.
   The subspaces $V_1, \cdots, V_m$ are all contained in $V_1+\cdots+V_m$. Because $\forall \kInOneTillM:$
   \begin{equation}
     V_k = \{ v \mid v \in V_k \} \subseteq \{v_1 + \cdots + v_m \mid v_1 \in V_1,  \ldots , v_m \in V_m \} = V_1 + \cdots + V_m.
   \end{equation}
-  
+
   Conversely, every subspace of $V$ containing $V_1, \ldots, V_m$ contains $V_1 + \cdots + V_m$, because its closed under addition. Thus $V_1 + \cdots + V_m$ is the smallest subspace of $V$ containing $V_1, \ldots, V_m$.
 \end{prf}
 
@@ -100,17 +100,17 @@
   \label{thm: condition for a direct sum}
   $V_1 + \cdots + V_m$ is a direct sum $\iff$ the only write $0$ as a sum $v_1 + \cdots + v_m$, where each $v_k \in V_k$, is by taking each $v_k$ equal to $0$.
 \end{thm}
-\begin{prf} 
-    Let  $V_1, \ldots, V_m$ be subspaces of $V$ 
-  
+\begin{prf}
+    Let  $V_1, \ldots, V_m$ be subspaces of $V$
+
     \qt{$\Rightarrow$ direction:} First suppose $V_1 + \cdots + V_m$ is a direct sum. Let $0 = v_1 + \cdots + v_m,$ where each $v_k \in V_k$.
     $\implies$ all the $v_k$'s are equal to $0$, because otherwise multiplying the equation above with a scalar $\lambda \in \myF$ would give a different sum (a different way to add them up).
     \begin{equation}
       0 = \lambda0= \lambda v_1 + \cdots + \lambda v_m, \whereEach \lambda v_k \in V_k
     \end{equation}
-    
-    Or a different way to argue, $0 = 0 + \cdots + 0$ is already a unique solution. 
-    
+
+    Or a different way to argue, $0 = 0 + \cdots + 0$ is already a unique solution.
+
     \qt{$\Leftarrow$ direction:} Now suppose that the only way to write $0$ as a sum $v_1 + \cdots + v_m$ where each $v_k \in V_k$, is by taking each $v_k = 0$. Let
     \begin{equation}
       \begin{aligned}
@@ -118,17 +118,17 @@
         v&=u_1 + \cdots + u_m  \where u_1 \in V_1, \ldots, u_m \in V_m
       \end{aligned}
     \end{equation}
-    
+
     Subtracting these two equations, we have
     \begin{equation}
       0=(v_1-u_1)+\cdots+(v_m-u_m).
     \end{equation}
-    
+
     Because $v_1 - u_1 \in V_1, \ldots, v_m - u_m \in V_m$, the equation above implies that each $v_k -u_k$ equals $0$.
     \begin{equation}
       \implies v_1=u_1, \ldots, v_m=u_m
     \end{equation}
-    
+
     Thus $u=v$, because $0$ has a unique representation.
 \end{prf}
 
@@ -144,8 +144,8 @@
     \begin{equation}
       0 = v + (-v), \where v\in U \myand (-v) \in W.
     \end{equation}
-    $\implies v=0$, because $U+W$  is a direct sum. Therefore $U \cap W = \{0\}$ 
-    
+    $\implies v=0$, because $U+W$  is a direct sum. Therefore $U \cap W = \{0\}$
+
     \item{\qt{$\Leftarrow$ direction:}} Suppose $U\cap W = \{0\}$. Let  $u\in U$ and $w \in W$ such that
     \begin{equation}
       \label{eq: zero equals u plus w}

@@ -56,7 +56,7 @@ Consider the linear maps $T: U \to V$ and $S: V \to W$. The composition $ST$ is 
   \mmatrix(ST) = \mmatrix(S) \mmatrix(T) \; {\mathlarger ?}
 \end{equation}
 
-One can choose a definition of matrix multiplication that forces this question to have a positive answer. 
+One can choose a definition of matrix multiplication that forces this question to have a positive answer.
 
 Let $A :\equiv \mmatrix(S)\in \myF^{m,n}$ and $B :\equiv \mmatrix(T)\in \myF^{m,p}$. Here are the matrices of $A$ and $B$.
 \begin{equation}
@@ -84,30 +84,30 @@ Let $A :\equiv \mmatrix(S)\in \myF^{m,n}$ and $B :\equiv \mmatrix(T)\in \myF^{m,
 For $1 \leq k \leq p$, we have
 \begin{equation}
   \begin{aligned}
-    (ST) u_k 
+    (ST) u_k
     = S (Tu_k)
     = S \left ( \sum_{r=1}^{n} B_{r,k} v_r \right )
-    =  \sum_{r=1}^{n} B_{r,k} S v_r 
-    =  \sum_{r=1}^{n} B_{r,k} \sum_{j=1}^{m} A_{j,r}  w_j 
-    =  \sum_{j=1}^{m} \left( \sum_{r=1}^{n} A_{j,r}  B_{r,k} \right) w_j 
+    =  \sum_{r=1}^{n} B_{r,k} S v_r
+    =  \sum_{r=1}^{n} B_{r,k} \sum_{j=1}^{m} A_{j,r}  w_j
+    =  \sum_{j=1}^{m} \left( \sum_{r=1}^{n} A_{j,r}  B_{r,k} \right) w_j
   \end{aligned}
 \end{equation}
 
 \begin{minipage}{\linewidth}
-  Thus $\mmatrix(ST)$ is  the $m$-by-$p$ matrix whose entry in row $j$, column $k$ equals 
-  $\sum_{r=1}^{n} A_{j,r}  B_{r,k}.$ 
+  Thus $\mmatrix(ST)$ is  the $m$-by-$p$ matrix whose entry in row $j$, column $k$ equals
+  $\sum_{r=1}^{n} A_{j,r}  B_{r,k}.$
 \begin{equation}
   \mathcal{M} (ST) =
   \begin{blockarray}{cccccc}
              & u_1 & \cdots &  u_k      & \cdots & u_p \\
     \begin{block}{c(ccccc)}
-      w_1    &     &        &  
+      w_1    &     &        &
         \sum_{r=1}^{n} A_{1,r}  B_{r,k} &        &     \\
       \vdots &     &        &  \vdots   &        &     \\
-      w_j    &     &        &  
+      w_j    &     &        &
         \sum_{r=1}^{n} A_{j,r}  B_{r,k} &        &     \\
       \vdots &     &        &  \vdots   &        &     \\
-      w_m    &     &        &  
+      w_m    &     &        &
         \sum_{r=1}^{n} A_{m,r}  B_{r,k} &        &     \\
     \end{block}
   \end{blockarray}
@@ -125,7 +125,7 @@ For $1 \leq k \leq p$, we have
   \end{equation} %for $A\in \myF^{m,n}$, $B\in \myF^{n,p}$, $AB \in \myF^{m,p}$
   \begin{minipage}{\linewidth}
     The octave code for calculating the entry $j,k$ of the result of $A, B$ with the \qt{sum-scheme} like above looks as follows
-    
+
     \octave{standard_matrix_mult.m}
   \end{minipage}
 \end{mydef}
@@ -133,7 +133,7 @@ For $1 \leq k \leq p$, we have
 % 3.43
 \setcounter{thm}{42}
 \begin{thm}[matrix of product of linear maps]
-  If $T \in \linmap(U,V)$ and $S\in \linmap(V,W)$, then 
+  If $T \in \linmap(U,V)$ and $S\in \linmap(V,W)$, then
   \begin{equation}
     \mmatrix(ST) = \mmatrix(S) \mmatrix(T).
   \end{equation}
@@ -144,7 +144,7 @@ For $1 \leq k \leq p$, we have
 
 \begin{mydef} [notation: $A_{j, \mathsmaller{\bullet}}, A_{\mathsmaller{\bullet}, k}$ ] Let $A\in \myF^{m,n}$. Then
   \begin{itemize}
-    \item If $1 \leq j \leq m$, then $A_{j, \mathsmaller{\bullet}}$ denotes the $1$-by-$n$ matrix consisting of row $j$ of $A$. 
+    \item If $1 \leq j \leq m$, then $A_{j, \mathsmaller{\bullet}}$ denotes the $1$-by-$n$ matrix consisting of row $j$ of $A$.
     \item If $1 \leq k \leq n$, then  $A_{\mathsmaller{\bullet}, k}$ denotes the $m$-by-$1$ matrix consisting of the column $k$ of $A$.
   \end{itemize}
 \end{mydef}
@@ -156,10 +156,10 @@ For $1 \leq k \leq p$, we have
   \begin{equation}
     (AB)_{j,k} = A_{j, \mathsmaller{\bullet}} B_{\mathsmaller{\bullet}, k}
   \end{equation}
-  
+
   \begin{minipage}{\linewidth}
     The octave code for multiplying rows and columns directly at entry $j,k$ looks as follows
-    
+
     \octave{row_times_column_matrix_mult.m}
   \end{minipage}
 \end{thm}
@@ -171,7 +171,7 @@ For $1 \leq k \leq p$, we have
   \begin{equation}
     (AB)_{\mathsmaller{\bullet}, k} = AB_{\mathsmaller{\bullet}, k}
   \end{equation}
-  
+
   In other words, column $k$ of $AB$ equals $A$ times column $k$ of $B$. The octave looks as follows
 
   \octave{matrix_times_columns_matrix_mult.m}
@@ -181,7 +181,7 @@ For $1 \leq k \leq p$, we have
 \setcounter{thm}{49}
 \begin{thm}
 %  $b=\left(\begin{matrix}b_1\\ \vdots \\ b_n \end{matrix}\right)
-  Suppose $A \in \myF^{m,n}$ and  $b = (b_1, \ldots, b_n)^{t}\in \myF^{n,1}$. Then 
+  Suppose $A \in \myF^{m,n}$ and  $b = (b_1, \ldots, b_n)^{t}\in \myF^{n,1}$. Then
   \begin{equation}
     Ab = b_1 A_{\mathsmaller{\bullet}, 1} + \dots + b_n A_{\mathsmaller{\bullet},n}. \quad $See \ref{def: transpose} for the definition of $^t.
   \end{equation}
@@ -189,66 +189,72 @@ For $1 \leq k \leq p$, we have
 
 \begin{thm}[matrix multiplication as linear comb. of columns or rows]
   \phantom{.} Let $C\in\myF^{m,c}$ and $R\in\myF^{c,n}$.
-    
+
   \bfemph{Column-wise:} If $k \in \{1,\ldots,n\}$, then column $k$ of $CR\in \myF^{m,n}$ is a linear combination of the columns of $C$, with the coefficients of this linear combination coming from column $k$ of $R$ [$R_{\mathsmaller{\bullet}, k}$].
   \begin{equation}
     \begin{aligned}
       &CR = \\
       &\left(
+      \underbrace{
       \left(
        \left(
-          \begin{matrix}C_{1,1} 
-            \\ \vdots \\ C_{m,1} 
+          \begin{matrix}C_{1,1}
+            \\ \vdots \\ C_{m,1}
           \end{matrix}
-        \right) R_{1,1} 
-        + \cdots + 
+        \right) R_{1,1}
+        + \cdots +
         \left(
           \begin{matrix}C_{1,c}
-            \\ \vdots \\ C_{m,c} 
+            \\ \vdots \\ C_{m,c}
           \end{matrix}
-        \right) R_{c,1} 
+        \right) R_{c,1}
         \right)
-      \ldots 
-      \boxed{
-        \left(
-          \begin{matrix}C_{1,1} 
-            \\ \vdots \\ C_{m,1} 
-          \end{matrix}
-        \right) R_{1,k} 
-        + \cdots + 
-        \left(
-          \begin{matrix}C_{1,c}
-            \\ \vdots \\ C_{m,c} 
-          \end{matrix}
-        \right) R_{c,k}
-      }
+      }_{\text{$1$st column}}
       \ldots
-      \left(
+      \underbrace{
+        \boxed{
+          \left(
+            \begin{matrix}C_{1,1}
+              \\ \vdots \\ C_{m,1}
+            \end{matrix}
+          \right) R_{1,k}
+          + \cdots +
+          \left(
+            \begin{matrix}C_{1,c}
+              \\ \vdots \\ C_{m,c}
+            \end{matrix}
+          \right) R_{c,k}
+        }
+      }_{\text{$k$th column}}
+      \ldots
+      \underbrace{
         \left(
-          \begin{matrix}C_{1,1} 
-            \\ \vdots \\ C_{m,1} 
-          \end{matrix}
-        \right) R_{1,n} 
-        + \cdots + 
-        \left(
-          \begin{matrix}C_{1,c}
-            \\ \vdots \\ C_{m,c} 
-          \end{matrix}
-        \right) R_{c,n}
-       \right)
+          \left(
+            \begin{matrix}C_{1,1}
+              \\ \vdots \\ C_{m,1}
+            \end{matrix}
+          \right) R_{1,n}
+          + \cdots +
+          \left(
+            \begin{matrix}C_{1,c}
+              \\ \vdots \\ C_{m,c}
+            \end{matrix}
+          \right) R_{c,n}
+        \right)
+      }_{\text{last column}}
       \right)
     \end{aligned}
   \end{equation}
 
 \begin{minipage}{\linewidth}
   The octave\-/code for column-wise multiplication looks like follows.
-  
+
   \octave{column_wise_matrix_mult.m}
 \end{minipage}
-  
+
   \bfemph{Row-wise:} If $j\in \{1, \ldots, m\}$, then row $j$ of $CR$ is a linear combination of the rows of $R$, with the coefficients of this linear combination comming from row $j$ of $C$ [$C_{j,\mathsmaller{\bullet}}$]
   \begin{equation}
-    CR = 
+    CR =
     \left(
       \begin{matrix}
         C_{1,1} (R_{1,1}, \ldots, R_{1,n}) + C_{1,2} (R_{2,1}, \ldots, R_{2,n}) + \cdots + C_{1,c} (R_{c,1}, \ldots, R_{c,n}) \\
@@ -260,10 +266,10 @@ For $1 \leq k \leq p$, we have
       \end{matrix}
     \right)
   \end{equation}
-  
+
   \begin{minipage}{\linewidth}
     The octave\-/code for row-wise multiplication looks like follows.
-    
+
     \octave{row_wise_matrix_mult.m}
   \end{minipage}
 
@@ -283,7 +289,7 @@ For $1 \leq k \leq p$, we have
   \label{def: transpose}
   The \qt{transpose} of a matrix $A\in \myF^{m,n}$, denoted by $A^t\in \myF^{n,m}$, is obtained by interchanging rows and columns. Its entries are given by the equation
   \begin{equation}
-    \left( A^{t} \right)_{k,j} = A_{j,k} \quad \forall k \in \{1, \ldots, m\}, j \in \{1, \ldots, n\}. 
+    \left( A^{t} \right)_{k,j} = A_{j,k} \quad \forall k \in \{1, \ldots, m\}, j \in \{1, \ldots, n\}.
   \end{equation}
 \end{mydef}
 
