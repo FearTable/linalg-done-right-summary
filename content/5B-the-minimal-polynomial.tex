@@ -6,30 +6,30 @@
   Every operator on a \fd non\-zero complex vector space has an eigenvalue.
 \end{thm}
 \begin{prf}
-  Suppose $\infty>\dim(V)=n>0$ and $T\in \linmap(V).$ Choose $v\in V, v\neq0$. Then 
+  Suppose $\infty>\dim(V)=n>0$ and $T\in \linmap(V).$ Choose $v\in V, v\neq0$. Then
   \begin{equation}
     v, Tv, T^2v, \dots, T^nv
-  \end{equation} 
-  is not linearly independent, 
-  because the list has length $n+1$. Therefore some linear combination of these vectors equals $0$.
-   
-  $\implies$ there exists a non-constant polynomial $p$ of smallest degree such that 
-  \begin{equation}
-    p(T)v = 0. 
   \end{equation}
-  
-  By the first version of the fundamental theorem of algebra \ref{fundamental-theorem-of-algebra-first-version}, we have 
+  is not linearly independent,
+  because the list has length $n+1$. Therefore some linear combination of these vectors equals $0$.
+
+  $\implies$ there exists a non-constant polynomial $p$ of smallest degree such that
+  \begin{equation}
+    p(T)v = 0.
+  \end{equation}
+
+  By the first version of the fundamental theorem of algebra \ref{fundamental-theorem-of-algebra-first-version}, we have
   \begin{equation}
     \begin{aligned}
-      &\exists \lambda \in \compl: p(\lambda) = 0. \\  
+      &\exists \lambda \in \compl: p(\lambda) = 0. \\
       &\text{(\ref{factororing-out-zeros-of-a-polynomial-always-possible})}
       \implies \exists q \in \mathcal {P} (\compl): p(z) = (z-\lambda)  q(z) \quad \forall z \in \compl \\
       &\text{(\ref{multiplicative-properties})} \implies 0=p(T)v=(T-\lambda I) (q(T)v).
-    \end{aligned} 
+    \end{aligned}
   \end{equation}
-  
-  Because $q$ has a smaller degree than $p \implies q(T)v \neq 0$. (Why? May be because $q(T)v$ consists of $n=\dim V$ linearly independent vectors added together. The sum of zero is unique in this case.) 
-  
+
+  Because $q$ has a smaller degree than $p \implies q(T)v \neq 0$. (Why? May be because $q(T)v$ consists of $n=\dim V$ linearly independent vectors added together. The sum of zero is unique in this case.)
+
   $\implies$ $\lambda$ is an eigenvalue of $T$ with eigenvector $q(T)v$.
 \end{prf}
 
@@ -45,69 +45,83 @@
 
 \begin{thm}[existence, uniqueness, and degree of minimal polynomial]
   \label{thm: unique monice polynomial of smallest degree}
-  Suppose $T\in \linmap(V)$. Then there exists a unique monic polynomial $p\in \mathcal{P}(\myF)$ of smallest degree such that 
+  Suppose $T\in \linmap(V)$. Then there exists a unique monic polynomial $p\in \mathcal{P}(\myF)$ of smallest degree such that
   \begin{equation}
-    p(T)=0. 
+    p(T)=0.
   \end{equation}
   Furthermore $\deg p \leq \dim V$
 \end{thm}
 \begin{prf} Before we can start our proof with induction, let us look at some base cases.
-  
-  If $\dim V=0$, then identity operator $I$ is the zero-operator on $V$ and we let $p=1$ such that 
+
+  If $\dim V=0$, then identity operator $I$ is the zero-operator on $V$ and we let $p=1$ such that
 \begin{equation}
-    1I\vec0=0. 
+    1I\vec0=0.
 \end{equation}
-  
-  If $\dim V=1$, the list $v, Tv$ is linearly dependent for $v \in V, v\neq 0$ because it has length $2$ and we have $c_0v + Tv = 0$ where $c_0 \in \myF$. If we have $q(z) :\equiv c_0+z$ then $q(T)v=0$. So we have $\dim \mynull q(T) = 1$ and therefore $\dim \myrange q(T) = \dim V - \dim \myrange q(T) = 0$. So every vector on our one dimensional line is a multiple of $v$ and maps to zero if $q(T)$ is applied. So we have found our polynomial $q(T)$.
-  
-  If $\dim V=2$, the list $v, Tv, T^2v$ is linearly dependent for $v\in V, v\neq0$ because it has length $3$ and we have 
+
+If $\dim V=1$, the list $v, Tv$ is linearly dependent for $v \in V, v\neq 0$ because it has length $2$ and we have $c_0v + Tv = 0$ for some $c_0 \in \myF$. If we choose $q(z) :\equiv c_0+z$ then
+\begin{equation}
+  q(T)v=(c_0 I+T)(v)=c_0v+Tv=0.
+\end{equation}
+So we have $\dim \mynull q(T) = 1$ and therefore $\dim \myrange q(T) = \dim V - \dim \myrange q(T) = 0$. So every vector on our one dimensional line is a multiple of $v$ and maps to zero if $q(T)$ is applied. So we have found our polynomial minimal $q(T)$.
+
+  If $\dim V=2$, the list $v, Tv, T^2v$ is linearly dependent for $v\in V, v\neq0$ because it has length $3$. According to the linear dependence lemma \ref{thm: linear dependence lemma}, we either have
  \begin{equation}
-     c_0v + Tv = 0 \mytext{or} 
-     c_0v + c_1Tv + T^2v = 0 \mytext{where} c_0, c_1 \in  \myF.
+     c_0v + Tv = 0 \mytext{or}
+     c_0v + c_1Tv + T^2v = 0 \mytext{for some specific} c_0, c_1 \in  \myF.
  \end{equation}
-  
-  if we define $q(z) :\equiv c_0+\cdots c_mz^m$ accordingly for $m\in \{1,2\}$ then $q(T)v=0$. Note that if $k \in \nat$, then
-  $q(T)(T^kv)=T^k(q(T)v) =T^k (0) =0.$ In the case of $m=1$, the vector $v$ by itself is linearly independent and thus $\dim \mynull q(T) \geq 1$ and therefore 
+
+  If we define $q(z) :\equiv c_0+z$ or $q(z) :\equiv c_0+c_1z+z^2$
+%  $q(z) :\equiv c_0+\cdots c_mz^m$
+%  accordingly for $m\in \{1,2\}$
+  accordingly, then $q(T)v=0$ as before. As a side node, note that if $k \in \nat$, then
+  \begin{equation}
+    \label{eq: nice equation for q(t)}
+    q(T)(T^kv)=T^k(q(T)v) =T^k (0) =0.
+  \end{equation}
+
+  In the first case where $(-1)c_0v=Tv$, the vector $v$ by itself is linearly independent and thus $\dim \mynull q(T) \geq 1$ and therefore
   \begin{equation}
     \dim \myrange q(T) \leq \dim V - \dim \mynull q(T) \leq 1.
-  \end{equation} 
-  
-  We already now how to construct such a polynomial, let us call it $s$ such that 
+  \end{equation}
+
+  For a one dimensioanl space, we already now how to construct such a polynomial, let us call it $s$ such that
   \begin{equation}
     \begin{aligned}
-        &s (\left. T \right |_{\text{range $q(T)$}})=0 
+        &s (\left. T \right |_{\text{range $q(T)$}})=0
         \implies \forall u \in V: \left((sq)(T)\right) = s(T)(q(T)u)=0
     \end{aligned}
   \end{equation}
-  
-  A similar reasoning goes for the case where $m=2$ where we have $v$ and $Tv$ as linearly independent vectors. Here we get, that $\dim \mynull q(T) \geq 2$ and therefore $\dim \myrange q(T) = 0$. Here we would multiply the identity operator $I$ with our polynomial $q(T)$ to get our wanted minimal polynomial. Another way to look at it: Since $\dim \mynull q(T) = 2$ we have that 
+
+  A similar reasoning goes for the case where $(-1)c_0v+(-1)c_1Tv=T^2v$. Here we have $v$ and $Tv$ as linearly independent vectors. Equation \eqref{eq: nice equation for q(t)} tells us, that $v\in \mynull q(T)$ and $Tv \in \mynull q(T)$. Here we conclude that $\dim \mynull q(T) \geq 2$ and therefore $\dim \myrange q(T) = 0$.
+%  Here we would multiply the identity operator $I$ with our polynomial $q(T)$ to get our wanted minimal polynomial. Another way to look at it: ^
+  Since $\dim \mynull q(T) = 2$ we have that
   \begin{equation}
     \mynull q(T) = V.
-  \end{equation} 
+  \end{equation}
   This means, every vector of $V$ gets maped to $0$ if $q(T)$ is applied. So we have found our minimal monic polynomial !
-  
+
   As we can now see a pattern, we can use induction on $\dim V$ and we assume $\dim V > 0$ and that the theorem holds for all vector spaces of smaller dimension than $\dim V$.
-  
+
   Let $v\in V, v \neq 0$. The list \begin{equation}
     v, Tv, \dots, T^{\dim V}
   \end{equation}
   has length $1+\dim V.$
   $\implies$ the list is linearly dependent.
-  
+
   By the linear dependence lemma (\ref{thm: linear dependence lemma}), there is a smallest positive integer $m\leq \dim V$ such that
   \begin{equation}
     \begin{aligned}
-      &c_0 v + c_1 Tv + \cdots + c_{m-1} T^{m-1} v + 1\cdot T^m v = 0
-      \mytext {for some} c_0, c_1, \ldots, c_{m-1} \in \myF. \mytext{ Let }\\
-      &q(z) :\equiv c_0 + c_1z + \cdots + c_{m-1} z^{m-1} +z^{m} \in \mathcal{P}_m (\myF) 
+      &c_0 v + c_1 Tv + \cdots + c_{m-1} T^{m-1} v + (1)\cdot T^m v = 0
+      \mytext {for some} c_0, c_1, \ldots, c_{m-1} \in \myF. \mytext{ Let us define}\\
+      &q(z) :\equiv c_0 + c_1z + \cdots + c_{m-1} z^{m-1} +z^{m} \in \mathcal{P}_m (\myF) \mytext{ accordingly.}
     \end{aligned}
   \end{equation}
-  
+
   Thus we have
   \begin{equation}
     q(T) v=0. $ Note that $q(z)$ is a monic polynomial.$
-  \end{equation} 
-  
+  \end{equation}
+
   If $k \in \nat$, then
   \begin{equation}
     q(T)(T^kv)=T^k(q(T)v) =T^k (0) =0.
@@ -115,38 +129,38 @@
   By the linear dependence lemma (\ref{thm: linear dependence lemma}) \begin{equation}
     \implies v, Tv, \dots, T^{m-1}v
   \end{equation}
-  from before are linearly independent 
+  from before are linearly independent
   \begin{equation}
     \begin{aligned}
-      \implies &\dim \mynull q(T)   \geq m \\ 
-      \implies &\dim \myrange q(T)  = \dim V - \dim \mynull q(T) 
+      \implies &\dim \mynull q(T)   \geq m \\
+      \implies &\dim \myrange q(T)  = \dim V - \dim \mynull q(T)
       \leq \dim V - m
-    \end{aligned} 
+    \end{aligned}
   \end{equation}
-  
-  Because $\myrange q(T)$ is invariant under $T$ by  \ref{thm: null space and range of p(T) are invariant under T}, we can apply our induction hypothesis to the operator $\left.T\right|_{\myrange q(T)}$. 
-  
+
+  Because $\myrange q(T)$ is invariant under $T$ by  \ref{thm: null space and range of p(T) are invariant under T}, we can apply our induction hypothesis to the operator $\left.T\right|_{\myrange q(T)}$.
+
   So there exists monic $s \in \mathcal{P} (\myF):$
   \begin{equation}
   \begin{aligned}
     &\deg s \leq \dim V - m \myand s(\left.T\right|_{\myrange q(T)})=0 \\
-    &\implies \forall u \in V: \left((sq)(T)\right)(u) = s(T) (q(T)u) = 0, 
+    &\implies \forall u \in V: \left((sq)(T)\right)(u) = s(T) (q(T)u) = 0,
   \end{aligned}
   \end{equation}
-  
+
   because $q(T)u \in \myrange q(T)$ and \begin{equation}
     \left.s(T)\right|_{\myrange q(T)}=s\left( \left.T\right|_{\myrange q(T)} \right ).
   \end{equation}
   Therefore, $sq$ is a monic polynomial such that $\deg sq \leq \dim V$ and $(sq)(T)=0$.
-  
-  Proof of uniqueness: Let $p\in \mathcal{P} (\myF)$ a monic polynomial of smallest degree such that 
+
+  Proof of uniqueness: Let $p\in \mathcal{P} (\myF)$ a monic polynomial of smallest degree such that
   \begin{equation}
     p(T)=0.
-  \end{equation} Let $r\in \mathcal{P} ( \myF)$ another monic polynomial of same degree such that $r(T)=0.$ 
+  \end{equation} Let $r\in \mathcal{P} ( \myF)$ another monic polynomial of same degree such that $r(T)=0.$
   \begin{equation}
     \implies (p-r) (T) = 0
-  \end{equation} 
-  
+  \end{equation}
+
   and also $\deg (p-r) < \deg p = \deg r$ If $p-r \neq 0$, we could devide $p-r$ by the coefficient of the highest order term in $p-r$ to get a monic polynomial that when applied to $T$ gives the $0$-operator. This polynomial would have a smaller degree than $p$ or $r$, which would be a contradiction. Therefore $p-r=0 \iff p = r$.
 \end{prf}
 
@@ -158,11 +172,11 @@
 \bfemph{Computation:} Find the smallest $m \in \nat$ such that: \\
 $c_0I + c_1 T + \cdots + c_{m-1} T^{m-1} = -T^{m}$ has a solution $c_0, \dots, c_{m-1} \in \myF$. Solve for $m=1,2,\dots,\dim V$
 
-Even faster (usually), pick $v \in V$ with $v \neq 0$ and consider the equation 
+Even faster (usually), pick $v \in V$ with $v \neq 0$ and consider the equation
 \begin{equation}
   c_0v + c_1Tv + \cdots + C_{\mydim V-1}T^{\mydim V-1}v=-T^{\mydim V}v.
 \end{equation}
-If this equation has a unique solution, as happens most of the time 
+If this equation has a unique solution, as happens most of the time
 \begin{equation}
   c_0, c_1, c_2, \dots, c_{\dim V-1}, 1
 \end{equation}
@@ -175,7 +189,7 @@ are the coefficients of the minimal polynomial of $T$.
   Let $T \in \linmap(V)$. Then
   \begin{enumerate}[label=(\alph*)]
     \item The zeros of the minimal polynomial of $T$ are the eigenvalues of $T$.
-    \item If $V$ is a complex vector space, the minimal polynomial has the form 
+    \item If $V$ is a complex vector space, the minimal polynomial has the form
     \begin{equation}
       (z-\lambda_1)\cdots(z-\lambda_m), \mytext{where} \lambda_1, \dots, \lambda_m
     \end{equation} are the eigenvalues of $T$, possibly with repetitions.
@@ -188,10 +202,10 @@ are the coefficients of the minimal polynomial of $T$.
       p(T)=0\implies 0=(T-\lambda I)(q(T)v) \quad \forall v\in V.
     \end{equation}
     Because $q$ is of lesser degree than $p$, there exists at least one vector $v\in V$ sucht that $q(T)v \neq 0$, which makes $q(T)v$ an eigenvector with eigenvalue $\lambda$.
-    
+
     Suppose $\lambda \in \myF$ is an eigenvalue of $T$. Thus there exists $v\in V, v \neq 0$ such that $Tv=\lambda v$. Repeated applications of $T$ on both sides of this equation show that $T^kv =\lambda^k v \quad \forall k\in \nat$.
     $\implies p(T)v=p(\lambda)v$. Because $p$ is the minimal polynomial of $T$, we have $p(T)v=0$. $\implies p(\lambda) = 0$. $\implies$ $\lambda$ is a zero of $p$.
-    
+
     \item use (a) and the second version of the fundamental theorem of algebra. (\ref{fundamental-theorem-of-algebra-second-version})
   \end{enumerate}
   \vspace{-1.1em}
@@ -200,16 +214,16 @@ are the coefficients of the minimal polynomial of $T$.
 \setcounter{thm}{28}
 \begin{thm}[every \qt{zero-polynomial} is a multiple of the minimal polynomial]
   \label{thm: every zero polynomial is a multiple of the minimal polynomial}
-  $T\in \linmap(V)$ and $q \in \mathcal{P} (\myF)$: 
+  $T\in \linmap(V)$ and $q \in \mathcal{P} (\myF)$:
   \begin{equation}
     q(T)=0 \iff q \mytext{is a multiple of the minimal polynomial of} T.
   \end{equation}
 \end{thm}
 \begin{prf}
   Let $p$ denote the minimal polynomial of $T$.
-  
+
   \begin{description}
-    
+
     \item{\qt{$\Rightarrow$ direction:}}{
       Suppose $q(T)=0$.
       By (\ref{division-algorithm-for-polynomials}) there exists $s,r \in \mathcal{P} (\myF)$ such that
@@ -262,7 +276,7 @@ are the coefficients of the minimal polynomial of $T$.
 \subsection{Eigenvalues on Odd-Dimensional Real Vector Spaces}
 \begin{thm}[even-dimensional null space]
   Suppose $\myF = \real$ and $V$ is \fd.
-  Suppose also that $T \in \linmap (V)$ and $b,c \in \real$ with $b^2 < 4c$. 
+  Suppose also that $T \in \linmap (V)$ and $b,c \in \real$ with $b^2 < 4c$.
   \begin{equation}
     \implies \dim \mynull (T^2 +bT +cI) \mytext{is an even number}
   \end{equation}

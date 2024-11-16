@@ -12,7 +12,7 @@
     An invertible  linear map has a unique inverse.
   \end{thm}
   \begin{prf}
-    Suppose $T\in \lvw$ is invertible and $S_1$ and $S_2$ are inverses of $T$. $\implies S_1 = S_1 I = S_1 (T S_2) = (S_1 T) S_2 = I S_2 = S_2 \implies S_1 = S_2$ 
+    Suppose $T\in \lvw$ is invertible and $S_1$ and $S_2$ are inverses of $T$. $\implies S_1 = S_1 I = S_1 (T S_2) = (S_1 T) S_2 = I S_2. = S_2 \implies S_1 = S_2$.
   \end{prf}
 
   % 3.61
@@ -45,21 +45,22 @@
       \dim V = \dim \mynull T + \dim \myrange T
     \end{equation}
 
-    If $T$ is injective, $\dim \mynull T = 0$ and therefore 
+    If $T$ is injective, $\dim \mynull T = 0$ and therefore
     \begin{equation}
       \dim \myrange T = \dim V = \dim W,
-    \end{equation} 
-    which means $T$ is surjective ($\myrange T = \dim W$). 
-    
-    This is because every linearly independent list of vectors of of length $\dim W$ is a basis by \ref{every-lid-list-of-length-dim-v-is -a-basis-of-v}. And thats how dimension is defined.
+    \end{equation}
+    which means $T$ is surjective ($\myrange T = \dim W$).
+
+    This is because every linearly independent list of vectors of of length $\dim W$ is a basis by
+    \ref{thm: linearly independent list of the right length is a basis}. And thats how dimension is defined.
 
     If $T$ is surjective, we have $\dim \myrange T = \dim W$ to begin with and therefore \ref{rank-nullity-nested-equation} becomes
     \begin{equation}
       \dim \mynull T = \dim V - \dim \myrange T = \dim V - \dim W = 0.
-    \end{equation} 
-    
-    which makes $T$ also injective. 
-    Since injectivity and surjectivy together imply invertibility, this ends the proof. 
+    \end{equation}
+
+    which makes $T$ also injective.
+    Since injectivity and surjectivy together imply invertibility, this ends the proof.
   \end{prf}
 
 
@@ -79,7 +80,7 @@
   %\textbf{3.70}
   \begin{thm}[dimension shows whether vector spaces are isomorphic]
     \label{thm: dimension shows whether vector spaces are isomorphic}
-    Two \fd vector spaces $U$, $V$ over $\mathbb{F}$ are isomorphic $\iff$ they have the same dimension. 
+    Two \fd vector spaces $U$, $V$ over $\mathbb{F}$ are isomorphic $\iff$ they have the same dimension.
     \begin{equation}
       \dim U = \dim V
     \end{equation}
@@ -94,7 +95,7 @@
   %\textbf{3.72}
   \begin{thm}
     Suppose $V,W$ are \fd.
-    
+
     $\implies \lvw$ is \fd and
     \begin{equation}
       \dim \lvw = (\dim V)\cdot(\dim W)
@@ -115,10 +116,10 @@
       \begin{matrix}
         b_1 \\ \vdots \\ b_m
       \end{matrix}
-      \right ). 
+      \right ).
   \end{equation}
-  
-    The vector depends on the basis, but it is not included in the notation. 
+
+    The vector depends on the basis, but it is not included in the notation.
 %    Recall:
 %\begin{equation}
 %    \mathcal{M} (T) :\equiv
@@ -131,7 +132,7 @@
 %    \end{block}
 %  \end{blockarray}
 %\end{equation}
- 
+
   \end{mydef}
 
   \setcounter{thm}{74}
@@ -158,7 +159,7 @@
   % 3.78
   \setcounter{thm}{77}
   \begin{thm} [dimension of $\myrange T$ and column rank of $\mmatrix(T)$]
-    Suppose $\dim V < \infty$ and $\dim W < \infty$. Then for $T \in \linmap(V,W):$ 
+    Suppose $\dim V < \infty$ and $\dim W < \infty$. Then for $T \in \linmap(V,W):$
     \begin{equation}
       \dim \myrange T = $ column rank of $ \mmatrix (T)
     \end{equation}
@@ -173,11 +174,11 @@
   % 3.80
   \setcounter{thm}{79}
   \begin{mydef}[invertible, inverse, $A^{-1}$]
-    A square matrix $A$ is called invertible, if there is some square matrix B of the same size such that 
+    A square matrix $A$ is called invertible, if there is some square matrix B of the same size such that
     \begin{equation}
     	AB=BA=I.
-    \end{equation} 
-    
+    \end{equation}
+
     We call $B$ the inverse of $A$ denoted by $A^{-1} :\equiv B$. Rules:
     \begin{itemize}
       \item $(A^{-1})^{-1}=A$
@@ -185,7 +186,7 @@
     \end{itemize}
   \end{mydef}
 
-  % 3.81 
+  % 3.81
   \begin{thm} [matrix of product of linear maps]
     Suppose $T\in \mathcal{L}(U,V)$ and $S\in \lvw$. If $\onetillm{u}$ is a basis of $U$, $\onetilln{v}$, is a basis of $V$ and $\onetill{w}{p}$ is a basis of $W$. Note that $\dim U = m$, $\dim V = n$, $\dim W = p$. Then we have:
     \begin{equation}
@@ -209,10 +210,10 @@
     \begin{equation}
           V = \myspan{\onetillm{u}}
           $ and $V= \myspan{\onetillm{v}}
-    \end{equation} 
+    \end{equation}
 
   such that the $u$'s and $v$'s both form a basis. Let $A=\mmatrix(T, (\onetillm{u}))$ and $B=\mmatrix(T,(\onetillm{v})).$
-    
+
    Let $C=\mmatrix(I, \onetillm{u}, \onetillm{v}).$ Then
     \begin{equation}
     A = C^{-1} B C

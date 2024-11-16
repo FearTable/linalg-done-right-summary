@@ -16,7 +16,7 @@
   \end{itemize}
   The additive identity condition above could be replaced by the condition that $U$ is nonempty (because then taking $u \in U$ and multiplying it by $0$ would imply that $0\in U$).
 \end{thm}
-\begin{prf} We need to sho2 the proposition in two directions.
+\begin{prf} We need to show the proposition in two directions.
   \begin{description}
     \item{\qt{$\Rightarrow$ direction:}} If $U$ is a subspace of $V$, then $U$ satisfies the three conditions above by the definition of a vector space.
     \item{\qt{$\Leftarrow$ direction:}} The first condition ensures, that the additive identiy $0$ of $U$ is in $U$. The other two conditions make sure, that addition and scalar multiplication make sense on $U$.
@@ -42,7 +42,7 @@
 \begin{mydef}[sum of subspaces]
   If $V_1, \ldots, V_m$ are subspaces of $V$, the \qt{sum} of $V_1, \ldots, V_m$, denoted by $V_1 + \cdots + V_m$, is the set of all possible sums of elements of $V_1, \ldots, V_m$. More precisely,
 \begin{equation}
-    V_1 + \cdots + V_m :\equiv \{v_1 + \cdots + v_m \mid v_1 \in V_1, \, \dots \, , v_m \in V_m \}.
+    V_1 + \cdots + V_m :\equiv \{v_1 + \cdots + v_m \mid v_1 \in V_1, \ddd , v_m \in V_m \}.
 \end{equation}
 \end{mydef}
 
@@ -50,21 +50,26 @@
 \setcounter{thm}{39}
 \begin{thm} [sum of subspaces is the smallest containing subspace]
   \label{thm: sum of subspaces is the smallest containing subspace}
-  $V_1 + \cdots + V_m$ is the smallest subspace of $V$ containing $V_1, \dots, V_m$.
+  $V_1 + \cdots + V_m$ is the smallest subspace of $V$ containing $V_1, \ddd , V_m$.
 \end{thm}
 \begin{prf}
   First we need to show, that $V_1 + \cdots + V_m$ is a subspace of $V$. Clearly, the additive identity $0 = 0 + \cdots + 0 \in V_1 + \cdots + V_m \in V$.
-  Let $u,w \in V_1 + \cdots + V_m$.  Then we have $u = v_1 + \cdots + v_m$ \st $v_1 \in V_1, \dots, v_m \in V_m$ and $w=v'_1 + \cdots + v'_m$ \st $v'_1, \dots, v'_m \in V_m$. Therefore
+
+  Next we show that our sum is closed under addition. Let $u,w \in V_1 + \cdots + V_m$.  Then we have $u = v_1 + \cdots + v_m$ \st $v_1 \in V_1, \ddd, v_m \in V_m$ and $w=v'_1 + \cdots + v'_m$ \st $v'_1, \ddd , v'_m \in V_m$. Therefore
   \begin{equation}
     u+w = \underbrace{(v_1+v'_1)}_{\in V_1} + \cdots + \underbrace{(v_m+v'_m)}_{\in V_m} \in  V_1 + \cdots + V_m \in V.
   \end{equation}
 
-  So $V_1 + \cdots + V_m$ is closed under addition. For $\lambda \in \myF$ we have that
+  So $V_1 + \cdots + V_m$ is closed under addition.
+
+  For $\lambda \in \myF$ we have that
   \begin{equation}
-      \lambda u = \lambda(v_1 \cdots v_m) = \underbrace{\lambda v_1}_{\in V_1} + \cdots + \underbrace{\lambda v_m}_{\in V_m} \in V_1 + \cdots + V_m \in V,
+      \lambda u = \lambda(v_1 + \cdots + v_m) = \underbrace{\lambda v_1}_{\in V_1} + \cdots + \underbrace{\lambda v_m}_{\in V_m} \in V_1 + \cdots + V_m \in V,
   \end{equation}
 
-  so it is closed under scalar multiplication. So we have shown that $V_1 + \cdots + V_m$ is a subspace of $V$. Now we have to show the minimality.
+  so it is closed under scalar multiplication. So we have shown that $V_1 + \cdots + V_m$ is a subspace of $V$.
+
+  Now we have to show the minimality.
   The subspaces $V_1, \cdots, V_m$ are all contained in $V_1+\cdots+V_m$. Because $\forall \kInOneTillM:$
   \begin{equation}
     V_k = \{ v \mid v \in V_k \} \subseteq \{v_1 + \cdots + v_m \mid v_1 \in V_1,  \ldots , v_m \in V_m \} = V_1 + \cdots + V_m.

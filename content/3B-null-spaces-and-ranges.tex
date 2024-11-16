@@ -9,7 +9,7 @@
 % 3.13
 \setcounter{thm}{12}
 \begin{thm} [null space is a subspace]
-  For $T=\linmap(V, W)$, $\mynull T$ is a subspace of $V$ 
+  For $T=\linmap(V, W)$, $\mynull T$ is a subspace of $V$
 \end{thm}
 \begin{prf}
   $0 \in \mynull T$ because $T(0) = 0$. Suppose $u,v \in \mynull T$ and $\lambda \in \myF.$ $\implies T(u+v)=Tu+Tv=0+0=0.$ Hence $u+v \in \mynull T$. We also have $T(\lambda u)= \lambda Tu = \lambda 0 = 0.$
@@ -65,9 +65,10 @@
 
   % 3.21
   \setcounter{thm}{20}
-  \begin{thm} [\emph{Fundamental Theorem of Linear Maps or ``Rank Nullity Theorem''}]
+  \begin{thm} [{\slshape \scshape Fundamental Theorem of Linear Maps or ``Rank Nullity Theorem''}]
     \label{rank-nullity-theorem}
-    For $T \in \lvw$, where $T$ is finite-dimensional, we have
+    \phantom{.} \\
+    For $T \in \linmap(V,W)$, where $T$ is \fd, we have
     \begin{equation}
       \dim V =
       \underbrace{ \dim\mynull T\phantom{g}\!\!\!\!\!}_{\text{nullity}}
@@ -79,14 +80,14 @@
   \setcounter{thm}{21}
   \begin{thm} [linear map to a lower-dimensional space is not injective]
     \label{thm: linear-map-to-a-lower-dimensional-space-is-not-injective}
-    If $\dim V$ $>$ $\dim W$ \\ 
+    If $\dim V$ $>$ $\dim W$ \\
     $\implies$ No \lm from $V$ to $W$ is injective.
   \end{thm}
-  \begin{prf} Let $T\in \linmap(V,W)$ such that $\dim V > \dim W$. Using \ref{rank-nullity-theorem} we have
+  \begin{prf} Let $T\in \linmap(V,W)$ such that $\dim V > \dim W$. Using \ref{rank-nullity-theorem}, we have
     \begin{equation}
       \dim \mynull T = \dim V - \dim \myrange T \geq \dim V - \dim W > 0,
     \end{equation}
-    The first inequality follows from \ref{thm: dimension of a subspace}, because $\myrange T \subseteq W$. Now we have that $\dim \mynull T > 0.$ Thus $T$ is not injective by \autoref{def: injectivity}.
+    The first inequality follows from \ref{thm: dimension of a subspace}, because $\myrange T \subseteq W$. Now we have that $\dim \mynull T > 0.$ Thus $T$ is not injective by \ref{def: injectivity}.
   \end{prf}
 
   % 3.24
@@ -101,7 +102,7 @@
     \end{equation}
     Thus we have $\dim \myrange T < \dim W$. So $\myrange T \neq W$. Thus $T$ is not surjective by \ref{def: surjectivity}.
   \end{prf}
-   
+
   %3.26
   \setcounter{thm}{25}
   \begin{thm} [homogenenous system of linear equations]

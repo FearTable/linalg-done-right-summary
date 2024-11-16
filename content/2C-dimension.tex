@@ -9,7 +9,7 @@
 \end{prf}
 
 \begin{mydef} [dimension]
-  $\dim V :\equiv$ length of any basis of $V$
+  $\dim V :\equiv$ length of any basis of $V$.
 \end{mydef}
 
 % 2.37
@@ -18,7 +18,7 @@
   \label{thm: dimension of a subspace}
   If $V$ is \fd and $U$ is a subspace of $V$, then
   \begin{equation}
-    \dim U \leq \dim V 
+    \dim U \leq \dim V
   \end{equation}
 \end{thm}
 \begin{prf}
@@ -33,11 +33,11 @@
   Every linearly independent list of vectors of length $\dim V$ is a basis. (by 2.32)
 \end{thm}
 \begin{prf}
-  Let $\dim V = n$ and $v_1, \ldots, v_n$ be linearly independent in $V$. This list can be extended to a basis of $V$ by \ref{thm: every linearly independent list of vectors in a finite-dimensional vector space can be extended to a basis of the vector space}. However, every basis of $V$ has length $n$ so no elements are adjoined to $v_1, \ldots, v_n$.
+  Let $\dim V = n$ and $v_1, \ldots, v_n$ be linearly independent in $V$. This list can be extended to a basis of $V$ by \ref{thm: every linearly independent list of vectors in a finite-dimensional vector space can be extended to a basis of the vector space}. However, every basis of $V$ has length $n$, so no elements are adjoined to $v_1, \ldots, v_n$.
 \end{prf}
 
 % 2.39
-\begin{thm} [subspace of full dimension] 
+\begin{thm} [subspace of full dimension]
   \label{thm: subspace of full dimension equals the whole space}
   If $U$ is a subspace of $V$ and $\dim U = \dim V<\infty$, then $U=V$. (by 2.38)
 \end{thm}
@@ -46,7 +46,7 @@
 \end{prf}
 
 % 2.42
-\setcounter{thm}{41} 
+\setcounter{thm}{41}
 \begin{thm} [spanning list of the right length]
   \label{thm: spanning list of the right length}
   Every spanning list of vectors in $V$ $(\dim V < \infty)$ with length $\dim V$ is a basis of $V$.
@@ -56,31 +56,32 @@
 \end{prf}
 
 % 2.43
-\begin{thm} [dimension of a sum] 
+\begin{thm} [dimension of a sum]
   \label{dimension of a sum}
   $V_1$ and $V_2$ are subspaces of a \fdvs we have
   \begin{equation}
     \implies \dim (V_1 + V_2) = \dim V_1 + \dim V_2 - \dim (V_1 \cap V_2)
   \end{equation}
 
-  From exercise 2C19 and 2C20 we have the following result:
-  If $V_1$, $V_2$ and $V_3$ are subspaces of \fdvs we have
-  \begin{equation}
-    \begin{aligned}
-      \dim (V_1 &+ V_2 + V_3) = \dim V_1 + \dim V_2 + \dim V_3 \\
-      & \quad - \dim (V_1 \cap V_2) - \dim (V_1 \cap V_3) - \dim (V2 \cap V3) \\
-      & \quad + \dim (V_1 \cap V_2 \cap V_3)
-    \end{aligned}
-  \end{equation}
-
-as well as
-
-  \begin{equation}
-    \begin{aligned}
-      \dim (V_1 + V_2 + V_3)  = \dim V_1 + \dim V_2 + \dim V_3 \\
-        - \frac{\dim (V_1 \cap V_2) + \dim (V_1 \cap V_3) + \dim (V2 \cap V3)}{3} \\
-       - \frac{ \dim \left(  (V_1 + V_2) \cap V_3 \right) + \dim \left( (V_1 + V_3) \cap V_2 \right)+ \dim \left( (V2 + V3) \cap V_1 \right) }{3} \\
-    \end{aligned}
-  \end{equation}
+  See exercise 2C19 and 2C20 for a even nicer result.
+%  From exercise 2C19 and 2C20 we have the following result:
+%  If $V_1$, $V_2$ and $V_3$ are subspaces of \fdvs we have
+%  \begin{equation}
+%    \begin{aligned}
+%      \dim (V_1 &+ V_2 + V_3) = \dim V_1 + \dim V_2 + \dim V_3 \\
+%      & \quad - \dim (V_1 \cap V_2) - \dim (V_1 \cap V_3) - \dim (V2 \cap V3) \\
+%      & \quad + \dim (V_1 \cap V_2 \cap V_3)
+%    \end{aligned}
+%  \end{equation}
+%
+%as well as
+%
+%  \begin{equation}
+%    \begin{aligned}
+%      \dim (V_1 + V_2 + V_3)  = \dim V_1 + \dim V_2 + \dim V_3 \\
+%        - \frac{\dim (V_1 \cap V_2) + \dim (V_1 \cap V_3) + \dim (V2 \cap V3)}{3} \\
+%       - \frac{ \dim \left(  (V_1 + V_2) \cap V_3 \right) + \dim \left( (V_1 + V_3) \cap V_2 \right)+ \dim \left( (V2 + V3) \cap V_1 \right) }{3} \\
+%    \end{aligned}
+%  \end{equation}
 \end{thm}
 

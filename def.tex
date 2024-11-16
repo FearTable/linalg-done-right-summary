@@ -37,14 +37,14 @@
   innerbottommargin = 0.2em, %.675em +3pt,
   hidealllines      = true,
   singleextra       = {
-    \draw (O) -- ++(0,.7em) (O) -- ++(.7em,0) ;
-    \draw (P-|O) -- ++(0,-.7em) (P-|O) -- ++(.7em,0) ;
+    \draw (O) -- ++(0,.9em) (O) -- ++(.9em,0) ;
+    \draw (P-|O) -- ++(0,-.9em) (P-|O) -- ++(.9em,0) ;
   },
   firstextra        = {
-    \draw (P-|O) -- ++(0,-.7em) (P-|O) -- ++(.7em,0) ;
+    \draw (P-|O) -- ++(0,-.9em) (P-|O) -- ++(.9em,0) ;
   },
   secondextra       = {
-    \draw (O) -- ++(0,.7em) (O) -- ++(.7em,0) ;
+    \draw (O) -- ++(0,.9em) (O) -- ++(.9em,0) ;
   },
 }
 
@@ -65,14 +65,14 @@
 
 % BEGIN custom therem and proof environments ***************
 \newtheoremstyle{mytheoremstyle} % name
-{0.4em}                       % Space above {\topsep} 
+{0.4em}                       % Space above {\topsep}
 {.2em}                        % Space below
 {}                            % Body font
 {0em}                         % Indent amount
 {}                            % Theorem head font {\ttfamily\fontseries{b}\selectfont}
 {\textbf{:\,}}       % Punctuation after theorem head
 {.2em}                        % Space after theorem head
-{{\textbf{\scshape{\thmname{#1}\thmnumber{ #2}}}{\normalfont \thmnote{ ({\itshape#3})}}}} 
+{{\textbf{\scshape{\thmname{#1}\thmnumber{ #2}}}{\normalfont \thmnote{ ({\itshape#3})}}}}
                               % Theorem head spec (can be left empty, meaning ‘normal’)
 
 % Define 'thm', 'thm-non', 'mydef', 'mydef-non', 'example', 'example-non'
@@ -101,7 +101,7 @@
 % \setlength{\parindent}{0pt}
 % \addtolength{\linewidth}{-\mathindent-3em}
 % \setlist[enumerate]{align=parleft,left=\mathindent..\mathindent+\mathindent-30pt}
-% \setlist[description]{leftmargin=\mathindent,labelindent=\mathindent-6pt-27pt} 
+% \setlist[description]{leftmargin=\mathindent,labelindent=\mathindent-6pt-27pt}
 % \addtolength{\mathindent}{\mathindent}
 %}
 %{0em}         % indent
@@ -128,8 +128,11 @@
 %\DeclarePairedDelimiter\norm{\lVert}{\rVert}
 %\DeclarePairedDelimiter\innerproduct{\langle}{\rangle}
 
+% we need some space around dots
+\newcommand\ddd{{\, \ldots \,\,}}
+
 % such that, s. t.
-\newcommand\st{{ s. t. }}
+\newcommand\st{{such that }}
 
 % quotes
 \newcommand\qt[1]{\textit{``#1''}}
@@ -207,9 +210,9 @@
 
 % abbreviation for linearly independent
 \newcommand{\vs}{vector space }
- 
+
 % abbreviation for finite-dimensional
-\newcommand{\fd}{{finite\-/dimensional }}
+\newcommand{\fd}{finite\-/dimensional }
 
 % abbreviation for linear map
 \newcommand{\lm}{{linear map }}

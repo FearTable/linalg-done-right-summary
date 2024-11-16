@@ -18,36 +18,36 @@ $p: \mathbb{F} \to \mathbb{F}, \, p(z) = a_0 + a_1z + \cdots + a_n z^m$
   \end{equation}
 \end{thm}
 \begin{prf} Let $p\in \polyn(\myF)_m$ for $m\in \nat$.
-  
+
   \qt{$\Leftarrow$ direction:} Suppose there is $q \in \polyn(\myF)$ s.t. $p(z) = (z-\lambda)q(z) \quad \forall z \in \myF$. Then
   \begin{equation}
     p(\lambda) = (\lambda -\lambda)q(\lambda) = 0,$ as desired.$
   \end{equation}
-  
+
   \qt{$\Rightarrow$ direction:} Now suppose $p(\lambda)=0$. Let $a_0, a_1, \ldots, a_m \in \myF"$ be \st
   \begin{equation}
     p(z) :\equiv a_0 + a_1z + \cdots a_mz^m \quad \forall z \in  \myF.
   \end{equation}
-  
+
   Then
   \begin{equation}
     \label{eq: second formula of pz: pz = pz - plambda}
     p(z) = p(z)- p(\lambda) = a_1 (z-\lambda) + a_2 (z^2 - \lambda^2) + \cdots+ a_m (z^m- \lambda^m) \quad \forall z \in \myF.
   \end{equation}
-  
-  Using the binomic formula 
-  $z^k - \lambda^k = (z-\lambda) \sum_{j=1}^{k} \lambda^{j-1}z^{k-j} \quad \forall k\in \setonetillm$, we get 
+
+  Using the binomic formula
+  $z^k - \lambda^k = (z-\lambda) \sum_{j=1}^{k} \lambda^{j-1}z^{k-j} \quad \forall k\in \setonetillm$, we get
   \begin{equation}
     p(z) = (z-\lambda)
     \underbrace{
       \left(
         a_1 + a_2 (z+\lambda) + a_3(z^2 + \lambda z + \lambda^2) +
-        a_4 (z^3 + \lambda z^2 + \lambda^2 z + \lambda^3) 
+        a_4 (z^3 + \lambda z^2 + \lambda^2 z + \lambda^3)
         + \cdots +
         a_m \sum_{j=1}^{m} \lambda^{j-1} z^{m-j}
       \right)}_{\text{a polynomial with degree $m-1$}}
   \end{equation}
-  
+
   Thus $p$ equals $z-\lambda$ times some polyomial of degree $m-1$, as desired.
 \end{prf}
 
@@ -57,17 +57,17 @@ In case you are wondering where the $a_0$ went by subtracting $p(\lambda)$ from 
 \begin{thm}
   A polynomial of degree $m$ has at most $m$ zeros.
 \end{thm}
-\begin{prf} 
+\begin{prf}
   For $m=1$, $a_0+a_1z$ has only one zero, which is $-\frac{a_0}{a_1}$\\
-  Now for $m>1$ let us assume the desired result holds for $m-1$. 
-  
-  If $p\in \mathcal{P}_{m}(\myF)$ has no zeros, we are done. 
-  
-  If $p$ has a zero $\lambda \in \myF$, by \ref{factororing-out-zeros-of-a-polynomial-always-possible}, there is a $q \in \mathcal{P}(\myF)_{m-1}$ such that 
+  Now for $m>1$ let us assume the desired result holds for $m-1$.
+
+  If $p\in \mathcal{P}_{m}(\myF)$ has no zeros, we are done.
+
+  If $p$ has a zero $\lambda \in \myF$, by \ref{factororing-out-zeros-of-a-polynomial-always-possible}, there is a $q \in \mathcal{P}(\myF)_{m-1}$ such that
   \begin{equation}
   	p(z)=(z-\lambda)q(z).
   \end{equation}
-   
+
   Since $q$ has at most $m-1$ zeros, $p$ has at most $m$ zeros.
 \end{prf}
 
@@ -76,25 +76,25 @@ In case you are wondering where the $a_0$ went by subtracting $p(\lambda)$ from 
 \setcounter{thm}{8}
 \begin{thm}
   \label{division-algorithm-for-polynomials}
-  Suppose $p,s \in \mathcal{P} (\mathbb{F}), \, s\neq 0$. 
+  Suppose $p,s \in \mathcal{P} (\mathbb{F}), \, s\neq 0$.
   Then $\exists q,r \in \mathcal{P} (\mathbb{F})$ s.t.
   \begin{equation}
     p=sq+r \myand \deg r < \deg s.
   \end{equation}
 \end{thm}
 \begin{prf}
-  Let $n:\equiv \deg p$ and $m:\equiv \deg s$. 
-  
+  Let $n:\equiv \deg p$ and $m:\equiv \deg s$.
+
   If $n<m$, then take $q=0$ and $r=p$.
-  
+
   Thus now we assume $n \geq m$. The list
   \begin{equation}
     \label{eq: basis of P_n(F)}
     1, z, \ldots, z^{m-1}, s, zs, \ldots, z^{n-m}s
   \end{equation}
-  
+
   is linearly independent because each polynomial in this list has a different degree.
-  
+
   The list has length $1+(m-1)+1+(n-m)=n+1$, which equals $\dim \polyn_n(\myF)$. Hence \eqref{eq: basis of P_n(F)} is a basis of $\polyn_n(\myF)$ by \ref{thm: linearly independent list of the right length is a basis}. Therefore, we have $a_0, a_1, \ldots, a_{m-1} \in \myF$ and $b_0, b_1, \ldots, b_{n-m} \in \myF$  \st
   \begin{equation}
     \begin{aligned}
@@ -105,26 +105,26 @@ In case you are wondering where the $a_0$ went by subtracting $p(\lambda)$ from 
     \end{aligned}
   \end{equation}
   as desired.
-  
+
   The uniqueness of $q,r \in \polyn(\myF)$ follows from the uniqueness of the $a$'s and $b$'s, because \eqref{eq: basis of P_n(F)} is a basis of $\polyn_n(\myF)$.
 \end{prf}
-\section{Factorization of Polynomials over $\compl$}
+\section{Factorization of Polynomials over \texorpdfstring{$\compl$}{C}}
 \setcounter{thm}{11}
-\begin{thm}[\emph{fundamental theorem of algebra}, first version]
+\begin{thm}[{\slshape \scshape Fundamental Theorem of Algebra}, first version]
   \label{fundamental-theorem-of-algebra-first-version}
   Every non\-/constant polynomial with complex coefficients has a zero in $\mathbb{C}$.
 \end{thm}
 
-\begin{thm} [\emph{fundamental theorem of algebra}, second version:]
+\begin{thm} [{\slshape \scshape Fundamental Theorem of Algebra}, second version:]
   \label{fundamental-theorem-of-algebra-second-version}
   $p \in \polyn(\mathbb{C}), \; p$ is non-constant $\implies p$ has a unique factorization
   \begin{equation}
-  	p(z)=c \cdot (z-\lambda_1) \cdots (z-\lambda_m) 
+  	p(z)=c \cdot (z-\lambda_1) \cdots (z-\lambda_m)
   \end{equation}
   where $c, \lambda_1, \dots, \lambda_m \in \compl$.
 \end{thm}
 
-\section{Factorization of Polynomials over $\real$}
+\section{Factorization of Polynomials over \texorpdfstring{$\real$}{R}}
 
 % 4.14
 \begin{thm}[polynomials with real coefficients have nonreal zeros in pairs]
@@ -132,7 +132,7 @@ In case you are wondering where the $a_0$ went by subtracting $p(\lambda)$ from 
   Suppose $p\in \mathcal{P} (\mathbb{C})$ is a polynomial with real coefficients. If $\lambda \in \mathbb{C}$ is a zero of $p$, then so is $\overline{\lambda}$.
 \end{thm}
 \begin{prf}
-  Let $p(z) :\equiv a_0 + a_1 z + \ldots + a_m z^m$, where $a_0, \ldots, a_m \in \real$. Suppose $\lambda \in \compl$ is a zero of $p$. Then 
+  Let $p(z) :\equiv a_0 + a_1 z + \ldots + a_m z^m$, where $a_0, \ldots, a_m \in \real$. Suppose $\lambda \in \compl$ is a zero of $p$. Then
   \begin{equation}
     \begin{aligned}
       a_0+a_1\lambda+\cdots+a_m\lambda^m&=0\\
@@ -141,7 +141,7 @@ In case you are wondering where the $a_0$ went by subtracting $p(\lambda)$ from 
       a_0+a_1\overline{\lambda}+\cdots+a_m\overline{\lambda}^m&=0
     \end{aligned}
   \end{equation}
-  
+
   The equation above shows that $\overline{\lambda}$ is a zero of $p$.
 \end{prf}
 
@@ -152,7 +152,7 @@ In case you are wondering where the $a_0$ went by subtracting $p(\lambda)$ from 
 \end{thm}
 \begin{prf}
   Let $x^2+bx+c=(x+\sfrac{b}{2})^2+(c-\sfrac{b^2}{4})$. Therefore, if $b^2<4c$, the last term is always positive and no factoriza\-tion is possible because it has no zeros by \ref{factororing-out-zeros-of-a-polynomial-always-possible}.
-  
+
   If $b^2 \geq 4c$, we define $d^2 :\equiv \sfrac{b^2}{4}-c$ which makes
   \begin{equation}
 	  \begin{aligned}
@@ -163,11 +163,11 @@ In case you are wondering where the $a_0$ went by subtracting $p(\lambda)$ from 
 		  =\left(x-\lambda_1 \right) \cdot \left(x-\lambda_2\right)
 	  \end{aligned}
   \end{equation}
-  for 
+  for
   \begin{equation}
     \lambda_1 :\equiv -d-\sfrac{b}{2} \mytext{and} \lambda_2 :\equiv d-\sfrac{b}{2}.
   \end{equation}
-  
+
   which is the same as the well known midnight formula:
   \begin{equation}
     \lambda_{1,2} = \frac{-b \pm \sqrt{b^2-4c}}{2}

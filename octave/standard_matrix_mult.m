@@ -1,6 +1,6 @@
 function retval = standard_matrix_mult (A,B)
   m = rows(A);
-  n = columns(A); % = rows(B)
+  n = columns(A);
   p = columns(B);
   retval=zeros(m,p)
   if (columns(A) != rows(B))
