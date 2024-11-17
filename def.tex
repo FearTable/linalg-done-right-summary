@@ -37,14 +37,14 @@
   innerbottommargin = 0.2em, %.675em +3pt,
   hidealllines      = true,
   singleextra       = {
-    \draw (O) -- ++(0,.9em) (O) -- ++(.9em,0) ;
-    \draw (P-|O) -- ++(0,-.9em) (P-|O) -- ++(.9em,0) ;
+    \draw [thick] (O) -- ++(0,1em) (O) -- ++(1em,0) ;
+    \draw [thick] (P-|O) -- ++(0,-1em) (P-|O) -- ++(1em,0) ;
   },
   firstextra        = {
-    \draw (P-|O) -- ++(0,-.9em) (P-|O) -- ++(.9em,0) ;
+    \draw [thick] (P-|O) -- ++(0,-1em) (P-|O) -- ++(1em,0) ;
   },
   secondextra       = {
-    \draw (O) -- ++(0,.9em) (O) -- ++(.9em,0) ;
+    \draw [thick] (O) -- ++(0,1em) (O) -- ++(1em,0) ;
   },
 }
 
@@ -56,6 +56,8 @@
 %\newcommand*\closedbox{%
 %    \leavevmode\hbox to.77778em{\rule{.675em}{.675em}}}
 %\let\qedsymbol\closedbox
+
+%\renewcommand{\qedsymbol}{\rule{0.7em}{0.7em}}
 
 \renewenvironment{prf}{{\textbf{\scshape \slshape Proof:}}}{\hfill $\qedsymbol$}
 \renewenvironment{proof}{{\textbf{\scshape \slshape Proof:}}}{\hfill $\qedsymbol$}

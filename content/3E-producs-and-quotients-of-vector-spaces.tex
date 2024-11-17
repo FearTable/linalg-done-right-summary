@@ -4,7 +4,7 @@
 % 3.87
 \setcounter{thm}{86}
 \begin{mydef} [product of vector spaces]
-  The product, addition and scalar multiplication of a list of vector spaces $V_1, \cdots, V_m$ is defined as follows: 
+  The product, addition and scalar multiplication of a list of vector spaces $V_1, \cdots, V_m$ is defined as follows:
   \begin{equation}
     \begin{aligned}
       V_1 \times \cdots \times V_m &:\equiv \{ (v_1, \dots, v_m) \mid v_1 \in V_1, \dots, v_m \in V_m\} \\
@@ -38,7 +38,9 @@
   By \ref{thm: injectivity iff null space equals zero-set}, $\Gamma$ is injective $\iff v1 = \cdots = v_m = 0$. This means, the only way to write $0$ as a sum $v_1 + \cdots + v_m$, where each $v_k \in V_k$, is by taking each $v_k=0$. Thus \ref{thm: condition for a direct sum} shows that $\Gamma$ is injective $\iff$ $V_1 + \cdots + V_m$ is a direct sum, as desired.
 \end{prf}
 
-\begin{thm}[a sum is a direct sum if and only if the dimensions add up]$V_1 + \cdots + V_1$ is a direct sum $\iff$
+\begin{thm}[a sum is a direct sum if and only if the dimensions add up]
+  \label{thm: a sum is a direct sum if and only if the dimensions add up}
+  $V_1 + \cdots + V_1$ is a direct sum $\iff$
   \begin{equation}
     \dim (V_1+\cdots+V_m) = \dim V_1 + \cdots + \dim V_m
   \end{equation}
@@ -113,7 +115,7 @@
   \end{equation}
 \end{thm}
 
-\begin{mydef}[notation $\widetilde{T}$] 
+\begin{mydef}[notation $\widetilde{T}$]
   Suppose $T \in \linmap(V,W).$ Define $\widetilde{T}: V/(\mynull T) \to W$ by
   \begin{equation}
     \widetilde{T}(v+\mynull T) = Tv

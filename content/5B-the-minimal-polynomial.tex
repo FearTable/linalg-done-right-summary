@@ -49,7 +49,7 @@
   \begin{equation}
     p(T)=0.
   \end{equation}
-  Furthermore $\deg p \leq \dim V$
+  Furthermore $\deg p \leq \dim V$.
 \end{thm}
 \begin{prf} Before we can start our proof with induction, let us look at some base cases.
 
@@ -73,32 +73,36 @@ So we have $\dim \mynull q(T) = 1$ and therefore $\dim \myrange q(T) = \dim V - 
   If we define $q(z) :\equiv c_0+z$ or $q(z) :\equiv c_0+c_1z+z^2$
 %  $q(z) :\equiv c_0+\cdots c_mz^m$
 %  accordingly for $m\in \{1,2\}$
-  accordingly, then $q(T)v=0$ as before. As a side node, note that if $k \in \nat$, then
+  accordingly, then $q(T)v=0$ as before. Note that if $k \in \nat$, then
   \begin{equation}
     \label{eq: nice equation for q(t)}
-    q(T)(T^kv)=T^k(q(T)v) =T^k (0) =0.
+    q(T)(T^kv)=T^k(q(T)v) =T^k (0) =0,
   \end{equation}
 
-  In the first case where $(-1)c_0v=Tv$, the vector $v$ by itself is linearly independent and thus $\dim \mynull q(T) \geq 1$ and therefore
+  which will be used later.
+
+  In the first case where $(-1)c_0v=Tv$ and $q(z)=c_0+z$, the vector $v$ by itself is linearly independent and thus $\dim \mynull q(T) \geq 1$ and therefore
   \begin{equation}
     \dim \myrange q(T) \leq \dim V - \dim \mynull q(T) \leq 1.
   \end{equation}
 
-  For a one dimensioanl space, we already now how to construct such a polynomial, let us call it $s$ such that
+  For a at most one\-/dimensioanl space like $\myrange q(T)$, we already now how to construct such a polynomial. Since $\myrange q(T)$ is invariant under $T$ by \ref{thm: null space and range of p(T) are invariant under T}, we can restrict $T$ to this subspace. So for the operator $\left. T \right |_{\myrange q(T)}$, we know how to construct such a polynomial. Let us call it $s$. Let $s$ be defined such that
   \begin{equation}
     \begin{aligned}
-        &s (\left. T \right |_{\text{range $q(T)$}})=0
-        \implies \forall u \in V: \left((sq)(T)\right) = s(T)(q(T)u)=0
+        &s (\left. T \right |_{\text{range $q(T)$}})=0, \mytext{which means that $s$ is the zero-operator of $\left. T \right |_{\myrange q(T)}.$}\\
+        &\implies \forall u \in V: \left((sq)(T)\right)(u) = s(T)(q(T)u)=0.
     \end{aligned}
   \end{equation}
+  Thus, $sq$ is a candidate to for our minimal polynomial of $T$.
 
-  A similar reasoning goes for the case where $(-1)c_0v+(-1)c_1Tv=T^2v$. Here we have $v$ and $Tv$ as linearly independent vectors. Equation \eqref{eq: nice equation for q(t)} tells us, that $v\in \mynull q(T)$ and $Tv \in \mynull q(T)$. Here we conclude that $\dim \mynull q(T) \geq 2$ and therefore $\dim \myrange q(T) = 0$.
+  A similar reasoning goes for the case where $(-1)c_0v+(-1)c_1Tv=T^2v$ and $q(z) = c_0+c_1z+z^2.$
+  Here we have $v$ and $Tv$ as linearly independent vectors. Equation \eqref{eq: nice equation for q(t)} tells us, that $v\in \mynull q(T)$ and $Tv \in \mynull q(T)$. Here we conclude that $\dim \mynull q(T) \geq 2$ and therefore $\dim \myrange q(T) = 0$.
 %  Here we would multiply the identity operator $I$ with our polynomial $q(T)$ to get our wanted minimal polynomial. Another way to look at it: ^
   Since $\dim \mynull q(T) = 2$ we have that
   \begin{equation}
     \mynull q(T) = V.
   \end{equation}
-  This means, every vector of $V$ gets maped to $0$ if $q(T)$ is applied. So we have found our minimal monic polynomial !
+  This means, every vector of $V$ gets maped to $0$ if $q(T)$ is applied. So we have found a minimal monic polynomial!
 
   As we can now see a pattern, we can use induction on $\dim V$ and we assume $\dim V > 0$ and that the theorem holds for all vector spaces of smaller dimension than $\dim V$.
 
@@ -124,12 +128,13 @@ So we have $\dim \mynull q(T) = 1$ and therefore $\dim \myrange q(T) = \dim V - 
 
   If $k \in \nat$, then
   \begin{equation}
+    \label{eq: nice equation for q(T) again}
     q(T)(T^kv)=T^k(q(T)v) =T^k (0) =0.
   \end{equation}
   By the linear dependence lemma (\ref{thm: linear dependence lemma}) \begin{equation}
     \implies v, Tv, \dots, T^{m-1}v
   \end{equation}
-  from before are linearly independent
+  from before are linearly independent. Together with equation \eqref{eq: nice equation for q(T) again}
   \begin{equation}
     \begin{aligned}
       \implies &\dim \mynull q(T)   \geq m \\

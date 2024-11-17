@@ -8,7 +8,7 @@
 
 \setcounter{thm}{49}
 \begin{mydef} [diagonalizable]
-  An operator on $V$ is called \qt{diagonalizable} if the operator has a diagonal matrix with respect to some basis on $V$
+  An operator on $V$ is called \qt{diagonalizable} if the operator has a diagonal matrix with respect to some basis on $V$.
 \end{mydef}
 
 \setcounter{thm}{51}
@@ -16,7 +16,7 @@
 \begin{mydef} [eigenspace, $E(\lambda, T)$]
   Let $T \in \linmap(V)$ and $\lambda \in \myF$. The \qt{eigenspace} of $T$ corresponding to $\lambda$ is the subspace $E(\lambda, T)$ of $V$ defined by
   \begin{equation}
-    E(\lambda, T) :\equiv  \mynull(T-\lambda I) = \{ v\in V \mid Tv = \lambda v\}
+    E(\lambda, T) :\equiv  \mynull(T-\lambda I) = \{ v\in V \mid Tv = \lambda v\}.
   \end{equation}
 \end{mydef}
 
@@ -36,6 +36,17 @@
     \end{aligned}
   \end{equation}
 \end{thm}
+\begin{prf}
+  Suppose $v_1 + \cdots + v_m = 0$, where each $v_k \in E(\lambda_k, T)$ and $\lambda_1, \ddd, \lambda_m$ are distinct eigenvalues. \\
+  $\implies \forall k: v_k = 0$, because eigenvectors corresponding to distinct eigenvalues are linearly independant by \ref{thm: linearly independent eigenvectors}. Thus $E(\lambda_1, T) + \cdots + E(\lambda_m)$ is a direct sum by \ref{thm: condition for a direct sum}.
+
+  By \ref{thm: a sum is a direct sum if and only if the dimensions add up}, the dimensions of a direct sum add up. By \ref{thm: dimension of a subspace}, the dimension of a subspace is always smaller or equal to the space itself, if it is \fd. Therefore,
+  $
+      \dim E(\lambda_1, T) + \cdots + \dim E(\lambda_m, T)
+       = \dim \left( E(\lambda_1, T)  \oplus \cdots \oplus E(\lambda_m, T) \right)
+       \leq \dim V
+  $
+\end{prf}
 
 \subsection{Conditions for Diagonalizability}
 \setcounter{thm}{54}
@@ -49,6 +60,50 @@
     \item $\dim V = \dim E(\lambda_1, T) + \cdots + \dim E(\lambda_m, T)$
   \end{enumerate}
 \end{thm}
+\begin{prf}
+  Let $\lambda_1, \ddd, \lambda_m$ be distinct eigenvalues of $T \in \linmap (V)$ for the whole proof. First, suppose (a) holds.
+  \begin{equation}
+    \implies
+    \mmatrix(T) =
+    \left( {\begin{array}{ccc}
+        \lambda_1 &         & 0 \\
+        &  \ddots &    \\
+        0      &         & \lambda_n
+    \end{array} } \right)
+  \end{equation}
+
+  with respect to a basis $v_1, \ddd, v_n$. This is the case $\iff$ $Tv_k = \lambda_k v_k \quad \forall k\in \{1, \ddd, n \}.$ Thus (a) and (b) are equivalent.
+
+  Now suppose (b) holds; thus $V$ has a basis consisting of eigenvectors of $T$. Hence every vector in $V$ is a linear combination of such basis, which implies
+  \begin{equation}
+    V = E(\lambda_1, T) + \cdots + E(\lambda_m, T).
+  \end{equation}
+
+  \ref{thm: sum of eigenspaces is a direct sum} shows that this is a direct sum. This proves that (b) implies (c).
+
+  That (c) implies (d) follows immidiately from \ref{thm: a sum is a direct sum if and only if the dimensions add up}, which states that the dimensions of a direct sum add up.
+
+  Finally, suppose (d) holds; thus
+  \begin{equation}
+    \dim V = \dim E(\lambda_1, T) + \cdots + \dim E(\lambda_m, T).
+  \end{equation}
+
+  Choose a basis of each $E(\lambda_m, T)$; put all these together to form a list $v_1, \ddd, v_n$ of eigenvectors of $T$, where $n = \dim V$. Suppose $a_1 v_1 + \cdots + a_n v_n = 0$, where $a_1, \ddd, a_n \in \myF$.
+
+  $\forall k \in \{1, \ddd, m \} $ let
+  $
+    u_k :\equiv \sum_{v_j \in E(\lambda_k, T)} a_j v_j
+  $
+  denote the sum of the terms $a_jv_j$ belonging to $E(\lambda_k, T)$. This means $u_k$ is an eigenvector with eigenvalue $\lambda_k$.
+
+  Thus $\forall k \in \{1, \ddd, m \}: u_k \in E(\lambda_k, T)$ and $u_1 + \cdots + u_m = 0$. Since by \ref{thm: linearly independent eigenvectors}
+  every list of eigenvectors of $T$, in this case $u_1, \ddd, u_m$ corresponding to distinct eigenvalues of $T$, in this case $\lambda_1, \ddd, \lambda_m$ is linearly independent, it follows that
+  \begin{equation}
+    u_k = 0 \quad \forall k \in \{1, \ddd, m \}.
+  \end{equation}
+
+  $\implies$ all $a_j$'s $=0$, because the $v$'s are bases of the $E$'s, and their sum all equal to $0$. Thus $v_1, \ldots, v_m$ is a linearly independent and hence a basis of $V$ by \ref{thm: linearly independent list of the right length is a basis}. Thus (d) implies (b), completing the proof.
+\end{prf}
 
 \setcounter{thm}{57}
 \begin{thm} [enough eigenvalues implies diagonalizability]
@@ -63,9 +118,9 @@
 % 5.62
 \begin{thm}[necessary and sufficient condition for diagonalizability]
   \label{thm: necessary and sufficient condition for diagonalizability}
-  Let $T\in \linmap (V)$\footnotemark[1]. Then $T$ is diagonalizable $\iff$ the minimal polynomial of $T$ equals
+  Let $T\in \linmap (V), \dim V \neq \infty$. Then $T$ is diagonalizable $\iff$ the minimal polynomial of $T$ equals
   \begin{equation}
-    (z-\lambda_1) \cdots (z-\lambda_m), \where \lambda_1, \dots, \lambda_m \in \myF \myand \lambda_1 \neq \cdots \neq \lambda_m
+    (z-\lambda_1) \cdots (z-\lambda_m), \where \lambda_1, \dots, \lambda_m \in \myF \myand \lambda_1 \neq \cdots \neq \lambda_m.
   \end{equation}
 \end{thm}
 
@@ -73,18 +128,20 @@
 %5.65
 \begin{thm}[restriction of diagonalizable operator to invariant subspace]
   \label{thm: restriction of diagonalizable operator to invariant subspace}
-  $T\in \linmap(V)$. $T$ is diagonalizable and $U$ is a subspace of $V$ that is invariant under $T$. \\
-  $\implies$ $\left.T\right|_U$ is a diagonalizable operator on $U$.
+  $T\in \linmap(V)$. $T$ is diagonalizable and $U$ is a subspace of $V$ that is invariant under $T$.
+  \begin{equation}
+    \implies$ $\left.T\right|_U$ is a diagonalizable operator on $U.
+  \end{equation}
 \end{thm}
 \begin{prf}
-  %  Diagonazability of $T$ $\mathsmaller{\overset{\text{\ref{thm: necessary and sufficient condition for diagonalizability}}}{\iff}}$ the minimal polynomial of $T$ equals 
-  Diagonazability of $T$ $\iff_{(\ref{thm: necessary and sufficient condition for diagonalizability})}$ the minimal polynomial of $T$ equals 
+  %  Diagonazability of $T$ $\mathsmaller{\overset{\text{\ref{thm: necessary and sufficient condition for diagonalizability}}}{\iff}}$ the minimal polynomial of $T$ equals
+  Diagonazability of $T$ $\iff_{(\ref{thm: necessary and sufficient condition for diagonalizability})}$ the minimal polynomial of $T$ equals
   \begin{equation}
     (z-\lambda_1)\cdots(z-\lambda_m) \mytext{for} \lambda_1 \neq \cdots \neq \lambda_m.
-  \end{equation} 
-  
+  \end{equation}
+
   By \ref{thm: minimal polynomial of a restriction operator}, the minimal polynomial of $T$ is a polynomial multiple of the minimal polynomial of $\left.T\right|_U$.
-  
+
   Hence the minimal polynomial of $\left.T\right|_U$  has the form required by \ref{thm: necessary and sufficient condition for diagonalizability}, which shows that $\left.T\right|_U$ is diagonalizable. It consists of factors $(z-\lambda_1)$ or $(z-\lambda_2), \dots, (z-\lambda_m)$.
 \end{prf}
 

@@ -19,8 +19,6 @@
 \usepackage{lipsum}
 \usepackage{xfrac}
 \usepackage{breqn}
-\usepackage[colorlinks=false]{hyperref}
-\usepackage{xr-hyper}
 %\usepackage[fontsize=14pt]{scrextend}
 \usepackage{relsize}
 \usepackage{enumitem}
@@ -32,6 +30,9 @@
 \usepackage[T1]{fontenc}
 \usepackage{inconsolata}
 \usepackage[most]{tcolorbox}
+
+\usepackage{xr-hyper}
+\usepackage[colorlinks=false]{hyperref}
 
 %\renewcommand{\bfdefault}{sb}
 %\DeclareMathAlphabet{\mathbf}{\encodingdefault}{\familydefault}{\bfdefault}{n}
@@ -50,15 +51,25 @@
 \geometry{
   a4paper,
   total={170mm,257mm},
-  %left=15mm,
-  %right=15mm,
+  left=20mm,
+  right=20mm,
   top=15mm,
 }
 
 \linespread{1.1}
 
+%\title{[Title]}
+%\author{N.N.}
+
+
 
 \begin{document}
+
+%\pagenumbering{Alph}
+%\begin{titlepage}
+%  \maketitle
+%\end{titlepage}
+%\pagenumbering{arabic}
 
   \input{def}
 
