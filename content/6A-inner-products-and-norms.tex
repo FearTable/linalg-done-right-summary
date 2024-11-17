@@ -140,6 +140,8 @@ For $z \in \compl$, we define the norm of $z$ by
   Let $u :\equiv cv+w = \frac{\ip{u}{v}}{\norm{v}^2} v + w$ such that $v\perp w: \ip{w}{v} = 0$ like above (ref{thm: an orthogonal decomposition}).
 
   By Pythagoras we have
+
+  \begin{minipage}{\linewidth}
   \begin{equation}
     \begin{aligned}
       \norm{u}^2
@@ -152,6 +154,7 @@ For $z \in \compl$, we define the norm of $z$ by
       \geq \frac{|\ip{u}{v}|}{\norm{v}^2}
     \end{aligned}
   \end{equation}
+  \end{minipage}
 
   Multiplying both sides with $\norm{v}^2$ yields the Cauchy-Schwarz inequality. Equality is only given, if $w=0$. So if $u=\lambda v$.
 \end{proof}
@@ -164,19 +167,23 @@ For $z \in \compl$, we define the norm of $z$ by
   \end{equation}
   This inequality is an equality $\iff$ $u=rv, r\in \real - \{0\}$.
 \end{thm}
-\begin{prf}
-  \begin{equation}
-    \begin{aligned}
-      \norm{u+v}^2
-      &=    \ip{u+v}{u+v} & \\
-      &=    \ip{u}{u+v}+\ip{v}{u+v} & \\
-      &=    \ip{u}{u}+\ip{u}{v}+\ip{v}{u}+\ip{v}{v} & \\
-      &=    \ip{u}{u}+\ip{v}{v}+\ip{u}{v}+\overline{\ip{u}{v}} & \text{conjugate symetrie}\\
-      &=    \norm{u}^2+\norm{v}^2+2\operatorname{Re} \ip{u}{v} & \text{$z+\overline{z} = 2\operatorname{Re} z$}\\
-      &\leq \norm{u}^2+\norm{v}^2+2|\ip{u}{v}| & \text{$z=\realpart z + (\impart z) i$} \\
-      &\leq \norm{u}^2+\norm{v}^2+2\norm{u}\norm{v} & \text{Cauchy-Schwarz} \\
-      &=    (\norm{u} + \norm{v})^2 &
-    \end{aligned}
-  \end{equation}
-  \vspace{-1em}
+\begin{minipage}{\linewidth-30pt}
+\begin{prf} Let $u,v \in V$.
+    \begin{equation}
+      \begin{aligned}
+        \norm{u+v}^2
+        &=    \ip{u+v}{u+v} & \\
+        &=    \ip{u}{u+v}+\ip{v}{u+v} & \\
+        &=    \ip{u}{u}+\ip{u}{v}+\ip{v}{u}+\ip{v}{v} & \\
+        &=    \ip{u}{u}+\ip{v}{v}+\ip{u}{v}+\overline{\ip{u}{v}} & \text{conjugate symetrie}\\
+        &=    \norm{u}^2+\norm{v}^2+2\operatorname{Re} \ip{u}{v} & \text{$z+\overline{z} = 2\operatorname{Re} z$}\\
+        &\leq \norm{u}^2+\norm{v}^2+2|\ip{u}{v}| & \text{$z=\realpart z + (\impart z) i$} \\
+        &\leq \norm{u}^2+\norm{v}^2+2\norm{u}\norm{v} & \text{Cauchy-Schwarz} \\
+        &=    (\norm{u} + \norm{v})^2 &
+      \end{aligned}
+    \end{equation}
+  TODO: equality.
 \end{prf}
+\end{minipage}
+
+\phantom{.}

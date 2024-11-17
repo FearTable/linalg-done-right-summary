@@ -237,10 +237,10 @@ are the coefficients of the minimal polynomial of $T$.
       \end{equation}
       We have
       \begin{equation}
-        \label{aa}
+        \label{eq: 0 = q(T) = p(T)s(T) + r(T) = r(T)}
         0 = q(T) = p(T)s(T) + r(T) = r(T).
       \end{equation}
-      The equation above implies that $r=0$. Otherwise, dividing $r$ by its highest\-/degree coefficient would produce a monic polynomial that when applied to $T$ gives $0$. A contradiction because $\deg r < \deg p$ and $p$ is minimal. Thus \ref{aa} becomes the equation $q=ps$, as desired
+      The equation above implies that $r=0$. Otherwise, dividing $r$ by its highest\-/degree coefficient would produce a monic polynomial that when applied to $T$ gives $0$. A contradiction because $\deg r < \deg p$ and $p$ is minimal. Thus \eqref{eq: 0 = q(T) = p(T)s(T) + r(T) = r(T)} becomes the equation $q=ps$, as desired
     }
     \item{\qt{$\Leftarrow$ direction:}}{
       Suppose $q=ps$ for $q,p,s \in \mathcal{P}(\myF)$. We have
@@ -274,7 +274,7 @@ are the coefficients of the minimal polynomial of $T$.
   Let $T \in \linmap (V)$. Then we have: $T$ is not invertible $\iff$ the constant term of the minimal polynomial of $T$ is $0$.
 \end{thm}
 \begin{prf}
-  $T$ is not invertible $\iff_{\text{(\ref{thm: equivalent conditions to be an eigenvalue})}}$ $0$ is an eigenvalue of $T$ $\iff_{(\text{\ref{thm: eigenvalues are the zeros of the minimal polynomial})}}$ $0$ is a zero of $p$ $\mathsmaller{\iff}$ the constant term of $p$ is $0$.
+  $T$ is not invertible $\iff_{\text{(\ref{thm: equivalent conditions to be an eigenvalue})}}$ $0$ is an eigenvalue of $T$ $\iff_{(\text{\ref{thm: eigenvalues are the zeros of the minimal polynomial})}}$ $0$ is a zero of $p$ $\iff$ the constant term of $p$ is $0$.
   (In the first equivalence, we have actually used that $0$ is an eigenvalue of $T$ if and only if $T-0I$ is not invertible, according to \ref{thm: equivalent conditions to be an eigenvalue}.)
 \end{prf}
 

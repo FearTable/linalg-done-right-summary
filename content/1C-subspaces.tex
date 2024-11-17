@@ -139,9 +139,10 @@
 
 %\textbf{1.46}
 \setcounter{thm}{45}
-\begin{thm} [direct sum of two subspaces]
+% TODO: better name
+\begin{thm} [sum of two subspaces, intersection of two subspaces]
   \label{thm: intersection of direct sum of two subscpaces}
-  $U+W$ is a direct sum $\iff$ $U \cap W = \{0\}$
+  $U+W$ is a direct sum $\iff$ $U \cap W = \{0\}$.
 \end{thm}
 \begin{prf} Let $U$ and $W$ be subspaces of the same vector space.
   \begin{description}
@@ -149,7 +150,7 @@
     \begin{equation}
       0 = v + (-v), \where v\in U \myand (-v) \in W.
     \end{equation}
-    $\implies v=0$, because $U+W$  is a direct sum. Therefore $U \cap W = \{0\}$
+    $\implies v=0$, because $U+W$  is a direct sum and $0 = 0+(-0)=0+0$ is unique. Therefore $U \cap W = \{0\}$.
 
     \item{\qt{$\Leftarrow$ direction:}} Suppose $U\cap W = \{0\}$. Let  $u\in U$ and $w \in W$ such that
     \begin{equation}

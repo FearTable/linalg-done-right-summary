@@ -239,8 +239,8 @@
 
 \setcounter{thm}{43}
 \begin{thm}[necessary and sufficient condition to have an upper-triangular-matrix]
-  \label{thm:necessary and sufficient condition to have an upper-triangular-matrix}
-  Let $T\in \linmap(V)$, $\dim V \neq \infty$. Then $T$ has an upper-triangular matrix in respect to some basis $V$ $\iff$ the minimal polynomial of $T$ equals $(z-\lambda_1) \cdots (z-\lambda_m)$, where $\lambda_1, \dots \lambda_m \in \myF$
+  \label{thm: necessary and sufficient condition to have an upper-triangular-matrix}
+  Let $T\in \linmap(V)$, $\dim V$ $\neq$ $\infty$. Then $T$ has an upper-triangular matrix in respect to some basis $V$ $\iff$ the minimal polynomial of $T$ equals $(z-\lambda_1) \cdots (z-\lambda_m)$, where $\lambda_1, \dots \lambda_m \in \myF$
 \end{thm}
 \begin{prf}
   \qt{$\Rightarrow$-direction:} Suppose $T$ has an upper-triangular matrix with respect to some basis of $V$. Let $\alpha_1, \ddd, \alpha_n$ denote the diagonal entries of that matrix.
@@ -286,7 +286,7 @@
 
   Hence $(T-\lambda_1 I) \cdots (T-\lambda_{m-1}I)$ is a multiple of the minimal polynomial of $\left. T \right |_{U}$, by \ref{thm: every zero polynomial is a multiple of the minimal polynomial}. With other words: It is the product of at most $m-1$ terms of the form $z-\lambda_k \quad \forall k \in \{1, \ddd, m-1 \}$.
 
-  By the induction hypothesis, there is a basis $u_1, \ddd, u_M$ of $U$ with respect to which $\left. T \right |_{U}$ has an upper-triangular matrix.
+  By the induction hypothesis, there is a basis $u_1, \ddd, u_M$ of $U$ with respect to which $\left. T \right |_{U}$ has an upper-triangular matrix. Using \ref{conditions for upper-triangular matrix}
   \begin{equation}
     \label{eq: first eq for T v_k}
     \implies \forall k \in \{ 1, \ddd, M \}:
@@ -310,7 +310,10 @@
 
 
 \setcounter{thm}{46}
-\begin{thm}[necessary condition for every operator on $V$ to have an upper-triangular matrix]
-  \label{thm: necessary condition for every operator to have an upper-triangular matrix}
+\begin{thm}[sufficienct condition about the field for every operator on $V$ to have an upper-triangular matrix]
+  \label{thm: sufficienct condition about the field for every operator on V to have an upper-triangular matrix}
   Let $\myF = \compl$. Let $T\in \linmap (V),$ $\dim V \neq \infty$. Then $T$ has an upper-triangular matrix with respect to some basis of $V$.
 \end{thm}
+\begin{prf}
+  This follows from \ref{thm: necessary and sufficient condition to have an upper-triangular-matrix} and the second version of the fundamental theorem of algebra \ref{fundamental-theorem-of-algebra-second-version} (?).
+\end{prf}
