@@ -54,25 +54,22 @@
 \end{thm}
 \begin{prf}
   First we need to show, that $V_1 + \cdots + V_m$ is a subspace of $V$. Clearly, the additive identity $0 = 0 + \cdots + 0 \in V_1 + \cdots + V_m \in V$.
-
   Next we show that our sum is closed under addition. Let $u,w \in V_1 + \cdots + V_m$.  Then we have $u = v_1 + \cdots + v_m$ \st $v_1 \in V_1, \ddd, v_m \in V_m$ and $w=v'_1 + \cdots + v'_m$ \st $v'_1, \ddd , v'_m \in V_m$. Therefore
   \begin{equation}
     u+w = \underbrace{(v_1+v'_1)}_{\in V_1} + \cdots + \underbrace{(v_m+v'_m)}_{\in V_m} \in  V_1 + \cdots + V_m \in V.
   \end{equation}
 
   So $V_1 + \cdots + V_m$ is closed under addition.
-
   For $\lambda \in \myF$ we have that
   \begin{equation}
       \lambda u = \lambda(v_1 + \cdots + v_m) = \underbrace{\lambda v_1}_{\in V_1} + \cdots + \underbrace{\lambda v_m}_{\in V_m} \in V_1 + \cdots + V_m \in V,
   \end{equation}
 
   so it is closed under scalar multiplication. So we have shown that $V_1 + \cdots + V_m$ is a subspace of $V$.
-
   Now we have to show the minimality.
   The subspaces $V_1, \cdots, V_m$ are all contained in $V_1+\cdots+V_m$. Because $\forall \kInOneTillM:$
   \begin{equation}
-    V_k = \{ v \mid v \in V_k \} \subseteq \{v_1 + \cdots + v_m \mid v_1 \in V_1,  \ldots , v_m \in V_m \} = V_1 + \cdots + V_m.
+    V_k = \{ v \mid v \in V_k \} \subseteq \{v_1 + \cdots + v_m \mid v_1 \in V_1,  \ddd , v_m \in V_m \} = V_1 + \cdots + V_m.
   \end{equation}
 
   Conversely, every subspace of $V$ containing $V_1, \ldots, V_m$ contains $V_1 + \cdots + V_m$, because its closed under addition. Thus $V_1 + \cdots + V_m$ is the smallest subspace of $V$ containing $V_1, \ldots, V_m$.
@@ -116,11 +113,11 @@
 
     Or a different way to argue, $0 = 0 + \cdots + 0$ is already a unique solution.
 
-    \qt{$\Leftarrow$ direction:} Now suppose that the only way to write $0$ as a sum $v_1 + \cdots + v_m$ where each $v_k \in V_k$, is by taking each $v_k = 0$. Let
+    \qt{$\Leftarrow$ direction:} Now suppose that the only way to write $0$ as a sum $w_1 + \cdots + w_m$ where each $w_k \in V_k$, is by taking each $w_k = 0$. Let $v \in V$ \st $v$ has two representations denoted as
     \begin{equation}
       \begin{aligned}
-        v&=v_1 + \cdots + v_m \where v_1 \in V_1, \ldots, v_m \in V_m \myand \\
-        v&=u_1 + \cdots + u_m  \where u_1 \in V_1, \ldots, u_m \in V_m
+        v& :\equiv v_1 + \cdots + v_m \where v_1 \in V_1, \ddd, v_m \in V_m \myand \\
+        v& :\equiv u_1 + \cdots + u_m  \where u_1 \in V_1, \ddd, u_m \in V_m
       \end{aligned}
     \end{equation}
 
@@ -129,19 +126,19 @@
       0=(v_1-u_1)+\cdots+(v_m-u_m).
     \end{equation}
 
-    Because $v_1 - u_1 \in V_1, \ldots, v_m - u_m \in V_m$, the equation above implies that each $v_k -u_k$ equals $0$.
+    Because $v_1 - u_1 \in V_1, \ldots, v_m - u_m \in V_m$, the equation above implies that $\forall k \in \{1, \ddd, m\}$: $v_k -u_k$ equals $0$.
     \begin{equation}
-      \implies v_1=u_1, \ldots, v_m=u_m
+      \implies v_1=u_1, \ddd, v_m=u_m
     \end{equation}
 
-    Thus $u=v$, because $0$ has a unique representation.
+    So there is only one way to write $v$ as a sum. So $V_1 + \cdots + V_m$ is a direct sum.
 \end{prf}
 
 %\textbf{1.46}
 \setcounter{thm}{45}
 % TODO: better name
-\begin{thm} [sum of two subspaces, intersection of two subspaces]
-  \label{thm: intersection of direct sum of two subscpaces}
+\begin{thm} [sum and intersection of two subspaces]
+  \label{thm: sum and intersection of two subspaces}
   $U+W$ is a direct sum $\iff$ $U \cap W = \{0\}$.
 \end{thm}
 \begin{prf} Let $U$ and $W$ be subspaces of the same vector space.
@@ -157,7 +154,7 @@
       \label{eq: zero equals u plus w}
       0 = u+w
     \end{equation}
-    By \ref{thm: condition for a direct sum} we know that our goal is to show that $u=w=0$. The equation \eqref{eq: zero equals u plus w} above implies that $u=-w\in W$  and $w=-u \in U$ for all arbitrary choices of $U$ and $W$. Thus $u,w \in U\cap W \implies u=w=0.$ Therefore, $U+W$ is a direct sum.
+    By \ref{thm: condition for a direct sum} we know that our goal is to show that this implies $u=w=0$. The equation \eqref{eq: zero equals u plus w} above implies that $u=-w\in W$  and $w=-u \in U$ for all arbitrary choices of $U$ and $W$. Thus $u,w \in U\cap W = \{0\} \implies u=w=0.$ Therefore, $U+W$ is a direct sum, given $U \cap W = \{0\}$.
   \end{description}
   \vspace{-1em}
 \end{prf}

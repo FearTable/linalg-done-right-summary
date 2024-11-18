@@ -70,7 +70,7 @@
 
 \begin{thm} [every subspace of $V$ is part of a direct sum equal to $V$]
   \label{thm: every subspace of V is part of a direct sum equal to V}
-  If $V$ is \fd and $U$ is a subspace of $V$. Then there is a subspace $W$ of $V$ such that $V=U \oplus W.$
+  If $V$ is \fd and $U$ is a subspace of $V$. Then there is another subspace $W$ of $V$ such that $V=U \oplus W.$
 \end{thm}
 \begin{prf}
   Suppose $U$ is a subspace of a \fdvs $V$.
@@ -84,13 +84,14 @@
     $Let $W :\equiv \myspan{w_1, \ldots, w_n}.
   \end{equation}
 
-  To prove $V=U\oplus W$, by $\ref{thm: intersection of direct sum of two subscpaces}$ we only need to show that $V = U+W$ and $U \cap W = \{0\}$.
+  To prove $V=U\oplus W$, by $\ref{thm: sum and intersection of two subspaces}$ we only need to show that $V = U+W$ and $U \cap W = \{0\}$.
 
 
   \begin{description}
+
     \item{\bfemph{\slshape Proof of $V=U+W$:}} Let $v \in V$. Since $u_1, \ldots, u_m, w_1, \ldots, w_n$ is a basis of $V$, it spans $V$.
     \begin{equation}
-      V = \myspan{u_1, \ldots, u_m, w_1, \ldots, w_n}
+      V = \myspan{u_1, \ldots, u_m, w_1, \ldots, w_n}.
     \end{equation}
 
     So we have $\exists a_1, \ldots, a_m, b_1, \ldots, b_n \in \myF$ \st
@@ -100,7 +101,7 @@
 
     With $u$ and $w$ defined as above, we have $v=u+w$, where $u \in U$ and $w \in W$. Thus $v \in U+W,$ completing the proof that $V=U+W$.
 
-    \item{\bfemph{\slshape Proof of $U \cap W = \{0\}$:}} Let $v \in U \cap W$. $\implies$ $\exists a_1, \ldots, a_m, b_1, \ldots, b_n \in \myF$ s. t. $v= a_1 u _1 + \cdots + a_m u_m$ and $v= b_1 w_1 + \cdots + b_n w_n$. Thus $a_1 u_1 + \cdots + a_m u_m - b_1 w_1 - \cdots - b_n w_n = 0$.
+    \item{\bfemph{\slshape Proof of $U \cap W = \{0\}$:}} Let $v \in U \cap W$. $\implies$ $\exists a_1, \ldots, a_m, b_1, \ldots, b_n \in \myF$ \st $v= a_1 u _1 + \cdots + a_m u_m$ and $v= b_1 w_1 + \cdots + b_n w_n$. Thus $a_1 u_1 + \cdots + a_m u_m - b_1 w_1 - \cdots - b_n w_n = 0$.
 
     Because $u_1, \ldots, u_m, w_1, \ldots, w_n$ is linearly independent, this implies that
     \begin{equation}

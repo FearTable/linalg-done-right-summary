@@ -2,7 +2,7 @@
 $\mathbb{F}$ denotes $\mathbb{R}$ or $\mathbb{C}$.
 
 \section{Zeros of polynomials}
-$p: \mathbb{F} \to \mathbb{F}, \, p(z) = a_0 + a_1z + \cdots + a_n z^m$
+$p: \mathbb{F} \to \mathbb{F}, \, p(z) = a_0 + a_1z + \cdots + a_n z^m$ $\forall z \in \myF$.
 
 \setcounter{thm}{4}
 \begin{mydef}[zero of a polynomial]
@@ -12,21 +12,21 @@ $p: \mathbb{F} \to \mathbb{F}, \, p(z) = a_0 + a_1z + \cdots + a_n z^m$
 \setcounter{thm}{5}
 \begin{thm}[each zero of a polynomial corresponds to a degree\-/one factor]
   \label{factororing-out-zeros-of-a-polynomial-always-possible}
-  $\forall p \in \mathcal{P}_m(\mathbb{F}): \; \exists \lambda \in \mathbb{F}$ s.t.
+  $\forall p \in \mathcal{P}_m(\mathbb{F}): \; \exists \lambda \in \mathbb{F}$ \st
   \begin{equation}
   	p(\lambda) = 0 \iff \exists q \in \mathcal{P}_{m-1}: p(z) = (z-\lambda)q(z)
   \end{equation}
 \end{thm}
 \begin{prf} Let $p\in \polyn(\myF)_m$ for $m\in \nat$.
 
-  \qt{$\Leftarrow$ direction:} Suppose there is $q \in \polyn(\myF)$ s.t. $p(z) = (z-\lambda)q(z) \quad \forall z \in \myF$. Then
+  \qt{$\Leftarrow$ direction:} Suppose there is $q \in \polyn(\myF)$ \st $p(z) = (z-\lambda)q(z) \quad \forall z \in \myF$. Then
   \begin{equation}
     p(\lambda) = (\lambda -\lambda)q(\lambda) = 0,$ as desired.$
   \end{equation}
 
-  \qt{$\Rightarrow$ direction:} Now suppose $p(\lambda)=0$. Let $a_0, a_1, \ldots, a_m \in \myF"$ be \st
+  \qt{$\Rightarrow$ direction:} Now suppose $p(\lambda)=0$. Let $a_0, a_1, \ldots, a_m \in \myF$ \st
   \begin{equation}
-    p(z) :\equiv a_0 + a_1z + \cdots a_mz^m \quad \forall z \in  \myF.
+    p(z) :\equiv a_0 + a_1z + \cdots a_mz^m.
   \end{equation}
 
   Then
@@ -51,7 +51,7 @@ $p: \mathbb{F} \to \mathbb{F}, \, p(z) = a_0 + a_1z + \cdots + a_n z^m$
   Thus $p$ equals $z-\lambda$ times some polyomial of degree $m-1$, as desired.
 \end{prf}
 
-In case you are wondering where the $a_0$ went by subtracting $p(\lambda)$ from $p(z)$, it is hidden int the roots! For example $p\in \polyn_1(\myF): p=a_0+a_1z = \left(z- \left(-\frac{a_0}{a_1}\right)\right)(a_1)$ where $\left(-\frac{a_0}{a_1}\right)$ is the only root!
+In case you are wondering where the $a_0$ went by subtracting $p(\lambda)$ from $p(z)$, it is hidden in the roots! For example $p\in \polyn_1(\myF): p=a_0+a_1z = \left(z- \left(-\frac{a_0}{a_1}\right)\right)(a_1)$ where $\left(-\frac{a_0}{a_1}\right)$ is the only root!
 
 \setcounter{thm}{7}
 \begin{thm}
@@ -77,7 +77,7 @@ In case you are wondering where the $a_0$ went by subtracting $p(\lambda)$ from 
 \begin{thm}
   \label{division-algorithm-for-polynomials}
   Suppose $p,s \in \mathcal{P} (\mathbb{F}), \, s\neq 0$.
-  Then $\exists q,r \in \mathcal{P} (\mathbb{F})$ s.t.
+  Then $\exists q,r \in \mathcal{P} (\mathbb{F})$ \st
   \begin{equation}
     p=sq+r \myand \deg r < \deg s.
   \end{equation}
@@ -142,7 +142,7 @@ In case you are wondering where the $a_0$ went by subtracting $p(\lambda)$ from 
     \end{aligned}
   \end{equation}
 
-  The equation above shows that $\overline{\lambda}$ is a zero of $p$.
+  The equation above shows that $\overline{\lambda}$ is a zero of $p$ as well.
 \end{prf}
 
 \begin{thm} [factorization of a quadratic polynomial]

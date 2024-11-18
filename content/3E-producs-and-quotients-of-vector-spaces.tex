@@ -30,9 +30,9 @@
 \begin{thm}
   Let $\Gamma: V_1 \times \cdots \times V_m \to V_1 + \cdots + V_m$ such that
   \begin{equation}
-    \Gamma(v_1, \cdots, v_m) \mapsto v_1 + \cdots + v_m
+    \Gamma(v_1, \cdots, v_m) = v_1 + \cdots + v_m.
   \end{equation}
-  Then $v_1 + \cdots + v_m$ is a direct sum $\iff$ $\Gamma$ is injective.
+  Then $V_1 + \cdots + V_m$ is a direct sum $\iff$ $\Gamma$ is injective.
 \end{thm}
 \begin{prf}
   By \ref{thm: injectivity iff null space equals zero-set}, $\Gamma$ is injective $\iff v_1 = \cdots = v_m = 0$. This means, the only way to write $0$ as a sum $v_1 + \cdots + v_m$, where each $v_k \in V_k$, is by taking each $v_k=0$. Thus \ref{thm: condition for a direct sum} shows that $\Gamma$ is injective $\iff$ $V_1 + \cdots + V_m$ is a direct sum, as desired.
@@ -64,7 +64,9 @@
 \setcounter{thm}{98}
 \begin{mydef} [quotient space, $V/U$]
   Suppose $U$ is a subspace of $V$. Then the \qt{quotient space} $V/U$ is the set of all translates of $U$. Thus
-  $V/U :\equiv \{v+U \mid v\in V\}$.
+  \begin{equation}
+    V/U :\equiv \{v+U \mid v\in V\}.
+  \end{equation}
 \end{mydef}
 
 \begin{example}
@@ -92,7 +94,7 @@
       \lambda (v+U) & :\equiv (\lambda v) + U
     \end{aligned}
   \end{equation}
-  $\forall v,w \in V$ and $\forall \lambda \in \myF$
+  $\forall v,w \in V$ and $\forall \lambda \in \myF$.
 \end{mydef}
 
 
@@ -124,7 +126,7 @@
 
 \begin{thm}[null space and range of $\widetilde{T}$]
   Suppose $T\in \linmap(V,W)$ Then
-  \begin{enumerate}
+  \begin{enumerate}[label=(\alph*)]
     \item $\widetilde{T} \circ \pi = T,$ where $\pi$ is the quotient map $V$ onto $V/(\mynull T)$;
     \item $\widetilde{T}$ is injective;
     \item $\myrange \widetilde{T} = \myrange T$;

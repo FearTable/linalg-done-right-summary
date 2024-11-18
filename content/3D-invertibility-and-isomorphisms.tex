@@ -3,8 +3,8 @@
 \subsection{Invertible Linear Maps}
   \setcounter{thm}{58}
   %\ 3.59
-  \begin{mydef} [ivertible, inverse]
-    $S\in \lvw$ with $ST=I_V \myand TW = I_W$ is called the \qt{inverse} (map?) of the invertible linear map $T \in \lvw$
+  \begin{mydef} [invertible, inverse]
+    $S\in \linmap(W,V)$ with $ST=I_V \myand TS = I_W$ is called the \qt{inverse} of the \qt{invertible} linear map $T \in \linmap(V,W)$.
   \end{mydef}
 
   % 3.60
@@ -54,7 +54,7 @@
     This is because every linearly independent list of vectors of of length $\dim W$ is a basis by
     \ref{thm: linearly independent list of the right length is a basis}. And thats how dimension is defined.
 
-    If $T$ is surjective, we have $\dim \myrange T = \dim W$ to begin with and therefore \ref{rank-nullity-nested-equation} becomes
+    If $T$ is surjective, we have $\dim \myrange T = \dim W$ to begin with and therefore \eqref{rank-nullity-nested-equation} becomes
     \begin{equation}
       \dim \mynull T = \dim V - \dim \myrange T = \dim V - \dim W = 0.
     \end{equation}
@@ -82,23 +82,21 @@
     \label{thm: dimension shows whether vector spaces are isomorphic}
     Two \fd vector spaces $U$, $V$ over $\mathbb{F}$ are isomorphic $\iff$ they have the same dimension.
     \begin{equation}
-      \dim U = \dim V
+      \dim U = \dim V.
     \end{equation}
   \end{thm}
 
   %\textbf{3.71}
   \begin{thm}
     \label{thm: the space of linear maps and the space of all matrices are isomorphic}
-    Suppose $\oneTillN{v}$ is a basis of $V$ and $\oneTillM{w}$ is a basis of $W$. Then $\mathcal{M}$ is an isomorphism between $\lvw$ and $\mathbb{F}^{m,n}$
+    Suppose $\oneTillN{v}$ is a basis of $V$ and $\oneTillM{w}$ is a basis of $W$. Then $\mathcal{M}$ is an isomorphism between $\lvw$ and $\mathbb{F}^{m,n}$.
   \end{thm}
 
   %\textbf{3.72}
   \begin{thm}
     Suppose $V,W$ are \fd.
-
-    $\implies \lvw$ is \fd and
     \begin{equation}
-      \dim \lvw = (\dim V)\cdot(\dim W)
+      \implies \lvw $ is \fd and $\dim \lvw = (\dim V)\cdot(\dim W)
     \end{equation}
   \end{thm}
   \begin{prf}
@@ -108,9 +106,9 @@
   \subsection{Linear Maps Thought of as Matrix Multiplication}
 
   \begin{mydef} [matrix of a vector, $\mmatrix(u)$]
-    Let $u \in V$ and $\onetillm{v}$ be a basis of $V$ such that $u=b_1v_1+\dots+b_mv_m$.
-    We define
+    Let $u \in V$ and $\onetillm{v}$ be a basis of $V$ such that
   \begin{equation}
+    u=b_1v_1+\dots+b_mv_m. $ We define $
         \mathcal{M}(u) :\equiv
       \left (
       \begin{matrix}
@@ -138,7 +136,10 @@
   \setcounter{thm}{74}
   %\textbf{3.75}
   \begin{thm} [$\mmatrix(T)_{\mathsmaller{\bullet}, k} = \mmatrix(T v_k)$]
-    Suppose $T \in \linmap(V,W)$ and $v_1, \ldots, v_n$ is a basis of $V$ and $w_1, \ldots, w_m$ is a basis of $W$. Let $1\leq k \leq n$. Then the $k^{\text{th}}$ column of $\mmatrix(T)$, which is denoted by $\mmatrix(T)_{\mathsmaller{\bullet}, k}$ equals $\mmatrix(Tv_k)$.
+    Suppose $T \in \linmap(V,W)$ and $v_1, \ldots, v_n$ is a basis of $V$ and $w_1, \ldots, w_m$ is a basis of $W$. Let $1\leq k \leq n$. Then the $k^{\text{th}}$ column of $\mmatrix(T)$, which is denoted by $\mmatrix(T)_{\mathsmaller{\bullet}, k}$, equals $\mmatrix(Tv_k)$.
+    \begin{equation}
+      \mmatrix(T)_{\mathsmaller{\bullet}, k}=\mmatrix(Tv_k) \quad \forall k \in \{1, \ddd, n\}.
+    \end{equation}
 %    $\mmatrix_{\mathsmaller{\bullet}, k} = M(T v_k)$. The $k^{\text{th}}$ column of $\mmatrix_{\mathsmaller{\bullet}, k}$ equals $(A_{1,k}, \dots, A_{m,k})^\top$
   \end{thm}
 
@@ -188,7 +189,7 @@
 
   % 3.81
   \begin{thm} [matrix of product of linear maps]
-    Suppose $T\in \mathcal{L}(U,V)$ and $S\in \lvw$. If $\onetillm{u}$ is a basis of $U$, $\onetilln{v}$, is a basis of $V$ and $\onetill{w}{p}$ is a basis of $W$. Note that $\dim U = m$, $\dim V = n$, $\dim W = p$. Then we have:
+    Suppose $T\in \mathcal{L}(U,V)$ and $S\in \lvw$. If $\onetillm{u}$ is a basis of $U$, $\onetilln{v}$ is a basis of $V$ and $\onetill{w}{p}$ is a basis of $W$. Note that $\dim U = m$, $\dim V = n$, $\dim W = p$. Then we have:
     \begin{equation}
     \begin{aligned}
       &\mmatrix(ST, (\onetillm{u}), (\onetill{w}{p})) = \\
@@ -226,7 +227,7 @@
     If $\onetillm{v}$ is a basis $V$ and $T\in \mathcal{L}$ is invertible, then
     \begin{equation}
       \begin{aligned}
-        \mmatrix(T^{-1}) & = (\mmatrix(T))^{-1} \; \text{or} \\
+        \mmatrix(T^{-1}) & = (\mmatrix(T))^{-1} \; \text{or with different notation} \\
         \mmatrix(T^{-1}, (\onetillm{v})) & =\mmatrix(T, (\onetillm{v}))^{-1}
       \end{aligned}
     \end{equation}

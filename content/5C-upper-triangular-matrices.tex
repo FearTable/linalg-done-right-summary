@@ -47,7 +47,7 @@
 
   we see that
   \begin{equation}
-    T v_j \in \myspan{v_1 \ldots v_k} \mytext{for each} j \in \{1 \ldots k\}.
+    T v_j \in \myspan{v_1 \ldots v_k} \mytext{for each} j \in \{1, \ddd, k\}.
   \end{equation}
 
   Thus $\myspan{v_1 \ldots v_k}$ is invariant under $T$, completing the proof that (a) implies (b)
@@ -76,6 +76,8 @@
   \begin{equation}
     \implies (T-\lambda_1I) \cdots (T-\lambda_nI)=0
   \end{equation}
+
+  Note that this theorem does not mention anything about eigenvalues.
 \end{thm}
 \begin{prf}
   Let $A :\equiv \mmatrix(T)$. Let $v_1, \ldots, v_n$ denote a basis of $V$ with respect to which $T$  has an upper-triangular matrix with diagonal entries $\lambda_1, \ldots, \lambda_n$.
@@ -204,11 +206,14 @@
         0      &         & \lambda_n
     \end{array} } \right)
   \end{equation}
+
   Because $T v_1 = \lambda_1 v_1$, we see that $\lambda_1$ is an eigenvalue of $T$.
+  Suppose $k \in \{2, \ddd, n\}.$
 
-  Suppose $k \in \{2 \ldots n\}.$
-
-  Then $(T-\lambda_k I) v_k \in \myspan{v_1, \ldots, v_{k-1}}.$
+  Then $(T-\lambda_k I) v_k \in \myspan{v_1, \ldots, v_{k-1}},$ because
+  \begin{equation}
+    T v_k = \mmatrix(T)_{1,k} v_1 + \mmatrix(T)_{2,k}v_2 + \cdots \mmatrix(T)_{k-1,k} v_{k-1} + \lambda_k v_k.
+  \end{equation}
 
   Thus $T-\lambda_k I$ maps $\myspan{v_1, \ldots, v_k}$ into $\myspan{v_1, \ldots, v_{k-1}}$.
 
@@ -217,11 +222,11 @@
     \dim \myspan{v_1, \ldots, v_k} = k \myand \dim \myspan{v_1, \ldots, v_{k-1}} = k-1,
   \end{equation}
 
-  this implies that $T-\lambda_k I$, which is restricted to $\myspan{v_1, \ldots, v_{k-1}}$, is not injective by \autoref{thm: linear-map-to-a-lower-dimensional-space-is-not-injective}. Thus
+  this implies that $T-\lambda_k I$, which is restricted to $\myspan{v_1, \ldots, v_{k-1}}$, is not injective by \ref{thm: linear-map-to-a-lower-dimensional-space-is-not-injective}. This theorem states that a linear map to a lower dimensional space is not injective. Thus
   \begin{equation}
     \exists v \in \myspan{v_1, \ldots, v_n}: v\neq0$ and $(T-\lambda_k I)v=0.
   \end{equation}
-  Thus $\lambda_k$ is an eigenvalue of $T$. Hence we have shown that every entry of the diagonal of $\mmatrix(T)$ is an eigenvalue of $T$.
+  Thus $\lambda_k$ is an eigenvalue of $T$ with eigenvector $v$. Hence we have shown that every entry of the diagonal of $\mmatrix(T)$ is an eigenvalue of $T$.
 
   To prove $T$ has no other eigenvalues, let
   \begin{equation}
@@ -232,7 +237,6 @@
   \end{equation}
 
   Hence $q$ is a polynomial multiple of the minimal polynomial of $T$ by \ref{thm: every zero polynomial is a multiple of the minimal polynomial}. Thus every zero of the minimal polynomial is a zero of $q$.
-
   Because the zeros of the minimal polynomial of $T$ are the eigenvalues of $T$ by \ref{thm: eigenvalues are the zeros of the minimal polynomial}, this implies that every eigenvalue of $T$ is a zero of $q$. Hence the eigenvalues of $T$ are all contained in the list $\lambda_1, \ldots, \lambda_n$.
 \end{prf}
 
@@ -240,7 +244,9 @@
 \setcounter{thm}{43}
 \begin{thm}[necessary and sufficient condition to have an upper-triangular-matrix]
   \label{thm: necessary and sufficient condition to have an upper-triangular-matrix}
-  Let $T\in \linmap(V)$, $\dim V$ $\neq$ $\infty$. Then $T$ has an upper-triangular matrix in respect to some basis $V$ $\iff$ the minimal polynomial of $T$ equals $(z-\lambda_1) \cdots (z-\lambda_m)$, where $\lambda_1, \dots \lambda_m \in \myF$
+  Suppose $T\in \linmap(V)$, $\dim V$ $\neq$ $\infty$.
+  Then $T$ has an upper-triangular matrix $\mmatrix(T)$ in respect to some basis of $V$ $\iff$ The minimal polynomial of $T$ equals $(z-\lambda_1) \cdots (z-\lambda_m)$, where $\lambda_1, \dots \lambda_m \in \myF.$
+
 \end{thm}
 \begin{prf}
   \qt{$\Rightarrow$-direction:} Suppose $T$ has an upper-triangular matrix with respect to some basis of $V$. Let $\alpha_1, \ddd, \alpha_n$ denote the diagonal entries of that matrix.

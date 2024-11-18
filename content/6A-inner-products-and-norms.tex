@@ -19,7 +19,7 @@ The dot product on $\real^n$ has the following properties.
   \item $x \cdot x = \norm{x}^2 \quad \forall x \in \real^n$
   \item $x \cdot x = 0 \iff x= 0$
   \item $y\in \real^n:$ The map from $\real^n$ to $\real$ that sends $x \in \real^n$ to $x\cdot y$ is linear. \\
-  $T: \real^n \to \real, T(x) = x \cdot y$. Then $T$ is linear.
+  $T: \real^n \to \real, T(x) = x \cdot y$. Then $T$ is linear for a fixed $y \in \real^n$. %TODO: check.
   \item $x \cdot y = y \cdot x$.
 \end{itemize}
 
@@ -55,7 +55,7 @@ For $z \in \compl$, we define the norm of $z$ by
 \begin{thm}[basic properties of an inner product]
   $\forall u,v,w \in V$ and $\forall \lambda \in \myF$:
   \begin{enumerate}[label=(\alph*)]
-    \item $V \ni x \mapsto \ip{u}{x}$ is a linear map from $V$ to $\myF$.
+    \item $V \ni x \mapsto \ip{u}{x} \in \myF$ is a linear map from $V$ to $\myF$.
     \item $\ip{0}{v} = 0 $
     \item $\ip{v}{0} = 0$
     \item $\ip{u}{v+w} = \ip{u}{v} + \ip{u}{w} $
@@ -84,7 +84,7 @@ For $z \in \compl$, we define the norm of $z$ by
   \end{enumerate}
 \end{thm}
 \begin{prf}
-  Let $\lambda \in \myF$ and $v \in V$.
+  Let $\lambda \in \myF$ and $v \in V$. Then
   \begin{enumerate}[label=(\alph*)]
     \item $\ip{v}{v} = 0 \iff v=0$
     \item $\norm{\lambda v}^2 = \ip{\lambda v}{\lambda v} = \lambda \overline{\lambda} \ip{v}{v} = |\lambda|^2 \norm{v}^2$
@@ -109,9 +109,10 @@ For $z \in \compl$, we define the norm of $z$ by
 \end{thm}
 
 \begin{thm}[Pythagorean theorem]
+  \label{thm: pythagorean theorem}
   If $u,v \in V$ are orthogonal, then
   \begin{equation}
-    \norm{u+v}^2 = \norm{u}^2 + \norm{v}^2
+    \norm{u+v}^2 = \norm{u}^2 + \norm{v}^2.
   \end{equation}
 \end{thm}
 \begin{prf}
@@ -137,7 +138,7 @@ For $z \in \compl$, we define the norm of $z$ by
 \begin{proof}
   If $v=0$, both sides are $0$. Thus $v\neq0 $.
 
-  Let $u :\equiv cv+w = \frac{\ip{u}{v}}{\norm{v}^2} v + w$ such that $v\perp w: \ip{w}{v} = 0$ like above (ref{thm: an orthogonal decomposition}).
+  Let $u :\equiv cv+w = \frac{\ip{u}{v}}{\norm{v}^2} v + w$ such that $v\perp w: \ip{w}{v} = 0$ like above (\ref{thm: an orthogonal decomposition}).
 
   By Pythagoras we have
 
@@ -182,7 +183,7 @@ For $z \in \compl$, we define the norm of $z$ by
         &=    (\norm{u} + \norm{v})^2 &
       \end{aligned}
     \end{equation}
-  TODO: equality.
+We have equality in the triangle inequality $\iff$ $\ip{u}{v} = \norm{u}\cdot\norm{v} \iff u = \lambda v$.
 \end{prf}
 \end{minipage}
 

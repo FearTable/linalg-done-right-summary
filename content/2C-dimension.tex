@@ -30,10 +30,10 @@
 % 2.38
 \begin{thm} [lineparly independent list of the right length]
   \label{thm: linearly independent list of the right length is a basis}
-  Every linearly independent list of vectors of length $\dim V$ is a basis. (by 2.32)
+  Every linearly independent list of vectors of length $\dim V$ is a basis.
 \end{thm}
 \begin{prf}
-  Let $\dim V = n$ and $v_1, \ldots, v_n$ be linearly independent in $V$. This list can be extended to a basis of $V$ by \ref{thm: every linearly independent list of vectors in a finite-dimensional vector space can be extended to a basis of the vector space}. However, every basis of $V$ has length $n$, so no elements are adjoined to $v_1, \ldots, v_n$.
+  Let $\dim V = n$ and $v_1, \ldots, v_n$ be linearly independent in $V$. This list can be extended to a basis of $V$ by \ref{thm: every linearly independent list of vectors in a finite-dimensional vector space can be extended to a basis of the vector space}. However, every basis of $V$ has length $n$, so no elements are adjoined to $v_1, \ldots, v_n$ by such an extension process.
 \end{prf}
 
 % 2.39
@@ -49,7 +49,7 @@
 \setcounter{thm}{41}
 \begin{thm} [spanning list of the right length]
   \label{thm: spanning list of the right length}
-  Every spanning list of vectors in $V$ $(\dim V < \infty)$ with length $\dim V$ is a basis of $V$.
+  Every spanning list of vectors in $V$ $(\dim V \neq \infty)$ with length $\dim V$ is a basis of $V$.
 \end{thm}
 \begin{prf}
   Suppose $\dim V = n$ and $v_1, \ldots, v_n$ spans $V$. The list $v_1, \ldots, v_n$ can be reduced to a basis of $V$ by \ref{thm: every spanning list contains a basis}. But our list already has length $n$, so no elements will get deleted. Thus $v_1, \ldots, v_n$ is a basis of $V$, as desired.

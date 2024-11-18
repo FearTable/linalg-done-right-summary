@@ -2,15 +2,15 @@
 
 \setcounter{thm}{19}
 \begin{mydef} [vector space]
-  A \qt{vector space} is a set $V$ along with an addition on $V$ and a scalar multiplication on $V$ such that the following properties hold. 
+  A \qt{vector space} is a set $V$ along with an addition on $V$ and a scalar multiplication on $V$ such that the following properties hold.
   \begin{itemize}
     \item \emph{Commutativity:}
     $ u+v = v+u \quad \forall u,v \in V$
     \item \emph{Associativity:}
     $(u+v)+w=u+(v+w)$ and $(ab)v=a(bv) \quad \forall u,v,w \in V$ and $\forall a,b \in \myF$
     \item \emph{Additive identity:}
-    $\exists 0\in V:v+0=v \quad \forall v\in V$. 
-    
+    $\exists 0\in V:v+0=v \quad \forall v\in V$.
+
     $\exists!$ is not a requirement, but a property of vector spaces. See \ref{thm: unique additive identity}.
     \item \emph{Additive inverse:}
     $\forall v\in V \quad \exists w\in V: v+w=0$
@@ -73,7 +73,7 @@
   $a \vec0= \vec0 \quad \forall a\in \myF$
 \end{thm}
 \begin{prf}
-  $a \in \myF: a0 = a(0+0) = a0 + a0 \implies 0 = a0$. Using the definition of additive identity and the distributive property for $0 \in V, a \in \myF$. After that, we subtract $0a$ on both sides of the equation.
+  $a \in \myF: a\vec0 = a(\vec0+\vec0) = a\vec0 + a\vec0 \implies \vec0 = a\vec0$. Using the definition of additive identity and the distributive property for $\vec0 \in V, a \in \myF$. After that, we subtract $\vec0a$ on both sides of the equation.
 \end{prf}
 
 \begin{thm} [a number $-1$ times a vector]
@@ -81,5 +81,5 @@
   $(-1)v = -v \quad \forall v\in V$
 \end{thm}
 \begin{prf}
-  Let $v \in V: v + (-1)v = 1v + (-1)v = (1 + (-1)v) = 0v = 0$ using the distributive property and the defintion of the multiplicative identity. This equation ($v+(-1)v=0$) tells us, that $(-1)v$ is the additive inverse of $v$, therefore $(-1)v = -v$.
+  Let $v \in V: v + (-1)v = 1v + (-1)v = (1 + (-1))v = 0v = 0$ using the distributive property and the defintion of the multiplicative identity. This equation [$v+(-1)v=0$] tells us, that $(-1)v$ is the additive inverse of $v$, therefore $(-1)v = -v$.
 \end{prf}

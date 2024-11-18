@@ -41,7 +41,7 @@
 
 %\textbf{3.112}
 \begin{mydef}
-  If $\onetillm{v}$ is a basis of $V$, then the \qt{dual basis} of $\onetilln{v}$ is the list $\varphi_1, \dots, \varphi_m \in V^{*}$, where each $\varphi_j$ is the linear functional such that
+  If $\onetillm{v}$ is a basis of $V$, then the \qt{dual basis} of $\onetilln{v}$ is the list $\varphi_1, \dots, \varphi_m \in \dual{V}$, where each $\varphi_j$ is the linear functional such that
   \begin{equation}
     \varphi_j(v_k) = \delta_{j,k} =
   \begin{cases}
@@ -55,9 +55,9 @@
 %\textbf{3.114}
 \setcounter{thm}{113}
 \begin{thm}
-  Let $\onetillm{v}$ be a basis of $V$. $\onetillm{\varphi}$ is called \qt{a dual basis} of $\onetillm{v}$ because for every $v \in V$ we have
+  Let $\onetillm{v}$ be a basis of $V$. $\onetillm{\varphi}$ is called \qt{a dual basis} of $\onetillm{v}$ because $\forall v \in V$:
   \begin{equation}
-    v=\varphi_1 (v)v_1 + \cdots \varphi_m(v)v_m
+    v=\varphi_1 (v)\cdot v_1 + \cdots \varphi_m(v)\cdot v_m
   \end{equation}
 \end{thm}
 \begin{prf}
@@ -77,7 +77,7 @@
 \begin{mydef}[dual map, $T'$]
   The \qt{dual map} $\dual{T}$ of $T \in \linmap(V,W)$ is the linear map $T' \in \lin{W'}{V'}$ defined like this:
 \begin{equation}
-    \dual{T}(\varphi) :\equiv \varphi \circ T \quad \forall \phi \in W'
+    \dual{T}(\varphi) :\equiv \varphi \circ T \quad \forall \phi \in W'.
 \end{equation}
 
     So we have for a $\varphi \in \dual{W}=\lin{W}{\mathbb{F}}$ that $T'(\varphi) \in V' = \lin{V}{\mathbb{F}}$. So $T'$ is indeed a map from $W'$ to $V'$
@@ -95,7 +95,7 @@
 \begin{thm} [algebraic properties of dual maps]
   \label{algebraic-properties-of-dual-maps}
   $T \in \linmap(V,W)$ $\implies$
-  \begin{enumerate}
+  \begin{enumerate}[label=(\alph*)]
     \item $\dual{(S+T)} = \dual{S} + \dual{T} \quad \forall S \in \linmap(V,W)$
     \item $\dual{(\lambda T)} = \lambda \dual{T} \quad \quad \forall \lambda \in \myF$
     \item $\dual{(ST)} = \dual{T}\dual{S} \quad \; \forall S \in \linmap (W,U)$
@@ -110,7 +110,7 @@
   \label{def: annihiltator}
   For $U \subseteq V$, the \qt{annihilator} of $U$, denoted by $U^{0}$, is defined by
   \begin{equation}
-    U^0 = \{ \varphi \in \dual{V} \; \mid \; \varphi (u) = 0 \quad \forall u \in U \}
+    U^0 = \{ \varphi \in \dual{V} \; \mid \; \varphi (u) = 0 \quad \forall u \in U \}.
   \end{equation}
 \end{mydef}
 
@@ -134,7 +134,7 @@
 \setcounter{thm}{126}
 \begin{thm} [condition for the annihilator to equal $\{0\}$ or the whole space]
   If $\dim V < \infty$ and $U\subseteq V,$ then
-  \begin{enumerate}
+  \begin{enumerate}[label=(\alph*)]
     \item $U^0 = \{0 \} \iff U = V$
     \item $U^0 = \dual{V} \iff U = \{0\}$
    \end{enumerate}
@@ -143,7 +143,7 @@
 % 3.128
 \begin{thm}[the null space of $\dual{T}$]
   If $\dim V < \infty$, $\dim W<\infty$ and $T \in \linmap (V,W),$ then
-  \begin{enumerate}
+  \begin{enumerate}[label=(\alph*)]
     \item $\mynull \dual{T} = (\myrange T)^0$
     \item $\dim \mynull \dual{T} = \dim \mynull T + \dim W - \dim V$
   \end{enumerate}
@@ -160,7 +160,7 @@
 % 3.130
 \begin{thm}[the range of $\dual{T}$]
     If $\dim V < \infty$, $\dim W<\infty$ and $T \in \linmap (V,W),$ then
-    \begin{enumerate}
+    \begin{enumerate}[label=(\alph*)]
       \item $\dim \myrange \dual{T} = \dim \myrange T$
       \item $\myrange \dual{T} = (\mynull T)^0$
     \end{enumerate}

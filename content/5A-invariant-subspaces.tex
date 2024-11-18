@@ -25,13 +25,13 @@
   (Sometimes, $\operatorname{null} T = \{0\}$ and $\operatorname{range} T=V$ if $T$ is invertible.)
 \end{example}
 
-\bfemph{Invariant subspaces of dimension one: } 
+\bfemph{Invariant subspaces of dimension one: }
 
-Take any $v\in V, v\neq 0$ and let 
+Take any $v\in V, v\neq 0$ and let
 \begin{equation}
   U :\equiv \{  \lambda v \mid \lambda \in \myF \} = \myspan{v},
 \end{equation}
-then $U$ is a one\-/dimensional subspace of $V$. 
+then $U$ is a one\-/dimensional subspace of $V$.
 
 If $U$ is invariant under an operator $T \in \linmap (V)$, then $Tv  \in U$. $\implies \exists \lambda \in \myF: Tv = \lambda v$. \\
 Conversely if $Tv = \lambda v$, $\lambda \in \myF$, then $\myspan{v}$ is a one-dimensional subspace of $V$ invariant under $T$.
@@ -54,10 +54,10 @@ Conversely if $Tv = \lambda v$, $\lambda \in \myF$, then $\myspan{v}$ is a one-d
   \end{enumerate}
 \end{thm}
 \begin{prf}
-  Conditions \ref{first} and \ref{second} are equivalent because the eigenvector $v$ is a solution to 
+  Conditions \ref{first} and \ref{second} are equivalent because the eigenvector $v$ is a solution to
   \begin{equation}
     Tv=\lambda v
-  \end{equation} which is equivalent to 
+  \end{equation} which is equivalent to
   \begin{equation}
     (T-\lambda I)v=0.
   \end{equation} So there is a non-zero solution to $T-\lambda I$.
@@ -78,13 +78,13 @@ Conversely if $Tv = \lambda v$, $\lambda \in \myF$, then $\myspan{v}$ is a one-d
   Every list of eigenvectors of $T$ corresponding to distinct eigenvalues of $T$ is linearly independent.
 \end{thm}
 \begin{prf}
-  Suppose the desired result is false. Then there exists a smallest list of length $m$ of linearly depen\-dent eigenvectors $v_1, \dots, v_m$ with eigenvalues $\lambda_1,$ $\dots$ $,\lambda_m$ of $T$. Since an eigenvector is unequal to the zero vector, $m$ must be $\geq 2$.
-  
-  Because of the minimality of $m$ and becaue our list is linearly dependent: 
+  Suppose the desired result is false. Then there exists a smallest list of length $m$ of linearly depen\-dent eigenvectors $v_1, \dots, v_m$ of with distinct eigenvalues $\lambda_1,$ $\dots$ $,\lambda_m$. Since an eigenvector is unequal to the zero vector, $m$ must be $\geq 2$.
+
+  Because of the minimality of $m$ and becaue our list is linearly dependent:
   \begin{equation}
-    \exists a_1, \dots, a_m \neq 0$ such that $a_1 v_1 + \cdots + a_m v_m = 0. 
+    \exists a_1, \dots, a_m$, where not $a$'s are equal to $0$, such that $a_1 v_1 + \cdots + a_m v_m = 0.
   \end{equation}
-  
+
   Now we apply $T-\lambda_m I$ on both sides of the equation and get
   \begin{equation}
     \begin{gathered}
@@ -94,12 +94,12 @@ Conversely if $Tv = \lambda v$, $\lambda \in \myF$, then $\myspan{v}$ is a one-d
       \underbrace{a_m \lambda_m v_m -a_m \lambda_m v_m}_{=0} =0
     \end{gathered}
   \end{equation}
-  
+
   Which is the same as:
   \begin{equation}
     a_1 \underbrace{(\lambda_1 - \lambda_m)}_{\neq 0} v_1 + \cdots + a_{m-1} \underbrace{(\lambda_{m-1}-\lambda_{m})}_{\neq 0} v_{m-1}=0
   \end{equation}
-  
+
   Which contradicts the minimality of $m$. Therefore, no such linearly dependent list of eigenvectors can exist.
 \end{prf}
 
@@ -125,12 +125,12 @@ Conversely if $Tv = \lambda v$, $\lambda \in \myF$, then $\myspan{v}$ is a one-d
     \item If $T$ is invertible with inverse $T^{-1}$ then $T^{-m}\in \linmap(V)$ is defined by $T^{-m} :\equiv (T^{-1})^m$
   \end{itemize}
 \end{mydef}
-$\implies T^m T^n = T^{m+n}$ and $(T^m)^n=T^{mn}$ when $m,n \in \mathbb{Z}$ when $T$ is invertible. And $m,n \in \mathbb{N}$ if $T$ is not invertible.
+$\implies T^m T^n = T^{m+n}$ and $(T^m)^n=T^{mn}$ for $m,n \in \mathbb{Z}$ if $T$ is invertible. And for $m,n \in \mathbb{N}$ if $T$ is not invertible.
 
 \begin{mydef} [notation $p(T)$]
   For $\mathcal{P} (\myF) \ni p(z) = a_0+a_1z+a_2z^2+\cdots+a_mz^m$
  and
-  $T \in \linmap (V)$ we define: 
+  $T \in \linmap (V)$ we define:
   \begin{equation}
     p(T) :\equiv a_0 I + a_1 T + a_2 T^2 + \cdots a_m T^m.$ Note that $p(T) \in \linmap(V)
   \end{equation}
@@ -158,25 +158,27 @@ $\implies T^m T^n = T^{m+n}$ and $(T^m)^n=T^{mn}$ when $m,n \in \mathbb{Z}$ when
 
 \begin{thm} [null space and range of $p(T)$ are invariant under $T$]
   \label{thm: null space and range of p(T) are invariant under T}
-  $T \in \linmap(V)$ and $p\in \mathcal{P} (\myF) \implies$
-  $\operatorname{null} p(T)$ and $\operatorname{range} p(T)$ are invariant under $T$.
+  For every $T \in \linmap(V)$ and $p\in \mathcal{P} (\myF)$:
+  \begin{equation}
+    \mynull p(T)$ and $\myrange p(T)$ are invariant under $T.
+  \end{equation}
 \end{thm}
 \begin{prf}
   Suppose $u\in \operatorname{null} p(T)$
   \begin{equation}
-    \implies p(T)u = 0. 
+    \implies p(T)u = 0.
   \end{equation}
-  
-  Assoziativiy and distributivity of linear maps imply that 
+
+  Assoziativiy and distributivity of linear maps imply that
   \begin{equation}
     (p(T))(Tu)=T(p(T)u)=T(0)=0.
   \end{equation}
-  
+
   Which implies that
   \begin{equation}
     Tu \in \mynull p(T).
   \end{equation}
-  
+
   Now suppose $u \in \myrange p(T)$
   \begin{equation}
     \begin{aligned}

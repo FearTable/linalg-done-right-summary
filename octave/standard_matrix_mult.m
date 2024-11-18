@@ -10,6 +10,7 @@ function retval = standard_matrix_mult (A,B)
     for (k=1:p)
       for (r=1:n)
         retval(j,k)=retval(j,k)+A(j,r)*B(r,k);
+      end
     end
   end
 end

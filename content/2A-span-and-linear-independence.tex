@@ -31,7 +31,10 @@
 % 2.9
 \setcounter{thm}{8}
 \begin{mydef} [finite-dimensional vector space]
-  Such a vector space is called finite\-/dimensional. We write $\dim V \neq \infty$ or $\dim V < \infty$
+  Such a vector space is called finite\-/dimensional. We write
+  \begin{equation}
+    \dim V \neq \infty$ or $\dim V < \infty.
+  \end{equation}
 \end{mydef}
 
 
@@ -39,7 +42,7 @@
 \begin{mydef}[polynomial, $\polyn(\myF)$]
   \phantom{.}
   \begin{itemize}
-    \item $p: \myF \to \myF$ is called a \qt{polynomial} with coefficients in $\myF$ if there exists $a_0, \ldots, a_m \in \myF$ s. t.
+    \item $p: \myF \to \myF$ is called a \qt{polynomial} with coefficients in $\myF$, if there exists $a_0, \ldots, a_m \in \myF$ \st
     \begin{equation}
       p(z)=a_0 + a_1 + a_2z^2 + \cdots + a_m z^m \quad \forall z \in \myF.
     \end{equation}
@@ -81,7 +84,7 @@
   There are $2$ ways to think about \qt{linear independence}. Lets first start with the motivation. A list of vectors $\oneTillM{v}$ is \qt{\lid}, if every combination of these vectors $w = b_1v_1 + \dots+ b_mv_m$ $\in \myspan{\oneTillM{v}}$ has a unique choice of scalars $b_1, \dots, b_m \in \myF$.
 
   \bfemph{The actual definition of linear independence:} \\
-  A list of vectors $\oneTillM{v}$ is also called \lid, if the only way to combine them together and yield zero, is if we choose every coefficient $\lambda_i$ to be zero.
+  A list of vectors $\oneTillM{v}$ is called \lid, if the only way to combine them together and yield zero, is if we choose every coefficient $\lambda_i$ to be zero.
   \begin{equation}
     \lambda_1v_1 + \dots + \lambda_mv_m = 0 \iff \lambda_1 = \cdots = \lambda_m = 0
   \end{equation}
@@ -128,11 +131,12 @@
     \myspan {v_1, \dots, v_{k-1}, v_{k+1}, \dots, v_m} = \myspan {v_1, \dots, v_m}
   \end{equation}
 \end{thm}
+
 \begin{prf}
   Because $\onetillm{v}$ are linearly dependent, we have
   \begin{equation}
     a_1 v_1 + \cdots + a_m v_m = 0
-    $ where $a_1, \ldots, a_m \in \myF$ and $a_i \neq 0$ and $a_j \neq 0 $ for $i,j \in \{1 \cdots m\}
+    $ where $a_1, \ldots, a_m \in \myF$ and $a_j \neq 0$ and $a_k \neq 0 $ for $j,k \in \{1, \ddd, m\}, j \neq k.
   \end{equation}
 
   So we know, at least $2$ $a$'s are not $0$.
@@ -141,30 +145,38 @@
     v_k = - \frac{a_1}{a_n}v_1 - \cdots - \frac{a_{k-1}}{a_k}v_k,
   \end{equation}
 
-  which proves that $v_k \in \myspan{v_1, \cdots, v_{k-1}}$.
+  which proves that $v_k \in \myspan{v_1, \ddd, v_{k-1}}$.
 
   Now for the second claim, suppose $k$ is any element of $\setonetillm$ such that
   \begin{equation}
-    v_k \in \myspan{v_1, \cdots, v_{k-1}}.
+    v_k \in \myspan{v_1, \ddd, v_{k-1}}.
   \end{equation}
 
   Then we have
   \begin{equation}
-    v_k = b_1v_1 + \cdots + b_{k-1}v_{k-1}, $ where $b_1, \ddd, b_{k-1} \in \myF.
     \label{eq: equation for v_k}
+    v_k = b_1v_1 + \cdots + b_{k-1}v_{k-1}, \mytext{where} b_1, \ddd, b_{k-1} \in \myF.
   \end{equation}
 
-  Suppose $u \in \myspan{v_1, \ldots, v_m}.$ Then
+  Suppose $u \in \myspan{v_1, \ddd, v_m}$. Then
   \begin{equation}
-  u_k = c_1v_1 + \cdots + c_kv_k + \cdots +c_{m}u_{m} = , $ where $c_1, \ddd, c_{m} \in \myF.
+    \label{eq: linear comb for u}
+    u = c_1v_1 + \cdots + c_kv_k + \cdots +c_{m}v_{m}, \mytext{where} c_1, \ddd, c_{m} \in \myF.
   \end{equation}
 
-  Of course, for $k=1$ or $k=2$ the equation looks different. Now we can replace $v_k$ with the right side of \ref{eq: equation for v_k}.
+  Of course, for corner cases like $k=1$ or $k=2$ and such, the equations look different.
+
+  Now we can replace $v_k$ with the right side of \eqref{eq: equation for v_k} in equation \eqref{eq: linear comb for u}.
   \begin{equation}
-    u = (c_1+b_1)v_1 + \cdots + (c_{k-1} + b_{k-1})v_{k-1} + c_{k+1} v_{k+1} + \cdots + c_m v_m
+    \begin{aligned}
+      u
+      & = c_1v_1 + \cdots + c_k \cdot (b_1v_1 + \cdots + b_{k-1}v_{k-1}) + \cdots +c_{m}v_{m} \\
+      & = (c_1 + c_k b_1)\cdot v_1 + (c_2 + c_k b_2) \cdot v_2 + \cdots + (c_{k-1}+c_k b_{k-1}) \cdot v_{k-1} + c_{k+1} v_{k+1} + \cdots + c_m v_m
+    \end{aligned}
   \end{equation}
 
-  Which shows $u \in \myspan {v_1, \dots, v_{k-1}, v_{k+1}, \dots, v_m} = \myspan {v_1, \dots, v_m}$
+  Which shows $u \in \myspan{v_1, \ddd, v_{k-1}}$. Therefore $\myspan{v_1, \ddd, v_{k-1}, v_{k+1}, \ddd, v_m} = \myspan{v_1, \ddd, v_m}$.
+
 \end{prf}
 \setcounter{thm}{21}
 
@@ -179,7 +191,7 @@
       $Let $B_0 :\equiv  (w_1, \ldots, w_n)$. Note that $V=\myspan{B_0}.
   \end{equation*}
 
-  \emph{\bfseries Step 1:} Let $B_1^* :\equiv (u_1, w_1, \ldots, w_n)$, which yields a linearly dependent list of length $n+1$, because $u_1$ can be written as a linear combination of $w_1, \ldots, w_n$. \\
+  \prooffont{Step 1:} Let $B_1^* :\equiv (u_1, w_1, \ldots, w_n)$, which yields a linearly dependent list of length $n+1$, because $u_1$ can be written as a linear combination of $w_1, \ldots, w_n$. \\
   In other words, the list
   \begin{equation*}
     (u_1, w_1, \ldots, w_n) = B_1^* $ is linearly dependent.$
@@ -195,7 +207,7 @@
     V=\myspan{B_1}
   \end{equation*}
 
-  \emph{\bfseries Step k, for k$=\mathbf{\mathsmaller{2}, \ldots,}$m:} The list $B_{k-1}$ of length $n$ from previous step $k-1$ spans $V$. So we have, $u_k \in \myspan{B_{k-1}}$, because the span never changed by our algorithm. If we add $u_k$ to the list, our list becomes linearly dependent. Let
+  \prooffont{Step k, for k=2$\mathbf{, \ddd,}$m:} The list $B_{k-1}$ of length $n$ from previous step $k-1$ spans $V$. So we have, $u_k \in \myspan{B_{k-1}}$, because the span never changed by our algorithm. If we add $u_k$ to the list, our list becomes linearly dependent. Let
   \begin{equation*}
     B_k^* :\equiv (u_1, \ldots, u_{k-1}, u_k, \underbrace{\widetilde w_{1}, \ldots, \widetilde w_{n-(k-1)})}_{\text{remaining $w$'s}}
   \end{equation*}

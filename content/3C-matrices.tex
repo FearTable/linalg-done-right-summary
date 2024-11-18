@@ -7,9 +7,9 @@
   \label{def: matrix of a linear map}
   Let $T \in \linmap (L,W)$ and let $v_1, \dots, v_n$ be a basis of $V$ and let $w_1, \dots, w_m$ be a basis of $W$. The \qt{matrix of $T$} with respect to these bases is the $m$-by-$n$ matrix $\mmatrix(T)$ whose entries $A_{j,k}$ are defined by
   \begin{equation}
-    T v_k = A_{1,k} w_1 + \cdots + A_{m,k} w_m \equiv \sum_{j=1}^{m} A_{j,k} w_j
+    T v_k = A_{1,k} w_1 + \cdots + A_{m,k} w_m \equiv \sum_{j=1}^{m} A_{j,k} w_j.
   \end{equation}
-  If the bases are not clear from the context, one writes $\mmatrix(T, (v_1, \dots, v_n),(w_1, \dots, w_m))$. One remembers how to construct $\mmatrix(T)$ as follows:
+  If the bases are not clear from the context, one writes $\mmatrix(T, (v_1, \dots, v_n),(w_1, \dots, w_m))$. One remembers how to construct $\mmatrix(T)$, if one writes the bases on left hand side and on top of the matrix. It looks as follows:
   \begin{equation}
     \mathcal{M} (T) :\equiv
       \begin{blockarray}{cccccc}
@@ -58,7 +58,8 @@ Consider the linear maps $T: U \to V$ and $S: V \to W$. The composition $ST$ is 
 
 %One can choose a definition of matrix multiplication that forces this question to have a positive answer.
 
-Later on, matrix multiplication will be defined such that this question has a positive answer.
+Later on, matrix multiplication will be defined accordingly such that this question has a positive answer.
+
 Let $A :\equiv \mmatrix(S)\in \myF^{m,n}$ and $B :\equiv \mmatrix(T)\in \myF^{m,p}$. Here are the matrices of $A$ and $B$.
 \begin{equation}
   A=\mathcal{M} (S) =

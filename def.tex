@@ -1,3 +1,6 @@
+% A short function to set a counter. 'mce' stands for make counter equal.
+\newcommand{\mce}[1]{\setcounter{thm}{#1-1}}
+
 % only displays equation numbers if they are referenced
 \mathtoolsset{showonlyrefs,showmanualtags}
 
@@ -33,10 +36,10 @@
   leftmargin        = 0.4em ,
   rightmargin       = 0.4em ,
   innermargin       = 0pt ,
-  innertopmargin    = 0.4em, %0.6 %.675em ,
+  innertopmargin    = 0.5em, %0.6 %.675em ,
   innerleftmargin   = 0.4em, %.675em ,
   innerrightmargin  = 0.4em,
-  innerbottommargin = 0.2em, %.675em +3pt,
+  innerbottommargin = 0.3em, %.675em +3pt,
   hidealllines      = true,
   singleextra       = {
     \draw [thick] (O) -- ++(0,1em) (O) -- ++(1em,0) ;
@@ -63,6 +66,8 @@
 
 \renewenvironment{prf}{{\textbf{\scshape \slshape Proof:}}}{\hfill $\qedsymbol$}
 \renewenvironment{proof}{{\textbf{\scshape \slshape Proof:}}}{\hfill $\qedsymbol$}
+
+\newcommand{\prooffont}[1]{\textbf{\scshape \slshape #1}}
 
 % put the new mdframed style around the 'proof' and 'xmpl0 environment:
 %\surroundwithmdframed[style=proof]{xmpl}

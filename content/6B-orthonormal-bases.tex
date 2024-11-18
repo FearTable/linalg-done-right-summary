@@ -1,3 +1,145 @@
+\section{Orthonormal Bases}
+
 \subsection{Orthonormal Lists and the Gram-Schmidt Procedure}
+\mce{22}
+\begin{mydef}[orthonormal]
+  A list of vectors is called \qt{orthonormal} if each vector in the list has norm $1$ and is orthogonal to all the other vector in the list. Since the square root of $1$ is $1$, we can use the the following definition as well:
+
+  A list $e_1, \ddd, e_m$ of vectors in $V$ is \qt{orthonormal} if $\forall j,k \in \{1, \ddd, m\}$
+  \begin{equation}
+    \ip{e_j}{e_k} = \begin{cases}
+      1,  & \text{if $j=k$} \\
+      0, & \text{if $j \neq k$}
+    \end{cases}
+  \end{equation}
+
+  Recall that $\norm{v} \equiv \sqrt{\ip{v}{v}}$.
+\end{mydef}
+
+\mce{24}
+\begin{thm}[norm of an orthonormal linear combination]
+  \label{thm: norm of an orthonormal linear combination}
+  If $e_1, \ddd, e_m$ is an orthonormal list of vectors in $V$, Then
+  \begin{equation}
+    \norm{a_1e_1 + \cdots+ a_m e_m} ^2 = |a_1|^2 + \cdots + |a_m|^2 \quad \forall a_1, \ddd, a_m \in \myF.
+  \end{equation}
+\end{thm}
+\begin{prf}
+  Because $\forall k: \norm{e_k}=1$, this follows from repeated applications of the Pythagorean theorem \ref{thm: pythagorean theorem}
+  \begin{equation}
+    \begin{aligned}
+      \norm{a_1e_1 + \cdots+ a_m e_m} ^2
+      & = \norm{(a_1e_1 + \cdots + a_{m-1}e_{m-1}) + a_m e_m} ^2 \\
+      & = \norm{(a_1e_1 + \cdots + a_{m-1}e_{m-1})}^2 + \norm{a_m e_m} ^2 \\
+      & = \norm{(a_1e_1 + \cdots + a_{m-2}e_{m-2}) + a_{m-1}e_{m-1}}^2 + |a_m|^2 \\
+      & = \norm{(a_1e_1 + \cdots + a_{m-2}e_{m-2})}^2 + \norm{a_{m-1}e_{m-1}}^2 + |a_m|^2\\
+      & = \norm{(a_1e_1 + \cdots + a_{m-3}e_{m-3}) + a_{m-2}e_{m-2}}^2 + |a_{m-1}|^2 + |a_m|^2\\
+      & = \; \cdots \\
+      & = |a_1|^2 + |a_2|^2 + \cdots + |a_{m-1}|^2 + |a_m|^2
+    \end{aligned}
+  \end{equation}
+  \vspace{-1em}
+\end{prf}
+
+\mce{25}
+\begin{thm}[linear independence]
+  \label{thm: orthonormal lists are linearly independent}
+  Every orthornomal list of vectors is linearly independent.
+\end{thm}
+\begin{prf}
+  Suppose $e_1, \ddd, e_m$ is an orthonormal list of vectors in $V$ and $a_1, \ddd, a_m \in \myF$ are \st\begin{equation}
+    a_1e_1 + \cdots + a_m e_m = 0.
+  \end{equation}
+
+  $\implies |a_1|^2 + \cdots + |a_m|^2 = 0$ by \ref{thm: norm of an orthonormal linear combination}, which means that all the $a_k$'s are $0$. This is all that is needed to show.
+\end{prf}
+
+\mce{26}
+\begin{thm}[Bessel's inequality]
+  Suppose $e_1, \ddd, e_m$ is an orthonormal list of vectors in $V$. If $v \in V$ then
+  \begin{equation}
+    |\ip{v}{e_1}|^2 + \cdots + |\ip{v}{e_m}|^2 \leq \norm{v}^2.
+  \end{equation}
+\end{thm}
+\begin{prf}
+  Suppose $v \in V$. Then
+  \begin{equation}
+    v= \underbrace{\ip{v}{e_1}e_1 + \cdots + \ip{v}{e_m} e_m}_u + \underbrace{v - \ip{v}{e_1}e_1 + \cdots + \ip{v}{e_m} e_m}_w
+  \end{equation}
+
+  Let $u$ and $w$ be defined as in the equation above. If $k \in \{1, \ddd, m\}$, then
+  \begin{equation}
+    \begin{aligned}
+      \ip{w}{e_k}
+      &=\ip{v - \underbrace{\ip{v}{e_1}}_{\in \; \myF}e_1 + \cdots + \underbrace{\ip{v}{e_m}}_{\in \; \myF} e_m}{ \,e_k \,} \\
+      &=\ip{v}{e_k} - \ip{v}{e_1}\ip{e_1}{e_k} - \ip{v}{e_2}\ip{e_2}{e_k} - \, \cdots \, - \ip{v}{e_m}\ip{e_m}{e_k} \\
+      &=\ip{v}{e_k} - \ip{v}{e_k}\ip{e_k}{e_k} \\
+      &=0. \mytext{Hence} \\
+      \ip{w}{u}
+      & = \ip{w}{\underbrace{\ip{v}{e_1}}_{\in \; \myF}e_1 + \cdots + \underbrace{\ip{v}{e_m}}_{\in \; \myF} e_m} \\
+      & = \ip{w}{\ip{v}{e_1}e_1} + \cdots + \ip{w}{\ip{v}{e_m}e_m} \\
+      & = \overline{\ip{v}{e_1}}\ip{w}{e_1} + \cdots + \overline{\ip{v}{e_m}}\ip{w}{e_m} \\
+      & = 0.
+    \end{aligned}
+  \end{equation}
+
+  Since this means that $u$ and $w$ are orthogonal, we can use the well known Pythagorean theorem \ref{thm: pythagorean theorem} to conclude that
+  \begin{equation}
+    \begin{aligned}
+      \norm{v}^2
+      &=    \norm{u}^2 + \norm{w}^2 \\
+      &\geq \norm{u}^2 \\
+      &= |\ip{v}{e_1}|^2 + \cdots + |\ip{v}{e_m}|^2,
+    \end{aligned}
+  \end{equation}
+  where the last line comes from \ref{thm: norm of an orthonormal linear combination}. If you look at the definition of $u=\ip{v}{e_1}e_1 + \cdots + \ip{v}{e_m} e_m$, the inner products are the coefficients in regards to the orthonormal basis $e_1, \ddd, e_m$.
+\end{prf}
+
+\begin{mydef}[orthonormal basis]
+  An \qt{orthonormal} basis of $V$ is an orthonormal list of vectors in $V$ that is also a basis in $V$.
+\end{mydef}
+
+\begin{mydef}[orthonormal lists of the right length are orthonormal bases]
+  Suppose $\dim V \neq \infty$.
+\end{mydef}
+
+\mce{30}
+\begin{thm}[writing a vector as a linear combination of an orthonormal basis]
+  Supoose $e_1, \ddd, e_n$ is an orthonormal basis of $V$ and $u,v \in V$. Then
+  \begin{enumerate}[label=(\alph*)]
+    \item $v=\ip{v}{e_1}e_1 + \cdots + \ip{v}{e_n}e_n$;
+    \item $\norm{v}^2 = |\ip{v}{e_1}|^2 + \cdots + |\ip{v}{e_m}|^2$
+    \item $\ip{u}{v} = \ip{u}{e_1} \overline{\ip{v}{e_1}} + \cdots + \ip{u}{e_n} \overline{\ip{v}{e_n}}$
+  \end{enumerate}
+\end{thm}
+\begin{prf}
+  Let $v=a_1 e_1 + \cdots + a_n e_n$. Then $\forall k \in \{1, \ddd, n\}$ we have
+  \begin{equation}
+    \begin{aligned}
+      \ip{v}{e_k}
+      &=\ip{a_1 e_1 + \cdots + a_n e_n}{e_k} \\
+      &=\ip{a_1 e_1}{e_k} + \cdots + \ip{a_n e_n}{e_k}\\
+      &=\ip{a_ke_k}{e_k} \\
+      &= a_k\ip{e_k}{e_k} \\
+      &=a_k
+    \end{aligned}
+  \end{equation}
+  Thus (a) holds.
+
+  Now (b) follows immediately from (a) and \ref{thm: norm of an orthonormal linear combination}.
+
+  Using conjugate linearity
+  \begin{equation}
+    \begin{aligned}
+      \ip{u}{v}
+      &=\ip{u}{\ip{v}{e_1}e_1 + \cdots + \ip{v}{e_n}e_n} \\
+      &= \ip{u}{\ip{v}{e_1}e_1} + \cdots + \ip{u}{\ip{v}{e_n}e_n} \\
+      &= \overline{\ip{v}{e_1}}\ip{u}{e_1} + \cdots + \overline{\ip{v}{e_n}}\ip{u}{e_n} \\
+      &= \ip{u}{e_1}\overline{\ip{v}{e_1}} + \cdots + \ip{u}{e_n}\overline{\ip{v}{e_n}}
+    \end{aligned}
+  \end{equation}
+
+  So (c) holds.
+\end{prf}
 
 \subsection{Linear Functionals on Inner Product Spaces}
