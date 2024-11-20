@@ -1,0 +1,133 @@
+\section{Orthogonal Complements and Minimalization Problems}
+\subsection{Orthogonal Complements}
+
+\mce{46}
+\begin{mydef}[orthogonal complement, $U^{\bot}$]
+  If $U\subset V$, then the \qt{orthogonal complement} of $U$, denoted by $U^{\bot}$, is defined as follows:
+  \begin{equation}
+    U^{\bot} :\equiv \{v \in V \; \mid \; \ip{u}{v} = 0 \quad \forall u \in U \}.
+  \end{equation}
+\end{mydef}
+
+\mce{48}
+\begin{thm}[properties of the orthogonal complement]
+  \phantom{.}
+  \begin{enumerate}[label=(\alph*)]
+    \item If $U \subseteq V$, then $U^{\bot}$ is subspace $V$.
+    \item $\{0\}^{\bot} = V$.
+    \item $V^{\bot} = \{0\}.$
+    \item If $U$ is a subset of $V$, then $U \cap U^{\bot} \subseteq \{0\}$.
+    \item If $G$ and $H$ are subsets of $V$ and $G \subseteq H$, then
+    \begin{equation}
+      H^{\bot} \subseteq G^{\bot}. \mytext{This is not a typo.}
+    \end{equation}
+  \end{enumerate}
+\end{thm}
+\begin{prf}
+  \phantom{.}
+  \begin{enumerate}[label=(\alph*)]
+    \item { We have to check for additive identity, closedness under addition and closedness under scalar multiplication.
+    \begin{itemize}
+      \item $\ip{u}{0}=0 \quad \forall u\in U \implies 0 \in U^{\bot}.$
+      \item Let $v,w \in U^{\bot}, u \in U. \ip{u}{v+w}=\ip{u}{v}+\ip{v}{w}=0. \implies v+w \in U^{\bot}.$
+      \item Let $\lambda \in \myF, w \in U^{\bot}, u \in U: \ip{u}{\lambda v} = \overline \lambda \ip{u}{v} = \overline \lambda 0 = 0.$ $\implies$ $\lambda w \in U^{\bot}$.
+    \end{itemize}
+    Therefore $U^{\bot}$ is a subspace of $V$.
+    }
+    \item Let $v \in V$. $\implies \ip{0}{v} = 0$. $\implies$ $v \in \{0\}^{\bot}$. Since $v$ was arbitrary, $\implies$ $\{0\}^{\bot}=V$.
+    \item Let $v \in V^{\bot}$ $\implies$ $\ip{v}{v}=0$. $\implies$ $v=0$. $\implies$ $V^{\bot} =\{0\}$.
+    \item Suppose $U \subseteq V$ and $u \in U \cap U^{\bot}$. $\implies$ $\ip{u}{u}=0$ $\implies$ $u = 0.$ $\implies U \cap U^{\bot} \subseteq \{0\}$.
+    \item Suppose $G\subseteq V$ and $G \subseteq V$ and $G \subseteq H$. [As usual, we missuse $\subseteq$ to denote subspaces.]
+    \[
+      \begin{aligned}
+        \text{Let $v\in H^{\bot}$.}
+        &\implies \ip{u}{v} = 0 \quad \forall u \in H. \\
+        & \implies  \ip{u}{v} = 0 \quad \forall u \in G \\
+      \end{aligned}
+    \]
+    $
+      \implies v \in G^{\top}. \mytext{Thus} H^{\top} \subseteq G^{\top}.
+    $
+  \end{enumerate}
+  \vspace{-1em}
+\end{prf}
+
+\mce{49}
+\begin{thm}[direct sum of a subspace and its orthogonal complement]
+  \label{thm: direct sum of a subspace and its orthogonal complement}
+  Suppose $U$ is a finite dimensional subspace of $V$. Then
+  \[
+    V = U \oplus U^{\bot}. \quad (v \in V $ can be uniquely written as $ v=u+w, $ where $ u\in U, w\in U^{\bot}).
+  \]
+\end{thm}
+\begin{prf}
+  Let $v \in V$ and $e_1, \ddd, e_m$ be an orthonormal basis of $U$. Like in \ref{thm: Bessel's inequality}, we have that
+  \[
+    v= \underbrace{\ip{v}{e_1}e_1 + \cdots + \ip{v}{e_m} e_m}_u + \underbrace{v - \ip{v}{e_1}e_1 + \cdots + \ip{v}{e_m} e_m}_w.
+  \]
+
+  and we let $u$ and $w$ be defined as above.
+  \[
+    \forall k \in \{1, \ddd, m\}: e_k \in U. \implies u \in U, \quad $because it a linear combination of $e_1, \ddd, e_m.
+  \]
+
+  Again like in \ref{thm: Bessel's inequality}, $\forall k \in \{1, \ddd, m\}$:
+  \begin{equation}
+    \begin{aligned}
+      \ip{w}{e_k}
+      &=\ip{v - \underbrace{\ip{v}{e_1}}_{\in \; \myF}e_1 + \cdots + \underbrace{\ip{v}{e_m}}_{\in \; \myF} e_m}{ \,e_k \,} \\
+      &=\ip{v}{e_k} - \ip{v}{e_1}\ip{e_1}{e_k} - \ip{v}{e_2}\ip{e_2}{e_k} - \, \cdots \, - \ip{v}{e_m}\ip{e_m}{e_k} \\
+      &=\ip{v}{e_k} - \ip{v}{e_k}\ip{e_k}{e_k} \\
+      &=0.
+    \end{aligned}
+  \end{equation}
+
+  $\implies w \, \bot \, x$, whenever $x \in \myspan{e_1, \ddd, e_m}$. This is very easy to verify using linearity of the inner product in the second slot. Since we had $\forall k \in \{1, \ddd, m \}: e_k \in U,$
+  \[
+    \implies w \in U^{\bot}.
+  \]
+
+  $\implies v = u + w, \where u \in U \myand w \in W^{\bot}$.
+\end{prf}
+
+\begin{thm}[dimension of orthogonal complement]
+  Suppose $V$ is finite-dimensional and $U$ is a subspace of $V$. Then
+  \[
+    \dim U^{\bot} = \dim V - \dim U
+  \]
+\end{thm}
+\begin{prf}
+  Because $V$ is a subspace of itself, this follows immediately from \ref{thm: direct sum of a subspace and its orthogonal complement} and \ref{thm: a sum is a direct sum if and only if the dimensions add up}.
+\end{prf}
+
+\begin{thm}[orthogonal complement of the orthogonal complement]
+  Suppose $U$ is a finite-dimensional subspace of $V$. Then
+  \[
+    U = (U^{\bot})^{\bot}
+  \]
+\end{thm}
+\begin{prf}
+  We proof this theorem by showing that $U \subseteq (U^{\bot})^{\bot}$ and $ (U^{\bot})^{\bot} \subseteq U$.
+
+  \prooffont{Step 1:} Let $u \in U$. $\implies$ $\ip{u}{w}=0 \; \forall w \in U^{\bot}$.
+  Therefore for the same $w$'s using conjugate symmetry
+  \[
+    \ip{u}{w}=\overline{\ip{w}{u}} =0 \implies
+    \overline{\overline{\ip{w}{u}}} =\overline{0} \implies
+    \ip{w}{u} = 0.
+  \]
+  Because $u$ is orthogonal to every vector
+  $w$ in $U^{\bot}$, we have $u \in (U^{\bot})^{\bot}$. Hence $U \subseteq (U^{\bot})^{\bot}$.
+
+  \prooffont{Step 2:} Let $v \in (U^{\bot})^{\bot} \subseteq V.$ By \ref{thm: direct sum of a subspace and its orthogonal complement} we can write $v$ as a sum like this:
+  \[
+    v = u + w, \where u \in U \myand w \in U^{\bot}.
+  \]
+
+  Hence $v-u=w \in U^\bot$. Because
+  $v \in (U^\bot)^\bot$ and $u \in U \subseteq (U^\bot)^\bot$ from step 1, we have
+  \[
+    v-u=w \in U^\bot \cap (U^\bot)^\bot \subseteq \{0\}.
+  \]
+  $\implies v=u.$ $\implies v \in U.$ $\implies (U^\top)^\top \subseteq U$, because $v$ was arbitrary.
+\end{prf}
