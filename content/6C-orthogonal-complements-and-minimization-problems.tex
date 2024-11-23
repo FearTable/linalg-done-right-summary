@@ -170,7 +170,8 @@
   Notice that $P_U u = u$ and $P_U v = 0 \iff v \in \{u\}^\bot$. Recall $\ip{u}{u} = \norm{u}^2$.
 \end{example}
 
-\begin{thm}[properties of orthogonal projection $P_U$]
+\begin{thm}[properties orthogonal projection $P_U$]
+  \label{thm: properties orthogonal projection}
   Suppose $U \subseteq V$, $\dim U \neq \infty$. Then
   \begin{enumerate}[label=(\alph*)]
     \item $P_U \in \linmap(V)$;
@@ -265,8 +266,8 @@ If $T\in \linmap(V,W)$ is not invertible, instead of solving the equation $Tv = 
 
 Recall that
 \begin{itemize}
-  \item By \ref{thm: properties of the orthogonal complement} (b): $P_{\myrange T} w = w$ if $w \in \myrange T$.
-  \item By \ref{thm: properties of the orthogonal complement} (c): $P_{\myrange T} w =0$ if $w \in (\myrange T)^\bot$.
+  \item By \ref{thm: properties orthogonal projection} (b): $P_{\myrange T} w = w$ if $w \in \myrange T$.
+  \item By \ref{thm: properties orthogonal projection} (c): $P_{\myrange T} w =0$ if $w \in (\myrange T)^\bot$.
 \end{itemize}
 
 Since inverse maps are always injective and onto, we have that
@@ -276,6 +277,7 @@ Since inverse maps are always injective and onto, we have that
 \end{itemize}
 
 \begin{thm} [algebraic properties of the pseudoinverse]
+  \label{thm: algebraic properties of the pseudoinverse}
   Suppose $\dim V \neq \infty$ and $T\in \linmap(V,W)$.
   \begin{enumerate}[label=(\alph*)]
     \item If $T$ is invertible, then $T^\dagger = T^{-1}$.
@@ -284,17 +286,108 @@ Since inverse maps are always injective and onto, we have that
   \end{enumerate}
 \end{thm}
 \begin{prf}
-  Suppose $T$ is invertible. This means $\mynull T = \{0\}$. Hence by \ref{thm: properties of the orthogonal complement} (b) we have that
-  \[
-    (\mynull T)^\bot = \{0\}^\bot = V. \implies \left. T \right |_{(\mynull T)^\bot} = \left. T \right|_V= T.
-  \]
+  Suppose $T \in \linmap(V,W), \dim V \neq \infty$ is invertible. This means $\mynull T = \{0\}$. Hence by \ref{thm: properties of the orthogonal complement} (b) we have that
+  \begin{equation}
+      \label{eq: restriction equals original}
+      (\mynull T)^\bot = \{0\}^\bot = V. \implies \left. T \right |_{(\mynull T)^\bot} = \left. T \right|_V= T.
+  \end{equation}
 
   Invertibility also implies that $\myrange T = W$. Hence
-  \[
+  \begin{equation}
+    \label{eq: projection equals identity}
     P_{\myrange T} = I_w
+  \end{equation}
+
+
+  Equation \eqref{eq: restriction equals original} and \eqref{eq: projection equals identity} imply that $\forall w \in W:$
+  \[
+    T^\dagger w = \left( \left. T \right|_{(\mynull T)^\bot} \right)^{-1} P_{\myrange T} w = T^{-1} I_W w = T^{-1} w.
   \]
 
+  Therefore we have shown that $T^\dagger = T^{-1}$, which proves (a).
+
+  \prooffont{Proof of (b):} By \eqref{thm: direct sum of a subspace and its orthogonal complement}, we have that $W= \myrange T \oplus (\myrange T)^\bot$.
+
+  So suppose $w \in \myrange T$. Then $P_{\myrange T} w=w$. Hence
+  \[
+    T T^\dagger w = T \left( \left. T \right|_{(\mynull T)^\bot} \right)^{-1} w = P_{\myrange T} w.
+  \]
+
+  Now suppose $w \in (\myrange T)^\bot$. We know from before that $T^\dagger w = 0$. Now
+  \[
+    T T^\dagger w = 0 = P_{\myrange T} w.
+  \]
+
+  Thus $TT^\dagger$ and $P_{\myrange T}$ both agree on $\myrange T$ and and on $(\myrange T)^\bot$.  Hence these two linear maps are equal. So we have proven (b).
+
+  \prooffont{Proof of (c):} By \eqref{thm: direct sum of a subspace and its orthogonal complement}, it is true that $V=\mynull T \oplus (\mynull T)^\bot$.
+
+  So let $v \in (\mynull T)^\bot$. Because $Tv \in \myrange T$, it is the case that $P_{\myrange T} (T v) = Tv$ and therefore
+  \begin{equation}
+    T^\dagger (T v)
+    = \left( \left. T \right|_{(\mynull T)^\bot} \right)^{-1} P_{\myrange T} (Tv)
+    = \left( \left. T \right|_{(\mynull T)^\bot} \right)^{-1} (Tv) = v = P_{(\mynull T)^\bot} v
+  \end{equation}
+
+  Now let $v \in \mynull T$. Then
+  \[
+    T^\dagger T v = 0 = P_{(\mynull T)^\bot} v,
+  \]
+
+  because of \ref{thm: properties orthogonal projection} (c). Thus $T^\dagger T$ and $P_{(\mynull T)^\bot}$ agree on $(\mynull T)^\bot$ and $\mynull T$. Hence these two linear maps are equal. So we have proven (c).
 \end{prf}
 
-Donic Vario
-Speed:
+\begin{thm}[pseudoinverse provides best approximate solution or best solution]
+  Suppose $\dim V \neq \infty$, $T \in \linmap(V,W)$ and $w\in W$.
+  \begin{enumerate}[label=(\alph*)]
+    \item If $v \in V$, then
+    \[
+      \norm{T(T^\dagger w)-w} \leq \norm{Tv -w},
+    \]
+
+    with equality $\iff$ $v \in T^\dagger + \mynull T.$
+
+    \item If $v \in T^\dagger + \mynull T$, then
+    \[
+      \norm{T^\dagger w} \leq \norm{v},
+    \]
+
+    with equality $\iff$ $v=T^\dagger w$.
+  \end{enumerate}
+\end{thm}
+\begin{prf}
+  Suppose $v\in V$. Then with some algebra
+  \begin{equation}
+    \label{eq: Tv-w}
+    Tv -w = \underbrace{(Tv-TT^\dagger w)}_{\in \; \myrange T} + \underbrace{(TT^\dagger w -w)}_{\in \; (\myrange T)^\bot}
+  \end{equation}
+
+  This is because from \ref{thm: algebraic properties of the pseudoinverse} (b) we know that
+  \[
+    TT^\dagger = P_{\myrange T}.
+  \]
+
+  Thus $Tv-TT^\dagger w\in \myrange T$. From \ref{thm: properties orthogonal projection} (f) we know that
+  \[
+    w-TT^\dagger w = w-P_{\myrange T} w \in (\myrange T)^\bot \quad \forall w \in W.
+  \]
+
+  Of course, because of closedness, the same goes for its negative $TT^\dagger w-w \in (\myrange T)^\bot \quad \forall w \in W$.
+
+  This means, we can use the Pythoagorean theorem \ref{thm: pythagorean theorem} and \eqref{eq: Tv-w} becomes
+  \[
+    \begin{aligned}
+      \norm{Tv-w} &= \norm{(Tv-TT^\dagger w) + (TT^\dagger w -w)} \\
+      &= \norm{(Tv-TT^\dagger w)} + \norm{(TT^\dagger w -w)} \\
+      &\geq \norm{(TT^\dagger w -w)},
+    \end{aligned}
+  \]
+  with equality only if $Tv - TT^\dagger w=0$ $\iff$ $v-T^\dagger w \in \mynull T$, which is equivalent to $v\in T^\dagger w + \mynull T$, completing the proof of (a).
+
+  \prooffont{Proof of (b):} Suppose $v \in T^\dagger w + \mynull T$. This is equivalent to $v-T^\dagger w \in \mynull T$. Now
+  \[
+    v = (v-T^\dagger w) + T^\dagger w.
+  \]
+
+  The definition of $T^\dagger$ implies that $T^\dagger w \in (\mynull T)^\bot$. This is because $\left( \left. T \right|_{(\mynull T)^\bot} \right)^{-1}$ is a map from $W$ to $(\mynull T)^\bot \subseteq V$. Thus the Pythagorean theorem implies that $\norm{ T^\dagger w} \leq \norm{v}$, with equality $\iff$ $v=T^\dagger w$.
+\end{prf}
