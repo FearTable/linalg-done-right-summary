@@ -11,6 +11,7 @@
 
 \mce{48}
 \begin{thm}[properties of the orthogonal complement]
+  \label{thm: properties of the orthogonal complement}
   \phantom{.}
   \begin{enumerate}[label=(\alph*)]
     \item If $U \subseteq V$, then $U^{\bot}$ is subspace $V$.
@@ -90,6 +91,7 @@
   $\implies v = u + w, \where u \in U \myand w \in W^{\bot}$.
 \end{prf}
 
+\mce{51}
 \begin{thm}[dimension of orthogonal complement]
   Suppose $V$ is finite-dimensional and $U$ is a subspace of $V$. Then
   \[
@@ -101,6 +103,7 @@
 \end{prf}
 
 \begin{thm}[orthogonal complement of the orthogonal complement]
+  \label{thm: orthogonal complement of the orthogonal complement}
   Suppose $U$ is a finite-dimensional subspace of $V$. Then
   \[
     U = (U^{\bot})^{\bot}
@@ -131,3 +134,167 @@
   \]
   $\implies v=u.$ $\implies v \in U.$ $\implies (U^\top)^\top \subseteq U$, because $v$ was arbitrary.
 \end{prf}
+
+\mce{54}
+\begin{thm}
+  Suppose $U$ is a finite-dimensional subspace of $V$. Then
+  \begin{equation}
+    U^\bot = \{0\} \iff U=V.
+  \end{equation}
+\end{thm}
+\begin{prf}
+  \qt{$\Rightarrow$-direction:} $U^\bot=\{0\}.$ Then by first using \ref{thm: orthogonal complement of the orthogonal complement} and then using \ref{thm: properties of the orthogonal complement} (c), $U = (U^\bot)^\bot = \{0\}^\bot = V$.
+
+  \qt{$\Leftarrow$-direction:} Only using \ref{thm: properties of the orthogonal complement} (c): If $U=V$, then $U^\bot = V^\bot = \{0\}$.
+\end{prf}
+
+\begin{mydef}[orthogonal projection, $P_u$]
+  Suppose $U \subseteq V$, $\dim U \neq \infty$. The \qt{orthogonal projection} of $V$ onto $U$ is the operator $P_U \in \linmap(V)$ defined as follows: \\
+  $\forall v \in V$, we can write  $v = u + w, \where u \in U \myand w \in U^\bot$ (Because $V=U \oplus U^\bot$) Then let
+  \begin{equation}
+    P_U v :\equiv u.
+  \end{equation}
+\end{mydef}
+
+\begin{example}[orthogonal projecton onto one-dimensional subspace]
+  Suppose $u \in V, u\neq 0$ and $U :\equiv \myspan{u}$ is a one-dimensional subspace of $V$. If $v\in V$, then
+  \[
+  v
+  = \underbrace{\frac{\ip{v}{u}}{\norm{u}^2} u}_{\in \, \myspan{u}\,=\,U} + \underbrace{\left( v- \frac{\ip{v}{u}}{\norm{u}^2} u \right  )}_{\in \, U^\bot} \]
+
+  Therefore
+  \[
+    P_U v = \frac{\ip{v}{u}}{\norm{u}^2} u \quad \forall v \in V.
+  \]
+
+  Notice that $P_U u = u$ and $P_U v = 0 \iff v \in \{u\}^\bot$. Recall $\ip{u}{u} = \norm{u}^2$.
+\end{example}
+
+\begin{thm}[properties of orthogonal projection $P_U$]
+  Suppose $U \subseteq V$, $\dim U \neq \infty$. Then
+  \begin{enumerate}[label=(\alph*)]
+    \item $P_U \in \linmap(V)$;
+    \item $P_U u = u \quad \forall u \in U$;
+    \item $P_U w = 0 \quad \forall w \in U^\bot$;
+    \item $\myrange P_U = U$;
+    \item $\mynull P_U = U^\bot$;
+    \item $v-P_U v \in U^\bot \quad \forall v \in V$;
+    \item $P_U^2 = P_U$;
+    \item $\norm{P_U v} \leq \norm{v} \quad \forall v \in V$;
+    \item If $e_1, \ddd, e_m$ is an orthonormal basis of $U$ and $v \in V$, then
+    \[
+      P_U v = \ip{v}{e_1}e_1 + \cdots + \ip{v}{e_m}e_m.
+    \]
+  \end{enumerate}
+\end{thm}
+
+\subsection{Minimization Problems}
+Given a subspace $U\subseteq V$ and $v\in V$, find a $u \in U$ \st $\norm{v-u}$ is as small as possible.
+
+\begin{thm}[minimizing distance to a subspace]
+  Suppose $U$ is a finite-dimensional subspace of $V$, $v\in V$, and $u \in U$. Then
+  \[
+    \norm{v-P_U v} \leq \norm{v-u}.
+  \]
+
+  Firthermore, the inequality above is an equality $\iff$ $u=P_U v$.
+\end{thm}
+\begin{prf}
+  For this proof, visualize that $v-P_Uv$ is pointing from $P_Uv$ to $v$ and $P_U v -u$ is Pointing from $u$ to the projection of $v$, namely $P_U v$ which lies on the vector space $U$.
+
+  We also have the properties that $v-P_Uv \in U^\bot$ and $P_U v - u \in U$. Therefore, we can use the Pythagorean theorem \ref{thm: pythagorean theorem} after adding a always-positive term to the left hand side of the inequality.
+  \[
+  \begin{aligned}
+    \norm{v-P_Uv}^2
+    & \leq \norm{v-P_U v}^2 + \underbrace{\norm{P_U v -u}^2}_{\geq \; 0} \\
+    & = \norm{(v-P_U v) + (P_U v -u)}^2 \quad \mytext{(the triange inequality does not apply here)} \\
+    & = \norm{v-u}^2.
+  \end{aligned}
+  \]
+
+  The inequality proved above is an equality $\iff$ $\norm{P_U v -u}^2=0$ $\iff$ $u= P_U v$. Note that in this version of the Pythagorean theorem \ref{thm: pythagorean theorem}, one or both vectors are allowed to be $0$.
+\end{prf}
+
+\subsection{Pseudoinverse}
+
+If $T\in \linmap(V,W)$ is not invertible, instead of solving the equation $Tv = w$, which is the same as $Tv-w=0$, we can try to find $v\in V$ \st $\norm{Tv -w}$ is as small as possible.
+
+\begin{thm}[restriction of a linear map to obtain a one-to-one and onto map]
+  \label{thm: restriction of a linear map to obtain a one-to-one and onto map}
+  Suppose $\dim V \neq 0$ and $T\in \linmap (V,W)$. Then $\left . T \right | _{(\mynull T)^\bot}$ is an injective map of $(\mynull T)^\bot$ onto $\myrange T$.
+\end{thm}
+\begin{prf}
+  We will first prove injectivity and then surjectivity.
+  Suppose that $v \in (\mynull T)^\bot$ \st $\left. T \right | _{(\mynull T)^\bot}=0$. Hence $Tv=0$ and $v \in (\mynull T) \cap (\mynull T)^\bot$, which implies that $v=0$ by \ref{thm: properties of the orthogonal complement}, because $(\mynull T) \cap (\mynull T)^\bot \subseteq \{0\}$.
+  \[
+  \implies \mynull \left. T \right|_{(\mynull T)^\bot}=\{0\},
+  \]
+
+  which \ref{thm: injectivity iff null space equals zero-set} implies that $\left. T \right|_{(\mynull T)^\bot}$ is injective.
+
+  To prove that $\myrange \left.T \right | _{(\mynull T)^\bot}$ is onto $\myrange T$, we will show that $\myrange \left. T \right | _{(\mynull T)^\bot} \subseteq \myrange T$ and then $\myrange T \subseteq \myrange \left. T \right | _{(\mynull T)^\bot}$. Because this will imply that $\myrange T = \myrange \left. T \right |_{(\mynull)^\bot}$ and therefore surjectivity.
+
+  \prooffont{Proof of $\myrange \left. T \right | _{(\mynull T)^\bot} \subseteq \myrange T$:}
+  The fact that $\myrange \left. T \right | _{(\mynull T)^\bot} \subseteq \myrange T$ is actually obvious, because $\myrange \left. T \right | _{(\mynull T)^\bot}$ is just $T$ on a restricted domain $(\mynull T)^\bot$.
+
+  \prooffont{Proof of $\myrange T \subseteq \myrange \left. T \right | _{(\mynull T)^\bot}:$}
+  Now suppose $w \in \myrange T$. $\implies \exists v \in v$ \st $w=Tv$.
+
+  By \ref{thm: direct sum of a subspace and its orthogonal complement}, there exists $u \in \mynull T$ and $x \in (\mynull T)^\bot$ \st
+  \[
+    v=u+x $ or $ x = v-u. $ Now$
+  \]
+  \[
+    \implies \left.T \right | _{(\mynull T)^\bot} x = T(x) = T(v-u) = T(v) - T(u) = T(v) - 0 = w,
+  \]
+
+  which shows that $w \in \myrange \left. T \right |_{(\mynull T)^\bot}$. Since $w$ was arbitrary, we have shown that $\myrange T \subseteq \myrange \left. T \right | _{(\mynull T)^\bot}$.
+
+  So we conclude that $\myrange T = \myrange \left. T \right |_{(\mynull)^\bot}$.
+\end{prf}
+
+\mce{68}
+\begin{mydef}
+  Suppose $\dim V \neq \infty$ and $T \in \linmap(V,W)$. The \qt{pseudoinverse} $T^\dagger \in \linmap(V, W)$ of $T$ is defined by
+  \[
+    T^\dagger w :\equiv  \left( \left. T \right|_{(\mynull T)^\bot} \right)^{-1} P_{\myrange T} w \quad \forall w \in W.
+  \]
+
+  Theorem \ref{thm: restriction of a linear map to obtain a one-to-one and onto map} makes sure that $\left( \left. T \right|_{(\mynull T)^\bot} \right)^{-1} \in \linmap \left(W, (\mynull T)^\bot \right)$ is well defined.
+\end{mydef}
+
+Recall that
+\begin{itemize}
+  \item By \ref{thm: properties of the orthogonal complement} (b): $P_{\myrange T} w = w$ if $w \in \myrange T$.
+  \item By \ref{thm: properties of the orthogonal complement} (c): $P_{\myrange T} w =0$ if $w \in (\myrange T)^\bot$.
+\end{itemize}
+
+Since inverse maps are always injective and onto, we have that
+\begin{itemize}
+  \item $w \in \myrange T$ $\implies$ $T^\dagger w$ is the unique element of $(\mynull T)^\bot$ \st $T(T^\dagger w ) = w$.
+  \item $w \in (\myrange T)^\bot \implies T^\dagger w = 0 $.
+\end{itemize}
+
+\begin{thm} [algebraic properties of the pseudoinverse]
+  Suppose $\dim V \neq \infty$ and $T\in \linmap(V,W)$.
+  \begin{enumerate}[label=(\alph*)]
+    \item If $T$ is invertible, then $T^\dagger = T^{-1}$.
+    \item $T T^\dagger = P_{\myrange T} =$ the orthogonal projection of $W$ onto $\myrange T$.
+    \item $T^\dagger T = P_{(\mynull T)^\bot} =$ the orthogonal projection of $V$ onto $(\mynull)^\bot$.
+  \end{enumerate}
+\end{thm}
+\begin{prf}
+  Suppose $T$ is invertible. This means $\mynull T = \{0\}$. Hence by \ref{thm: properties of the orthogonal complement} (b) we have that
+  \[
+    (\mynull T)^\bot = \{0\}^\bot = V. \implies \left. T \right |_{(\mynull T)^\bot} = \left. T \right|_V= T.
+  \]
+
+  Invertibility also implies that $\myrange T = W$. Hence
+  \[
+    P_{\myrange T} = I_w
+  \]
+
+\end{prf}
+
+Donic Vario
+Speed:
