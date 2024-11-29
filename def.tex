@@ -13,7 +13,7 @@
 \setlength{\belowdisplayskip}{0em}
 \setlength{\abovedisplayshortskip}{0pt}
 \setlength{\belowdisplayshortskip}{0pt}
-\setlength{\jot}{0pt}
+\setlength{\jot}{1pt}
 
 \titlespacing{\chapter}{0pt}{0em}{0.4em}
 \titlespacing{\section}{0pt}{1.3em}{0.4em} %15pt, 3pt
@@ -31,7 +31,7 @@
 
 % new mdframed style that places the edges at the corners (.675em):
 \mdfdefinestyle{proof-style}{
-  skipabove         = 0.2em,% .5\baselineskip ,
+  skipabove         = 0.1em,% .5\baselineskip ,
   skipbelow         = 0,%.5\baselineskip ,
   leftmargin        = 0.4em ,
   rightmargin       = 0.4em ,
@@ -42,14 +42,14 @@
   innerbottommargin = 0.3em, %.675em +3pt,
   hidealllines      = true,
   singleextra       = {
-    \draw [thick] (O) -- ++(0,1em) (O) -- ++(1em,0) ;
-    \draw [thick] (P-|O) -- ++(0,-1em) (P-|O) -- ++(1em,0) ;
+    \draw [thick] (O) -- ++(0,1.2em) (O) -- ++(1.2em,0) ;
+    \draw [thick] (P-|O) -- ++(0,-1.2em) (P-|O) -- ++(1.2em,0) ;
   },
   firstextra        = {
-    \draw [thick] (P-|O) -- ++(0,-1em) (P-|O) -- ++(1em,0) ;
+    \draw [thick] (P-|O) -- ++(0,-1.2em) (P-|O) -- ++(1.2em,0) ;
   },
   secondextra       = {
-    \draw [thick] (O) -- ++(0,1em) (O) -- ++(1em,0) ;
+    \draw [thick] (O) -- ++(0,1.2em) (O) -- ++(1.2em,0) ;
   },
 }
 
@@ -83,6 +83,9 @@
 {.2em}                        % Space after theorem head
 {{\textbf{\scshape{\thmname{#1}\thmnumber{ #2}}}{\normalfont \thmnote{ ({\itshape#3})}}}}
                               % Theorem head spec (can be left empty, meaning ‘normal’)
+
+% If we ever want to use the same font as in theorem head:
+\newcommand{\theoremfont}[1]{\textbf{\scshape{#1}}}
 
 % Define 'thm', 'thm-non', 'mydef', 'mydef-non', 'example', 'example-non'
 % environments
@@ -137,6 +140,15 @@
 %\DeclarePairedDelimiter\norm{\lVert}{\rVert}
 %\DeclarePairedDelimiter\innerproduct{\langle}{\rangle}
 
+
+% equality with text above
+\newcommand\eqwtxt[1]{
+\;\overset{\text{\scriptsize#1}}{=}}
+
+% iff with text above
+\newcommand\iffwtxt[1]{
+  \;\overset{\text{\scriptsize#1}}{\iff¨}}
+
 % we need some space around dots
 \newcommand\ddd{{\, \ldots \,\,}}
 
@@ -146,7 +158,8 @@
 % quotes
 \newcommand\qt[1]{\textit{``#1''}}
 
-\newcommand{\ip}[2]{\left \langle #1, #2 \right \rangle}
+\newcommand{\ip}[2]{\left \langle #1 \, , \, #2 \right \rangle}
+\newcommand{\innp}[2]{\left \langle #1, #2 \right \rangle}
 \newcommand{\norm}[1]{\left \lVert #1 \right \rVert}
 \newcommand{\gt}{>}
 \newcommand{\lt}{<}
@@ -306,5 +319,5 @@ drop lifted shadow,
 \titleformat{\chapter}[block]
 {\bfseries\scshape}{\relscale{1.1}#1 {\footnotesize (Chapter \thechapter)}}{0.5em}{\large}
 \titleformat{\section}{\bfseries\scshape}{}{0em}{{\relscale{1.1}#1} {\footnotesize(Section  \thesection)}} %Large
-\titleformat{\subsection}{\relscale{1.1}\bfseries\scshape}{}{0em}{#1 {\footnotesize (Sub-subsection \thesubsection)}} %large
+\titleformat{\subsection}{\relscale{1.1}\bfseries\scshape}{}{0em}{#1 {\footnotesize (Sub-Section \thesubsection)}} %large
 % END custom chapter format ********************************

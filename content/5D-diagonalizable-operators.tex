@@ -169,9 +169,12 @@
     \end{aligned}
   \end{equation}
 
-  Because $\lambda_j \neq \lambda_k$ $\implies$ $u=0$. $\implies \myrange(T-\lambda_m I) \cap \mynull (T-\lambda_m I) = \{0\}.$
+  Because $\forall i\neq j: \lambda_j \neq \lambda_k$ $\implies$ $u=0$. $\implies \myrange(T-\lambda_m I) \cap \mynull (T-\lambda_m I) = \{0\}.$
 
   Thus $\myrange(T-\lambda_m I) + \mynull (T-\lambda_m I)$ is a direct sum by \ref{thm: sum and intersection of two subspaces}.
+  \[
+    \myrange(T-\lambda_m I) + \mynull (T-\lambda_m I) = \myrange(T-\lambda_m I) \oplus \mynull (T-\lambda_m I)
+  \]
 
   Since $T-\lambda_m I \in \linmap (V)$ we can use the Rank Nullity Theorem \ref{rank-nullity-theorem} to conclude that
   \begin{equation}
@@ -180,10 +183,10 @@
 
   \ref{thm: a sum is a direct sum if and only if the dimensions add up} states that a sum is a direct sum if and only if the dimensions add up to the dimension of the sum. This means that we can rewrite the equation above to
   \begin{equation}
-    \dim V = \dim (\myrange (T-\lambda_m I) \oplus \mynull (T-\lambda_m I)), \mytext{where} \myrange (T-\lambda_m I) \oplus \mynull (T-\lambda_m I) \subseteq V
+    \dim V = \dim (\myrange (T-\lambda_m I) \oplus \mynull (T-\lambda_m I))
   \end{equation}
 
-  According to \ref{thm: subspace of full dimension equals the whole space}, this implies
+  According to \ref{thm: subspace of full dimension equals the whole space}, together with the fact that $\myrange (T-\lambda_m I) \oplus \mynull (T-\lambda_m I) \subseteq V$, this implies
   \begin{equation}
     V=\myrange(T-\lambda_m I) \oplus \mynull (T-\lambda_m I)
   \end{equation}
@@ -210,5 +213,7 @@
   By \ref{thm: minimal polynomial of a restriction operator}, the minimal polynomial of $T$ is a polynomial multiple of the minimal polynomial of $\left.T\right|_U$.
   Hence the minimal polynomial of $\left.T\right|_U$  has the form required by \ref{thm: necessary and sufficient condition for diagonalizability}, which shows that $\left.T\right|_U$ is diagonalizable. It consists of any factor of the form $(z-\lambda_k)$.
 \end{prf}
+
+
 
 % TODO: Gerhgorin Disk Theorem Def 5.66 and Theorem 5.67

@@ -286,7 +286,7 @@ Since inverse maps are always injective and onto, we have that
   \end{enumerate}
 \end{thm}
 \begin{prf}
-  Suppose $T \in \linmap(V,W), \dim V \neq \infty$ is invertible. This means $\mynull T = \{0\}$. Hence by \ref{thm: properties of the orthogonal complement} (b) we have that
+  Suppose $T \in \linmap(V,W), \; \dim V \neq \infty$ is invertible. This means $\mynull T = \{0\}$. Hence by \ref{thm: properties of the orthogonal complement} (b) we have that
   \begin{equation}
       \label{eq: restriction equals original}
       (\mynull T)^\bot = \{0\}^\bot = V. \implies \left. T \right |_{(\mynull T)^\bot} = \left. T \right|_V= T.
@@ -339,7 +339,7 @@ Since inverse maps are always injective and onto, we have that
 
 \begin{thm}[pseudoinverse provides best approximate solution or best solution]
   Suppose $\dim V \neq \infty$, $T \in \linmap(V,W)$ and $w\in W$.
-  \begin{enumerate}[label=(\alph*)]
+  \begin{enumerate}[label=\textbf{(\alph*)}]
     \item If $v \in V$, then
     \[
       \norm{T(T^\dagger w)-w} \leq \norm{Tv -w},
@@ -377,9 +377,9 @@ Since inverse maps are always injective and onto, we have that
   This means, we can use the Pythoagorean theorem \ref{thm: pythagorean theorem} and \eqref{eq: Tv-w} becomes
   \[
     \begin{aligned}
-      \norm{Tv-w} &= \norm{(Tv-TT^\dagger w) + (TT^\dagger w -w)} \\
-      &= \norm{(Tv-TT^\dagger w)} + \norm{(TT^\dagger w -w)} \\
-      &\geq \norm{(TT^\dagger w -w)},
+      \norm{Tv-w}^2 &= \norm{(Tv-TT^\dagger w) + (TT^\dagger w -w)}^2 \\
+      &= \underbrace{\norm{(Tv-TT^\dagger w)}^2}_{\geq \; 0} + \norm{(TT^\dagger w -w)}^2 \\
+      &\geq \norm{(TT^\dagger w -w)}^2,
     \end{aligned}
   \]
   with equality only if $Tv - TT^\dagger w=0$ $\iff$ $v-T^\dagger w \in \mynull T$, which is equivalent to $v\in T^\dagger w + \mynull T$, completing the proof of (a).
