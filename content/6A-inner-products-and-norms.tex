@@ -37,7 +37,7 @@ For $z \in \compl$, we define the norm of $z$ by
     \item \bfemph{Positivity: } $
     {v,v} \geq 0 \quad \forall v \in V$
     \item \bfemph{Definiteness: } $\ip{v}{v} = 0 \iff v=0$
-    \item \bfemph{Additifity in first slot: } $\ip{u+v}{w}=\ip{u}{w}+\ip{v}{w} \quad \forall u,v,w \in V$
+    \item \bfemph{Additivity in first slot: } $\ip{u+v}{w}=\ip{u}{w}+\ip{v}{w} \quad \forall u,v,w \in V$
     \item \bfemph{Conjugate symmetry:} $\ip{u}{v} = \overline{\ip{v}{u}} \quad \forall u, v \in V$
   \end{itemize}
 \end{mydef}
@@ -54,7 +54,7 @@ For $z \in \compl$, we define the norm of $z$ by
 
 \begin{thm}[basic properties of an inner product]
   $\forall u,v,w \in V$ and $\forall \lambda \in \myF$:
-  \begin{enumerate}[label=(\alph*)]
+  \begin{enumerate}[label=\textbf{(\alph*)}]
     \item $V \ni x \mapsto \ip{u}{x} \in \myF$ is a linear map from $V$ to $\myF$.
     \item $\ip{0}{v} = 0 $
     \item $\ip{v}{0} = 0$
@@ -78,14 +78,14 @@ For $z \in \compl$, we define the norm of $z$ by
 
 \begin{thm} [basic properties of the norm]
   Suppose $v \in V$
-  \begin{enumerate}[label=(\alph*)]
+  \begin{enumerate}[label=\textbf{(\alph*)}]
     \item $\norm{v} = 0 \iff v = 0$
     \item $\norm{\lambda v} = |\lambda| \,\norm{v} \quad \lambda \in \myF$.
   \end{enumerate}
 \end{thm}
 \begin{prf}
   Let $\lambda \in \myF$ and $v \in V$. Then
-  \begin{enumerate}[label=(\alph*)]
+  \begin{enumerate}[label=\textbf{(\alph*)}]
     \item $\ip{v}{v} = 0 \iff v=0$
     \item $\norm{\lambda v}^2 = \ip{\lambda v}{\lambda v} = \lambda \overline{\lambda} \ip{v}{v} = |\lambda|^2 \norm{v}^2$
   \end{enumerate}
@@ -102,7 +102,7 @@ For $z \in \compl$, we define the norm of $z$ by
 
 \begin{thm} [orthogonality and $0$]
   \phantom{.}
-  \begin{enumerate}[label=(\alph*)]
+  \begin{enumerate}[label=\textbf{(\alph*)}]
     \item $0$ is orthogonal to every vector in $V$.
     \item $0$ is the only vector that is orthogonal to itself.
   \end{enumerate}
@@ -131,6 +131,7 @@ For $z \in \compl$, we define the norm of $z$ by
 \end{thm}
 
 \begin{thm}[Cauchy-Schwarz inequality]
+  \label{thm: Cauchy-Schwarz inequality}
   Suppose $u,v \in V$. Then
   \begin{equation}
     |\ip{u}{v}| \leq \norm{u} \, \norm{v}.
@@ -171,7 +172,7 @@ For $z \in \compl$, we define the norm of $z$ by
   This inequality is an equality $\iff$ $u=rv, r\in \real - \{0\}$.
 \end{thm}
 \begin{minipage}{\linewidth-30pt}
-\begin{prf} Let $u,v \in V$.
+\begin{prf} Let $u,v \in V$, where both might equal to $0$. Thus
     \begin{equation}
       \begin{aligned}
         \norm{u+v}^2

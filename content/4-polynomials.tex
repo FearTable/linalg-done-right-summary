@@ -6,7 +6,7 @@ $p: \mathbb{F} \to \mathbb{F}, \, p(z) = a_0 + a_1z + \cdots + a_n z^m$ $\forall
 
 \setcounter{thm}{4}
 \begin{mydef}[zero of a polynomial]
-  $\lambda \in \mathbb{F}$ is called a \qt{zero}  (or \qt{root}) of a polynomial if $p(\lambda) = 0$.
+  $\lambda \in \mathbb{F}$ is called a \qt{zero}  (or \qt{root}) of a polynomial $p$ if $p(\lambda) = 0$.
 \end{mydef}
 
 \setcounter{thm}{5}
@@ -55,6 +55,7 @@ In case you are wondering where the $a_0$ went by subtracting $p(\lambda)$ from 
 
 \setcounter{thm}{7}
 \begin{thm}
+  \label{thm: a polynomial of degree m has at most m zeros}
   A polynomial of degree $m$ has at most $m$ zeros.
 \end{thm}
 \begin{prf}
@@ -117,12 +118,53 @@ In case you are wondering where the $a_0$ went by subtracting $p(\lambda)$ from 
 
 \begin{thm} [{\slshape \scshape Fundamental Theorem of Algebra}, second version:]
   \label{fundamental-theorem-of-algebra-second-version}
-  $p \in \polyn(\mathbb{C}), \; p$ is non-constant $\implies p$ has a unique factorization
+  If $p \in \polyn(\mathbb{C})$ is nonconstant polynomial, which means $\deg p \geq 1$, then $p$ has a unique factorization
   \begin{equation}
   	p(z)=c \cdot (z-\lambda_1) \cdots (z-\lambda_m)
   \end{equation}
-  where $c, \lambda_1, \dots, \lambda_m \in \compl$.
+  where $c, \lambda_1, \dots, \lambda_m \in \compl$. This factorization is unique except for the order of the factors.
 \end{thm}
+\begin{prf}
+  Let $p \in \polyn(\compl)$ and let $m :\equiv \deg p$. If $m = 1$, then
+  \[
+    p = a_0 + a_1 z = a_0 \cdot \left(z-\tfrac{a_1}{a_0} \right),
+  \]
+
+  so the the desired factorization exists and is unique.
+
+  So assume that $m > 1$ and that the desired factorization exists and is unqique for all olynomials of degree $m-1$.
+
+  First we will show that the desired factorization of $p$ exists. By the first version of the fundamental theoreom of algebra \ref{fundamental-theorem-of-algebra-first-version}, $p$ has a zero $\lambda \in \compl$. By \ref{factororing-out-zeros-of-a-polynomial-always-possible}, there is polynomial $q$ of degree $m-1$ \st
+  \[
+    p(z) = (z-\lambda) q(z) \quad \forall z \in \compl.
+  \]
+
+  Our induction hypothesis implies that $q$ has the desired factorization, which when plugged into the equation above gives the desired factorization of $p$.
+
+  \prooffont{Uniqueness:} The number $c$ is uniquely determines as the coefficient $a_m$ of $z^m$ in $p$. So we only need to show that except for the order, there is only one way to chosse $\lambda_1, \ddd, \lambda_m$. If we have some $\tau_1, \ddd, \tau_m \in \compl$ \st
+  \begin{equation}
+    \xcancel{\mathlarger{c}} \cdot (z - \lambda_1) \cdots (z-\lambda_m) = \xcancel{\mathlarger{c}} \cdot (z-\tau_1) \cdots (z-\tau_m) \quad \forall z \in \compl,
+  \end{equation}
+
+
+  then because the left side of the equation above equals $0$ when $z=\lambda_1$, one of the $\tau$'s on the right hide side equals $\lambda_1$, because every each zero of a polynomial corresponds to a degree-one factor by \ref{factororing-out-zeros-of-a-polynomial-always-possible}. Without loss of generality, we can assume by relabeling, that $\tau_1 = \lambda_1$. Now if $z \neq \lambda_1$ we get
+  \begin{equation}
+    \label{eq: original equation for z-lambda_2 ...}
+    \xcancel{(z - \lambda_1)} (z - \lambda_2) \cdots (z-\lambda_m) = \xcancel{(z-\tau_1)} (z-\tau_2) \cdots (z-\tau_m),
+  \end{equation}
+
+  for all $z \in \compl$ except possibly $z = \lambda_1$. Remember that our goal is to use induction on the degree of the polynomial. So it would come in handy if the remaining polynomials would be equal after cancelation and behave like any other polynomial. Here comes the tricky part. Now lets assume that $(z - \lambda_2) \cdots (z-\lambda_m)$ and $(z - \tau_2) \cdots (z-\tau_m)$ are not equal . Then with the standard laws of polynomial arithmetic we can form a new polynomial $s \in \polyn_{m-1}(\compl)$ with
+  \begin{equation}
+    s(z) :\equiv   \Big((z - \lambda_2) \cdots (z-\lambda_m)\Big) - \Big((z-\tau_2) \cdots (z-\tau_m)\Big), \mytext{where} $s$ \mytext{is not the $0$ polynomial.}
+  \end{equation}
+
+   Using equation \eqref{eq: original equation for z-lambda_2 ...} we know that $s(z) = 0 \quad \forall z \in \compl - \{\lambda_1\}$, because we derived \eqref{eq: original equation for z-lambda_2 ...} by the assumtion that $z \neq \lambda_1$. But we know that $s$ can have at most $m-1$ zeros. A contradiction, so it must be the case that $s = 0$ [the zero polynomial] and therefore $\forall z \in z: s(z) = 0$. This is only the case if $\forall z \in \compl$:
+   \[
+    (z - \lambda_2) \cdots (z-\lambda_m) = (z - \tau_2) \cdots (z-\tau_m).
+   \]
+
+   By our induction hypothesis, the equation above implies that except for the order, the $\lambda$'s are the same as the $\tau$'s, comleting the proof of uniqueness.
+\end{prf}
 
 \section{Factorization of Polynomials over \texorpdfstring{$\real$}{R}}
 
@@ -175,11 +217,52 @@ In case you are wondering where the $a_0$ went by subtracting $p(\lambda)$ from 
   which also shows, that $b^2 \geq 4c$ is a necessary condition for real solutions for $\lambda_{1,2}$
 \end{prf}
 
-\begin{thm}
+The next result gives a factorization of a polynomial over $\real$. The second version of the fundamental theorem of algebra \ref{fundamental-theorem-of-algebra-second-version} gives a factorization of $p$ with complex coefficients. Complex but nonreal zeros of $p$ come in pairs, see \ref{thm: polynomials with real coefficients have nonreal zeros in pairs}. Multiplying terms of the form $(x-\lambda)$ and $(x-\overline{\lambda})$ together, we get
+\[
+  (x^2 - 2( \realpart \lambda) x + |\lambda|^2),
+\]
+
+which is a quadratic term of the required form. But \ref{thm: polynomials with real coefficients have nonreal zeros in pairs} does not state that these two factors appear the same number of times, as needed to make the idea work. However, the next proof works around this point.
+
+In the next result, either $m$ or $M$ may equal to $0$. The numbers $\lambda_1, \ddd, \lambda_m$ are precisely the real zeros of $p$, for these are the only real values of $x$ for which the right side of the equation in the next result equals 0.
+
+\begin{thm}[factorization of a polynomial over $\real$]
+  \label{thm: factorization of a polynomial over R}
   Suppose $p \in \mathcal{P}(\mathbb{R})$ is non-constant. Then $p$ has a unique factorization:
   \begin{equation}
     p(x) = c(x-\lambda_1) \cdots (x-\lambda_m)(x^2+b_1x+c_1) \cdots (x^2+b_Mx+c_M)
   \end{equation}
-  where $c, \lambda_1, \cdots, \lambda_m, b_1, \cdots, b_M, c_1, \cdots, c_M \in \mathbb{R}$
+  where $c, \lambda_1, \ddd, \lambda_m, b_1, \ddd, b_M, c_1, \ddd, c_M \in \mathbb{R}$, with $b_k^2 < 4c_k \quad \forall k \in \{1, \ddd, M\}.$
 \end{thm}
+\begin{prf}
+  First we will prove that the desired factorization exist, and after that, we will prove uniqueness.
 
+  Think of $p$ as an element of $\polyn(\compl)$, not $\polyn(\real)$, but with real coefficients like stated in the theorem. If all (complex) zeros of $p$ are real, then we have the desired factorization by the second version of the fundamental theorem of algebra \ref{fundamental-theorem-of-algebra-second-version}. Thus suppose $p$ has a complex zero $\lambda \in \compl$ with $\lambda \notin \real$. By \ref{thm: polynomials with real coefficients have nonreal zeros in pairs}, $\overline \lambda$ is a zero of $p$ as well. Thus we write $\forall x \in \real$
+  \[
+  \begin{aligned}
+    p(x)
+    &= (x - \lambda) (x-\overline \lambda) q(x) \\
+    &= (x^2 - 2 (\realpart  \lambda)x +  |\lambda|^2) q(x),  \\
+  \end{aligned}
+  \]
+
+  % page 129
+  for some $q \in \polyn(\compl)$, with $\deg q = \deg p -2$. If we can prove that $q$ has real coefficients, then using induction on the degree of such polynomial completes the proof of the existence part of this result. If we solve for $q(x)$, we get
+  \[
+    q(x) = \tfrac{p(x)}{x^2 - 2(\realpart \lambda) x  + |\lambda|^2} \quad \forall x \in \real.
+  \]
+
+  The equation above implies that $q(x) \in \real \quad \forall x \in \real$. Let $n :\equiv \deg p$. Then we can reqrite $q$ as
+  \[
+    q(x) = a_0 + a_1 x + \cdots + a_{n-2} x^{n-2} \mytext{where} a_0, \ddd, a_{n-2} \in \compl,
+  \]
+
+  because we don't know if the $a's$ are all real yet. But we know that $\forall x \in \real: q(x) \in \real$. Thus we have $\forall x \in \real:$
+  \[
+    0 = \impart q(x) = (\impart a_0) + (\impart a_1)x + \cdots + (\impart a_{n-2})x^{n-2}
+  \]
+
+  Since according to \ref{thm: a polynomial of degree m has at most m zeros} a complex polynomial with degree $n-2$ can have at most $n-2$ zeros, this equation can not hold for all $x \in \real$. This implies that $\impart a_0, \ddd, \impart a_{n-2}$ all equal to $0$. Thus all the coefficients of $q$ are real, as desired. Hence the desired factorization exists.
+
+  \prooffont{Uniqueness:} A factor of $p$ of the form $x^2 + b_kx + c_k$ with $b_k^2 < 4c_k$ can be uniquely wirtten as $(x-\lambda_k)(x-\overline{\lambda_k})$ with $\lambda_k \in \compl$. Two different factorizations of $p$ as an element of $\polyn(\real)$ would lead to two different factorizations of $p$ as an element of $\polyn(\compl)$, contradicting using again the second version of the fundamental theorem of algebra $\ref{fundamental-theorem-of-algebra-second-version}$.
+\end{prf}

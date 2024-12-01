@@ -88,7 +88,7 @@ $\myF$ denotes $\real$ or $\compl$. $V$ and $W$ are nonzero finite-dimensional i
 \begin{thm} [properties of the adjoint]
   \label{thm: properties of the adjoint}
   Suppose $T \in \lvw$. Then
-  \begin{enumerate}[label=(\alph*)]
+  \begin{enumerate}[label=\textbf{(\alph*)}]
     \item $(S+T)^* = S^*+T^* \quad \forall S \in \lvw$;
     \item $(\lambda T)^* = \overline \lambda T^* \quad \forall \lambda \in \myF$;
     \item $(T^*)^* = T$;
@@ -97,18 +97,112 @@ $\myF$ denotes $\real$ or $\compl$. $V$ and $W$ are nonzero finite-dimensional i
     \item If $T$ is invertible, then $T^*$ is invertible and $(T^*)^{-1} = (T^{-1})^*$.
   \end{enumerate}
 \end{thm}
+\begin{prf}
+  Let $v \in V$, $w \in W$, $T \in \linmap(V,W)$ and $\lambda \in \myF$. [Where $V$ and $W$ are inner product spaces.]
+  \begin{enumerate}[label=\textbf{(\alph*)}]
+    \item {
+      $\alignLongunderstack{
+        \ip{v}{(S+T)^*w}
+        &=\ip{(S+T)v}{w}=\ip{Sv+Tv}{w} \\
+        &=\ip{Sv}{w}+\ip{Tv}{w}=\ip{v}{S^*w}+\ip{v}{S^*w}
+        =\ip{v}{S^*w+T^*w}
+      }$
+
+      \vspace*{0.3em}
+      Thus $(S+T)^*w=S^*w+T^*w \implies (S+T)^*=S^*+T^*$, as desired.
+    }
+
+    \item{
+      $\alignLongunderstack{
+        \ip{v}{(\lambda T)^*w}
+        &= \ip{(\lambda T)v}{w}
+        = \lambda \ip{Tv}{w} \\
+        &= \lambda \ip{v}{T^*w}
+        = \ip{v}{\overline{\lambda} T^* w}
+      }
+      $
+
+      Thus $(\lambda T)^* = \overline{\lambda} T^*$.
+    }
+
+    \item {
+      $\ip{w}{(T^*)^*} =\ip{T^*w}{v}=\overline{\ip{w}{T^*w}}=\overline{\ip{Tv}{w}}=\ip{w}{Tw}$.  Thus $(T^*)^* = T$.
+    }
+
+    \item{
+      Suppose $S \in \linmap(W, U)$ and $u \in U$ [where $U$ is a inner product space]. Then
+      \[\ip{v}{(ST)^*u} = \ip{(ST)v}{u} = \ip{S(Tv)}{u} = \ip{Tv}{S^*u} =
+      \ip{v}{T^*(S^*u)} = \ip{v}{(T^*S^*)u}.\]
+
+      Therefore, $(ST)^* = T^*S^*$.
+    }
+
+    \item{
+      Let $v_1, v_2 \in V$. Then $\ip{v_1}{I_V^*v_2} = \ip{I_Vv_1}{v_2}=\ip{v_1}{v_2} = \ip{v_1}{I_Vv_2}$. Thus $I^* = I$
+    }
+
+    \item{
+      $\alignLongunderstack{
+        &T^{-1}T=I \iff (T^{-1}T)^* = I^* \implwtxt{\textbf{(d)}} T^*(T^{-1})^* =I \\
+        &TT^{-1}=I \iff (TT^{-1})^* = I^* \implwtxt{\textbf{(d)}} (T^{-1})^*T^* =I \\
+        &\implies (T^{-1})^*$ is the inverse of $T^{*}$, as desired$.
+      }$
+
+
+    }
+  \end{enumerate}
+\end{prf}
 
 \mce{6}
 \begin{thm}[null space and range of $T^*$]
   \label{thm: null space and range of T^*}
   If $T \in \lvw$, then
-  \begin{enumerate}[label=(\alph*)]
+  \begin{enumerate}[label=\textbf{(\alph*)}]
     \item $\mynull T^* = (\myrange T)^\bot$;
     \item $\myrange T^* = (\mynull T)^\bot$;
     \item $\mynull T = (\myrange T^*)^\bot$;
     \item $\myrange T = (\mynull T^*)^\bot$;
   \end{enumerate}
 \end{thm}
+\begin{prf}
+  We begin by proving (a). Let $w \in W$. Then
+  \[
+  \begin{aligned}
+    w \in \mynull T^*
+    &\iff T^*w = 0 \\
+    &\iff \ip{v}{T^*w} = 0 \quad \forall v \in V\\
+    &\iff \ip{Tv}{w} = 0 \quad \forall v \in V\\
+    &\iff w \in (\myrange T)^\bot.
+  \end{aligned}
+  \]
+
+  Thus $\mynull T^* = (\myrange T)^\bot$, proving (a).
+
+  If we use \ref{thm: orthogonal complement of the orthogonal complement} where $U=(U^\bot)^\bot$ and we take orthogonal complements on both sides in (a) we get
+  \[
+  \begin{aligned}
+    &(\mynull T^*)^\bot = \left((\myrange T)^\bot\right)^\bot \\
+    &(\mynull T^*)^\bot = \myrange T,
+  \end{aligned}
+  \]
+
+  which proves (d).
+
+  Using \ref{thm: properties of the adjoint} (c) where $(T^*)^* = T$, replacing $T$ with $T^*$ in (a) will get us
+  \[
+  \begin{aligned}
+      &\mynull \left((T^*)^*\right)=(\myrange T^*)^\bot \\
+    &\mynull T = (\myrange T^*)^\bot \\
+  \end{aligned}
+  \]
+
+  which gives (c).
+
+  Finally, replacing $T$ with $T^*$ in (d) gives (b).
+  $
+    \myrange T^* = (\mynull (T^*)^*)^\bot \iff \myrange T^* = (\mynull T)^\bot
+  $
+\end{prf}
 
 \begin{mydef}[conjugate transpose, $A^*$]
   For $A \in \myF^{m,n}$ we define its \qt{conjugate transpose} $A^* \in \myF^{n,m}$ like follows:\\
@@ -230,6 +324,7 @@ If $\myF = \real$, then every eigenvalue is real, so the next result is interest
 
 \mce{12}
 \begin{thm}[eigenvalues of self-adjoint operators]
+  \label{thm: every eigenvalue of a self-adjoint operator is real}
   Every eigenvalue of a self-adjoint operator is real.
 \end{thm}
 \begin{prf}
@@ -324,8 +419,30 @@ If $\myF = \real$, then every eigenvalue is real, so the next result is interest
      \ip{Tv}{v} = 0 \quad \forall v \in V \iff T = 0.
    \]
 \end{thm}
+\begin{prf}
+  We have already proved this (withoud the hypothesis that $T$ is self-adjoint) when $V$ is a complex inner product space. Thus we can assume that $V$ is a real inner product space. If $w,u \in V$, then
+  \[
+  \ip{Tw}{u} = \ip{w}{Tu} = \overline{\ip{Tu}{w}} = \ip{Tu}{w}.
+  \]
+
+  Thus we can compute
+  \begin{equation}
+      \label{eq: real equation for <Tu,w>}
+    \begin{aligned}
+    &\cfrac{\ip{T(u+w)}{u+w} - \ip{T(u-w)}{u-w}}{4}
+    = \frac{1}{2} \ip{Tw}{u} + \frac{1}{2} \ip{Tu}{w} \\
+    &= \frac{1}{2} \ip{Tu}{w} + \frac{1}{2} \ip{Tu}{w}
+    = \ip{Tu}{w}
+    \end{aligned}
+  \end{equation}
+
+
+  Now suppose $\ip{Tv}{v} = 0 \quad \forall v \in V$. Because each term on the numerator on the first expression of \eqref{eq: real equation for <Tu,w>} is of the form $\ip{Tv}{v}$ for appropriate $v$, this implies $\ip{Tu}{w} = 0 \quad \forall u,w \in V$. Because only the zero vector is orthogonal to every vector, we have $Tu=0 \quad \forall u \in V$ [take $w=Tu$]. Hence $T=0$, as desired.
+\end{prf}
 
 This theorem means that for a self-adjoint operator $T$, it can not happen that $\ip{Tv}{v} = 0 \quad \forall v \in V$ other than the zero operator. But there are other operators for which this is true, for example a counterclockwise rotation of 90° around the origin; thus $T(x,y) = (-y,x)$. Then we have $\ip{T(x,y)}{(x,y)} = \ip{(-y,x)}{(x,y)}=-yx+xy=0$.
+
+\subsection{Normal Operators}
 
 \mce{18}
 \begin{mydef}[normal]
@@ -336,7 +453,7 @@ This theorem means that for a self-adjoint operator $T$, it can not happen that 
   \item In other words, $T \in \linmap (V)$ is normal if $TT^* = T^* T.$
 
   \end{itemize}
-Every self-adjoint operator is normal, because if $T$ is self-adjoint, then $T^* = T$ and hence $T$ commutes with $T^*$.
+Every self-adjoint operator is normal, because if $T^* = T$, then $T$ commutes with $T^*$.
 \end{mydef}
 
 \begin{example}[an operator that is normal but not self-adjoint]
@@ -398,18 +515,17 @@ Every self-adjoint operator is normal, because if $T$ is self-adjoint, then $T^*
   \]
 \end{thm}
 \begin{prf}
-  \[
-  \begin{aligned}
-    T \mytext{is normal}
+  $ \alignLongunderstack{
+    T \mytext{is normal} \;
     & \iff T^*T - TT^* = 0 \\
     & \iff \ip{(T^*T - TT^*)v}{v} = 0 \quad \forall v \in V \\
     & \iff \ip{T^*Tv}{v}= \ip{TT^*v}{v} \\
     & \iff \ip{Tv}{Tv} = \ip{T^*v}{T^*v} \quad \forall v \in V \\
     & \iff \norm{Tv}^2 = \norm{Tv}^2 \quad \forall v \in V \\
     & \iff \norm{Tv} = \norm{T^*v} \quad \forall v \in V,
-  \end{aligned}
-  \]
+  }$
 
+  \vspace*{0.3em}
   where the second equivalence follows from \ref{thm: T self-adjoint and <Tv,v>=0 for all v <=> T=0}. The operator $T^*T - TT^*$ is self-adjoint for every operator $T\in \linmap(T)$. This is because $\forall v \in V$:
   \[
   \begin{aligned}
@@ -428,7 +544,7 @@ Every self-adjoint operator is normal, because if $T$ is self-adjoint, then $T^*
 \begin{thm}[range, null space, and eigenvectors of a normal operator]
   \label{thm: range, null space, and eigenvectors of a normal operator}
   Suppose $T\in \linmap(V)$ is normal. Then
-  \begin{enumerate}[label=(\alph*)]
+  \begin{enumerate}[label=\textbf{(\alph*)}]
     \item $\mynull T = \mynull T^*$;
     \item $\myrange T = \myrange T^*$;
     \item $V = \mynull T  \oplus \myrange T$;
@@ -438,7 +554,7 @@ Every self-adjoint operator is normal, because if $T$ is self-adjoint, then $T^*
 \end{thm}
 \begin{prf}
   Suppose $v \in V$, $\lambda \in \myF$ and let $T \in \linmap(V)$ be a normal operator. Then
-  \begin{enumerate}[label=(\alph*)]
+  \begin{enumerate}[label=\textbf{(\alph*)}]
     \item
     $
       v \in \mynull T \iff \norm{Tv} = 0 \iffwtxt{\ref{thm: condition for T to be normal}} \norm{T^*v} = 0 \iff v \in \mynull T^*.
@@ -448,11 +564,11 @@ Every self-adjoint operator is normal, because if $T$ is self-adjoint, then $T^*
     %\hspace{\mathindent}
       $
         \myrange T
-        \eqwtxt{\ref{thm: null space and range of T^*} (d)}
+        \eqwtxt{\ref{thm: null space and range of T^*} \textbf{(d)}}
         (\mynull T^*)^\bot
-        \eqwtxt{(a)}
+        \eqwtxt{\textbf{(a)}}
         (\mynull T)^\bot
-        \eqwtxt{\ref{thm: null space and range of T^*} (b)}
+        \eqwtxt{\ref{thm: null space and range of T^*} \textbf{(b)}}
         \myrange T^*.
       $
 
@@ -465,14 +581,14 @@ Every self-adjoint operator is normal, because if $T$ is self-adjoint, then $T^*
         (\mynull T) \oplus (\mynull T)^\bot
         \eqwtxt{\ref{thm: null space and range of T^*}}
         \mynull T \oplus \myrange T^*
-        \eqwtxt{(b)}
+        \eqwtxt{\textbf{(b)}}
         \mynull \oplus \myrange T
       $
 
     \item
     %Suppose $\lambda \in \myF$. Then
       $\alignLongunderstack{
-          (T-\lambda)(T-\lambda I) \;
+          (T-\lambda)(T-\lambda I) \;\,
           & = (T-\lambda I)(T^* - \overline{\lambda} I) \\
           & = TT^* - \overline{\lambda}T -\lambda T^* + |\lambda|^2I \\
           & = T^*T - \overline{\lambda}T -\lambda T^* + |\lambda|^2I \\
@@ -480,10 +596,10 @@ Every self-adjoint operator is normal, because if $T$ is self-adjoint, then $T^*
           & = (T-\lambda I)^*(T-\lambda I).
       }$
 
-
+      \vspace*{0.3em}
       Thus $T-\lambda I$ commutes with its adjoint. Hence $T -\lambda I$ is normal.
 
-      \item Part (d) tells us that $T-\lambda I$ is normal and we can use \ref{thm: condition for T to be normal} to yield that
+      \item Part \textbf{(d)} tells us that $T-\lambda I$ is normal and we can use \ref{thm: condition for T to be normal} to yield that
       \[
         \norm{(T-\lambda I) v} = \norm{(T-\lambda I)^*v} = \norm{(T^*-\overline \lambda I) v }.
       \]
@@ -509,12 +625,12 @@ Every self-adjoint operator is normal, because if $T$ is self-adjoint, then $T^*
   Because $\alpha \neq \beta \implies \alpha - \beta \neq 0$, the equation above implies that $\ip{u}{v} = 0$. Thus $u$, $v$ are orthogonal, as desired.
 \end{prf}
 
-\begin{thm}[$T$ is normal $\iff$ the real imaginary parts of $T$ commute]
-  \label{thm: T is normal iff the real imaginary parts of T commute}
+\begin{thm}[$T$ is normal $\iff$ the real and imaginary parts of $T$ commute]
+  \label{thm: T is normal iff the real and imaginary parts of T commute}
   Suppose $\myF = \compl$ and $T\in \linmap(V)$. Then $T$ is normal $\iff$ there exist commuting self-adjoint operators $A$ and $B$ \st $T=A + iB$.
 \end{thm}
 \begin{prf}
-  \qt{$\Rightarrow$-direction:} Let $T$ be normal. Let
+  \qt{$\Rightarrow$ direction:} Let $T$ be normal. Let
   \[
     A :\equiv \cfrac{T+T^*}{2} \myand B :\equiv \cfrac{T-T^*}{2i}.
   \]
@@ -523,11 +639,11 @@ Every self-adjoint operator is normal, because if $T$ is self-adjoint, then $T^*
   \[
     \begin{aligned}
       B^*
-      &= \overline{\left(\cfrac{1}{2i}\right)} (T-T^*)^*
-      = \overline{\left(-\cfrac{i}{2}\right)} (T^*-T) \\
-      &= \left(\cfrac{i}{2}\right) (T^*-T)
-      = \left(-\cfrac{1}{2i}\right) (T^*-T) \\
-      &= \cfrac{T-T^*}{2i} = B
+      &= \overline{\left(\tfrac{1}{2i}\right)} (T-T^*)^*
+      = \overline{\left(-\tfrac{i}{2}\right)} (T^*-T) \\
+      &= \left(\tfrac{i}{2}\right) (T^*-T)
+      = \left(-\tfrac{1}{2i}\right) (T^*-T) \\
+      &= \tfrac{T-T^*}{2i} = B
     \end{aligned}
   \]
 
@@ -541,13 +657,13 @@ Every self-adjoint operator is normal, because if $T$ is self-adjoint, then $T^*
     &= \cfrac{-2 TT^* + 2 T^*T}{4i} \\
     &= \cfrac{T^*T - TT^*}{2i}  \\
     &= \cfrac{T^*T - T^*T}{2i} \quad \mytext{because $T$ is normal} \\
-    &= 0. \mytext{and therefore} AB = BA.
+    &= 0, \mytext{and therefore} AB = BA.
   \end{aligned}
   \]
 
   Thus the operators $A$ and $B$ commute, as desired.
 
-  \qt{$\Leftarrow$-direction:} Now suppose there exist commuting self-adjoint operators $A$ and $B$ [$AB=BA$] \st
+  \qt{$\Leftarrow$ direction:} Now suppose there exist commuting self-adjoint operators $A$ and $B$ [$AB=BA$] \st
   \[
     T=A+iB \implies T^* = A-iB
   \]
@@ -557,13 +673,57 @@ Every self-adjoint operator is normal, because if $T$ is self-adjoint, then $T^*
     A=\cfrac{T+T^*}{2}
   \]
 
-  Therefore
+  Therefore, if we subtract the equation for $T^*$ from the equation for $A$, we get the same equation for $B$:
   \[
-  \begin{gathered}
-    A-A+iB=\cfrac{T+T^*}{2}-{T^*} \\
-    B=\cfrac{T-T^*}{2i}
-  \end{gathered}
+  \begin{aligned}
+    &A-A+iB=\cfrac{T+T^*}{2}-{T^*} \\
+    &B=\cfrac{T-T^*}{2i}
+  \end{aligned}
   \]
 
-  Since $A$ and $B$ commute, the expression from $AB-BA$ from the first part, which evaluates to $\frac{T^*T - TT^*}{2i}$ is equal to $0$, because we assumed $AB=BA$. Therefore, $T^*T=TT^*$ which means, that $T$ is normal, as desired.
+  Since $A$ and $B$ commute, the expression from $AB-BA$ from the first part, which evaluates to $\dfrac{T^*T - TT^*}{2i}$, is equal to $0$, because we assumed $AB=BA$. Therefore, $T^*T=TT^*$, which means that $T$ is normal, as desired. [We have not used the fact that $A$ and $B$ are self-adjoint in this direction of the proof.]
+\end{prf}
+
+\section{Spectral Theorem}
+
+\subsection{Real Spectral Theorem}
+
+Let $x, b, c \in \real$ and $b^2 < 4c$. Then
+\begin{equation}
+  x^2+bx+c = \left(x + \tfrac{b}{2}\right)^2 + \left(c-\tfrac{b^2}{4}\right) > 0.
+\end{equation}
+
+\begin{thm}[invertible quadratic expressions]
+  Suppose $T \in \linmap (V)$ is self-adjoint and $b,c \in \real$ are \st $b^2 < 4c$. Then
+  \[
+  T^2 + bT + cI
+  \]
+
+  is an invertible operator.
+\end{thm}
+\begin{prf}
+  Let $v \in V$, $v \neq 0, T \in \linmap(V)$ and let $b,c \in \real$ \st $b^2 < 4c$. Then
+  \[
+    \begin{aligned}
+      \ip{(T^2+bT+cI)v}{v}
+      & = \ip{T^v}{v} + b \ip{Tv}{v}+c\ip{v}{v} \\
+      & = \ip{Tv}{Tv} + b\ip{Tv}{v} + c \norm{v}^2 \\
+      & \geq \norm{Tv}^2 - |b| \, \norm{Tv} \norm{v} + c \norm{v}^2
+      \qquad \mytext{[Cauchy-Schwarz inequality \ref{thm: Cauchy-Schwarz inequality}]}\\
+      & = \left( \norm{Tv} - \frac{|b| \, \norm{v}}{2} \right)^2 + \left(c - \frac{b^2}{4} \right) \norm{v}^2 \\
+      &> 0,
+    \end{aligned}
+  \]
+
+  The last inequality implies that $(T^2+bT+cI)v \neq 0$. Since $v \neq 0$, it follows that $T^2+bT+cI$ is injective by \ref{thm: injectivity iff null space equals zero-set}, because only $(T^2+bT+cI)0 = 0$.  This also implies that it is invertible by \ref{thm: injectivity is equivalent to surjectivity}.
+\end{prf}
+
+\mce{27} % page 244
+\begin{thm}[minimal polynomial of self-adjoint operator]
+  Suppose $T \in \linmap(V)$ is self-adjoint. Then the minimal polynomial of $T$ equals $(z-\lambda_1) \cdots (z-\lambda_m)$ for some $\lambda_1, \ddd, \lambda_m \in \real$.
+\end{thm}
+\begin{prf}
+  First suppose $\myF = \compl$. The zeros of the minimal polynomial of $T$ are the eigenvalues of $T$ by \ref{thm: eigenvalues are the zeros of the minimal polynomial} \textbf{(a)}. Because $T$ is self-adjoint, all eigenvalues of $T$ are real by \ref{thm: every eigenvalue of a self-adjoint operator is real}. Thus the second version of the fundamental theorem of algebra \ref{fundamental-theorem-of-algebra-second-version} tells us that the minimal polynomial of $T$ has the desired form.
+
+  Now suppose $\myF = \real$.
 \end{prf}

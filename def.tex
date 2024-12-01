@@ -4,7 +4,7 @@
 % only displays equation numbers if they are referenced
 \mathtoolsset{showonlyrefs,showmanualtags}
 
-\DeclareEmphSequence{\scshape}
+\DeclareEmphSequence{\scshape\bfseries}
 
 % BEGIN custom geometry ************************************
 %\setlength{\abovedisplayskip}{0.1em}
@@ -145,9 +145,13 @@
 \newcommand\eqwtxt[1]{
 \;\overset{\text{\scriptsize#1}}{=}}
 
+
 % iff with text above
 \newcommand\iffwtxt[1]{
-  \;\overset{\text{\scriptsize#1}}{\iff¨}}
+  \;\overset{\text{\scriptsize#1}}{\iff}}
+
+% implication with text above
+\newcommand\implwtxt[1]{\;\overset{\text{\scriptsize#1}}{\implies}}
 
 % we need some space around dots
 \newcommand\ddd{{\, \ldots \,\,}}
