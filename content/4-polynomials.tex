@@ -132,7 +132,7 @@ In case you are wondering where the $a_0$ went by subtracting $p(\lambda)$ from 
 
   so the the desired factorization exists and is unique.
 
-  So assume that $m > 1$ and that the desired factorization exists and is unqique for all olynomials of degree $m-1$.
+  So assume that $m > 1$ and that the desired factorization exists and is unqique for all polynomials of degree $m-1$.
 
   First we will show that the desired factorization of $p$ exists. By the first version of the fundamental theoreom of algebra \ref{fundamental-theorem-of-algebra-first-version}, $p$ has a zero $\lambda \in \compl$. By \ref{factororing-out-zeros-of-a-polynomial-always-possible}, there is polynomial $q$ of degree $m-1$ \st
   \[
@@ -141,24 +141,28 @@ In case you are wondering where the $a_0$ went by subtracting $p(\lambda)$ from 
 
   Our induction hypothesis implies that $q$ has the desired factorization, which when plugged into the equation above gives the desired factorization of $p$.
 
-  \prooffont{Uniqueness:} The number $c$ is uniquely determines as the coefficient $a_m$ of $z^m$ in $p$. So we only need to show that except for the order, there is only one way to chosse $\lambda_1, \ddd, \lambda_m$. If we have some $\tau_1, \ddd, \tau_m \in \compl$ \st
+  \prooffont{Uniqueness:} The number $c$ is uniquely determined as the coefficient $a_m$ of $z^m$ in $p$. So we only need to show that except for the order, there is only one way to chosse $\lambda_1, \ddd, \lambda_m$. If we have some $\tau_1, \ddd, \tau_m \in \compl$ \st
   \begin{equation}
     \xcancel{\mathlarger{c}} \cdot (z - \lambda_1) \cdots (z-\lambda_m) = \xcancel{\mathlarger{c}} \cdot (z-\tau_1) \cdots (z-\tau_m) \quad \forall z \in \compl,
   \end{equation}
 
 
-  then because the left side of the equation above equals $0$ when $z=\lambda_1$, one of the $\tau$'s on the right hide side equals $\lambda_1$, because every each zero of a polynomial corresponds to a degree-one factor by \ref{factororing-out-zeros-of-a-polynomial-always-possible}. Without loss of generality, we can assume by relabeling, that $\tau_1 = \lambda_1$. Now if $z \neq \lambda_1$ we get
+  then because the left side of the equation above equals $0$ when $z=\lambda_1$, one of the $\tau$'s on the right hide side equals $\lambda_1$, because every zero of a polynomial corresponds to a degree-one factor by \ref{factororing-out-zeros-of-a-polynomial-always-possible}. Without loss of generality, we can assume by relabeling, that $\tau_1 = \lambda_1$. Now if $z \neq \lambda_1$, we can use division to get
   \begin{equation}
     \label{eq: original equation for z-lambda_2 ...}
-    \xcancel{(z - \lambda_1)} (z - \lambda_2) \cdots (z-\lambda_m) = \xcancel{(z-\tau_1)} (z-\tau_2) \cdots (z-\tau_m),
+    \begin{aligned}
+      \xcancel{(z - \lambda_1)} (z - \lambda_2) \cdots (z-\lambda_m) = \xcancel{(z-\tau_1)} (z-\tau_2) \cdots (z-\tau_m) \quad \forall z \in \compl \\
+      (z - \lambda_2) \cdots (z-\lambda_m) = (z-\tau_2) \cdots (z-\tau_m) \quad \forall z \in \compl - \{ \lambda_1 \} \\
+      \Big((z - \lambda_2) \cdots (z-\lambda_m) \Big) -   \Big((z-\tau_2) \cdots (z-\tau_m)\Big) = 0,
+    \end{aligned}
   \end{equation}
 
-  for all $z \in \compl$ except possibly $z = \lambda_1$. Remember that our goal is to use induction on the degree of the polynomial. So it would come in handy if the remaining polynomials would be equal after cancelation and behave like any other polynomial. Here comes the tricky part. Now lets assume that $(z - \lambda_2) \cdots (z-\lambda_m)$ and $(z - \tau_2) \cdots (z-\tau_m)$ are not equal . Then with the standard laws of polynomial arithmetic we can form a new polynomial $s \in \polyn_{m-1}(\compl)$ with
+  for all $z \in \compl$ except possibly $z = \lambda_1$. Remember that our goal is to use induction on the degree of the polynomial. So it would come in handy if the remaining polynomials would be equal after cancelation and behave like any other polynomial. But sadly, we have derived our nice formula \eqref{eq: original equation for z-lambda_2 ...} by the assumtion that $z \neq \lambda_1$. Here comes the tricky part. Now lets assume that $(z - \lambda_2) \cdots (z-\lambda_m)$ and $(z - \tau_2) \cdots (z-\tau_m)$ are not always equal. Then with the standard laws of polynomial arithmetic we can form a new polynomial $s \in \polyn_{m-1}(\compl)$ (is it $m-1$?) with
   \begin{equation}
     s(z) :\equiv   \Big((z - \lambda_2) \cdots (z-\lambda_m)\Big) - \Big((z-\tau_2) \cdots (z-\tau_m)\Big), \mytext{where} $s$ \mytext{is not the $0$ polynomial.}
   \end{equation}
 
-   Using equation \eqref{eq: original equation for z-lambda_2 ...} we know that $s(z) = 0 \quad \forall z \in \compl - \{\lambda_1\}$, because we derived \eqref{eq: original equation for z-lambda_2 ...} by the assumtion that $z \neq \lambda_1$. But we know that $s$ can have at most $m-1$ zeros. A contradiction, so it must be the case that $s = 0$ [the zero polynomial] and therefore $\forall z \in z: s(z) = 0$. This is only the case if $\forall z \in \compl$:
+   Using equation \eqref{eq: original equation for z-lambda_2 ...} we know that $s(z) = 0 \quad \forall z \in \compl - \{\lambda_1\}$, because we derived \eqref{eq: original equation for z-lambda_2 ...} by the assumtion that $z \neq \lambda_1$. But we know that $s$ can have at most $m-1$ zeros. A contradiction, so it must be the case that $s = 0$ [the zero polynomial] and therefore $\forall z \in \compl: s(z) = 0$. The zero polynomial is the only polynomial that is allowed to have infinitely many roots. This is only the case if $\forall z \in \compl$:
    \[
     (z - \lambda_2) \cdots (z-\lambda_m) = (z - \tau_2) \cdots (z-\tau_m).
    \]
@@ -193,28 +197,28 @@ In case you are wondering where the $a_0$ went by subtracting $p(\lambda)$ from 
   $p(x)=x^2 + bx + c$ $=$ $(x-\lambda_1)(x-\lambda_2)$ with $\lambda_1, \lambda_2 \in \mathbb{R} \iff b^2 \geq 4c$.
 \end{thm}
 \begin{prf}
-  Let $x^2+bx+c=(x+\sfrac{b}{2})^2+(c-\sfrac{b^2}{4})$. Therefore, if $b^2<4c$, the last term is always positive and no factoriza\-tion is possible because it has no zeros by \ref{factororing-out-zeros-of-a-polynomial-always-possible}.
+  Let $x^2+bx+c=\left(x+\tfrac{b}{2} \right)^2+\left(c-\tfrac{b^2}{4} \right)$. Therefore, if $b^2<4c$, the last term is always positive and no factoriza\-tion is possible because it has no zeros by \ref{factororing-out-zeros-of-a-polynomial-always-possible}.
 
-  If $b^2 \geq 4c$, we define $d^2 :\equiv \sfrac{b^2}{4}-c$ which makes
+  If $b^2 \geq 4c$, we define $d^2 :\equiv \tfrac{b^2}{4}-c$ which makes
   \begin{equation}
 	  \begin{aligned}
 	    p(x)&=x^2+bx+c
-		  = \left (x+\sfrac{b}{2} \right )^2-d^2
-		  = \left ( (x+\sfrac{b}{2}) +d \right) \cdot \left ( (x+\sfrac{b}{2}) - d \right) \\
-		  &= \left (x-(-d -\sfrac{b}{2}) \right) \cdot \left (x-(d-\sfrac{b}{2})\right)
+		  = \left (x+\tfrac{b}{2} \right )^2-d^2
+		  = \left ( \left(x+\tfrac{b}{2} \right) +d \right) \cdot \left ( \left(x+\tfrac{b}{2} \right) - d \right) \\
+		  &= \left (x-\left(-d -\tfrac{b}{2} \right) \right) \cdot \left (x-\left(d-\tfrac{b}{2} \right)\right)
 		  =\left(x-\lambda_1 \right) \cdot \left(x-\lambda_2\right)
 	  \end{aligned}
   \end{equation}
   for
   \begin{equation}
-    \lambda_1 :\equiv -d-\sfrac{b}{2} \mytext{and} \lambda_2 :\equiv d-\sfrac{b}{2}.
+    \lambda_1 :\equiv -d-\tfrac{b}{2} \mytext{and} \lambda_2 :\equiv d-\tfrac{b}{2}.
   \end{equation}
 
   which is the same as the well known midnight formula:
   \begin{equation}
     \lambda_{1,2} = \frac{-b \pm \sqrt{b^2-4c}}{2}
   \end{equation}
-  which also shows, that $b^2 \geq 4c$ is a necessary condition for real solutions for $\lambda_{1,2}$
+  which also shows, that $b^2 \geq 4c$ is a necessary condition for real solutions for $\lambda_{1,2}$.
 \end{prf}
 
 The next result gives a factorization of a polynomial over $\real$. The second version of the fundamental theorem of algebra \ref{fundamental-theorem-of-algebra-second-version} gives a factorization of $p$ with complex coefficients. Complex but nonreal zeros of $p$ come in pairs, see \ref{thm: polynomials with real coefficients have nonreal zeros in pairs}. Multiplying terms of the form $(x-\lambda)$ and $(x-\overline{\lambda})$ together, we get
@@ -262,7 +266,7 @@ In the next result, either $m$ or $M$ may equal to $0$. The numbers $\lambda_1, 
     0 = \impart q(x) = (\impart a_0) + (\impart a_1)x + \cdots + (\impart a_{n-2})x^{n-2}
   \]
 
-  Since according to \ref{thm: a polynomial of degree m has at most m zeros} a complex polynomial with degree $n-2$ can have at most $n-2$ zeros, this equation can not hold for all $x \in \real$. This implies that $\impart a_0, \ddd, \impart a_{n-2}$ all equal to $0$. Thus all the coefficients of $q$ are real, as desired. Hence the desired factorization exists.
+  Since according to \ref{thm: a polynomial of degree m has at most m zeros} a complex polynomial with degree $n-2$ can have at most $n-2$ zeros, this equation can not hold for all $x \in \real$. This implies that $\impart a_0, \ddd, \impart a_{n-2}$ all equal to $0$, because only the zero polynomial is allowed th have infinitely many zeros. Thus all the coefficients of $q$ are real, as desired. Hence the wanted factorization exists.
 
   \prooffont{Uniqueness:} A factor of $p$ of the form $x^2 + b_kx + c_k$ with $b_k^2 < 4c_k$ can be uniquely wirtten as $(x-\lambda_k)(x-\overline{\lambda_k})$ with $\lambda_k \in \compl$. Two different factorizations of $p$ as an element of $\polyn(\real)$ would lead to two different factorizations of $p$ as an element of $\polyn(\compl)$, contradicting using again the second version of the fundamental theorem of algebra $\ref{fundamental-theorem-of-algebra-second-version}$.
 \end{prf}

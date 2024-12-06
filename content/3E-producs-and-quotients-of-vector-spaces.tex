@@ -21,30 +21,146 @@
 \end{thm}
 
 % 3.93
-\setcounter{thm}{91}
+\mce{92}
 \begin{thm} [dimension of a product is the sum of dimensions]
-  $\dim (V_1 \times \cdots \times V_m) = \dim V_1 + \cdots + \dim V_m$
-\end{thm}
-
-% 3.93
-\begin{thm}
-  Let $\Gamma: V_1 \times \cdots \times V_m \to V_1 + \cdots + V_m$ such that
-  \begin{equation}
-    \Gamma(v_1, \cdots, v_m) = v_1 + \cdots + v_m.
-  \end{equation}
-  Then $V_1 + \cdots + V_m$ is a direct sum $\iff$ $\Gamma$ is injective.
+  \label{thm: dimension of a product is the sum of dimensions}
+  Suppose $V_1, \ddd, V_m$ are finite-dimensional vector spaces. Then $V_1 \times \cdots \times V_m$ is finite-dimensional and
+  \[
+    \dim (V_1 \times \cdots \times V_m) = \dim V_1 + \cdots + \dim V_m.
+  \]
 \end{thm}
 \begin{prf}
-  By \ref{thm: injectivity iff null space equals zero-set}, $\Gamma$ is injective $\iff v_1 = \cdots = v_m = 0$. This means, the only way to write $0$ as a sum $v_1 + \cdots + v_m$, where each $v_k \in V_k$, is by taking each $v_k=0$. Thus \ref{thm: condition for a direct sum} shows that $\Gamma$ is injective $\iff$ $V_1 + \cdots + V_m$ is a direct sum, as desired.
+  Choose a basis $v_{k_1}, \ddd, v_{k_{\dim V_k}}$ for each $V_k$. For each basis vector of each $V_k$, consider the element of $V_1 \times \cdots \times V_m$ that equals the basis vector in the $k$-th slot and $0$ in the other slots.
+  \[
+  \underbrace{
+    \left (
+    \begin{matrix}
+      v_{1_1} \\ 0 \phantom{\vdots} \! \! \! \\ \vdots \\ \vdots \\ \vdots \\ 0 \phantom{\vdots} \! \! \!
+    \end{matrix}
+    \right )
+    \; \mathlarger{,} \;
+    \left (
+    \begin{matrix}
+      v_{1_2} \\ 0 \phantom{\vdots} \! \! \! \\ \vdots \\ \vdots \\ \vdots \\ 0 \phantom{\vdots} \! \! \!
+    \end{matrix}
+    \right )
+    \mathlarger{,}
+    \mathlarger{\ddd}
+    \mathlarger{,}
+    \left (
+    \begin{matrix}
+      v_{1_{\dim V_1}} \\ 0 \phantom{\vdots} \! \! \! \\ \vdots \\ \vdots \\ \vdots \\ 0 \phantom{\vdots} \! \! \!
+    \end{matrix}
+    \right )
+  }_{\text{construced from basis vectors of $V_1$}}
+  \;
+  \mathlarger{,}
+  \mathlarger{\ddd}
+  \mathlarger{,}
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \underbrace{
+    \left (
+    \begin{matrix}
+      0 \phantom{\vdots} \! \! \! \\ \vdots \\ v_{k_1} \\ 0 \phantom{\vdots} \! \! \! \phantom{\vdots} \! \! \!  \\ \vdots \\ 0 \phantom{\vdots} \! \! \!
+    \end{matrix}
+    \right )
+    \; \mathlarger{,} \;
+    \left (
+    \begin{matrix}
+      0 \phantom{\vdots} \! \! \! \\ \vdots \\ v_{k_{2}} \\ 0 \phantom{\vdots} \! \! \! \\ \vdots \\ 0 \phantom{\vdots} \! \! \!
+    \end{matrix}
+    \right )
+    \mathlarger{,}
+    \mathlarger{\ddd}
+    \mathlarger{,}
+    \left (
+    \begin{matrix}
+      0 \phantom{\vdots} \! \! \! \\ \vdots \\ v_{k_{\dim V_k}} \\ 0 \phantom{\vdots} \! \! \! \\ \vdots \\ 0 \phantom{\vdots} \! \! \!
+    \end{matrix}
+    \right )
+  ´}_{\text{construced from basis vectors of $V_k$}}
+  \mathlarger{,}
+  \mathlarger{\ddd}
+  \mathlarger{,}
+  \underbrace{
+      \left (
+      \begin{matrix}
+        0 \phantom{\vdots} \! \! \!  \\ \vdots \\ \vdots \\ \vdots \\ 0 \phantom{\vdots} \! \! \! \\ v_{m_1}
+      \end{matrix}
+      \right )
+      \; \mathlarger{,} \;
+      \left (
+      \begin{matrix}
+        0 \phantom{\vdots} \! \! \!  \\ \vdots \\ \vdots \\ \vdots \\ 0 \phantom{\vdots} \! \! \! \\ v_{m_2}
+      \end{matrix}
+      \right )
+      \mathlarger{,}
+      \mathlarger{\ddd}
+      \mathlarger{,}
+      \left (
+      \begin{matrix}
+        0 \phantom{\vdots} \! \! \!  \\ \vdots \\ \vdots \\ \vdots \\ 0 \phantom{\vdots} \! \! \! \\ v_{m_{\dim V_m}}
+      \end{matrix}
+      \right )
+  }_{\text{construced from basis vectors of $V_m$}}
+  \]
+
+  The list of all such vector is linearly independent and spans $V_1 \times \cdots \times V_m$. Thus is is a basis of $V_1 \times \cdots \times V_m$ and the length of this basis is $\dim V_1 + \cdots + \dim V_m$.
+\end{prf}
+
+In the next result, the map $\Gamma$ is surjective by the definition of $V_1 + \cdots + V_m$ because of closedness. Thus the last word in the result below could be changed from \qt{injective} to \qt{invertible}.
+
+% 3.93
+\begin{thm}[products and direct sums]
+  \label{thm: products and direct sums}
+  Let $\Gamma: V_1 \times \cdots \times V_m \to V_1 + \cdots + V_m$ such that
+  \begin{equation}
+    \Gamma(v_1, \ddd, v_m) = v_1 + \cdots + v_m \quad \forall v_1 \in V_1, \ddd, v_m \in V_m.
+  \end{equation}
+  Then $V_1 + \cdots + V_m$ is a direct sum $\iff$ $\Gamma$ is injective/invertible.
+\end{thm}
+\begin{prf}
+  By \ref{thm: injectivity iff null space equals zero-set}, $\Gamma$ is injective $\iff v_1 = \cdots = v_m = 0$ [Stated correctly, $\Gamma$ is injective if and only if $\mynull \Gamma = \{ \vec 0 \}$]. This means, the only way to write $0$ as a sum $v_1 + \cdots + v_m$, where each $v_k \in V_k$, is by taking each $v_k=0$. Thus \ref{thm: condition for a direct sum} shows that $\Gamma$ is injective $\iff$ $V_1 + \cdots + V_m$ is a direct sum, as desired.
 \end{prf}
 
 \begin{thm}[a sum is a direct sum if and only if the dimensions add up]
   \label{thm: a sum is a direct sum if and only if the dimensions add up}
-  $V_1 + \cdots + V_1$ is a direct sum $\iff$
+  Suppose $V$ is finite-dimensional and $V_1, \ddd,V_m$ are subspaces of $V$. Then $V_1 + \cdots + V_1$ is a direct sum $\iff$
   \begin{equation}
     \dim (V_1+\cdots+V_m) = \dim V_1 + \cdots + \dim V_m
   \end{equation}
 \end{thm}
+
+\begin{prf}
+  The map $\Gamma: V_1 \times \cdots \times V_m \to V_1 + \cdots + V_m$ in \ref{thm: products and direct sums} is surjective. Thus by the rank-nullity theorem \ref{rank-nullity-theorem}, $\Gamma$ is injective $\iff$ $\dim \mynull \Gamma = 0$ and therefore
+  \[
+  \begin{aligned}
+    &\dim (\underbrace{V_1 \times \cdots \times V_m}_{\text{domain}})=\underbrace{\dim \mynull \Gamma \phantom{V_m} \! \! \! \! \! \! \! \! \! \! \!}_{= \; 0} +  \dim(\underbrace{V_1 + \cdots + V_m}_{\text{codomain} \; \subseteq \; V
+    }) \\
+    &\dim (V_1 + \cdots + V_m) = \dim (V_1 \times \cdots \times V_m)
+  \end{aligned}
+  \]
+
+  We can use \ref{thm: dimension of a product is the sum of dimensions} to conclude that
+  \begin{equation}
+    \begin{aligned}
+      &\dim (V_1 \times \cdots \times V_m) = \dim V_1 + \cdots + \dim V_m \mytext{and therefore } \\
+      &\dim (V_1 + \cdots + V_m) =  \dim V_1 + \cdots + \dim V_m
+    \end{aligned}
+  \end{equation}
+
+
+  Since $\Gamma$ is injective, \ref{thm: products and direct sums} tells us that $V_1+\cdots+V_m$ is a direct sum.
+
+  So we have have that $\dim (V_1 + \cdots + V_m) =  \dim V_1 + \cdots + \dim V_m$ if and only if $V_1+\cdots+V_m$ is a direct sum.
+
+  \prooffont{Special case for m=2:} For the special case where $m=2$ we can use \ref{thm: dimension of a subspace} where
+  \[
+    \dim (V_1 + V_2) = \dim V_1 + \dim V_2 - \dim (V_1 \cap V_2)
+  \]
+
+  and we get $\dim (V_1 \cap V_2) = 0$ $\iff$ $V_1 + V_2 = V_1 \oplus V_2$ by \ref{thm: dimension of a sum of subspaces}.
+\end{prf}
 
 \subsection{Quotient Spaces}
 
@@ -76,14 +192,40 @@
 \end{example}
 
 % 3.101
-\setcounter{thm}{100}
+\mce{101}
 \begin{thm} [two translates of a subspace are equal or disjoint]
+  \label{thm: two translates of a subspace are equal or disjoint}
   % v,w \in V is right!
-  If $ U \subseteq V$ and $v,w\in V$ (not a typo!). Then
+  If $ U $ is a subspace of $V$ and $v,w\in V$ (not a typo!). Then
   \begin{equation}
     v-w \in U \iff v+U = w + U \iff (v+U)\cap (w+U) \neq \varnothing
   \end{equation}
 \end{thm}
+\begin{prf}
+  \qt{Step 1:} First suppose $v-w\in U$. If $u \in U$, then
+  \[
+    v+u = (w - w + v + u) = w + \Big( \underbrace{(v-w)}_{\in \; U} + u\Big), $ thus $ v+u \in w+U.
+  \]
+
+  Similarly, because $v-w \in U$ we also have $w-v \in U$ and thus
+  \[
+    w+u = (v - v + w + u) = v+\Big( \underbrace{(w-v)}_{\in \; U}+u \Big), $ thus $ w+u \in v+U.
+  \]
+
+  So we have $\forall u \in U: v+u \in w+U$ which is equivalent to \[ v+U \subseteq w + U\]
+
+  and $\forall u \in U: w+u \in v+U$ which is equivalent to \[ w+U \subseteq v+U.\]
+
+  This implies $v+U = w+U$ given that $v-w \in U$, which proves the first equivalence.
+
+  \qt{Step 2:} The equation $v+U = w+U$ implies that $(v+U) \cap (w+U) \neq \varnothing$.
+
+  \qt{Step 3:} Now suppose $(v+U) \cap (w+U) \neq \varnothing$. Thus there exist $u_1, u_2 \in U$ such that
+  \[
+    v+u_1 = w+u_1, $ thus $ v-w = \underbrace{u_2-u_1}_{\in \; U}.
+  \]
+  Hence $v-w \in U$.
+\end{prf}
 
 % 3.102
 \begin{mydef} [addition and scalar multiplication on $V/U$]

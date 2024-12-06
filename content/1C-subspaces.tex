@@ -5,6 +5,7 @@
 \end{mydef}
 
 \begin{thm} [conditions for a subspace]
+  \label{thm: conditions for a subspace}
   A subset $U$ of $V$ is a subspace of $V$ $\iff$ $U$ satisfies the following three conditions:
   \begin{itemize}
     \item \emph{Additive identity:}
@@ -20,10 +21,8 @@
   \begin{description}
     \item{\qt{$\Rightarrow$ direction:}} If $U$ is a subspace of $V$, then $U$ satisfies the three conditions above by the definition of a vector space.
     \item{\qt{$\Leftarrow$ direction:}} The first condition ensures, that the additive identiy $0$ of $U$ is in $U$. The other two conditions make sure, that addition and scalar multiplication make sense on $U$.
-
-    Thanks to \ref{thm: minus one times a vector} and the third condition, every $u \in U$ has an additive inverse $-u = (-1) u$.
-
-    The other parts of the definition of a vector space, such associativity and commutativity, are automatically satisfied for $U$ because they hold on the larger space $V$. Thus $U$ is a vector space and hence a subspace of $V$.
+    Thanks to \ref{thm: minus one times a vector} and the third condition (closedness under scalar multiplication), every $u \in U$ has an additive inverse $-u = (-1) u$.
+    The other parts of the definition of a vector space, such as associativity, commutativity and the distributive properties, are automatically satisfied for $U$ because they hold on the larger space $V$. Thus $U$ is a vector space and hence a subspace of $V$.
   \end{description}
   \vspace*{-\baselineskip}
 \end{prf}
@@ -56,7 +55,7 @@
   First we need to show, that $V_1 + \cdots + V_m$ is a subspace of $V$. Clearly, the additive identity $0 = 0 + \cdots + 0 \in V_1 + \cdots + V_m \in V$.
   Next we show that our sum is closed under addition. Let $u,w \in V_1 + \cdots + V_m$.  Then we have $u = v_1 + \cdots + v_m$ \st $v_1 \in V_1, \ddd, v_m \in V_m$ and $w=v'_1 + \cdots + v'_m$ \st $v'_1, \ddd , v'_m \in V_m$. Therefore
   \begin{equation}
-    u+w = \underbrace{(v_1+v'_1)}_{\in V_1} + \cdots + \underbrace{(v_m+v'_m)}_{\in V_m} \in  V_1 + \cdots + V_m \in V.
+    u+w = (v_1 + \cdots + v_m) + (v'_1 + \cdots + v'_m) =  \underbrace{(v_1+v'_1)}_{\in V_1} + \cdots + \underbrace{(v_m+v'_m)}_{\in V_m} \in  V_1 + \cdots + V_m \in V.
   \end{equation}
 
   So $V_1 + \cdots + V_m$ is closed under addition.
@@ -67,7 +66,7 @@
 
   so it is closed under scalar multiplication. So we have shown that $V_1 + \cdots + V_m$ is a subspace of $V$.
   Now we have to show the minimality.
-  The subspaces $V_1, \cdots, V_m$ are all contained in $V_1+\cdots+V_m$. Because $\forall \kInOneTillM:$
+  The subspaces $V_1, \ddd, V_m$ are all contained in $V_1+\cdots+V_m$. Because $\forall \kInOneTillM:$
   \begin{equation}
     V_k = \{ v \mid v \in V_k \} \subseteq \{v_1 + \cdots + v_m \mid v_1 \in V_1,  \ddd , v_m \in V_m \} = V_1 + \cdots + V_m.
   \end{equation}

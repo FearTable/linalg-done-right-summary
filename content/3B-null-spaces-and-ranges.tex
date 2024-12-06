@@ -9,6 +9,7 @@
 % 3.13
 \setcounter{thm}{12}
 \begin{thm} [null space is a subspace]
+  \label{thm: null space is a subspace}
   For $T=\linmap(V, W)$, $\mynull T$ is a subspace of $V$
 \end{thm}
 \begin{prf}
@@ -38,6 +39,21 @@
     T $ is injective $ \iff \mynull T = \{0 \}.
   \end{equation}
 \end{thm}
+\begin{prf}
+  \qt{$\Rightarrow$ direction:} First suppose that $T$ is injective. We already know that $\{0\} \subseteq \mynull T$ because $\mynull T$ is a vector space by \ref{thm: null space is a subspace} or simply by using \ref{thm: linear maps take 0 to 0}. To prove that $\mynull T \subseteq \{0\}$, suppose $v \in \mynull T$. Then
+  \[
+    T(v) = 0 = T(0), $ because linear maps take 0 to 0 by \ref{thm: linear maps take 0 to 0}$.
+  \]
+
+  Because $T$ is injective, the equation above implies that $v=0$. Thus we can conclude that $\mynull T = \{0\}$, as desired.
+
+  \qt{$\Leftarrow$ direction:} Now suppose $\mynull T = \{0\}$ and $u,v \in V$ \st $Tu = Tv$. Then
+  \[
+    0 = Tu - Tv = T(u-v).
+  \]
+
+  Thus $u-v \in \mynull T = \{0\}$. Hence $u-v=0$, which implies that $u=v$. We have shown that $Tu = Tv$ implies that $u=v$, hence $T$ is injective, as desired.
+\end{prf}
 
 \subsection{Range and Surjectivity}
 
@@ -49,10 +65,26 @@
 
 % 3.18
 \setcounter{thm}{17}
-\begin{thm} [range is a subspace]
+\begin{thm} [the range is a subspace]
   \label{thm: the range is a subspace}
   $T\in \linmap(V,W) \implies \myrange T$ is a subspace of $W$.
 \end{thm}
+\begin{prf}
+  Let $T \in \linmap (V,W)$. Then $T(0)=0$ by \ref{thm: linear maps take 0 to 0}, which implies that $0 \in \myrange T$. So the additive identity $0$ is part of $\myrange T$.
+
+  If $w_1, w_2 \in \myrange T$, then $\exists v_1, v_2\in V$ \st $Tv_1 = w_1$ and $Tv_2 =w_2$. Thus
+  \[
+    T(v_1 + v_2)=Tv_1 + Tv_2 = w_1 + w_2 \in \myrange T.
+  \]
+
+  Hence $\myrange T$ is closed under addition.
+
+  If $w \in \myrange T$ and $\lambda \in \myF$, then $\exists v \in V$ \st $Tv = w$. Thus
+  \[
+    T(\lambda v) = \lambda Tv = \lambda w \in \myrange T.
+  \]
+  Hence $\myrange T$ is closed under scalar multiplication. Thus $\myrange T$ is a subspace of $W$ by \ref{thm: conditions for a subspace}.
+\end{prf}
 
 %3.19
 \setcounter{thm}{18}
@@ -63,44 +95,80 @@
 
 \subsection{Fundamental Theorem of Linear Maps}
 
-  % 3.21
-  \setcounter{thm}{20}
-  \begin{thm} [{\slshape \scshape Fundamental Theorem of Linear Maps or ``Rank Nullity Theorem''}]
-    \label{rank-nullity-theorem}
-    \phantom{.} \\
-    For $T \in \linmap(V,W)$, where $V$ is \fd, we have that $\myrange(T)$ is also \fd and
-    \begin{equation}
-      \dim V =
-      \underbrace{ \dim\mynull T\phantom{g}\!\!\!\!\!}_{\text{nullity}}
-      \; + \; \underbrace{\dim \myrange T}_{\text{rank}}.
-    \end{equation}
+% 3.21
+\mce{21}
+\begin{thm} [{\slshape \scshape Fundamental Theorem of Linear Maps or ``Rank Nullity Theorem''}]
+  \label{rank-nullity-theorem}
+  \phantom{.} \\
+  For $T \in \linmap(V,W)$, where $V$ is \fd, we have that $\myrange(T)$ is also \fd and
+  \begin{equation}
+    \dim V =
+    \underbrace{ \dim\mynull T\phantom{g}\!\!\!\!\!}_{\text{nullity}}
+    \; + \; \underbrace{\dim \myrange T}_{\text{rank}}.
+  \end{equation}
 
-    Note that $T \in \linmap(V,W)$ is not a typo.
-  \end{thm}
+  Note that $T \in \linmap(V,W)$ is not a typo.
+\end{thm}
+\begin{prf}
+  Let $u_1, \ddd, u_m$ be a basis of $\mynull T$ with $\dim \mynull T = m$. Using \ref{thm: every linearly independent list of vectors in a finite-dimensional vector space can be extended to a basis of the vector space}, this basis which forms a linearly independent inside $V$, can be extendend to a basis of $V$ which looks like this
+  \[
+    u_1, \ddd, u_m, v_1, \ddd, v_n
+  \]
+
+  Thus $\dim V = m+n$. To complete the proof, we need to show that $\myrange T$ is finite-dimensional and $\dim \myrange T = n$. We will do this by proving that $Tv_1, \ddd, Tv_n$ is a basis of $\myrange T$.
+
+  Let $v \in V$ sucht that for $a_1, \ddd, a_m \in \myF$ and $b_1, \ddd, b_n \in \myF$:
+  \[
+    v= a_1 u_1 + \cdots + a_m  u_m + b_1 v_1 + \cdots + b_n v_n.
+  \]
+
+  If we apply $T$ we get $Tv=b_1Tv_1+ \cdots + b_nTv_n$. Since we can do this for every $v$, this implies that
+  \[
+    \myrange T = \myspan{Tv_1, \ddd, Tv_n} $ and that $\myrange T$ is finite dimensional.$
+  \]
+
+   To show what $Tv_1, \ddd, Tv_n$ is linearly independent, suppose $c_1, \ddd, c_n \in \myF$ such that
+  \[
+    c_1 Tv_1 + \cdots + c_n T v_n = 0.
+  \]
+
+  Then $T(c_1 v_1 + \cdots + c_n v_n) = 0.$ Hence $c_1 v_1 + \cdots + c_n v_n \in \mynull T$. Because $u_1, \ddd, u_m$ spans $\mynull T$, we can write
+  \[
+    c_1 v_1 + \cdots + c_n v_n = d_1 u_1 + \cdots +  d_m u_m $ or$
+  \]
+  \[
+  c_1 v_1 + \cdots + c_n v_n - d_1 u_1 - \cdots - d_m u_m = 0,
+  \]
+
+  where the $d$'s are in $\myF$. This last equation implies that all the $c$'s and $d$'s are $0$ because the $u$'s and $v$'s form a basis of $V$ and are therefore linearly-independent. Thus $Tv_1, \ddd, Tv_n$ is linearly independent and hence is a basis of $\myrange T$, as desired.
+\end{prf}
+
 
   %3.22
   \setcounter{thm}{21}
   \begin{thm} [linear map to a lower-dimensional space is not injective]
     \label{thm: linear-map-to-a-lower-dimensional-space-is-not-injective}
-    If $\dim V$ $>$ $\dim W$ \\
+    \phantom{.}\\
+    If $\dim V$ $>$ $\dim W$ ^
     $\implies$ No \lm from $V$ to $W$ is injective.
   \end{thm}
   \begin{prf} Let $T\in \linmap(V,W)$ such that $\dim V > \dim W$. Using \ref{rank-nullity-theorem}, we have
     \begin{equation}
       \dim \mynull T = \dim V - \dim \myrange T \geq \dim V - \dim W > 0,
     \end{equation}
-    The first inequality follows from \ref{thm: dimension of a subspace}, because $\myrange T \subseteq W$. Now we have that $\dim \mynull T > 0.$ Thus $T$ is not injective by \ref{def: injectivity}.
+    The first inequality follows from \ref{thm: dimension of a subspace}, because $\myrange T$ is a subspace of $W$. The second inequality is because we assumed $\dim V > \dim W$. Now the equation tells us that $\dim \mynull T > 0$. Thus $T$ is not injective by \ref{def: injectivity}.
   \end{prf}
 
   % 3.24
-  \setcounter{thm}{23}
+  \mce{24}
   \begin{thm} [linear map to a higher-dimensional space is not surjective]
+    \phantom{.}\\
     If $\dim V < \dim W$ $\implies$ No \lm from $V$ to $W$ is surjective.
   \end{thm}
   \begin{prf}
     Let $T\in \linmap (V,W)$ such that $\dim V < \dim W$. Then
     \begin{equation}
-      \dim \myrange T = \dim V - \dim \mynull T \leq \dim < \dim W
+      \dim \myrange T = \dim V - \dim \mynull T \leq \dim V < \dim W
     \end{equation}
     Thus we have $\dim \myrange T < \dim W$. So $\myrange T \neq W$. Thus $T$ is not surjective by \ref{def: surjectivity}.
   \end{prf}

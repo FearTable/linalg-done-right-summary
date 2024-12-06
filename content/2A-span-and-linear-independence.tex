@@ -3,7 +3,7 @@
 
 \setcounter{thm}{1}
 \begin{mydef} [linear combination]
-  $a_1 v_1 + \cdots + a_m v_m$ is called a \qt{linear combination} of a list of vectors $v_1, \dots, v_m$
+  $a_1 v_1 + \cdots + a_m v_m$ is called a \qt{linear combination} of a list of vectors $v_1, \dots, v_m$.
 \end{mydef}
 
 \setcounter{thm}{3}
@@ -12,16 +12,34 @@
   \begin{equation}
     \begin{aligned}
       \myspan {v_1, \dots, v_m} &:\equiv \{a_1 v_1 + \cdots + a_m v_m \mid a_1, \dots a_m \in \mathbb{F} \}\\
-      \myspan{ } &:\equiv \varnothing
+      \myspan{ } &:\equiv \varnothing =\{ \}
     \end{aligned}
   \end{equation}
+
+  The definition also implies that $\myspan{ \{0\}} = \{0\}$.
 \end{mydef}
 
-\setcounter{thm}{5}
-%\textbf{2.6}
+\mce{6}
 \begin{thm} [the span of a list of vectors is a subspace]
+  \label{thm: the span of a list of vectors is a subspace}
   The  span of a list of vectors in $V$ is the smallest subspace of $V$ containing all vectors in the list.
 \end{thm}
+\begin{prf}
+  Let $v_1, \ddd, v_m \in V$. We have $0 = 0v_1 + \cdots + 0v_m \in \myspan{v_1, \ddd, v_m}$, so the additive identity is in $\myspan{v_1, \ddd, v_m}$.
+
+  Also, $\myspan{v_1, \ddd, v_m}$ is closed under addition, because for all $a$'s and $c$'s in $\myF$ we have
+  \[
+    \underbrace{(a_1 v_1 + \cdots a_m v_m)}_{\in \; \myspan{v_1, \ddd, v_m}} + \underbrace{(c_1 v_1 + \cdots + c_m v_m)}_{\in \; \myspan{v_1, \ddd, v_m}} = (a_1 + c_1)v_1 + \cdots + (a_m + c_m)v_m \in \myspan{v_1, \ddd, v_m}.
+  \]
+
+  Furthermore, $\myspan{v_1, \ddd, v_m}$ is closed under scalar multiplication because
+  \[
+    \lambda (a_1 v_1 + \cdots + a_m v_m) = \lambda a_1 v_1 + \cdots + \lambda a_m v_m.
+  \]
+
+  Thus $\myspan{v_1, \ddd, v_m}$ is a subspace of $V$ by \ref{thm: conditions for a subspace}. Since every subspace of $V$ that contains each $v_k$ is closed under scalar multiplication and addition contains $\myspan{v_1, \ddd, v_m}$. Thus $\myspan{v_1, \ddd, v_m}$ is the smallest subspace containing each $v_1, \ddd, v_m$. That $\myspan{v_1, \ddd, v_m}$ contains every vector in the list should be obvious.
+\end{prf}
+
 
 % 2.8
 \begin{mydef} [spanning a vector space]
