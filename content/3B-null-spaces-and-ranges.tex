@@ -70,18 +70,18 @@
   $T\in \linmap(V,W) \implies \myrange T$ is a subspace of $W$.
 \end{thm}
 \begin{prf}
-  Let $T \in \linmap (V,W)$. Then $T(0)=0$ by \ref{thm: linear maps take 0 to 0}, which implies that $0 \in \myrange T$. So the additive identity $0$ is part of $\myrange T$.
+  Let $T \in \linmap (V,W)$. Then $T(0)=0$ by \ref{thm: linear maps take 0 to 0}, which implies that $\boxed{0 \in \myrange T}\,$. So the additive identity $0$ is part of $\myrange T$.
 
-  If $w_1, w_2 \in \myrange T$, then $\exists v_1, v_2\in V$ \st $Tv_1 = w_1$ and $Tv_2 =w_2$. Thus
+  If $\boxed{w_1, w_2 \in \myrange T}\,$, then $\exists v_1, v_2\in V$ \st $Tv_1 = w_1$ and $Tv_2 =w_2$. Thus
   \[
-    T(v_1 + v_2)=Tv_1 + Tv_2 = w_1 + w_2 \in \myrange T.
+    T(v_1 + v_2)=Tv_1 + Tv_2 = \boxed{w_1 + w_2 \in \myrange T}.
   \]
 
   Hence $\myrange T$ is closed under addition.
 
-  If $w \in \myrange T$ and $\lambda \in \myF$, then $\exists v \in V$ \st $Tv = w$. Thus
+  If $\boxed{w \in \myrange T}$ and $\lambda \in \myF$, then $\exists v \in V$ \st $Tv = w$. Thus
   \[
-    T(\lambda v) = \lambda Tv = \lambda w \in \myrange T.
+    T(\lambda v) = \lambda Tv = \boxed{\lambda w \in \myrange T}.
   \]
   Hence $\myrange T$ is closed under scalar multiplication. Thus $\myrange T$ is a subspace of $W$ by \ref{thm: conditions for a subspace}.
 \end{prf}

@@ -32,6 +32,7 @@
 
 %\textbf{3.111}
 \begin{thm}
+  \label{thm: dim V' = dim V}
   $\dim \dual{V} = \dim V$.
 \end{thm}
 \begin{prf}
@@ -49,7 +50,7 @@
     0, & \text{if $k \neq j$}
   \end{cases}
   \end{equation}
-  Note that this is not the definition of each $\varphi_j$.
+  Note that this is not the definition of each $\varphi_j$ but a property of each $\varphi_j$.
 \end{mydef}
 
 %\textbf{3.114}
@@ -71,20 +72,33 @@
 \begin{thm}[basis of the dual space]
   The dual basis of a basis of $V$ is a basis of the dual space $\dual{V}$
 \end{thm}
+\begin{prf}
+  Suppose $v_1, \ddd, v_n$ is a basis of $V$. Let $\varphi_1, \ddd, \varphi_n$ denote the dual basis. Suppose
+  \[
+    a_1 \varphi_1 + \cdots + a_n \varphi_n = 0 \; $ for some $ a_1, \ddd, a_n \in \myF.
+  \]
+
+  Which means that we get a function in $\linmap(V, \myF)$ that always returns $0$. So $\forall v \in V: (a_1 \varphi_1 + \cdots + a_n \varphi_n)(v)=0$. Now
+  \[
+    (a_1 \varphi_1 + \cdots + a_n \varphi_n)(v_k)=a_k \quad \forall k \in \{1, \ddd, n\}.
+  \]
+
+  Thus $a_1 = \cdots = a_n = 0$. Hence the list $\varphi_1, \ddd, \varphi_n$ is linearly independent. Since the list is a linearly independent list in $\dual{V}$ whose length equals $\dim \dual{V}$ by \ref{thm: dim V' = dim V}, we conclude that $\varphi_1, \ddd, \varphi_n$ is a basis of $\dual{V}$ by \ref{thm: linearly independent list of the right length is a basis}.
+\end{prf}
 
 %\textbf{3.118}
 \setcounter{thm}{117}
 \begin{mydef}[dual map, $T'$]
   The \qt{dual map} $\dual{T}$ of $T \in \linmap(V,W)$ is the linear map $T' \in \lin{W'}{V'}$ defined like this:
 \begin{equation}
-    \dual{T}(\varphi) :\equiv \varphi \circ T \quad \forall \phi \in W'.
+    \dual{T}(\varphi) :\equiv \varphi \circ T \quad \forall \phi \in \dual{W}.
 \end{equation}
 
     So we have for a $\varphi \in \dual{W}=\lin{W}{\mathbb{F}}$ that $T'(\varphi) \in V' = \lin{V}{\mathbb{F}}$. So $T'$ is indeed a map from $W'$ to $V'$
 
     Dual maps are indeed linear maps.
 \begin{itemize}
-      \item $\varphi, \psi \in W' \implies T' (\varphi + \psi) = (\varphi + \psi) \circ T = \varphi \circ T + \psi \circ T = T' (\varphi) + T'(\psi)$
+      \item $\varphi, \psi \in \dual{W} \implies T' (\varphi + \psi) = (\varphi + \psi) \circ T = \varphi \circ T + \psi \circ T = T' (\varphi) + T'(\psi)$
     \item $\lambda \in \mathbb{F}, \varphi \in W' \implies T' (\lambda \varphi) = (\lambda \varphi) \circ T = \lambda (\varphi \circ T) = \lambda T' (\varphi)$
 \end{itemize}
 
