@@ -1,0 +1,86 @@
+\section{Consequences of Singular Value Decomposition}
+
+\subsection{Norms of Linear Maps}
+
+\mce{82}
+\begin{thm}[upper bound for $\norm{Tv}$]
+  Suppose $T \in \linmap (V,W)$. Let $s_1$ be the largest singular value of $T$. Then
+  \[
+    \norm{Tv} \leq s_1 \norm{v} \quad \forall v \in V.
+  \]
+\end{thm}
+
+\mce{86}
+\begin{mydef}[norm of a linear map]
+  Suppose $T \in \linmap (V,W)$. Then the \qt{norm} of $T$, denoted by $\norm{T}$, is defined by
+  \[
+    \norm{T} :\equiv \max \left \{ \norm{Tv} \; \,\Big\vert\, v \in V \myand \norm{v} \leq 1 \right \}.
+  \]
+\end{mydef}
+
+\begin{thm}[basic properties of norms of linear maps]
+  \label{thm: basic properties of norms of linear maps}
+  %\phantom{.} \\
+  Let $T\in \linmap(V,W)$. Then
+  \begin{enumerate}[label=\textbf{(\alph*)}]
+    \item $\norm{T} \geq 0$;
+    \item $\norm{T} = 0 \iff T = 0$;
+    \item $\norm{\lambda T} = |\lambda| \, \norm{T}  \quad \forall \lambda \in \myF$;
+    \item $\norm{S+T} \leq \norm{S} + \norm{T} \quad \forall S \in \linmap(V,W)$;
+  \end{enumerate}
+\end{thm}
+
+\begin{thm}[alternative formulas for $\norm{T}$]
+  \label{thm: alternative formulas for ||T||}
+  Let $T \in \linmap (V,W)$. Then
+  \begin{enumerate}[label=\textbf{(\alph*)}]
+    \item $\norm{T} =$ the largest singular value of $T$;
+    \item $\norm{T} = \max\{\norm{Tv} \mid v \in V \myand \norm{v} = 1 \}$;
+    \item $\norm{T} =$ the smallest number $c$ such that
+    $\norm{Tv} \leq c \norm{v} \quad \forall v \in V$.
+  \end{enumerate}
+\end{thm}
+
+\begin{thm}[norm of the adjoint]
+  \label{thm: norm of the adjoint}
+  Suppose $T \in \linmap(V,W)$. Then $\norm{T^*} = \norm{T}$.
+\end{thm}
+
+\subsection{Approximation by Linear Maps with Lower-Dimensional Range}
+
+\mce{92}
+\begin{thm}[best approximation by linear map whose range has dimension $\leq k$]
+  Let $T \in \linmap (V,W)$ and $s_1 \geq \cdots \geq s_m$ are positive singular values of $T$. Suppose $1 \leq k < m$. Then
+  \[
+    \min \left\{ \; \norm{T-S} \; \,\Big\vert\, S \in \linmap (V,W) \myand \dim \myrange S \leq k \; \right\} = s_{k+1}.
+  \]
+
+  Furthermore, if
+  \[
+    Tv = s_1 \ip{v}{e_1}f_1 + \cdots + s_m \ip{v}{e_m}f_m
+  \]
+
+  is a singular value decomposition of $T$ and $T_k \in \linmap(V,W)$ is defined by
+  \[
+    T_k v = s_1 \ip{v}{e_1}f_1 + \cdots + s_k \ip{v}{e_k}f_k \quad \forall v \in V,
+  \]
+
+  then $\dim \myrange T_k = k$ and $\norm{T-T_k} = s_{k+1}$.
+\end{thm}
+
+
+\begin{thm}[polar decomposition]
+  Suppose $T\in \linmap(V)$. Then $\exists!$ unitary operator $S\in \linmap(V)$ \st
+  \[
+    T=S\sqrt{T^*T}.
+  \]
+\end{thm}
+
+\subsection{Operators Applied to Ellipsoids and Parallelepipeds}
+\mce{95}
+\begin{thm}[ball, $B$]
+  The \qt{ball} in $V$ of radius $1$ centered at $0$, denoted by $B$, is defined by
+  \[
+    B :\equiv \left\{v \in V \; \,\Big\vert\, \norm{v} < 1  \right\}.
+  \]
+\end{thm}

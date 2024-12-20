@@ -1,0 +1,109 @@
+\section{Singular Value Decomposition}
+
+\subsection{Singular Values}
+
+\mce{64}
+\begin{thm}[properties of $T*T$]
+  \label{thm: properties of T^*T}
+  Suppose $T \in \linmap(V,W)$. Then
+  \begin{enumerate}[label=\textbf{(\alph*)}]
+    \item $T^*T$ is a positive operator on $V$;
+    \item $\mynull T^*T = \mynull T$;
+    \item $\myrange T^*T = \myrange T^*$;
+    \item $\dim \myrange T = \dim \myrange T^* = \dim  \myrange T^*T$;
+  \end{enumerate}
+\end{thm}
+
+\begin{mydef}[singular values]
+  Suppose $T \in \linmap (V,W)$. The \qt{singular values} of $T$ are the nonegative square roots of the eigenvalues of $T^*T$, listed in decreasing order, each included as many times as the dimension of the corresponding eigencspace of $T^*T$.
+\end{mydef}
+
+\mce{68}
+\begin{thm}[role of positive singular values]
+  Suppose that $T\in \linmap (V,W)$. Then
+  \begin{enumerate} [label=\textbf{(\alph*)}]
+    \item $T$ is injective $\iff$ $0$ is not a singular value of $T$;
+    \item the number of positive singular values of $T$ equals $\dim \myrange T$;
+    \item $T$ is surjective $\iff$ number of positive singular values of $T$ equals $\dim W$.
+  \end{enumerate}
+\end{thm}
+
+The table below compares eigenvalues with singular values.
+
+\begin{tabular}{|p{.45 \textwidth}|p{.45 \textwidth}|}
+  \hline
+  \emph{List of eigenvalues} & \emph{List of singular values} \\
+  \hline
+  context: vector spaces & context: inner product spaces \\
+  \hline
+  defined only for linear maps from a vector space to itself & defined for linear maps from an inner producte space to a possibly different inner product space \\
+  \hline
+  can be arbitrary real numbers (if $\myF = \real$) or complex numbers (if $\myF=\compl$) & are nonnegative numbers \\
+  \hline
+  can be the emptly list if $\myF = \real$ & length of list equals dimension of domain \\
+  \hline
+  includes $0$ $\iff$ operator is not invertible & includes $0$ $\iff$ linear map is not injective \\
+  \hline
+  no standard order, especially if $\myF = \compl$ & always listed in decreasing order \\
+  \hline
+\end{tabular}
+
+\mce{69}
+\begin{thm}[isometries characterized through singular values]
+  \label{thm: isometries characterized by having all singular a values equal 1}
+  Suppose $S \in \linmap (V,W)$. Then
+  \[
+    S$ is an isometry $ \iff $ all singular values of $S$ equal $1.
+  \]
+\end{thm}
+
+\subsection{SVD for Linear Maps and for Matrices}
+
+\mce{70}
+\begin{thm}[singular value decomposition]
+  Suppose $T\in \linmap (V,W)$ and the positive singular values of $T$ are $s_1, \ddd, s_m$. Then there exist two orthonormal lists $e_1, \ddd, e_m$ in $V$ and $f_1, \ddd, f_m$ in $W$ \st
+  \[
+    Tv = s_1 \ip{v}{e_1} f_1 + \cdots + s_m \ip{v}{e_m}f_m \quad \forall v \in V.
+  \]
+\end{thm}
+
+\mce{74}
+\begin{mydef}[diagonal matrix]
+  An $M$-by-$N$ matrix $A$ is called a \qt{diagonal matrix} if all entries of the matrix are $0$ except possibly $A_{k,k}$ for $k \in \big\{1, \ddd, \operatorname{min} \{M,N\} \big \}$.
+\end{mydef}
+
+The table below copmpares the spectral theorem with the singular value decomposition
+
+\begin{tabular}{|p{.45 \textwidth}|p{.45 \textwidth}|}
+  \hline
+  \emph{Spectral theorem} & \emph{Singular value decomposition} \\
+  \hline
+  describes only self-adjoint operators (when $\myF = \real$) or normal operators (when $\myF = \compl$) & describes arbitrary linear maps from an inner product space to a possibly different inner product space \\
+  \hline
+  produces a single orthonormal basis &
+  produces two orthonormal lists, one for domain space and one for range space, that are not necessarily the same even when range space equals domain space \\
+  \hline
+  different proofs depending on wether $\myF = \real$ or $\myF = \compl$ & same proof works regardless of whether $\myF = \real$ or $\myF = \compl$ \\
+  \hline
+\end{tabular}
+
+\begin{thm}[singular value decomposition of adjoint and pseudoinverse]
+  \label{thm: singular value decomposition of adjoint and pseudoinverse}
+  Suppose $T \in \linmap(V,W)$ and the positive singular values of $T$ are $s_1, \ddd, s_m$. Suppose $e_1, \ddd, e_m$ and $f_1, \ddd, f_m$ are orthonormal lists in $V$ and $W$ such that we have the following SVD:
+  \[
+    Tv = s_1 \ip{v}{e_1} f_1 + \cdots + s_m \ip{v}{e_m}f_m \quad \forall v \in V.
+  \]
+
+  Then we have $\forall w \in W$:
+  \begin{itemize}
+    \item $T^*w = s_1 \ip{w}{f_1}e_1 + \cdots + s_m \ip{w}{f_m}e_m$
+    \item $T^\dagger w = \tfrac{\ip{w}{f_1}}{s_1} e_1 + \cdots + \tfrac{\ip{w}{f_m}}{s_m} e_m$
+  \end{itemize}
+\end{thm}
+
+\begin{thm}[matrix version of SVD]
+  Suppose $A$ is a $p$-by-$n$ matrix of rank $m \geq 1$. Then there exists a $p$-by-$n$ matrix $B$ with orthonormal columns, and $m$-by-$m$ diagonal matrix $D$ with positive numbers on the diagonal and an $n$-by-$m$ matrix $C$ with orthonormal columns \st
+  \[
+    A = BDC^*.
+  \]
+\end{thm}

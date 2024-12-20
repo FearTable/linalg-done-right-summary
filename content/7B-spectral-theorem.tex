@@ -1,0 +1,157 @@
+\section{Spectral Theorem}
+
+\subsection{Real Spectral Theorem}
+
+Let $x, b, c \in \real$ and $b^2 < 4c$. Then
+\begin{equation}
+  x^2+bx+c = \left(x + \tfrac{b}{2}\right)^2 + \left(c-\tfrac{b^2}{4}\right) > 0.
+\end{equation}
+
+\begin{thm}[invertible quadratic expressions]
+  \label{thm: invertible quadratic expressions}
+  Suppose $T \in \linmap (V)$ is self-adjoint and $b,c \in \real$ are \st $b^2 < 4c$. Then
+  \[
+  T^2 + bT + cI
+  \]
+
+  is an invertible operator.
+\end{thm}
+\begin{prf}
+  Let $v \in V$, $v \neq 0, T \in \linmap(V)$ and let $b,c \in \real$ \st $b^2 < 4c$. Then
+  \[
+  \begin{aligned}
+    \ip{(T^2+bT+cI)v}{v}
+    & = \ip{T^v}{v} + b \ip{Tv}{v}+c\ip{v}{v} \\
+    & = \ip{Tv}{Tv} + b\ip{Tv}{v} + c \norm{v}^2 \\
+    & \geq \norm{Tv}^2 - |b| \, \norm{Tv} \norm{v} + c \norm{v}^2
+    \qquad \mytext{[Cauchy-Schwarz inequality \ref{thm: Cauchy-Schwarz inequality}]}\\
+    & = \left( \norm{Tv} - \frac{|b| \, \norm{v}}{2} \right)^2 + \left(c - \frac{b^2}{4} \right) \norm{v}^2 \\
+    &> 0,
+  \end{aligned}
+  \]
+
+  The last inequality implies that $(T^2+bT+cI)v \neq 0$. Since $v \neq 0$, it follows that $T^2+bT+cI$ is injective by \ref{thm: injectivity iff null space equals zero-set}, because only $(T^2+bT+cI)0 = 0$.  This also implies that it is invertible by \ref{thm: injectivity is equivalent to surjectivity}.
+\end{prf}
+
+\mce{27} % page 244
+\begin{thm}[minimal polynomial of self-adjoint operator]
+  Suppose $T \in \linmap(V)$ is self-adjoint. Then the minimal polynomial of $T$ equals $(z-\lambda_1) \cdots (z-\lambda_m)$ for some $\lambda_1, \ddd, \lambda_m \in \real$.
+\end{thm}
+\begin{prf}
+  First suppose $\myF = \compl$. The zeros of the minimal polynomial of $T$ are the eigenvalues of $T$ by \ref{thm: eigenvalues are the zeros of the minimal polynomial} \textbf{(a)}. Because $T$ is self-adjoint, all eigenvalues of $T$ are real by \ref{thm: every eigenvalue of a self-adjoint operator is real}. Thus the second version of the fundamental theorem of algebra \ref{fundamental-theorem-of-algebra-second-version} tells us that the minimal polynomial of $T$ has the desired form.
+
+  Now suppose $\myF = \real$. By \ref{thm: factorization of a polynomial over R} there exist $\lambda_1, \ddd, \lambda_m \in \real$ and $b_1, \ddd, b_N, c_1, \ddd, c_N \in \real$ with $b_k^2 < 4c_k \; \; \forall k \in \{1, \ddd, N \}$ \st the minimal polynomial of $T$ equals
+  \begin{equation}
+    \label{eq: minimal polynomial of real self-adjoint operator}
+    (z-\lambda_1)\cdots(z-\lambda_m)\cdot(z^2+b_1z+c_1) \cdots (z^2+b_Nz+c_N).
+  \end{equation}
+
+  Note that it might be the case that $m=0$ or $N=0$, meaning that there are not terms of the corresponding form. If $N=0$, we are done with this proof. Now
+  \[
+  (T-\lambda_1I) \cdots (T-\lambda_m I)\cdot(T^2 + b_1 T + c_1I)\cdots(T^2 + b_nT + c_NI) = 0
+  \]
+
+  If $N>0$, then we could miltiply both sides of the equation above on the right by the invese $(T^2+b_nT+c_NI)^{-1}$ of $T^2+b_nT+c_NI$, which is an invertible operator by \ref{thm: invertible quadratic expressions}. We would then optain a polynomial expression of $T$ that equals $0$. The corresponding polynomial would have a degree $2$ less than the degree of \eqref{eq: minimal polynomial of real self-adjoint operator}, violating the minimality of the minimal polynomial. Thus we must have $N=0$, which means that the minimal polynomial in \eqref{eq: minimal polynomial of real self-adjoint operator} has the form $(z-\lambda_1)\cdots(z-\lambda_m)$, as desired.
+\end{prf}
+
+The previous result along with \ref{thm: eigenvalues are the zeros of the minimal polynomial} implies that every self-adjoint operator has an eigenvalue. The next result will show that self-adjoint operators have enough eivenvalues to form a basis. It gives a complete description of self-adjoint operators on a real inner product space and is one of the major theorems in linear algebra.
+
+\begin{thm}[real spectral theorem]
+  % page 245
+  Suppose $\myF = \real$ and $T \in \linmap (V)$. Then the following are equivalent.
+  \begin{enumerate}[label=\textbf{(\alph*)}]
+    \item $T$ is self-adjoint.
+    \item $T$ has a diagonal matrix with respect so some orthonormal basis of $V$.
+    \item $V$ has an orthonormal basis consisting of eigenvectors of $T$.
+  \end{enumerate}
+\end{thm}
+\begin{prf}
+  \qt{First step:} First suppose (a) holds, so $T$ is self-adjoint. Our results on minimal polynomials, specifically
+  \begin{itemize}
+    \item Every orthomormal list extends to an orthonormal basis (Todo: 6.37)
+    \item minimal polynomial of self-adjoint operator
+  \end{itemize}
+
+  imply that $T$ has an upper-triangular matrix with respect to some orthornormal basis of $V$. With respect to this basis, the matrix $\mmatrix(T^*)$ of $T^*$ is the transpose of the matrix $\mmatrix(T)$ of $T$.
+  \[
+  \mmatrix(T^*)^t = \mmatrix(T)
+  \]
+
+  However, $T^*=T$. Thus $\mmatrix(T)^t=\mmatrix(T)$. Because $\mmatrix(T)$ is upper-triangular, this means that all entries of the matrix above and below the diagonal are $0$. Hence $\mmatrix(T)$  is a diagonal matrix with respect to the orthonormal basis. Thus (a) implies (b).
+
+  \qt{Second step:} Now suppose (b) holds, so $T$ has a diagonal matrix $\mmatrix(T)$ with respect to some orthonormal basis of $V$. That diagonal matrix $\mmatrix(T)$ equals its transpose, $\mmatrix(T)= \mmatrix(T)^t$. Thus with respect to that basis, $T^*=T$, proving that (b) implies (a).
+
+  \qt{Third step:} The equivalence of (b) and (c) follows from the definitions. Suppose (b) has a diagonal matrix whos entries are $\lambda_1, \ddd, \lambda_m$ with an orthonormal basis $e_1, \ddd, e_m$. Then we have $Te_k = \lambda_k e_k \; \; \forall k \in \{1, \ddd, m\}$. So we see that $e_1, \ddd, e_m$ are the eigenvectors of $T$.
+\end{prf}
+
+\subsection{Complex Spectral Theorem}
+
+\begin{thm}[complex spectral theorem]
+  % page 246
+  Suppose $\myF = \compl$ and $T \in \linmap(V)$. Then the following are equivalent.
+  \begin{enumerate}[label=\textbf{(\alph*)}]
+    \item $T$ is normal. ($TT^* = T^*T$)
+    \item $T$ has a diagonal matrix with respect to some orthonormal basis of $V$.
+    \item $V$ has an orthonormal basis consisting of eigenvectors of $T$.
+  \end{enumerate}
+\end{thm}
+\begin{prf}
+  Since $\myF=\compl$, by Schurs theorem, there is an orthonormal basis $e_1, \ddd, e_n$ of $V$ with respect to which $T$ as an upper-triangular matrix. Thus we can write
+
+  \begin{equation}
+    \label{eq: mmatrix T, e1...en}
+    \mmatrix(T) = \mmatrix (T, (e_1, \ddd, e_n)) =
+    \left(
+    \begin{array}{ccc}
+      a_{1,1} & \cdots & a_{1,n} \\
+      & \ddots & \vdots \\
+      0     &        & a_{n,n} \\
+    \end{array}
+    \right)
+  \end{equation}
+
+  We see that
+  \[
+  \norm{T e_1}^2 = \sqrt{\ip{Te_1}{Te_1}}^2
+  = \ip{a_{1,1}\cdot e_1}{a_{1,1}\cdot e_1}
+  = a_{1,1} \overline{a_{1,1}} \cdot  \ip{e_1}{e_1}
+  = |a_{1,1}|^2 \, \norm{e_1} = |a_{1,1}|^2
+  \]
+
+  as well as
+  \[
+  \begin{aligned}
+    & \norm{T^*} = \sqrt{\ip{T^*e_1}{T^*e_1}}^2
+    = \ip{(a_{1,1}\cdot e_1 + \cdots a_{1,n} e_n)}{(a_{1,1}\cdot e_1 + \cdots a_{1,n} e_n)} \\
+    & = \ip{(a_{1,1}\cdot e_1)}{(a_{1,1}\cdot e_1 + \cdots + a_{1,n} e_n)} + \cdots + \ip{(a_{1,n}\cdot e_n)}{(a_{1,1}\cdot e_1 + \cdots +a_{1,n} e_n)} \\
+    & = \Big( \ip{a_{1,1} \cdot e_1}{a_{1,1}\cdot e_1} + \underbrace{\ip{a_{1,1} \cdot e_1}{a_{1,2}\cdot e_2}}_{= \; 0} + \cdots + \underbrace{\ip{a_{1,1} \cdot e_1}{a_{1,n}\cdot e_n}}_{= \; 0} \Big) \\
+    & \phantom { = } \; +
+    \Big( \underbrace{\ip{a_{1,2} \cdot e_2}{a_{1,1}\cdot e_1}}_{= \; 0} + \ip{a_{1,2} \cdot e_2}{a_{1,2}\cdot e_2} + \cdots + \underbrace{\ip{a_{1,2} \cdot e_2}{a_{1,n}\cdot e_n}}_{= \; 0} \Big) \\
+    & \phantom { = } \; + \mathlarger{\ddd} +
+    \Big( \underbrace{\ip{a_{1,n} \cdot e_n}{a_{1,1}\cdot e_1}}_{= \; 0} + \underbrace{\ip{a_{1,n} \cdot e_n}{a_{1,2}\cdot e_2}}_{= \; 0´} + \cdots + \ip{a_{1,n} \cdot e_n}{a_{1,n}\cdot e_n} \Big) \\
+    & = a_{1,1} \overline{a_{1,1}} \cdot  \ip{e_1}{e_1} + a_{1,2} \overline{a_{1,2}} \cdot  \ip{e_2}{e_2} + \cdots + a_{1,n} \overline{a_{1,n}} \cdot  \ip{e_n}{e_n} \\
+    & = |a_{1,1}|^2 + \cdots + |a_{1,n}|^2
+  \end{aligned}
+  \]
+
+  \qt{First step:} Now suppose (a) holds. Because $T$ is normal, $\norm{T e_1}^2 = \norm{T^* e_1}^2$, see \ref{thm: condition for T to be normal}. Thus
+  \[
+  |a_{1,1}|^2 = |a_{1,1}|^2 + \cdots + |a_{1,n}|^2
+  \]
+
+  imply that all entries in the first row of the matix $\mmatrix(T)$, exept possibly the first entry $a_{1,1},$ equal $0$.
+
+  Now \eqref{eq: mmatrix T, e1...en} implies that
+  \[
+  \norm{Te_2}^2 = |a_{2,1}|^2 + |a_{2,2}|^2 = |a_{2,2}|^2 $ and $
+  \]
+  \[
+  \norm{T^* e_2}^2 = |a_{2,2}|^2 + |a_{2,3}|^2 + \cdots + |a_{2,n}|^2.
+  \]
+
+  Because $T$ is normal, $\norm{T e_2} = \norm{T^* e_2}$ and therefore $|a_{2,2}|^2=|a_{2,2}|^2 + |a_{2,3}|^2 + \cdots + |a_{2,n}|^2$. Thus the equations above imply that all entries in the second row of the matrix in \eqref{eq: mmatrix T, e1...en}, except possibly for the diagonal entry $a_{2,2}$, equal $0$. Continuing in this fashion, we see that all nondiagonal entries in the matrix \eqref{eq: mmatrix T, e1...en} equal $0$. Thus (b) holds, completing the proof that $(a) \implies (b)$.
+
+  \qt{Second step:} Now suppose (b) holds, so $T$ as a diagonal matrix $\mmatrix(T)$ with respect to some orthornomal basis of $V$. The matrix $T^*$ (with respect to some basis) is obtained by taking the conjugate transpose of the matrix of $T$; hence $T^*$ also has a diagonal matrix. Any two diagonal matrices commute; thus $T$ commutes with $T^*$, which means that $T$ is normal. in other words, (a) holds, completing the prooof that $(b) \implies (a)$.
+
+  \qt{Third step:} The equivalence of (b) and (c) follows from the deinitions, see $\ref{thm: conditions equivalent to diagonalizability}$.
+\end{prf}

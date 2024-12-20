@@ -1,0 +1,156 @@
+\section{Isometries, Unitary Operators, and Matrix Factorization}
+\subsection{Isometries}
+
+\begin{mydef}[isometry]
+  $S \in \lin{V}{W}$ is called an \qt{isometry} if
+  \[
+  \norm{Sv} = \norm{v} \quad \forall v \in V.
+  \]
+
+  In other words, a linear map is an isometry if it preserves norms.
+
+  If $S \in \linmap(V,W)$ is an isometry an $v \in V$ is \st $Sv = 0$, then
+  \[
+  \norm{v} = \norm{Sv} = \norm{0} = 0,
+  \]
+
+  which implies that $v=0$. Thus every isometry is injective.
+\end{mydef}
+
+(The Greek word \emph{isos} means \qt{equal}; the Greek word \emph{metron} means \qt{measure}. Thus \emph{isometry} literraly means \qt{equal measure}.)
+
+\mce{49}
+\begin{thm}[characterizations of isometeries]
+  \label{thm: characterizations of isometeries}
+  Suppose $S \in \linmap (V,W)$. Suppose $e_1, \ddd, e_n$ is an orthonormal basis of $V$ and $f_1, \ddd, f_m$ is an orthonormal basis of $W$. Then the following are equivalent.
+  \begin{enumerate}[label=\textbf{(\alph*)}]
+    \item $S$ is an isometry.
+    \item $S^*S = I$.
+    \item $\ip{Su}{Sv} = \ip{u}{v} \quad \forall u,v \in V$.
+    \item $Se_1, \ddd, Se_n$ is an orthonormal list in $W$.
+    \item The columns of $\mmatrix(S, (e_1, \ddd, e_n), (f_1, \ddd, f_m))$ form an orthonormal list in $\myF^m$ with respect to the Euclidean inner product.
+  \end{enumerate}
+\end{thm}
+\begin{prf}
+  We will proof $(a) \Rightarrow (b) \Rightarrow (c) \Rightarrow (d) \Rightarrow (e)  \Rightarrow (a)$
+
+  \qt{First step:} First suppose (a) holds, so $S$ is an isometry. If $v\in V$, then
+  \[
+  \ip{(I-S^*S)v}{v} = \ip{v}{v} - \ip{S^*Sv}{v} = \norm{v}^2-\ip{Sv}{Sv} = \norm{v}^2 - \norm{Sv}^2 = 0.
+  \]
+
+  Since $I-S^*S$ is a self adjoint operator because $(I-S^*S)^* = I-S^*S$, we can use \ref{thm: T self-adjoint and <Tv,v>=0 for all v <=> T=0} to conclude that $I-S^*S$ equals the zero operator. Thus $S^*S = I$, proving $(a) \implies (b)$.
+
+  \qt{Second step:} Now suppose (b) holds, so $S^*S=I$. If $u,v \in V$ then
+  \[
+  \ip{Su}{Sv} = \ip{S^*Su}{v} = \ip{Iu}{v} = \ip{u}{v}, \; $ proving $ (b) \implies (c)
+  \]
+
+  \qt{Third step:} Now suppose that (c) holds, so $\ip{Su}{Sv} = \ip{u}{v} \quad \forall u,v \in V$. Thus if $j,k \in \{1, \ddd, n\}$, then
+  \[
+  \ip{Se_j}{Se_k} = \ip{e_j}{e_k}.
+  \]
+
+  Hence $Se_1, \ddd, Se_n$ is an orthonormal list in $W$, proving that $(c) \implies (d)$.
+\end{prf}
+
+\subsection{Unitary Operators}
+
+\mce{51}
+\begin{mydef}[unitary operator]
+  An operator $S \in \linmap (V)$ is called \qt{unitary} if $S$ is an ivertible isometry.
+\end{mydef}
+
+Note: Every isometry is injective. Every injective operator on a finite-dimensional vector space is invertible. So \qt{unitary} and \qt{isometry} mean the same thing for operators on finite-dimensional inner product spaces. But remember: A unitary operator maps a vector space to itself, while an isometry maps a vector space to another (possibly different) vector space.
+
+\begin{example}[rotation of $\real^2$]
+  Suppose $\theta \in \real$ and $S$ is the operator on $\myF^2$ whose matrix $\mmatrix(S)$ with respect to the standard basis of $\myF^2$ is
+  \[
+    \left(\begin{array}{cc}
+      \cos \theta & - \sin \theta \\
+      \sin \theta & \cos \theta
+    \end{array} \right)
+    = \mmatrix(S).
+  \]
+
+  The two columns of this matrix form an orthonormal list in $\myF^2$. Therefore, $S$ is an isometry by the equivalence of (a) and (e) in \ref{thm: characterizations of isometeries}. Thus $S$ is a unitary operator.
+
+  If $\myF=\real$, then $S$ is the counterclockwise rotation by $\theta$ radians around to origin of $\real^2$. So it preserves norms.
+\end{example}
+
+\mce{53}
+\begin{thm}[characterizations of unitary operators]
+  \label{thm: characterizations of unitary operators}
+  Suppose $S \in \linmap(V)$. Suppose $e_1, \ddd, e_n$ is an orthonormal basis of $V$. Then
+  \begin{enumerate}[label=\textbf{(\alph*)}]
+    \item $S$ is a unitary operator.
+    \item $S^*S = SS^* = I$.
+    \item $S$ is invertible an $S^{-1} = S^*$.
+    \item $Se_1, \ddd, Se_n$ is an orthonormal basis of $V$.
+    \item The rows of $\mmatrix(S,(e_1, \ddd, e_n))$ form an orthonormal basis of $\myF^n$ with respect to the Euclidean inner product.
+    \item $S^*$ is a unitary operator.
+  \end{enumerate}
+\end{thm}
+
+\mce{54}
+\begin{thm}[eigenvalues of unitary operators]
+  \label{thm: eigenvalues of unitary operators}
+  Suppose $\lambda$ is an eigenvalue of a unitary operator. Then $|\lambda| = 1$.
+\end{thm}
+
+\mce{55}
+\begin{thm}[description of unitary operators on complex inner product spaces]
+  \label{thm: description of unitary operators on complex inner product spaces}
+  Suppose $\myF = \compl$ and $S \in \linmap(V)$. Then the following are equivalent.
+  \begin{enumerate}[label=\textbf{(\alph*)}]
+    \item $S$  is a unitary operator.
+    \item There is an orthonormal basis of $V$ consisting of eigenvertors of $S$ whose corresponding eigenvalues all have absolute value $1$.
+  \end{enumerate}
+\end{thm}
+
+\mce{56}
+\section{QR Factorization}
+\begin{mydef}[unitary matrix]
+  An $n$-by-$n$ matrix is called \qt{unitary} if its columns form an orthnormal list in $\myF^n$.
+\end{mydef}
+
+\begin{thm}[characterizations of unitary matrices]
+  Let $Q \in \myF^{n,n}$. Then the following are equivalent.
+  \begin{enumerate}[label=\textbf{(\alph*)}]
+    \item $Q$ is a unitary matrix.
+    \item The rows of $Q$ form an orthonormal list in $\myF^{n}$.
+    \item $\norm{Qv} = \norm{v} \quad v \in \myF^n$.
+    \item $Q^*Q=QQ^*=I$, the $n$-by-$n$ matrix with $1$'s on die diagonal and $0$'s elswhere.
+  \end{enumerate}
+\end{thm}
+
+\begin{thm}[QR factorization]
+  Suppose $A$ is a square matrix with linearly independent columns. Then there exists unique matrices $Q$ and $R$ such that $Q$ is uniatry, $R$ is upper triangular with only positive numbers on its diagonal, and
+  \[
+    A=QR.
+  \]
+\end{thm}
+
+
+\subsection{Cholesky Factorization}
+
+\mce{61}
+\begin{thm}[positive invertible operator]
+  \label{thm: positive invertible operator}
+  A self-adjoint operator $T\in \linmap(V)$ is a positive invertible operator $\iff$ $\ip{Tv}{v} >0 \quad \forall v \in V$, $v \neq 0$.
+\end{thm}
+
+\begin{mydef}[positive definite]
+  A matrix $B \in \myF^{n,n}$ is called \qt{positive definite} if $B^* = B$ and
+  \[
+    \ip{Bx}{x} > 0 \quad \forall x \in \myF^n, \, x \neq 0.
+  \]
+\end{mydef}
+
+\begin{thm}[Cholesky factorization]
+  Suppose $B$ is a positive definite matrix. Then there exists a unuqie upper triangular matrix $R$ with only positive numbers on its diagonal \st
+  \[
+    B = R^*R.
+  \]
+\end{thm}
+
