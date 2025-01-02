@@ -323,7 +323,7 @@ drop lifted shadow,
 \renewcommand*{\thesubsection}{\arabic{chapter}\Alph{section}\arabic{subsection}}
 
 \titleformat{\chapter}[block]
-{\bfseries\scshape}{\relscale{1.1}#1 {\footnotesize (Chapter \thechapter)}}{0.5em}{\large}
-\titleformat{\section}{\bfseries\scshape}{}{0em}{{\relscale{1.1}#1} {\footnotesize(Section  \thesection)}} %Large
+{\bfseries\scshape}{\underline{\relscale{1.2}#1 {\footnotesize (Chapter \thechapter)}}}{0.5em}{\large}
+\titleformat{\section}{\bfseries\scshape}{}{0em}{\underline{{\relscale{1.1}#1} {\footnotesize(Section  \thesection)}}} %Large
 \titleformat{\subsection}{\relscale{1.1}\bfseries\scshape}{}{0em}{#1 {\footnotesize (Sub-Section \thesubsection)}} %large
 % END custom chapter format ********************************

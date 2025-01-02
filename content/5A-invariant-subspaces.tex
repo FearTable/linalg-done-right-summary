@@ -166,22 +166,23 @@ $\implies T^m T^n = T^{m+n}$ and $(T^m)^n=T^{mn}$ for $m,n \in \mathbb{Z}$ if $T
   \end{equation}
 \end{thm}
 \begin{prf}
-  Suppose $u\in \operatorname{null} p(T)$
+  \qt{Step 1:} Suppose $u\in \operatorname{null} p(T)$
   \begin{equation}
     \implies p(T)u = 0.
   \end{equation}
 
   Assoziativiy and distributivity of linear maps imply that
   \begin{equation}
-    (p(T))(Tu)=T(p(T)u)=T(0)=0.
+    \begin{aligned}
+      (p(T))(Tu)&=(P(T)T)(u)=(Tp(T))(u) \\
+      &=T(p(T)u)=T(0)=0.
+    \end{aligned}
   \end{equation}
 
-  Which implies that
-  \begin{equation}
-    Tu \in \mynull p(T).
-  \end{equation}
+  % Hence
+  Which implies that $Tu \in \mynull p(T)$.
 
-  Now suppose $u \in \myrange p(T)$
+  \qt{Step 2:} Now suppose $u \in \myrange p(T)$
   \begin{equation}
     \begin{aligned}
       &\implies \exists v\in V: u=p(T)v \\

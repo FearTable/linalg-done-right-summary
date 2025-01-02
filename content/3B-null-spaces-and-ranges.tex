@@ -112,14 +112,14 @@
 \begin{prf}
   Let $u_1, \ddd, u_m$ be a basis of $\mynull T$ with $\dim \mynull T = m$. Using \ref{thm: every linearly independent list of vectors in a finite-dimensional vector space can be extended to a basis of the vector space}, this basis which forms a linearly independent inside $V$, can be extendend to a basis of $V$ which looks like this
   \[
-    u_1, \ddd, u_m, v_1, \ddd, v_n
+    u_1, \ddd, u_m, v_1, \ddd, v_n \mytext{(we have been using the fact that $V$ is finite-dimensional.)}
   \]
 
   Thus $\dim V = m+n$. To complete the proof, we need to show that $\myrange T$ is finite-dimensional and $\dim \myrange T = n$. We will do this by proving that $Tv_1, \ddd, Tv_n$ is a basis of $\myrange T$.
 
   Let $v \in V$ sucht that for $a_1, \ddd, a_m \in \myF$ and $b_1, \ddd, b_n \in \myF$:
   \[
-    v= a_1 u_1 + \cdots + a_m  u_m + b_1 v_1 + \cdots + b_n v_n.
+    v= (a_1 u_1 + \cdots + a_m  u_m) + (b_1 v_1 + \cdots + b_n v_n).
   \]
 
   If we apply $T$ we get $Tv=b_1Tv_1+ \cdots + b_nTv_n$. Since we can do this for every $v$, this implies that
