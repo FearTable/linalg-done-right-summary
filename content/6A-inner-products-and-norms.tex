@@ -38,6 +38,7 @@ For $z \in \compl$, we define the norm of $z$ by
     {v,v} \geq 0 \quad \forall v \in V$
     \item \bfemph{Definiteness: } $\ip{v}{v} = 0 \iff v=0$
     \item \bfemph{Additivity in first slot: } $\ip{u+v}{w}=\ip{u}{w}+\ip{v}{w} \quad \forall u,v,w \in V$
+    \item \bfemph{Homogeneity in first slot: } $\ip{\lambda u}{v} = \lambda \ip{u}{v} \quad \forall \lambda \in \myF \myand \forall u,v \in V$.
     \item \bfemph{Conjugate symmetry:} $\ip{u}{v} = \overline{\ip{v}{u}} \quad \forall u, v \in V$
   \end{itemize}
 \end{mydef}
@@ -55,7 +56,7 @@ For $z \in \compl$, we define the norm of $z$ by
 \begin{thm}[basic properties of an inner product]
   $\forall u,v,w \in V$ and $\forall \lambda \in \myF$:
   \begin{enumerate}[label=\textbf{(\alph*)}]
-    \item $V \ni x \mapsto \ip{u}{x} \in \myF$ is a linear map from $V$ to $\myF$.
+    \item $x \in V \mapsto \ip{u}{x} \in \myF$ is a linear map from $V$ to $\myF$.
     \item $\ip{0}{v} = 0 $
     \item $\ip{v}{0} = 0$
     \item $\ip{u}{v+w} = \ip{u}{v} + \ip{u}{w} $

@@ -266,7 +266,7 @@ In the next result, either $m$ or $M$ may equal to $0$. The numbers $\lambda_1, 
     0 = \impart q(x) = (\impart a_0) + (\impart a_1)x + \cdots + (\impart a_{n-2})x^{n-2}
   \]
 
-  Since according to \ref{thm: a polynomial of degree m has at most m zeros} a complex polynomial with degree $n-2$ can have at most $n-2$ zeros, this equation can not hold for all $x \in \real$. This implies that $\impart a_0, \ddd, \impart a_{n-2}$ all equal to $0$, because only the zero polynomial is allowed th have infinitely many zeros. Thus all the coefficients of $q$ are real, as desired. Hence the wanted factorization exists.
+  Since according to \ref{thm: a polynomial of degree m has at most m zeros} a complex polynomial with degree $n-2$ can have at most $n-2$ zeros, this equation can not hold for all $x \in \real$. This implies that $\impart a_0, \ddd, \impart a_{n-2}$ all equal to $0$, because only the zero polynomial is allowed th have infinitely many zeros. Thus all the coefficients of $q$ are real, as desired. Hence the wanted factorization exists by induction.
 
   \prooffont{Uniqueness:} A factor of $p$ of the form $x^2 + b_kx + c_k$ with $b_k^2 < 4c_k$ can be uniquely wirtten as $(x-\lambda_k)(x-\overline{\lambda_k})$ with $\lambda_k \in \compl$. Two different factorizations of $p$ as an element of $\polyn(\real)$ would lead to two different factorizations of $p$ as an element of $\polyn(\compl)$, contradicting using again the second version of the fundamental theorem of algebra $\ref{fundamental-theorem-of-algebra-second-version}$.
 \end{prf}
