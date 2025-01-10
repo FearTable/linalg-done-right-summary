@@ -42,7 +42,7 @@
 
     Comparing this with the equation of $u$ \eqref{eq: equation of u}, we see that $v$ can be indeed any vector in $V$, since $v_1, v_2, v_3, v_4$ is a basis.
 
-    If we want to rewrite vector $u$ we would write $a_1 = b_1.$ Next we would have $a_1 + a_2 = b_2$ and therefore $a_2 = b_2 - a_1 = b_2-b_1$. Next we would have $a_2+a_3=b_3$ and thus $a_3= b_3-a_2 = b_3 - (b_2-b_1)$. Lastly $a_4 = b_4-a_3 = b_4-(b_3 - (b_2-b_1))$. Putting all this together we have
+    If we want to rewrite vector $u$ we would write $a_1 = b_1.$ Next we would have $a_1 + a_2 = b_2$ and therefore $a_2 = b_2 - a_1 = b_2-b_1$. Next we would have $a_2+a_3=b_3$ and thus $a_3= b_3-a_2 = b_3 - (b_2-b_1)$. Lastly $a_4 = b_4-a_3 = b_4-(b_3 - (b_2-b_1))$. Putting this all together we have
     \[
       \begin{aligned}
         u
@@ -61,7 +61,7 @@
   Claim: If $v_1, v_2, v_3, v_4$ is a basis of $V$ and $U \subseteq V$, such that $v_1, v_2 \in U$ and $v_3 \notin U$ and $v_4 \notin U$, then $v_1, v_2$ is a basis of $U$.
 \end{xrcs}
 \begin{prf}
-  Any vector in $U$ can be represented as a unique linear combination of $v_1, v_2, v_3, v_4$ since $U \subseteq V$. Let $u\in U$ such that $u=a_1 v_1 + a_2 v_2 + a_3 v_3 + a_4 v_4$. In this case, $a_3$ must equal to $0$, because otherwise, due to closedness under addition and multiplication, we could subtract $a_1 v_1 + a_2 v_2+a_4v_4$ from $u$ and multiply by $\frac{1}{a_3}$ to get $v_3$, which is not in $U$. The same goes for $a_4$, which must be $0$. So every vector in $U$ is of the form $u=a_1 v_1 + a_2 v_2$, since $v_1, v_2 \in U$ and $v_3, v_4 \notin U$. Since every basis has the same length and $v_1$ and $v_2$ are linearly independent, the list $v_1, v_2$ forms a basis of $U$.
+  Any vector in $U$ can be represented as a unique linear combination of $v_1, v_2, v_3, v_4$ since $U \subseteq V$. Let $u\in U$ such that $u=a_1 v_1 + a_2 v_2 + a_3 v_3 + a_4 v_4$. In this case, $a_3$ must equal to $0$, because otherwise, due to closedness under addition and multiplication, we could subtract $a_1 v_1 + a_2 v_2+a_4v_4$ from $u$ and multiply by $\frac{1}{a_3}$ to get $v_3$, which is not in $U$. The same goes for $a_4$, which must be $0$ as well. So every vector in $U$ is of the form $u=a_1 v_1 + a_2 v_2$, since $v_1, v_2 \in U$ and $v_3, v_4 \notin U$. Since every basis has the same length and $v_1$ and $v_2$ are linearly independent, the list $v_1, v_2$ forms a basis of $U$.
 \end{prf}
 
 \begin{xrcs}

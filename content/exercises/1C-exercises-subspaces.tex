@@ -1,0 +1,49 @@
+\subsection*{Exercises about Subspaces 1C}
+\hrule
+\phantom{.}
+
+\setcounter{xrcs}{11}
+\begin{xrcs}
+  Prove that the union $U \cup W$ of of two subspaces $U, W$ of $V$ is a subspace of $V$ $\iff$ one of the subspaces is contained in the other. So $U\subseteq W$ or $W \subseteq U$.
+\end{xrcs}
+\begin{prf}
+  \qt{$\Leftarrow$ direction:} Let $U$ and $W$ be two subspaces of $V$. If $U \subseteq W$ then $U \cup W = W \subseteq V$ and if $W \subseteq U$ then $U \cup W = U \subseteq V$.
+
+  \qt{$\Rightarrow$ direction:} We can prove this either directly or by contradiction. In both proofs, lets assume that $U \cup W$ is a subspace of $V$ given that $U$ and $W$ are subspaces of $V$ as well. \\
+  \prooffont{Proof by contradiction:} Suppose $U \subsetneq W$ and $W \subsetneq U$. Note that this would imply that $U \neq \{0\}$ and $W \neq \{0\}$. Therefore we have that
+  \[
+  \begin{aligned}
+    \exists u \in U: u \notin W \myand \\
+    \exists w \in W: w \notin U.
+  \end{aligned}
+  \]
+
+  Since $u,w \in U \cup W \implies u+w \in U \cup W $ we have that either $u+w \in U$ or $u+w \in W$ (or both).
+  \begin{description}
+    \item{\prooffont{Case $\mathbf{u+w \in U:}$}} In this case, let $\widetilde u :\equiv u + w \in U$. Hence $w = \widetilde{u} - u \in U$, a contradiction.
+    \item{\prooffont{Case $\mathbf{u+w \in W:}$}} Let $\widetilde w :\equiv u + w \in W$. Hence $u = \widetilde{w} - u \in W$, again a contradiction.
+  \end{description}
+
+  So the assumtion that $U \subsetneq W$ and $W \subsetneq U$ can not hold. So the opposite is true. By de Morgan's rule it must hold that $U \subseteq W$ or $W \subseteq U$.
+
+  \prooffont{Direct proof:} We have $2$ cases. $W \subseteq U$ or $W \subsetneq U$. If $W \subseteq U$, then the disjunction \[
+  W \subseteq U $ or $ U \subseteq W
+  \]
+  is automatically true. So lets assume that $W \subsetneq U$ and prove that this implies that $U \subseteq W$.
+  Let $u \in U$ and $w \in W \backslash U$. By the definition of union, it also holds that $u,w \in U \cup W$. Since $U \cup W$ is a subspace of $V$:
+  \[
+    u+w \in U \cup W.
+  \]
+
+  By the defintion of union, there are two possible cases. $u+w \in U$ or $u+w \in W$. The first case would imply
+  \[
+    w = (u+w) + (-u) \in U,
+  \]
+
+  which is impossible. Hence $u+w \in W$ and therefore
+  \[
+    u= (u+w) -w \in W
+  \]
+
+  Since $u$ was arbitrary, $U \subseteq W$.
+\end{prf}
