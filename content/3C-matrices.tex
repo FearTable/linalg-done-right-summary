@@ -68,6 +68,8 @@ Let $A :\equiv \mmatrix(S)\in \myF^{m,n}$ and $B :\equiv \mmatrix(T)\in \myF^{m,
     \begin{block}{c(ccccc)}
       w_1    &     &        & A_{1,r} &        &     \\
       \vdots &     &        & \vdots  &        &     \\
+      w_j    &     &        & A_{j,r} &        &     \\
+      \vdots &     &        & \vdots  &        &     \\
       w_m    &     &        & A_{m,r} &        &     \\
     \end{block}
   \end{blockarray},
@@ -77,6 +79,8 @@ Let $A :\equiv \mmatrix(S)\in \myF^{m,n}$ and $B :\equiv \mmatrix(T)\in \myF^{m,
     & u_1 & \cdots & u_k     & \cdots & u_p \\
     \begin{block}{c(ccccc)}
       v_1    &     &        & B_{1,k} &        &     \\
+      \vdots &     &        & \vdots  &        &     \\
+      v_r    &     &        & B_{r,k} &        &     \\
       \vdots &     &        & \vdots  &        &     \\
       v_n    &     &        & B_{n,k} &        &     \\
     \end{block}
@@ -125,6 +129,7 @@ For $1 \leq k \leq p$, we have
   \begin{equation}
     (AB)_{j,k} :\equiv \sum_{r=1}^{n} A_{j,r} B_{r,k}.
   \end{equation} %for $A\in \myF^{m,n}$, $B\in \myF^{n,p}$, $AB \in \myF^{m,p}$
+
   \begin{minipage}{\linewidth}
     The octave code for calculating the entry $j,k$ of the result of $A, B$ with the \qt{sum-scheme} like above looks as follows
 
@@ -174,7 +179,7 @@ For $1 \leq k \leq p$, we have
     (AB)_{\mathsmaller{\bullet}, k} = AB_{\mathsmaller{\bullet}, k}
   \end{equation}
 
-  In other words, column $k$ of $AB$ equals $A$ times column $k$ of $B$. The octave looks as follows
+  In other words, column $k$ of $AB$ equals $A$ times column $k$ of $B$. The octave code looks as follows
 
   \octave{matrix_times_columns_matrix_mult.m}
 

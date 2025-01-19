@@ -1,0 +1,166 @@
+\subsection*{Exercises about Dimension 2C}
+
+\setcounter{xrcs}{19}
+\begin{xrcs}
+  Explain why you might guess, motivated by analogy with the formula for the number of elements in the union of three finite sets, that if $V_1$, $V_2$, $V_3$ are subspaces of a finite-dimensional vector space $V$, then
+  \[
+    \begin{aligned}
+      \dim (V_1 + V_2 + V_3) &= \dim (V_1) + \dim (V_2) + \dim (V_3) \\
+      & \quad - \dim(V_1 \cap V_2) - \dim (V_1 \cap V_3) - \dim (V_2 \cap V_3) \\
+      & \quad + \dim (V_1 \cap V_2 \cap V_3).
+    \end{aligned}
+  \]
+
+  Then either prove the forumula above or give a counterexample.
+
+
+\end{xrcs}
+
+\begin{xrcs}
+  Show that for a finite-dimensional vector space with subspaces $V_1$, $V_2$, $V_3$ the following formula holds:
+  \begin{equation}
+  \begin{aligned}
+    \dim (V_1 + V_2 + V_3)  &= \dim V_1 + \dim V_2 + \dim V_3 \\
+    & \quad - \frac{\dim (V_1 \cap V_2) + \dim (V_1 \cap V_3) + \dim (V2 \cap V3)}{3} \\
+    & \quad - \frac{ \dim \left(  (V_1 + V_2) \cap V_3 \right) + \dim \left( (V_1 + V_3) \cap V_2 \right)+ \dim \left( (V2 + V3) \cap V_1 \right) }{3} \\
+  \end{aligned}
+\end{equation}
+
+  \prooffont{Solution:} Let $r_1, \ddd, r_{n_{123}} \in V$ be a basis of $V_1 \cap V_2 \cap V_3$, where $n_{123} \in \nat_{\geq 0}$, meaning the basis can also be the empty list and $V_1 \cap V_2 \cap V_3$ might be equal to $\{\vec 0\}$. Note that the empty list is defined to be linearly independent. By this definition we have
+\[
+\dim (V_1 \cap V_2 \cap V_3) = n_{123}.
+\]
+
+Since $r_1, \ddd, r_{n_{123}}$ is a linearly independent list in $V$, this list can be extended to a basis of $V_1 \cap V_2$, a basis of $V_1 \cap V_2$, and a basis $V_2 \cap V_3$ respectively. So let
+\begin{itemize}
+  \item $r_1, \ddd, r_{n_{123}}, v_1, \ddd, v_{m_{12}}$ be a basis of $V_1 \cap V_2$,
+  \item $r_1, \ddd, r_{n_{123}}, \widetilde{v}_1, \ddd, \widetilde{v}_{m_{13}}$ be a basis of $V_1 \cap V_3$ and
+  \item $r_1, \ddd, r_{n_{123}}, \overline{v}_1, \ddd, \overline{v}_{m_{23}}$ be a basis of $V_2 \cap V_3$.
+\end{itemize}
+
+Then we have $\dim (V_1 \cap V_2) = n_{123} + m_{12}$, $\dim (V_1 \cap V_3) = n_{123} + m_{13}$ and $\dim (V_2 \cap V_3) = n_{123} + m_{23}$. Note that the extensions might be an empty, and $m_{12}, m_{13}, m_{23} \in \nat_{\geq 0}$, meaning $V_1 \cap V_2$, $V_1 \cap V_3$ and $V_2 \cap V_3$ could be $\{ \vec 0 \}$. Later on we will use the fact that
+\[
+\dim (V_1 \cap V_2) + \dim (V_1 \cap V_3) + \dim (V_2 \cap V_3) = 3n_{123} + (m_{12} + m_{13} + m_{23}).
+\]
+
+So let us further extend
+\begin{itemize}
+  \item $r_1, \ddd, r_{n_{123}}, v_1, \ddd, v_{m_{12}}, \widetilde{v}_1, \ddd, \widetilde{v}_{m_{13}}, u_1, \ddd, u_j$ to a basis of $V_1$,
+  \item $r_1, \ddd, r_{n_{123}}, v_1, \ddd, v_{m_{12}}, \overline{v}_1, \ddd, \overline{v}_{m_{23}}, w_1, \ddd, w_k$ to a basis of $V_2$ and
+  \item $r_1, \ddd, r_{n_{123}}, \widetilde{v}_1, \ddd, \widetilde{v}_{m_{13}}, \overline{v}_1, \ddd, \overline{v}_{m_{23}}, z_1, \ddd, z_l$ to a basis of $V_3$ for $j,k,l \in \nat_{\geq 0}$ (again with the possibilty that $j,k,l = 0$).
+\end{itemize}
+
+This will yield
+\begin{itemize}
+  \item $\dim (V_1) = n_{123} + m_{12} + m_{13} + j$,
+  \item $\dim (V_2) = n_{123} + m_{12} + m_{23} + k$, and
+  \item $\dim (V_3) = n_{123} + m_{13} + m_{23} + l$.
+\end{itemize}
+
+If we can show that
+\begin{equation}
+  \label{eq: basis of V_1 + V_2 + V_3}
+  r_1, \ddd, r_{n_{123}}, v_1, \ddd, v_{m_{12}}, \widetilde{v}_1, \ddd, \widetilde{v}_{m_{13}}, \overline{v}_1, \ddd, \overline{v}_{m_{23}}, u_1, \ddd, u_j, w_1, \ddd, w_k, z_1, \ddd, z_l
+\end{equation}
+
+is a basis of $V_1 + V_2 + V_3$, then we are done. Because then we have
+%\[
+%\begin{aligned}
+%  \dim (V_1 + V_2 + V_3) & = n_{123} + m_{12} + m_{13} + m_{23} + j + k + l \\
+%  & = \Big(3n_{123} + 2(m_{12}+m_{13}+m_{23})+j+k+l \Big) \\
+%  & \quad - \Big(3n_{123}+(m_{12}+m_{13}+m_{23}) \Big) \\
+%  & \quad + \Big(n_{123}\Big) \\
+%  & = \dim (V_1) + \dim (V_2) + \dim (V_3) \\
+%  & \quad - \dim(V_1 \cap V_2) - \dim (V_1 \cap V_3) - \dim (V_2 \cap V_3) \\
+%  & \quad + \dim (V_1 \cap V_2 \cap V_3).
+%\end{aligned}
+%\]
+\[
+\begin{aligned}
+  \dim (V_1 + V_2 + V_3) & = n_{123} + m_{12} + m_{13} + m_{23} + j + k + l \\
+  & = \Big(3n_{123} + 2(m_{12}+m_{13}+m_{23})+j+k+l \Big) \\
+  & \quad - \Big(3n_{123}+(m_{12}+m_{13}+m_{23}) \Big) \\
+  & \quad + \Big(n_{123}\Big) \\
+  & = \dim (V_1) + \dim (V_2) + \dim (V_3) \\
+  & \quad - \dim(V_1 \cap V_2) - \dim (V_1 \cap V_3) - \dim (V_2 \cap V_3) \\
+  & \quad + \dim (V_1 \cap V_2 \cap V_3).
+\end{aligned}
+\]
+
+So all that is left to prove is that \eqref{eq: basis of V_1 + V_2 + V_3} is linearly independent. Now let all $a$'s, $b$'s, $c$'s, $d$'s, $e$'s, $f$'s and $g$'s be an element of $\myF$ such that
+\begin{equation}
+  \label{eq: linear independence formula}
+  \begin{aligned}
+    &a_1r_1 +  \cdots + a_{n_{123}} r_{n_{123}} + b_1v_1 +  \cdots + b_{m_{12}} v_{m_{12}} +  c_1\widetilde{v}_1 + \cdots + c_{m_{13}}\widetilde{v}_{m_{13}} + d_{1}\overline{v}_1 + \cdots + d_{m_{23}}\overline{v}_{m_{23}} \\
+    & \quad + e_{1} u_1 + \cdots + e_j u_j + f_1 w_1 + \cdots + f_k w_k + g_1 z_1 + \cdots + g_l z_l = 0.
+  \end{aligned}
+\end{equation}
+
+%  The equation can be rewritten as
+%  \[
+%  \begin{aligned}
+  %    &f_1 w_1 + \cdots + f_k w_k + b_1v_1 +  \cdots + b_{m_{12}} v_{m_{12}} + d_{1}\overline{v}_1 - \cdots + d_{m_{23}}\overline{v}_{m_{23}} \\
+  %    & \quad = - a_1r_1 -  \cdots - a_{n_{123}} r_{n_{123}}  -  c_1\widetilde{v}_1 - \cdots - c_{m_{13}}\widetilde{v}_{m_{13}} - e_{1} u_1 - \cdots - e_j u_j - g_1 z_1 - \cdots - g_l z_l,
+  %  \end{aligned}
+%  \]
+%
+This equation can be rewritten so we can isolate the $u$ terms:
+\[
+\begin{aligned}
+  &e_{1} u_1 + \cdots + e_j u_j = - a_1r_1 -  \cdots - a_{n_{123}} r_{n_{123}} - b_1v_1 -  \cdots - b_{m_{12}} v_{m_{12}} -  c_1\widetilde{v}_1 - \cdots - c_{m_{13}}\widetilde{v}_{m_{13}} - d_{1}\overline{v}_1 - \cdots - d_{m_{23}}\overline{v}_{m_{23}} \\
+  & \quad - f_1 w_1 - \cdots - f_k w_k - g_1 z_1 - \cdots - g_l z_l
+\end{aligned}
+\]
+
+which shows that $e_{1} u_1 + \cdots + e_j u_j \in (V_2 + V_3)$. But since all $u$'s are in $V_1$ as well, this implies
+\[ e_{1} u_1 + \cdots + e_j u_j \in V_1 \cap (V_2 + V_3).\]
+
+
+Because $r_{1}, \ddd, r_{n_{123}}, v_{1}, \ddd, v_{m_{12}}, \widetilde{v}_1, \ddd, \widetilde{v}_{m_{13}}$ is a basis of $V_1 \cap (V_2+V_3)$, we have
+\begin{equation}
+  \label{eq: equation for u}
+  \begin{aligned}
+  e_{1} u_1 + \cdots + e_j u_j &= h_{r_{1}} r_{1} + \cdots + h_{r_{n_{123}}} r_{n_{123}} \\
+  &  + h_{v_{1}} v_{1} + \cdots + h_{v_{m_{12}}} v_{m_{12}} \\
+  &  + h_{\widetilde{v}_1} \widetilde{v}_1 + \cdots + h_{\widetilde{v}_{m_{13}}} \widetilde{v}_{m_{13}}
+  \end{aligned}
+\end{equation}
+
+for some $h_{r_{1}}, \ddd, r_{n_{123}}, h_{v_{1}}, \ddd, h_{v_{m_{12}}}, h_{\widetilde{v}_1}, \ddd,  h_{\widetilde{v}_{m_{13}}}  \in \myF$. Since all terms can be taken on one side of equation \eqref{eq: equation for u}, all the $e$'s and $h$'s are $0$, because $r_1, \ddd, r_{n_{123}}, v_1, \ddd, v_{m_{12}}, \widetilde{v}_1, \ddd, \widetilde{v}_{m_{13}}, u_1, \ddd, u_j$ is a basis of $V_1$ and are therefore linearly independent. By the exact same logic, all $f$'s and $g$'s are $0$ as well. Therefore we can rewrite \eqref{eq: linear independence formula} to
+\begin{equation}
+  \label{eq: second linear independence formula}
+  a_1r_1 +  \cdots + a_{n_{123}} r_{n_{123}} + b_1v_1 +  \cdots + b_{m_{12}} v_{m_{12}} +  c_1\widetilde{v}_1 + \cdots + c_{m_{13}}\widetilde{v}_{m_{13}} + d_{1}\overline{v}_1 + \cdots + d_{m_{23}}\overline{v}_{m_{23}} = 0.
+\end{equation}
+
+
+Now if we take $b_1v_1 +  \cdots + b_{m_{12}} v_{m_{12}}$ to one side of the equation, it modifies to
+\[
+b_1v_1 +  \cdots + b_{m_{12}} v_{m_{12}} = -a_1r_1 -  \cdots - a_{n_{123}} r_{n_{123}} -   c_1\widetilde{v}_1 - \cdots + c_{m_{13}}\widetilde{v}_{m_{13}} - d_{1}\overline{v}_1 - \cdots - d_{m_{23}}\overline{v}_{m_{23}} )
+\]
+
+So now it is clear that $b_1v_1 +  \cdots + b_{m_{12}} v_{m_{12}} \in V_3 \cap (V_1+V_2)$, since $r_1,  \ddd r_{n_{123}} ,  \widetilde{v}_1, \ddd, \widetilde{v}_{m_{13}}, \overline{v}_1, \ddd, \overline{v}_{m_{23}}$ is a basis of $V_3 \cap (V_1+V_2)$. But we also have that $v_1, \ddd, v_{m_{12}} \in V_1 \cap V_2$, so therefore
+\[
+  b_1v_1 +  \cdots + b_{m_{12}} v_{m_{12}} \in (V_1 \cap V_2) \cap (V_3 \cap (V_1+V_2))
+\]
+
+which is equivalent to
+$
+    b_1v_1 +  \cdots + b_{m_{12}} v_{m_{12}} \in (V_1 \cap V_2 \cap V_3) \cap (V_1+V_2).
+$
+So this means that $b_1v_1 +  \cdots + b_{m_{12}} v_{m_{12}} \in (V_1 \cap V_2 \cap V_3)$ and hence there must exist $s_1, \ddd, s_{n_{123}} \in \myF$ such that
+\begin{equation}
+  \begin{aligned}
+    b_1v_1 +  \cdots + b_{m_{12}} v_{m_{12}} = s_1 r_1 + \cdots + s_{n_{123}} r_{n_{123}} \iff
+    b_1v_1 +  \cdots + b_{m_{12}} v_{m_{12}} - s_1 r_1 - \cdots - s_{n_{123}} r_{n_{123}} = 0
+  \end{aligned}
+\end{equation}
+
+Now since $r_1, \ddd, r_{n_{123}}, v_1, \ddd, v_{m_{12}}$ is a basis of $V_1 \cap V_2$, this means all $b$'s and $r$'s are $0$. Now this further changes our formula \eqref{eq: second linear independence formula} which originated from \eqref{eq: linear independence formula} to
+\begin{equation}
+  a_1r_1 +  \cdots + a_{n_{123}} r_{n_{123}} + c_1\widetilde{v}_1 + \cdots + c_{m_{13}}\widetilde{v}_{m_{13}} + d_{1}\overline{v}_1 + \cdots + d_{m_{23}}\overline{v}_{m_{23}} = 0.
+\end{equation}
+
+Now finally, since we know that $r_1,  \ddd r_{n_{123}} ,  \widetilde{v}_1, \ddd, \widetilde{v}_{m_{13}}, \overline{v}_1, \ddd, \overline{v}_{m_{23}}$ is a basis of $V_3 \cap (V_1 + V_2)$, that all $a$'s, $c$'s and $d$'s must be $0$.
+
+So we have shown that in equation \eqref{eq: linear independence formula} that all $a$'s, $b$'s, $c$'s, $d$'s, $e$'s, $f$'s and $g$'s must be $0$. Therefore, we have shown that the list \eqref{eq: basis of V_1 + V_2 + V_3} is indeed a basis of $V_1 + V_2 + V_3$.
+\end{xrcs}

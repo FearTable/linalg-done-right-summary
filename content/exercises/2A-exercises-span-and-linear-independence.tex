@@ -98,3 +98,81 @@
 
   \eqref{eq: fact1} and \eqref{eq: fact2} together imply that $\myspan{w_1, \ddd, w_m} = \myspan{v_1, \ddd, v_m}$.
 \end{prf}
+
+\setcounter{xrcs}{15}
+\begin{xrcs}
+  $\polyn_4(\myF)$ has $5$ degrees of freedom ans looks like this:
+  \[
+    \polyn_4(\myF) = \{a_0 + a_1 z + a_2z^2 + a_3 z^3 + a_4 z^4 \mid a_0, \ddd, a4 \in \myF \}.
+  \]
+
+  So we have $5$ degrees of freedom. If you span $4$ polynomials, you can not get $5$ degrees of freedom.
+\end{xrcs}
+
+\setcounter{xrcs}{19}
+\begin{xrcs}
+  Suppose $p_0, p_1, \ddd, p_m$ are polynomials in $\polyn_m(\myF)$ such that $p_k(2) = 0 \quad \forall k \in \{0, \ddd, m\}$. Prove that $p_0, p_1, \ddd, p_m$ is not linearly independent in $\polyn_m(\myF)$.
+\end{xrcs}
+\begin{prf}
+  Define an evaluation map $\varphi : \polyn_m(\myF) \to \myF$ such that
+  \[
+  \varphi(p) :\equiv p(2) \quad \forall p \in \polyn(\myF).
+  \]
+
+  The polynomials that vanish at $z=2$ lies in the subspace $\mynull(\varphi)$ of $\polyn_m(\myF)$. So  we have
+  \[
+  \mynull(\varphi) \subseteq \polyn_m(\myF).
+  \]
+
+  Any polynomial $p \in \mynull(\varphi)$ can be written as
+  \[
+  p(z) = (z-2) q(z) \where q(z) \in \polyn_{m-1} (\myF).
+  \]
+
+  Therefore, $\mydim \mynull(\varphi) = m$. Since $p_0, p_1, \ddd, p_m \in \mynull(\varphi)$, the given list is not linearly independent by \ref{thm: length of linearly dependent list less or equal to length of spanning list}, because it has length $m+1$.
+\end{prf}
+
+%\begin{xrcs}
+%  Suppose $p_0, p_1, \ddd, p_m$ are polynomials in $\polyn_m(\myF)$ such that $p_k(2) = 0 \quad \forall k \in \{0, \ddd, m\}$. Prove that $p_0, p_1, \ddd, p_m$ is not linearly independent in $\polyn_m(\myF)$.
+%\end{xrcs}
+%\begin{prf}
+%  Define the polynomials $p_0, p_1, \ddd, p_m$ for all $a's$ as an element of $\myF$ like this:
+%  \[
+%  \begin{aligned}
+  %    p_0(z) &:\equiv a_{0,0}  \\
+  %    p_1(z) &:\equiv a_{1,0} + a_{1,1} z  \\
+  %    p_2(z) &:\equiv a_{2,0} + a_{2,1} z + a_{2,2} z^2  \\
+  %    p_3(z) &:\equiv a_{3,0} + a_{3,1} z + a_{3,2} z^2 + a_{3,3} z^3  \\
+  %    \vdots & \quad \\
+  %    p_m(z) &:\equiv a_{m,0} + a_{m,1} z + a_{m,2} z^2 + a_{m,3} z^3 + \cdots + a_{m,m} z^m  \\
+  %  \end{aligned}
+%  \]
+%
+%  By assumption, \( p_k(2) = 0 \) for \( k = 1, \ddd, m \), which gives the following constraints:
+%  \[
+%  \begin{aligned}
+  %    p_0(2) &= a_{0,0} = 0 \\
+  %    p_1(2) &= a_{1,0} + a_{1,1} 2 = 0 \\
+  %    p_2(2) &= a_{2,0} + a_{2,1} 2 + a_{2,2} 2^2  = 0  \\
+  %    p_3(2) &= a_{3,0} + a_{3,1} 2 + a_{3,2} 2^2 + a_{3,3} 2^3  = 0  \\
+  %    \vdots & \quad \\
+  %    p_m(2) &= a_{m,0} + a_{m,1} 2 + a_{m,2} 2^2 + a_{m,3} 2^3 + \cdots + a_{m,m} 2^m  = 0  \\
+  %  \end{aligned}
+%  \]
+%
+%  From the definition of linear independence, we examine the equation:
+%  \[
+%    b_0 p_0 + b_1 p_1 + b_2 p_2 + \cdots + b_m p_m = 0 \iff b_0 0 + b_1 p_1 + b_2 p_2 + \cdots + b_m p_m = 0
+%  \]
+%
+%  Substituting \( p_0(2) = 0 \), this reduces to:
+%  \[
+%  b_0 \cdot 0 + b_1 p_1 + b_2 p_2 + \cdots + b_m p_m = 0.
+%  \]
+%
+%  Any choice of $b_0$ will solve this equation and give us a non-trivial solution. So the list of polynomials $p_0, p_1, \ddd, p_m$ is not linearly independent.
+%\end{prf}
+
+\phantom{.}
+
+\hrule

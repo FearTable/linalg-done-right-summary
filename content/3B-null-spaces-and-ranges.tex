@@ -110,7 +110,7 @@
   Note that $T \in \linmap(V,W)$ is not a typo.
 \end{thm}
 \begin{prf}
-  Let $u_1, \ddd, u_m$ be a basis of $\mynull T$ with $\dim \mynull T = m$. Using \ref{thm: every linearly independent list of vectors in a finite-dimensional vector space can be extended to a basis of the vector space}, this basis which forms a linearly independent inside $V$, can be extendend to a basis of $V$ which looks like this
+  Let $u_1, \ddd, u_m$ be a basis of $\mynull T$ with $\dim \mynull T = m$. Using \ref{thm: every linearly independent list of vectors in a finite-dimensional vector space can be extended to a basis of the vector space}, this basis which forms a linearly independent list inside $V$, can be extendend to a basis of $V$ which looks like this
   \[
     u_1, \ddd, u_m, v_1, \ddd, v_n \mytext{(we have been using the fact that $V$ is finite-dimensional.)}
   \]
@@ -140,7 +140,7 @@
   c_1 v_1 + \cdots + c_n v_n - d_1 u_1 - \cdots - d_m u_m = 0,
   \]
 
-  where the $d$'s are in $\myF$. This last equation implies that all the $c$'s and $d$'s are $0$ because the $u$'s and $v$'s form a basis of $V$ and are therefore linearly-independent. Thus $Tv_1, \ddd, Tv_n$ is linearly independent and hence is a basis of $\myrange T$, as desired.
+  where the $d$'s are in $\myF$. This last equation implies that all the $c$'s and $d$'s are $0$ because the $u$'s and $v$'s form a basis of $V$ and are therefore linearly-independent. Thus $Tv_1, \ddd, Tv_n$ is linearly independent (because all $c$'s are $0$) and hence is a basis of $\myrange T$, as desired.
 \end{prf}
 
 

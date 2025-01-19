@@ -117,7 +117,12 @@ In the next result, the map $\Gamma$ is surjective by the definition of $V_1 + \
   \begin{equation}
     \Gamma(v_1, \ddd, v_m) = v_1 + \cdots + v_m \quad \forall v_1 \in V_1, \ddd, v_m \in V_m.
   \end{equation}
-  Then $V_1 + \cdots + V_m$ is a direct sum $\iff$ $\Gamma$ is injective/invertible.
+
+  Then
+  \begin{equation}
+    V_1 + \cdots + V_m$ is a direct sum $\iff$ $\Gamma$ is injective/invertible.$
+  \end{equation}
+
 \end{thm}
 \begin{prf}
   By \ref{thm: injectivity iff null space equals zero-set}, $\Gamma$ is injective $\iff v_1 = \cdots = v_m = 0$ [Stated correctly, $\Gamma$ is injective if and only if $\mynull \Gamma = \{ \vec 0 \}$]. This means, the only way to write $0$ as a sum $v_1 + \cdots + v_m$, where each $v_k \in V_k$, is by taking each $v_k=0$. Thus \ref{thm: condition for a direct sum} shows that $\Gamma$ is injective $\iff$ $V_1 + \cdots + V_m$ is a direct sum, as desired.
@@ -125,8 +130,9 @@ In the next result, the map $\Gamma$ is surjective by the definition of $V_1 + \
 
 \begin{thm}[a sum is a direct sum if and only if the dimensions add up]
   \label{thm: a sum is a direct sum if and only if the dimensions add up}
-  Suppose $V$ is finite-dimensional and $V_1, \ddd,V_m$ are subspaces of $V$. Then $V_1 + \cdots + V_1$ is a direct sum $\iff$
+  Suppose $V$ is finite-dimensional and $V_1, \ddd,V_m$ are subspaces of $V$. Then
   \begin{equation}
+    V_1 + \cdots + V_1$ is a direct sum $\iff
     \dim (V_1+\cdots+V_m) = \dim V_1 + \cdots + \dim V_m
   \end{equation}
 \end{thm}
