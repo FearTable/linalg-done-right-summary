@@ -56,32 +56,132 @@
 \end{prf}
 
 % 2.43
-\begin{thm} [dimension of a sum]
-  \label{thm: dimension of a sum of subspaces}
-  $V_1$ and $V_2$ are subspaces of a \fdvs we have
-  \begin{equation}
-    \implies \dim (V_1 + V_2) = \dim V_1 + \dim V_2 - \dim (V_1 \cap V_2)
-  \end{equation}
+%\begin{thm} [dimension of a sum]
+%  \label{thm: dimension of a sum of subspaces}
+%  If $V_1$ and $V_2$ are subspaces of a \fdvs $V$, then
+%  \begin{equation}
+%    \dim (V_1 + V_2) = \dim V_1 + \dim V_2 - \dim (V_1 \cap V_2)
+%  \end{equation}
+%\end{thm}
+%\begin{prf}
+%  Let $r_1, \ddd, r_n \in V$ be a basis of $V_1 \cap V_2$, where $n \in \nat_{\geq 0}$, meaning the basis can also be the empty list and $V_1 \cap V_2$ might equal to $\{ \vec 0 \}$. Note that the empty list is defined to be linearly independent and the span of the empty list is defined to be equal to $\{ \vec 0 \}$. By this definition, we have
+%  \[
+%    \dim(V_1 \cap V_2) = n.
+%  \]
+%
+%  Since $r_1, \ddd, r_n$ is linearly independent in $V$ as well as in $V_1$ and $V_2$, this list can be extended to a basis of $V_1$ and $V_2$. So let
+%  \begin{itemize}
+%    \item $r_1, \ddd, r_n, u_1, \ddd, u_j$ be a basis of $V_1$ and
+%    \item $r_1, \ddd, r_n, w_1, \ddd, w_k$ be a basis of $V_2$ for $j,k \in \nat_{\geq 0}$.
+%  \end{itemize}
+%
+%  Then we have $\dim (V_1) = m+j$ and $\dim(V_2) = m+k$. Note that the extensions might be empty and $j,k \in \nat_{\geq 0}$, meaning $V_1$ or $V_2$ could be $V_1 \cap V_2$. If both would equal $V_1 \cap V_2$ this would mean that $V_1 = V_2$. The reader can easily verify that the formula still holds in this case ($\dim (V_2+V_2) = \dim (V_2) = 2 \cdot \dim (V_2) - \dim (V_2 \cap V_2)$).
+%
+%  We will show that
+%  \begin{equation}
+%    \label{eq: basis with r's, u's and w's}
+%    r_1, \ddd, r_n, u_1, \ddd, u_j, w_1, \ddd, w_k
+%  \end{equation}
+%
+%  is a basis of $V_1 + V_2$. This will complete the proof, because then we will have
+%  \begin{equation}
+%    \begin{aligned}
+%      \dim (V_1 + V_2) &= m + j + k \\
+%      &= (m+j) + (m+k) - m \\
+%      &= \dim (V_1) + \dim (V_2) - \dim (V_1 \cap V_2)
+%    \end{aligned}
+%  \end{equation}
+%
+%  The list \eqref{eq: basis with r's, u's and w's} is contained in $V_1 + V_2$. The span of this list contains $V_1$ and contains $V_2$ and hence is equal to $V_1 + V_2$. Thus to show that \eqref{eq: basis with r's, u's and w's} is a basis of $V_1 + V_2$ we only need to show that is linearly independent. Therefore, let $a_1, \ddd, a_n, b_1, \ddd, b_j, c_1, \ddd, c_k \in \myF$, such that
+%\begin{equation}
+%  \label{eq: linear independence formula for r's, u's and w's}
+%  \begin{aligned}
+%    0 = \underbrace{a_1 r_1 + \cdots + a_n r_n}_{\substack{\in \; V_1 \cap V_2 \\ (\text{common intersection})}}
+%    + \underbrace{b_1 u_1 + \cdots + b_j u_j}_{\substack{\in \; V_1 \\ (\text{extension for } V_1 )}}
+%    + \underbrace{c_1 w_1 + \cdots + c_k w_k}_{\substack{\in \; V_2 \\ (\text{extension for } V_2 ) }}.
+%  \end{aligned}
+%\end{equation}
+%
+%We need to prove that all the $a$'s, $b$'s, and $c$'s equal $0$. The equation above can be rewritten as
+%\begin{equation}
+%  c_1 w_1 + \cdots + c_k w_k = - a_1 r_1 - \cdots - a_m r_m - b_1 u_1 - \cdots - b_j u_j
+%\end{equation}
+%
+%which shows that $c_1 w_1 + \cdots + c_k w_k \in V_1$ because $r_1, \ddd, r_n, u_1, \ddd, u_j$ is a basis of $V_1$. But all the the $w$'s are in $V_2$ as well, so this implies that $c_1 w_1 + \cdots + c_k w_k \in V_1 \cap V_2$. Because $r_1, \ddd, r_n$ is a basis of $V_1 \cap V_2$, we have
+%\begin{equation}
+%  c_1 w_1 + \cdots + c_k w_k = d_1 r_1 + \cdots + d_m r_m, $ for some $ d_1, \ddd, d_m \in \myF. $ (which are newly introduced here) $
+%\end{equation}
+%
+%But $r_1, \ddd, r_n, w_1, \ddd, w_k$ is linearly independent and the equation above can be rewritten to $0 = c_1 w_1 + \cdots + c_k w_k - d_1 r_1 - \cdots - d_m r_m$, so all the $c$'s and $d$'s must equal to $0$. Thus \eqref{eq: linear independence formula for r's, u's and w's} becomes the equation
+%\begin{equation}
+%  a_1 r_1 + \cdots + a_m r_m + b_1 u_1 + \cdots + b_j u_j = 0
+%\end{equation}
+%
+%Because $r_1, \ddd, r_n, u_1, \ddd, u_j$ is linearly independent, the equation above implies that all the $a$'s and $b$'s are $0$. So we have show that in equation \eqref{eq: linear independence formula for r's, u's and w's} that all coefficients ($a$, $b$, $c$) are $0$, more precisely $  0 = a_1 = \cdots = a_n = b_1 = \cdots =  b_j = c_1 \cdots =  c_k$,
+%completing the proof.
+%\end{prf}
 
-  See exercise 2C19 and 2C20 for a even nicer result.
-%  From exercise 2C19 and 2C20 we have the following result:
-%  If $V_1$, $V_2$ and $V_3$ are subspaces of \fdvs we have
-%  \begin{equation}
-%    \begin{aligned}
-%      \dim (V_1 &+ V_2 + V_3) = \dim V_1 + \dim V_2 + \dim V_3 \\
-%      & \quad - \dim (V_1 \cap V_2) - \dim (V_1 \cap V_3) - \dim (V2 \cap V3) \\
-%      & \quad + \dim (V_1 \cap V_2 \cap V_3)
-%    \end{aligned}
-%  \end{equation}
-%
-%as well as
-%
-%  \begin{equation}
-%    \begin{aligned}
-%      \dim (V_1 + V_2 + V_3)  = \dim V_1 + \dim V_2 + \dim V_3 \\
-%        - \frac{\dim (V_1 \cap V_2) + \dim (V_1 \cap V_3) + \dim (V2 \cap V3)}{3} \\
-%       - \frac{ \dim \left(  (V_1 + V_2) \cap V_3 \right) + \dim \left( (V_1 + V_3) \cap V_2 \right)+ \dim \left( (V2 + V3) \cap V_1 \right) }{3} \\
-%    \end{aligned}
-%  \end{equation}
+
+\begin{thm} [dimension of a sum]
+\label{thm: dimension of a sum of subspaces}
+If $V_1$ and $V_2$ are subspaces of a \fdvs $V$, then
+\begin{equation}
+  \dim (V_1 + V_2) = \dim V_1 + \dim V_2 - \dim (V_1 \cap V_2).
+\end{equation}
 \end{thm}
+\begin{prf}
+Let $r_1, \ddd, r_n \in V$ be a basis of $V_1 \cap V_2$, where $n \in \nat_{\geq 0}$. This means the basis can also be the empty list, and $V_1 \cap V_2$ might equal $\{ \vec 0 \}$. Note that the empty list is defined to be linearly independent, and the span of the empty list is defined to be equal to $\{ \vec 0 \}$. By this definition, we have
+\[
+\dim(V_1 \cap V_2) = n.
+\]
+
+Since $r_1, \ddd, r_n$ is linearly independent in $V$ as well as in $V_1$ and $V_2$, this list can be extended to a basis of $V_1$ and $V_2$. So let
+\begin{itemize}
+  \item $r_1, \ddd, r_n, u_1, \ddd, u_j$ be a basis of $V_1$, and
+  \item $r_1, \ddd, r_n, w_1, \ddd, w_k$ be a basis of $V_2$ for $j,k \in \nat_{\geq 0}$.
+\end{itemize}
+
+Then we have $\dim (V_1) = n+j$ and $\dim(V_2) = n+k$. Note that the extensions might be empty ($j,k \in \nat_{\geq 0}$), meaning $V_1$ or $V_2$ could coincide with $V_1 \cap V_2$. If both subspaces equal $V_1 \cap V_2$, this would imply $V_1 = V_2$. The reader can easily verify that the formula still holds in this case: $\dim (V_2+V_2) = \dim (V_2) = 2 \cdot \dim (V_2) - \dim (V_2 \cap V_2)$.
+
+We will show that
+\begin{equation}
+  \label{eq: basis with r's, u's and w's}
+  r_1, \ddd, r_n, u_1, \ddd, u_j, w_1, \ddd, w_k
+\end{equation}
+is a basis of $V_1 + V_2$. This will complete the proof because then we will have
+\begin{equation}
+  \begin{aligned}
+    \dim (V_1 + V_2) &= n + j + k \\
+    &= (n+j) + (n+k) - n \\
+    &= \dim (V_1) + \dim (V_2) - \dim (V_1 \cap V_2).
+  \end{aligned}
+\end{equation}
+
+The list \eqref{eq: basis with r's, u's and w's} is contained in $V_1 + V_2$. The span of this list contains $V_1$ and $V_2$; therefore, it equals $V_1 + V_2$. Thus, to show that \eqref{eq: basis with r's, u's and w's} is a basis of $V_1 + V_2$, we only need to show that it is linearly independent. Therefore, let $a_1, \ddd, a_n, b_1, \ddd, b_j, c_1, \ddd, c_k \in \myF$, such that
+\begin{equation}
+  \label{eq: linear independence formula for r's, u's and w's}
+  \begin{aligned}
+    0 = \underbrace{a_1 r_1 + \cdots + a_n r_n}_{\substack{\in \; V_1 \cap V_2 \\ (\text{common intersection})}}
+    + \underbrace{b_1 u_1 + \cdots + b_j u_j}_{\substack{\in \; V_1 \\ (\text{extension for } V_1 )}}
+    + \underbrace{c_1 w_1 + \cdots + c_k w_k}_{\substack{\in \; V_2 \\ (\text{extension for } V_2 ) }}.
+  \end{aligned}
+\end{equation}
+
+We need to prove that all the $a$'s, $b$'s, and $c$'s equal $0$. The equation above can be rewritten as
+\begin{equation}
+  c_1 w_1 + \cdots + c_k w_k = - a_1 r_1 - \cdots - a_n r_n - b_1 u_1 - \cdots - b_j u_j,
+\end{equation}
+which shows that $c_1 w_1 + \cdots + c_k w_k \in V_1$ because $r_1, \ddd, r_n, u_1, \ddd, u_j$ is a basis of $V_1$. But all the $w$'s are in $V_2$ as well, so this implies that $c_1 w_1 + \cdots + c_k w_k \in V_1 \cap V_2$. Because $r_1, \ddd, r_n$ is a basis of $V_1 \cap V_2$, we have
+\begin{equation}
+  c_1 w_1 + \cdots + c_k w_k = d_1 r_1 + \cdots + d_n r_n, \text{ for some } d_1, \ddd, d_n \in \myF. \text{ (which are newly introduced here)}
+\end{equation}
+
+But $r_1, \ddd, r_n, w_1, \ddd, w_k$ is linearly independent, and the equation above can be rewritten to $0 = c_1 w_1 + \cdots + c_k w_k - d_1 r_1 - \cdots - d_n r_n$, so all the $c$'s and $d$'s must equal $0$. Thus \eqref{eq: linear independence formula for r's, u's and w's} becomes the equation
+\begin{equation}
+  a_1 r_1 + \cdots + a_n r_n + b_1 u_1 + \cdots + b_j u_j = 0.
+\end{equation}
+
+Because $r_1, \ddd, r_n, u_1, \ddd, u_j$ is linearly independent, the equation above implies that all the $a$'s and $b$'s are $0$. So we have shown that in equation \eqref{eq: linear independence formula for r's, u's and w's} all coefficients ($a$, $b$, $c$) are $0$, more precisely $  0 = a_1 = \cdots = a_n = b_1 = \cdots =  b_j = c_1 \cdots =  c_k$,
+completing the proof.
+\end{prf}
 
