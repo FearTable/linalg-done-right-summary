@@ -148,6 +148,7 @@ We will show that
   \label{eq: basis with r's, u's and w's}
   r_1, \ddd, r_n, u_1, \ddd, u_j, w_1, \ddd, w_k
 \end{equation}
+
 is a basis of $V_1 + V_2$. This will complete the proof because then we will have
 \begin{equation}
   \begin{aligned}
@@ -171,12 +172,13 @@ We need to prove that all the $a$'s, $b$'s, and $c$'s equal $0$. The equation ab
 \begin{equation}
   c_1 w_1 + \cdots + c_k w_k = - a_1 r_1 - \cdots - a_n r_n - b_1 u_1 - \cdots - b_j u_j,
 \end{equation}
+
 which shows that $c_1 w_1 + \cdots + c_k w_k \in V_1$ because $r_1, \ddd, r_n, u_1, \ddd, u_j$ is a basis of $V_1$. But all the $w$'s are in $V_2$ as well, so this implies that $c_1 w_1 + \cdots + c_k w_k \in V_1 \cap V_2$. Because $r_1, \ddd, r_n$ is a basis of $V_1 \cap V_2$, we have
 \begin{equation}
   c_1 w_1 + \cdots + c_k w_k = d_1 r_1 + \cdots + d_n r_n, \text{ for some } d_1, \ddd, d_n \in \myF. \text{ (which are newly introduced here)}
 \end{equation}
 
-But $r_1, \ddd, r_n, w_1, \ddd, w_k$ is linearly independent, and the equation above can be rewritten to $0 = c_1 w_1 + \cdots + c_k w_k - d_1 r_1 - \cdots - d_n r_n$, so all the $c$'s and $d$'s must equal $0$. Thus \eqref{eq: linear independence formula for r's, u's and w's} becomes the equation
+But $r_1, \ddd, r_n, w_1, \ddd, w_k$ is linearly independent, because it is a basis of $V_2$, and the equation above can be rewritten to $0 = c_1 w_1 + \cdots + c_k w_k - d_1 r_1 - \cdots - d_n r_n$, so all the $c$'s and $d$'s must equal $0$. Thus \eqref{eq: linear independence formula for r's, u's and w's} becomes the equation
 \begin{equation}
   a_1 r_1 + \cdots + a_n r_n + b_1 u_1 + \cdots + b_j u_j = 0.
 \end{equation}

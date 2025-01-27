@@ -27,18 +27,35 @@
 \end{equation}
 
 \prooffont{Solution:} Let $r_1, \ddd, r_{n_{123}} \in V$ be a basis of $V_1 \cap V_2 \cap V_3$, where $n_{123} \in \nat_{\geq 0}$, meaning the basis can also be the empty list and $V_1 \cap V_2 \cap V_3$ might be equal to $\{\vec 0\}$. Note that the empty list is defined to be linearly independent and that its span is defined to be $\{\vec 0\}$. By this definition we have
-\[
-\dim (V_1 \cap V_2 \cap V_3) = n_{123}.
-\]
+\begin{equation}
+  \label{eq: dim for V_1 cap V_2 cap V_3}
+  \dim (V_1 \cap V_2 \cap V_3) = n_{123}.
+\end{equation}
 
-Since $r_1, \ddd, r_{n_{123}}$ is a linearly independent list in $V$ (as well as in $V_1 \cap V_2$...), this list can be extended to a basis of $V_1 \cap V_2$, a basis of $V_1 \cap V_2$, and a basis $V_2 \cap V_3$ respectively. So let
+Since $r_1, \ddd, r_{n_{123}}$ is a linearly independent list in $V$ (as well as in $V_1 \cap V_2$, $V_1 \cap V_3$, and $V_2 \cap V_3$), this list can be extended to a basis of $V_1 \cap V_2$, a basis of $V_1 \cap V_2$, and a basis $V_2 \cap V_3$ respectively. So let
 \begin{itemize}
   \item $r_1, \ddd, r_{n_{123}}, v_1, \ddd, v_{m_{12}}$ be a basis of $V_1 \cap V_2$,
   \item $r_1, \ddd, r_{n_{123}}, \widetilde{v}_1, \ddd, \widetilde{v}_{m_{13}}$ be a basis of $V_1 \cap V_3$ and
-  \item $r_1, \ddd, r_{n_{123}}, \overline{v}_1, \ddd, \overline{v}_{m_{23}}$ be a basis of $V_2 \cap V_3$.
+  \item $r_1, \ddd, r_{n_{123}}, \overline{v}_1, \ddd, \overline{v}_{m_{23}}$ be a basis of $V_2 \cap V_3$ for some $m_{12}, m_{13}, m_{23} \in \nat_{\geq 0}$.
 \end{itemize}
 
-Then we have $\dim (V_1 \cap V_2) = n_{123} + m_{12}$, $\dim (V_1 \cap V_3) = n_{123} + m_{13}$ and $\dim (V_2 \cap V_3) = n_{123} + m_{23}$. Note that the extensions might be empty, and $m_{12}, m_{13}, m_{23} \in \nat_{\geq 0}$, meaning $V_1 \cap V_2$, $V_1 \cap V_3$ and $V_2 \cap V_3$ could be $\{ \vec 0 \}$. Later on we will use the fact that
+Thus, we have
+\begin{equation}
+  \label{eq: dim for V_1 cap V_2, V_1 cap V_3, V_2 cap V_3}
+  \dim (V_1 \cap V_2) = n_{123} + m_{12}, \; \dim (V_1 \cap V_3) = n_{123} + m_{13}, \myand \dim (V_2 \cap V_3) = n_{123} + m_{23}.
+\end{equation}
+
+Note that the extensions might be empty, and $m_{12}, m_{13}, m_{23} \in \nat_{\geq 0}$, meaning $V_1 \cap V_2$, $V_1 \cap V_3$ and $V_2 \cap V_3$ could be $V_1 \cap V_2 \cap V_3$. This further implies that
+\begin{itemize}
+  \item $v_1, \ddd, v_{m_{12}}$ is a basis of $(V_1 \cap V_2) \backslash (V_1 \cap V_2 \cap V_3)$,
+  \item $\widetilde{v}_1, \ddd, \widetilde{v}_{m_{13}}$ is a basis of $(V_1 \cap V_3) \backslash (V_1 \cap V_2 \cap V_3)$, and
+  \item $\overline{v}_1, \ddd, \overline{v}_{m_{23}}$ is a basis of $(V_2 \cap V_3) \backslash (V_1 \cap V_2 \cap V_3)$.
+\end{itemize}
+Let us do a simple check. Suppose $V_1 \cap V_2 =  V_1 \cap V_2 \cap V_3$. This would mean that
+$(V_1 \cap V_2) \backslash (V_1 \cap V_2 \cap V_3) = \{ \vec 0 \}$, so $m_{12} = 0$. The empty list is a basis of $\{ \vec 0 \}$, so everything is fine. Note that there is a small difference compared to set notation here. If we write $U \backslash W$ for two vector spaces $U$ and $W$, we mean the subspace of $U$ that is linearly independent of $W$. So if we have $W \backslash W$, the only subspace of $W$ that is linearly independent of all vectors in $W$ is $\{ \vec 0 \}$. In set notation we would have $W \backslash W = \varnothing$.
+
+
+Later on we will use the fact that
 \begin{equation}
   \label{eq: fact for dim}
   \dim (V_1 \cap V_2) + \dim (V_1 \cap V_3) + \dim (V_2 \cap V_3) = 3\cdot n_{123} + 2\cdot (m_{12} + m_{13} + m_{23}).
@@ -56,12 +73,18 @@ So let us further extend
   \item $r_1, \ddd, r_{n_{123}}, \widetilde{v}_1, \ddd, \widetilde{v}_{m_{13}}, \overline{v}_1, \ddd, \overline{v}_{m_{23}}, z_1, \ddd, z_l$ to a basis of $V_3$ for $j,k,l \in \nat_{\geq 0}$.
 \end{itemize}
 
-Again with the possibility that $j,k,l = 0$. This will yield
+Again there could be no $u$'s, $w$'s or $z$'s to be added. This will yield
 \begin{itemize}
   \item $\dim (V_1) = n_{123} + m_{12} + m_{13} + j$,
   \item $\dim (V_2) = n_{123} + m_{12} + m_{23} + k$, and
   \item $\dim (V_3) = n_{123} + m_{13} + m_{23} + l$.
 \end{itemize}
+
+Adding this equations together we will  get
+\begin{equation}
+  \label{eq: dim V_1 + dim V_2 + dim V_3}
+    \dim (V_1)+ \dim (V_2) + \dim (V_3) = \Big(3 \cdot n_{123} + 2 \cdot (m_{12}+m_{13}+m_{23})+j+k+l \Big)
+\end{equation}
 
 Before we can proceed we need to justify that
 \begin{itemize}
@@ -70,14 +93,31 @@ Before we can proceed we need to justify that
   \item $r_1, \ddd, r_{n_{123}}, v_1, \ddd, v_{m_{12}}, \widetilde{v}_1, \ddd, \widetilde{v}_{m_{13}}$ is a basis of $(V_2+V_3) \cap V_1$, hence $\dim ((V_2+V_3) \cap V_1) = n_{123} + m_{12}+m_{13}$.
 \end{itemize}
 
+So we need to show that $r_1,  \ddd r_{n_{123}} ,  \widetilde{v}_1, \ddd, \widetilde{v}_{m_{13}}, \overline{v}_1, \ddd, \overline{v}_{m_{23}}$ is a basis of $(V_1+V_2) \cap V_3$. We will not proof the other two cases for $(V_1+V_3) \cap V_2$ and $(V_2 + V_3) \cap V_1$ because they are completely analoguous. Looking at the basis of $V_1$ and $V_2$, it is easy to see that every vector of the list
+\begin{equation}
+  r_1, \ddd, r_{n_{123}}, v_1, \ddd, v_{m_{12}}, \widetilde{v}_1, \ddd, \widetilde{v}_{m_{13}}, u_1, \ddd, u_j, \overline{v}_1, \ddd, \overline{v}_{m_{23}}, w_1, \ddd, w_{m_{23}}
+\end{equation}
 
-If we can show that
+is in $V_1 + V_2$. It is also easy to see that this list spans $V_1 + V_2$. But we are not going to prove that this list above is linearly independent and therefore a basis of $V_1+V_2$. Looking at the basis of $V_3$, it is easy to see that for $u \in (V_1 + V_2) \cap V_3$ we can write $u$ as
+\begin{equation}
+  u = (\alpha'_1 r_1+ \cdots+ \alpha'_{n_{123}} r_{n_{123}})
+  + (\beta'_1 \widetilde{v}_1+ \cdots+ \beta'_{m_{13}} \widetilde{v}_{m_{13}})
+  + (\gamma'_1 \overline{v}_1+ \cdots+ \gamma'_{m_{21}} \overline{v}_{m_{23}})
+  + (\delta'_1 z_1+\cdots+ \delta'_l z_l)
+\end{equation}
+
+Back to our main proof: If we can show that
 \begin{equation}
   \label{eq: basis of V_1 + V_2 + V_3}
   r_1, \ddd, r_{n_{123}}, v_1, \ddd, v_{m_{12}}, \widetilde{v}_1, \ddd, \widetilde{v}_{m_{13}}, \overline{v}_1, \ddd, \overline{v}_{m_{23}}, u_1, \ddd, u_j, w_1, \ddd, w_k, z_1, \ddd, z_l
 \end{equation}
 
-is a basis of $V_1 + V_2 + V_3$, then we are done. Using \eqref{eq: fact for dim} and the results for $\dim ((V_1+V_2) \cap V_3)$, $\dim ((V_1+V_3) \cap V_2)$ and $\dim ((V_2+V_3) \cap V_1)$, we will get
+is a basis of $V_1 + V_2 + V_3$, then we are done. Because this shows that
+\begin{equation}
+  \dim (V_1 + V_2 + V_3) = n_{123} + m_{12} + m_{13} + m_{23} + j + k + l
+\end{equation}
+
+Using \eqref{eq: dim V_1 + dim V_2 + dim V_3}, \eqref{eq: fact for dim}, \eqref{eq: dim for V_1 cap V_2, V_1 cap V_3, V_2 cap V_3}, and the results for $\dim ((V_1+V_2) \cap V_3)$, $\dim ((V_1+V_3) \cap V_2)$ and $\dim ((V_2+V_3) \cap V_1)$, we will get
 %\[
 %\begin{aligned}
 %  \dim (V_1 + V_2 + V_3) & = n_{123} + m_{12} + m_{13} + m_{23} + j + k + l \\
@@ -104,21 +144,8 @@ is a basis of $V_1 + V_2 + V_3$, then we are done. Using \eqref{eq: fact for dim
 \end{aligned}
 \]
 
-
+Now we want to show that \eqref{eq: basis of V_1 + V_2 + V_3} is a basis of $V_1 + V_2 + V_3$. Looking at all the  vectors in the bases for $V_1$, $V_2$, and $V_3$, it is clear that every vector in the list \eqref{eq: basis of V_1 + V_2 + V_3} is contained in $V_1 + V_2 + V_3$. It is also obvious that the span of \eqref{eq: basis of V_1 + V_2 + V_3} is equal to $V_1 + V_2 + V_3$.
 So all that is left to prove is that \eqref{eq: basis of V_1 + V_2 + V_3} is linearly independent. Now let all $a$'s, $b$'s, $c$'s, $d$'s, $e$'s, $f$'s and $g$'s be an element of $\myF$ such that
-%\begin{equation}
-%  \label{eq: linear independence formula}
-%  \begin{aligned}
-%    &0=\underbrace{a_1r_1 +  \cdots + a_{n_{123}} r_{n_{123}}}_{\in \; V_1 \cap V_2 \cap V_3}
-%    + \underbrace{b_1v_1 +  \cdots + b_{m_{12}} v_{m_{12}}}_{\text{``extension'' for $V_1 \cap V_2$}}
-%    + \underbrace{c_1\widetilde{v}_1 + \cdots + c_{m_{13}}\widetilde{v}_{m_{13}}}_{\text{``extension'' for $V_1 \cap V_3$}}
-%    + \underbrace{d_{1}\overline{v}_1 + \cdots + d_{m_{23}}\overline{v}_{m_{23}}}_{\text{``extension'' for $V_2 \cap V_3$}} \\
-%    &\quad + \underbrace{e_{1} u_1 + \cdots + e_j u_j }_{\text{``extension'' for $V_1$}}
-%    + \underbrace{f_1 w_1 + \cdots + f_k w_k}_{\text{``extension'' for $V_2$}}
-%    + \underbrace{g_1 z_1 + \cdots + g_l z_l}_{\text{``extension'' for $V_3$}}.
-%  \end{aligned}
-%\end{equation}
-%With the help of ChatGTP:
 \begin{equation}
   \label{eq: linear independence formula}
   \begin{aligned}

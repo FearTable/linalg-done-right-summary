@@ -13,7 +13,7 @@
   For $T=\linmap(V, W)$, $\mynull T$ is a subspace of $V$
 \end{thm}
 \begin{prf}
-  $0 \in \mynull T$ because $T(0) = 0$. Suppose $u,v \in \mynull T$ and $\lambda \in \myF.$ $\implies T(u+v)=Tu+Tv=0+0=0.$ Hence $u+v \in \mynull T$. We also have $T(\lambda u)= \lambda Tu = \lambda 0 = 0$, so $\lambda u \in \mynull T$.
+  $0 \in \mynull T$, because $T(0) = 0$. Suppose $u,v \in \mynull T$ and $\lambda \in \myF.$ $\implies T(u+v)=Tu+Tv=0+0=0.$ Hence $u+v \in \mynull T$. We also have $T(\lambda u)= \lambda Tu = \lambda 0 = 0$, so $\lambda u \in \mynull T$.
 \end{prf}
 
 % 3.14
@@ -40,14 +40,14 @@
   \end{equation}
 \end{thm}
 \begin{prf}
-  \qt{$\Rightarrow$ direction:} First suppose that $T$ is injective. We already know that $\{0\} \subseteq \mynull T$ because $\mynull T$ is a vector space by \ref{thm: null space is a subspace} or simply by using \ref{thm: linear maps take 0 to 0}. To prove that $\mynull T \subseteq \{0\}$, suppose $v \in \mynull T$. Then
+  \Rightarrowdirection First suppose that $T$ is injective. We already know that $\{0\} \subseteq \mynull T$ because $\mynull T$ is a vector space by \ref{thm: null space is a subspace} or simply by using \ref{thm: linear maps take 0 to 0}. To prove that $\mynull T \subseteq \{0\}$, suppose $v \in \mynull T$. Then
   \[
     T(v) = 0 = T(0), $ because linear maps take 0 to 0 by \ref{thm: linear maps take 0 to 0}$.
   \]
 
   Because $T$ is injective, the equation above implies that $v=0$. Thus we can conclude that $\mynull T = \{0\}$, as desired.
 
-  \qt{$\Leftarrow$ direction:} Now suppose $\mynull T = \{0\}$ and $u,v \in V$ \st $Tu = Tv$. Then
+  \Leftarrowdirection Now suppose $\mynull T = \{0\}$ and $u,v \in V$ \st $Tu = Tv$. Then
   \[
     0 = Tu - Tv = T(u-v).
   \]
@@ -134,10 +134,10 @@
 
   Then $T(c_1 v_1 + \cdots + c_n v_n) = 0.$ Hence $c_1 v_1 + \cdots + c_n v_n \in \mynull T$. Because $u_1, \ddd, u_m$ spans $\mynull T$, we can write
   \[
-    c_1 v_1 + \cdots + c_n v_n = d_1 u_1 + \cdots +  d_m u_m $ or$
+    c_1 v_1 + \cdots + c_n v_n = d_1 u_1 + \cdots +  d_m u_m \mytext{or}
   \]
   \[
-  c_1 v_1 + \cdots + c_n v_n - d_1 u_1 - \cdots - d_m u_m = 0,
+  0 = c_1 v_1 + \cdots + c_n v_n - d_1 u_1 - \cdots - d_m u_m,
   \]
 
   where the $d$'s are in $\myF$. This last equation implies that all the $c$'s and $d$'s are $0$ because the $u$'s and $v$'s form a basis of $V$ and are therefore linearly-independent. Thus $Tv_1, \ddd, Tv_n$ is linearly independent (because all $c$'s are $0$) and hence is a basis of $\myrange T$, as desired.

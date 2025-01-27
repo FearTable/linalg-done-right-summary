@@ -1,3 +1,15 @@
+% abbriviation for rightarrow direction and leftarrow direction:
+\newcommand{\Rightarrowdirection}{\prooffont{\qt{$\Rightarrow$ direction:} }}
+\newcommand{\Leftarrowdirection}{\prooffont{\qt{$\Leftarrow$ direction:} }}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% change operatorname font
+\makeatletter
+\renewcommand\operator@font{\sf}
+\makeatother
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 % configurations for enumerates
 \setlist[enumerate]{itemsep=\itemsep,topsep=\itemsep}
 \setlist[enumerate,1]{label=\textbf{(\alph*)}}
@@ -14,8 +26,6 @@
 
 % BEGIN custom geometry ************************************
 \setlength{\abovedisplayskip}{0.1em}
-%\setlength{\belowdisplayskip}{0.2em}
-%\setlength{\abovedisplayskip}{0em}
 \setlength{\belowdisplayskip}{0em}
 \setlength{\abovedisplayshortskip}{0pt}
 \setlength{\belowdisplayshortskip}{0pt}
@@ -45,17 +55,17 @@
   innertopmargin    = 0.5em, %0.6 %.675em ,
   innerleftmargin   = 0.4em, %.675em ,
   innerrightmargin  = 0.4em,
-  innerbottommargin = 0.3em, %.675em +3pt,
+  innerbottommargin = 0.4em, %.675em +3pt,
   hidealllines      = true,
   singleextra       = {
-    \draw [thick] (O) -- ++(0,1.2em) (O) -- ++(1.2em,0) ;
-    \draw [thick] (P-|O) -- ++(0,-1.2em) (P-|O) -- ++(1.2em,0) ;
+    \draw [thick] (O) -- ++(0,1.8em) (O) -- ++(1.8em,0) ;
+    \draw [thick] (P-|O) -- ++(0,-1.8em) (P-|O) -- ++(1.8em,0) ;
   },
   firstextra        = {
-    \draw [thick] (P-|O) -- ++(0,-1.2em) (P-|O) -- ++(1.2em,0) ;
+    \draw [thick] (P-|O) -- ++(0,-1.8em) (P-|O) -- ++(1.8em,0) ;
   },
   secondextra       = {
-    \draw [thick] (O) -- ++(0,1.2em) (O) -- ++(1.2em,0) ;
+    \draw [thick] (O) -- ++(0,1.8em) (O) -- ++(1.8em,0) ;
   },
 }
 

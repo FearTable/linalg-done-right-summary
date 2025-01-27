@@ -1,0 +1,46 @@
+\subsection*{Exercises about Vector Space of Linear Maps 3A}
+\hrule
+\phantom{.}
+
+\setcounter{xrcs}{11}
+%\begin{xrcs}
+%  Suppose $U$ is a subspace of $V$ with $U \neq V$. Let $S \in \linmap(U, W)$ and $S \neq 0$, which means that $Su \neq 0$ for some $u \in U$. Define $T: V \to W$ by
+%  \begin{equation}
+%    Tv :\equiv
+%    \begin{cases}
+%      Sv & \mytext{if} v \in U, \\
+%      0  & \mytext{if} v \in V \mytext{and} v \notin U \quad (v \in V \backslash U)
+%    \end{cases}
+%  \end{equation}
+%
+%  Prove that $T$ is not a linear map on $V$.
+%\end{xrcs}
+%\begin{prf}
+%  Let $u \in U$ and $v \in V$ with $v \notin U$ ($v \in V \backslash U$) Consider the sum $u + v$. We claim that $u+v \notin U$, because if $u+v \in U$ then by closure of $U$, we would have $(u+v)-u = v \in U$, which contradicts $v \notin U$. Therefore, it holds that
+%  \begin{equation}
+%    T(\underbrace{u+v}_{\notin \; U}) = 0 \neq Su + 0 = Tu + Tv.
+%  \end{equation}
+%
+%  The inequality above demonstrates that $T$ is not a linear map, because it fails to satisfy additivity. The failure of $T$ to be a linear map arises because $T$ is defined differently on $U$ and $V \backslash U$, breaking the additivity required for linearity.
+%\end{prf}
+
+\begin{xrcs}
+  Suppose $U$ is a subspace of $V$ with $U \neq V$. Let $S \in \linmap(U, W)$ and $S \neq 0$, which means that $Su \neq 0$ for some $u \in U$. Define $T: V \to W$ by
+  \begin{equation}
+    Tv :\equiv
+    \begin{cases}
+      Sv & \mytext{if} v \in U, \\
+      0  & \mytext{if} v \in V \mytext{and} v \notin U \quad (v \in V \backslash U)
+    \end{cases}
+  \end{equation}
+
+  Prove that $T$ is not a linear map on $V$.
+\end{xrcs}
+\begin{prf}
+  Let $u \in U$ and $v \in V$ with $v \notin U$ ($v \in V \backslash U$). Consider the sum $u + v$. We claim that $u+v \notin U$, because if $u+v \in U$ then by closure of $U$, we would have $(u+v)-u = v \in U$, which contradicts $v \notin U$. Therefore, it holds that
+  \begin{equation}
+    T(\underbrace{u+v}_{\notin \; U}) = 0 \neq Su + 0 = Tu + Tv.
+  \end{equation}
+
+  The inequality above demonstrates that $T$ is not a linear map, because it fails to satisfy additivity. The failure of $T$ to be a linear map arises because $T$ is defined differently on $U$ and $V \backslash U$, breaking the additivity required for linearity.
+\end{prf}

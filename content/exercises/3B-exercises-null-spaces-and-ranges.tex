@@ -1,0 +1,61 @@
+\subsection*{Exercises about Null Spaces and Ranges 3B}
+\hrule
+\phantom{.}
+
+\setcounter{xrcs}{8}
+\begin{xrcs}
+  Suppose $T \in \linmap(V,W)$ is injective and $v_1, \ddd, v_n$ is linearly independent in $V$. Prove that $Tv_1, \ddd, Tv_n$ is linearly independent in $W$.
+\end{xrcs}
+\begin{prf}
+  Let $a_1, \ddd, a_n \in \myF$ such that $a_1 v_1 + \cdots + a_n v_n  = 0$. We know that following equivalences hold:
+  \begin{equation}
+    \begin{aligned}
+              a_1 v_1 + \cdots + a_n v_n  &= 0 \\
+      \iff T (a_1 v_1 + \cdots + a_n v_n) &= 0 \\
+      \iff a_1 T v_1 + \cdots + a_n T v_n &= 0 \\
+    \end{aligned}
+  \end{equation}
+
+  Since we know this only happens if $a_1 = 0, \ddd, a_n = 0$, the last equation shows that $T v_1, \ddd, T v_n$ is linearly independent. We have used the fact that $T$ is injective for the first equivalence.
+\end{prf}
+
+\begin{xrcs} % ChatGTP did a lot of changes
+  Suppose $T \in \linmap(V,W)$ is injective and $v_1, \ddd, v_n$ is linearly independent in $V$. Prove that $Tv_1, \ddd, Tv_n$ is linearly independent in $W$.
+\end{xrcs}
+\begin{prf}
+  Let $a_1, \ddd, a_n \in \myF$ such that
+  \[
+  a_1 Tv_1 + \cdots + a_n Tv_n = 0.
+  \]
+  By the linearity of $T$, this implies:
+  \[
+  T(a_1 v_1 + \cdots + a_n v_n) = 0.
+  \]
+  Since $T$ is injective, and $T(0)=0$ by \ref{thm: linear maps take 0 to 0}, \( T(u) = 0 \) if and only if \( u = 0 \). Thus:
+  \[
+  a_1 v_1 + \cdots + a_n v_n = 0.
+  \]
+  Because $v_1, \ddd, v_n$ are linearly independent in $V$, we conclude:
+  \[
+  a_1 = 0, \ddd, a_n = 0.
+  \]
+  Thus, $Tv_1, \ddd, Tv_n$ are linearly independent in $W$.
+\end{prf}
+
+\begin{xrcs}
+  Suppose $v_1, \ddd, v_n$ spans $V$ and $T \in \linmap(V,W)$. Show that $Tv_1, \ddd, Tv_n$ spans $\myrange T$.
+\end{xrcs}
+\begin{prf}
+  Let $v = a_1 v_1 + \cdots + a_n v_n \in V$, where $a_1, \ddd, a_n \in \myF$.
+  \begin{equation}
+    \implies Tv = a_1 T v_1 + \cdots + a_n T v_n \in \myrange T.
+  \end{equation}
+
+  Thus, every element of $Tv \in \myrange T$ can be written as a linear combination of $Tv_1, \ddd, Tv_n$. This shows that
+  \begin{equation}
+    \myrange T \subseteq \myspan{T v_1, \ddd, T v_n}.
+  \end{equation}
+
+  Conversely, \( Tv_1, \ddd, Tv_n \in \myrange T \) and $\myrange T$ is a vector space which is closed under addition and multiplication. Therefore, $\myrange T = \myspan{Tv_1, \ddd, Tv_n}$.
+\end{prf}
+
