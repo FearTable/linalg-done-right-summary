@@ -49,10 +49,8 @@
     \begin{equation}
       \dim \myrange T = \dim V = \dim W,
     \end{equation}
-    which means $T$ is surjective ($\myrange T = \dim W$).
-
-    This is because every linearly independent list of vectors of of length $\dim W$ is a basis by
-    \ref{thm: linearly independent list of the right length is a basis}. And thats how dimension is defined.
+    which means $T$ is surjective ($\myrange T = \dim W$). This is because every linearly independent list of vectors of of length $\dim W$ is a basis by
+    \ref{thm: linearly independent list of the right length is a basis}. And thats how dimension is defined. (TODO)
 
     If $T$ is surjective, we have $\dim \myrange T = \dim W$ to begin with and therefore \eqref{rank-nullity-nested-equation} becomes
     \begin{equation}
@@ -66,9 +64,25 @@
 
   % 3.68
   \setcounter{thm}{67}
-  \begin{thm} [vector spaces of the same dimension]
-    $ST = I \iff TS=I$
+  \begin{thm} [$ST = I \iff TS=I$ on vector spaces of the same dimension]
+    \label{thm: ST = I iff TS=I - on vector spaces of the same dimension}
+    Suppoe $V$ and $W$ are finite-dimensinal vector spaces of the same dimension. Let $S \in \linmap (W,V)$, and $T \in \linmap(V,W)$. Then $ST = I$ if and and only if $TS = I$.
   \end{thm}
+  \begin{prf}
+     \Rightarrowdirection Let $S \in \linmap (W,V)$, and $T \in \linmap(V,W)$ such that $ST = I$. If $v \in V$ and $Tv = 0$, then
+     \begin{equation}
+       v = Iv = (ST)v = S(Tv) = S(0) = 0.
+     \end{equation}
+
+     Thus $\mynull T = \{0\}$ and therefore, $T$ is injective by \ref{thm: injectivity iff null space equals zero-set}. Because $V$ and $W$ have the same dimension, $T$ is invertible by \ref{thm: injectivity is equivalent to surjectivity}. Now multiply both sides of the equation $ST = I$ by $T^{-1}$ to conclude:
+     \begin{equation}
+       S = T^{-1}.
+     \end{equation}
+
+     Hence, $TS = TT^{-1} = I$, as desired.
+
+     \Leftarrowdirection Right above, we have shown that $ST = I \implies TS=I$. To prove the implication in the other direction, simply reverse the roles of $S$ and $T$ and $V$ and $W$, showing that $TS=I \implies ST=I$.
+  \end{prf}
 
   \subsection{Isomorphic Vector Spaces}
 

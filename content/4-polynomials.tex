@@ -19,17 +19,17 @@ $p: \mathbb{F} \to \mathbb{F}, \, p(z) = a_0 + a_1z + \cdots + a_n z^m$ $\forall
 \end{thm}
 \begin{prf} Let $p\in \polyn(\myF)_m$ for $m\in \nat$.
 
-  \qt{$\Leftarrow$ direction:} Suppose there is $q \in \polyn(\myF)$ \st $p(z) = (z-\lambda)q(z) \quad \forall z \in \myF$. Then
+  \Leftarrowdirection Suppose there is $q \in \polyn(\myF)$ \st $p(z) = (z-\lambda)q(z) \quad \forall z \in \myF$. Then
   \begin{equation}
     p(\lambda) = (\lambda -\lambda)q(\lambda) = 0,$ as desired.$
   \end{equation}
 
-  \qt{$\Rightarrow$ direction:} Now suppose $p(\lambda)=0$. Let $a_0, a_1, \ldots, a_m \in \myF$ \st
+  \Rightarrowdirection Now suppose $p(\lambda)=0$. Let $a_0, a_1, \ldots, a_m \in \myF$ \st
   \begin{equation}
     p(z) :\equiv a_0 + a_1z + \cdots a_mz^m.
   \end{equation}
 
-  Then
+  Thus
   \begin{equation}
     \label{eq: second formula of pz: pz = pz - plambda}
     p(z) = p(z)- p(\lambda) = a_1 (z-\lambda) + a_2 (z^2 - \lambda^2) + \cdots+ a_m (z^m- \lambda^m) \quad \forall z \in \myF.
@@ -151,23 +151,23 @@ In case you are wondering where the $a_0$ went by subtracting $p(\lambda)$ from 
   \begin{equation}
     \label{eq: original equation for z-lambda_2 ...}
     \begin{aligned}
-      \xcancel{(z - \lambda_1)} (z - \lambda_2) \cdots (z-\lambda_m) = \xcancel{(z-\tau_1)} (z-\tau_2) \cdots (z-\tau_m) \quad \forall z \in \compl \\
-      (z - \lambda_2) \cdots (z-\lambda_m) = (z-\tau_2) \cdots (z-\tau_m) \quad \forall z \in \compl - \{ \lambda_1 \} \\
-      \Big((z - \lambda_2) \cdots (z-\lambda_m) \Big) -   \Big((z-\tau_2) \cdots (z-\tau_m)\Big) = 0,
+      \xcancel{(z - \lambda_1)} (z - \lambda_2) \cdots (z-\lambda_m) = \xcancel{(z-\tau_1)} (z-\tau_2) \cdots (z-\tau_m) \qquad \forall z \in \compl \\
+      (z - \lambda_2) \cdots (z-\lambda_m) = (z-\tau_2) \cdots (z-\tau_m) \qquad  \forall z \in \compl \backslash \{ \lambda_1 \} \\
+      0 = \Big((z - \lambda_2) \cdots (z-\lambda_m) \Big) -   \Big((z-\tau_2) \cdots (z-\tau_m)\Big) \qquad \forall z \in \compl \backslash \{ \lambda_1 \}
     \end{aligned}
   \end{equation}
 
-  for all $z \in \compl$ except possibly $z = \lambda_1$. Remember that our goal is to use induction on the degree of the polynomial. So it would come in handy if the remaining polynomials would be equal after cancelation and behave like any other polynomial. But sadly, we have derived our nice formula \eqref{eq: original equation for z-lambda_2 ...} by the assumtion that $z \neq \lambda_1$. Here comes the trick. Now lets assume that $(z - \lambda_2) \cdots (z-\lambda_m)$ and $(z - \tau_2) \cdots (z-\tau_m)$ are not always equal. Then with the standard laws of polynomial arithmetic we can form a new polynomial $s \in \polyn_{m-1}(\compl)$ (is it $m-1$?) with
+  Not that the last equation holds for all $z \in \compl$ except possibly $z = \lambda_1$. Remember that our goal is to use induction on the degree of the polynomial. So it would come in handy if the remaining polynomials would be equal after cancelation and behave like any other polynomial. But sadly, we have derived the last formula in \eqref{eq: original equation for z-lambda_2 ...} by the assumtion that $z \neq \lambda_1$ using devision. Here comes the trick. Now lets assume that $(z - \lambda_2) \cdots (z-\lambda_m)$ and $(z - \tau_2) \cdots (z-\tau_m)$ are not always equal. Thus, with the standard laws of polynomial arithmetic we can form a new polynomial $s \in \polyn_{m-1}(\compl)$ (is it $m-1$?) with
   \begin{equation}
-    s(z) :\equiv   \Big((z - \lambda_2) \cdots (z-\lambda_m)\Big) - \Big((z-\tau_2) \cdots (z-\tau_m)\Big), \mytext{where} $s$ \mytext{is not the $0$ polynomial.}
+    s(z) :\equiv   \Big((z - \lambda_2) \cdots (z-\lambda_m)\Big) - \Big((z-\tau_2) \cdots (z-\tau_m)\Big), \mytext{where $s$ is not the $0$ polynomial.}
   \end{equation}
 
-   Using equation \eqref{eq: original equation for z-lambda_2 ...} we know that $s(z) = 0 \quad \forall z \in \compl - \{\lambda_1\}$, because we derived \eqref{eq: original equation for z-lambda_2 ...} by the assumtion that $z \neq \lambda_1$. But we know that $s$ can have at most $m-1$ zeros. A contradiction, so it must be the case that $s = 0$ [the zero polynomial] and therefore $\forall z \in \compl: s(z) = 0$. The zero polynomial is the only polynomial that is allowed to have infinitely many roots. This is only the case if $\forall z \in \compl$:
+   Using the last equation in \eqref{eq: original equation for z-lambda_2 ...}, we know that $s(z) = 0 \quad \forall z \in \compl \backslash \{\lambda_1\}$. But we know that $s$ can have at most $m-1$ zeros. A contradiction, so it must be the case that $s = 0$ [the zero polynomial] and therefore $\forall z \in \compl: s(z) = 0$. The zero polynomial is the only polynomial that is allowed to have infinitely many roots. This is only the case if $\forall z \in \compl$:
    \[
     (z - \lambda_2) \cdots (z-\lambda_m) = (z - \tau_2) \cdots (z-\tau_m).
    \]
 
-   By our induction hypothesis, the equation above implies that except for the order, the $\lambda$'s are the same as the $\tau$'s, comleting the proof of uniqueness.
+   So we get two identical polynomials after canceling ouut $(z-\lambda_1)$. By our induction hypothesis, the equation above implies that except for the order, the $\lambda$'s are the same as the $\tau$'s, comleting the proof of uniqueness.
 \end{prf}
 
 \section{Factorization of Polynomials over \texorpdfstring{$\real$}{R}}

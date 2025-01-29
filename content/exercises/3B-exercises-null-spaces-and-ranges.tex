@@ -59,3 +59,203 @@
   Conversely, \( Tv_1, \ddd, Tv_n \in \myrange T \) and $\myrange T$ is a vector space which is closed under addition and multiplication. Therefore, $\myrange T = \myspan{Tv_1, \ddd, Tv_n}$.
 \end{prf}
 
+%\setcounter{xrcs}{14}
+%\begin{xrcs}
+%  Suppose there exists a linear map $T \in \linmap(V)$ on $V$ such whose null space $\mynull(T)$ and range $\myrange(T)$ are both finite-dimensional. Prove that $V$ is finite-dimensional.
+%\end{xrcs}
+%\begin{prf}
+%  According to the rank-nullity theorem \ref{rank-nullity-theorem} we have
+%  \begin{equation}
+%    \dim V = \underbrace{\dim \myrange T}_{\neq \infty} + \underbrace{\dim \mynull (T)}_{\neq \infty}
+%  \end{equation}
+%
+%  Hence, $\dim V \neq \infty$.
+%\end{prf}
+%
+%\begin{xrcs}
+%  Suppose $V$ and $W$ are both finite-dimensional. Prove that there exists an injective linear map $T \in \linmap(V,W)$
+%  \begin{equation}
+%    \iff \dim V \leq \dim W.
+%  \end{equation}
+%\end{xrcs}
+%\begin{prf}
+%  \Rightarrowdirection If there exists an injective linear map $T \in \linmap (V,W)$, then we have $\mynull T = \{0\}$ with $\dim \mynull T = 0$. Using \ref{rank-nullity-theorem}, we conclude
+%  \begin{equation}
+%    \begin{aligned}
+%      \implies \dim V = \dim \myrange T \leq W,
+%    \end{aligned}
+%  \end{equation}
+%
+%  because $\myrange T \subseteq W$.
+%
+%  \Leftarrowdirection Let $\dim V \leq \dim W$. For any $T \in \linmap(V,W)$, it holds that
+%  \begin{equation}
+%    \dim \mynull T = \dim V - \dim \myrange T \geq \dim V - \dim W,
+%  \end{equation}
+%
+%  since $\myrange T \subseteq W$. Now, we use the assumption $\dim V \leq \dim W$ we conclude:
+%  \begin{equation}
+%    \dim \mynull T \geq 0
+%  \end{equation}
+%
+%  Thus, we conclude that a $T \in \linmap (V,W)$ exists such that $\mynull T = \{0\}$. On the other hand, if we would have assumed that $\dim V > \dim W$, this would have implied that
+%  \begin{equation}
+%    \dim \mynull T \geq 1.
+%  \end{equation}
+%
+%  For such $V$ and $W$, no injective map would exist because $\mynull T$ must be $\{0\}$, which has dimension $0$. Now we have proven both directions.
+%\end{prf}
+%
+%\begin{xrcs}
+%   Suppose $V$ and $W$ are both finite-dimensional. Prove that there exists a surjective linear map from $V$ onto $W$
+%   \begin{equation}
+%     \iff \dim V \geq W
+%   \end{equation}
+%\end{xrcs}
+%\begin{prf}
+%  \Rightarrowdirection Suppose $\exists T \in \linmap(V,W)$ such that $T$ is surjective. Using \ref{rank-nullity-theorem} and the fact that $\myrange T = W$, it follows
+%  \begin{equation}
+%    \begin{aligned}
+%      \dim \myrange T + \dim \mynull T &   = \dim V \\
+%               \dim W + \dim \mynull T &   = \dim V \\
+%                                \dim W &\leq \dim V.
+%    \end{aligned}
+%  \end{equation}
+%
+%  \Leftarrowdirection Suppose $\dim V \geq W$. Looking at
+%  \begin{equation}
+%    \begin{aligned}
+%      \dim V &= \dim \myrange T + \dim \mynull T. \\
+%             &= \underbrace{\dim W}_{\geq 0} + \underbrace{\dim \mynull T}_{\geq 0}.
+%    \end{aligned}
+%  \end{equation}
+%
+%  given by the rank-nullity theorem, we can see that this equation can only hold if and only if $\dim V \geq W$. Otherwise, if $\dim V < W$, no $T \in \linmap (V,W)$ with $\myrange T=W$ can exist.
+%\end{prf}
+%
+%\begin{xrcs}
+%  Suppose $V$ and $W$ are finite-dimensional and thet $U$ is a subpace of $V$. Prove that there exists a $T \in \linmap (V,W)$ such that $\mynull T = U$
+%  \begin{equation}
+%    \iff \dim U \geq \dim V - \dim W.
+%  \end{equation}
+%\end{xrcs}
+%\begin{prf}
+%  \Rightarrowdirection Let $T \in \linmap (V,W)$ such that $U:\equiv \mynull T$. As always,
+%  \begin{equation}
+%    \begin{aligned}
+%      \dim V &=     \dim \myrange T + \dim \mynull T \\
+%             &=     \dim \myrange T + \dim U \\
+%             & \leq \dim W          + \dim U \\
+%        \iff & \dim V - \dim W \leq \dim U.
+%    \end{aligned}
+%  \end{equation}
+%
+%  \Leftarrowdirection Conversely, let $U$ be a subspace of $V$ such that
+%  \begin{equation}
+%    \dim U \geq \dim V - \dim W \quad $or equivalently$
+%  \end{equation}
+%  \begin{equation}
+%    \dim V \leq \dim U + \dim W.
+%  \end{equation}
+%
+%  For any $T \in \linmap(V,W)$ it holds that
+%  \begin{equation}
+%    \dim V = \dim \myrange T + \dim \mynull T \leq \dim W + \dim \mynull T.
+%  \end{equation}
+%\end{prf}
+
+
+\setcounter{xrcs}{14} % With some help of ChatGTP
+\begin{xrcs}
+  Suppose there exists a linear map $T \in \linmap(V)$ on $V$ such that its null space $\mynull(T)$ and range $\myrange(T)$ are both finite-dimensional. Prove that $V$ is finite-dimensional.
+\end{xrcs}
+\begin{prf}
+  According to the rank-nullity theorem, we have: $ \dim V = \dim \myrange(T) + \dim \mynull(T). $Since both $\dim \myrange T$ and $\dim \mynull T$ are finte by assumption, their sum is also finite. Hence, $\dim V$ is finite, and V is finite-dimensional.
+\end{prf}
+
+\begin{xrcs}
+  Suppose $V$ and $W$ are both finite-dimensional. Prove that there exists an injective linear map $T \in \linmap(V,W)$
+  $
+    \iff \dim V \leq \dim W.
+  $
+\end{xrcs}
+\begin{prf}
+  \Rightarrowdirection If there exists an injective linear map $T \in \linmap(V,W)$, then $\mynull(T) = \{0\}$, so $\dim \mynull(T) = 0$. By the rank-nullity theorem:
+  \begin{equation}
+    \dim V = \dim \myrange(T) \leq \dim W, $because$ \myrange(T) \subseteq W.
+  \end{equation}
+
+  \Leftarrowdirection Let $\dim V \leq \dim W$. For any $T \in \linmap(V,W)$, we know
+  \begin{equation}
+    \dim \mynull(T) = \dim V - \dim \myrange(T) \geq \dim V - \dim W.
+  \end{equation}
+  Since $\dim V \leq \dim W$, it follows that $\dim \mynull(T) \geq 0$, which is consistent with the existence of an injective map $T$ where $\mynull(T) = \{0\}$.
+
+  \prooffont{Explicit Construction of $T$}:
+  Suppose $\dim V \leq \dim W$. Let $v_1, \dots, v_n$ be a basis for $V$ (where $n = \dim V$), and let $w_1, \dots, w_m$ be a basis of $W$ (where $m = \dim W$). Define $T$ by $T(v_i) = w_i$ for $1 \leq i \leq n$. Then $T$ is injective, as $\mynull(T) = \{0\}$.
+\end{prf}
+
+\begin{xrcs}
+  Suppose $V$ and $W$ are both finite-dimensional. Prove that there exists a surjective linear map from $V$ onto $W$
+  $
+    \iff \dim V \geq \dim W.
+  $
+\end{xrcs}
+\begin{prf}
+  \Rightarrowdirection Suppose $\exists T \in \linmap(V,W)$ such that $T$ is surjective. Then $\myrange(T) = W$, so by the rank-nullity theorem:
+  \begin{equation}
+    \begin{aligned}
+      \dim V &=    \dim \myrange(T) + \dim \mynull(T) \\
+             &=    \dim W + \dim \mynull(T). \\
+             &\geq \dim W.
+    \end{aligned}
+  \end{equation}
+
+  \Leftarrowdirection Suppose $\dim V \geq \dim W$. For any $T \in \linmap(V,W)$, the rank-nullity theorem implies:
+  \begin{equation}
+    \dim V = \dim \myrange(T) + \dim \mynull(T).
+  \end{equation}
+  Since $\dim V \geq \dim W$, we can select $T$ such that $\myrange(T) = W$, ensuring surjectivity.
+
+  \prooffont{Explicit Construction of $T$:} \\
+  Suppose $\dim V \geq \dim W$. Let $v_1, \dots, v_n$ be a basis of $V$ (where $n = \dim V$) and let $w_1, \dots, w_m$ be a basis of $W$ (where $m = \dim W$).  Define $T$ on $V$ by setting $T(v_i) = w_i$ for $1 \leq i \leq m$, and $T(v_i) = 0$ for $m+1 \leq i \leq n$. Note that we have $\dim V \geq \dim W$ which is the same as $n \geq m$. So if $n = m$, then we do not set any $T(v_i)$ to be $0$ and $\mynull T = \{0\}$. If $T$ is constructed like this, $T$ is surjective, as $\myrange(T) = W$.
+  % TODO: more detail why T is surjective
+\end{prf}
+
+\begin{xrcs}
+  Suppose $V$ and $W$ are finite-dimensional, and that $U$ is a subspace of $V$. Prove that there exists a $T \in \linmap(V,W)$ such that $\mynull T = U$
+  $\iff$ $\dim U \geq \dim V - \dim W.$
+\end{xrcs}
+\begin{prf}
+  \Rightarrowdirection Suppose $T \in \linmap(V,W)$ satisfies $\mynull T = U$. By the rank-nullity theorem:
+  \begin{equation}
+    \begin{aligned}
+      \dim V &= \dim \myrange(T) + \dim \mynull(T) \\
+             &= \dim \myrange(T) + \dim U.
+    \end{aligned}
+  \end{equation}
+
+  Since $\dim \myrange(T) \leq \dim W$, it follows that:
+  \begin{equation}
+    \begin{aligned}
+      \dim V &\leq \dim W + \dim U \qquad \text{or equivalently,}  \\
+      \dim U &\geq \dim V - \dim W.
+    \end{aligned}
+  \end{equation}
+
+  \Leftarrowdirection Suppose $\dim U \geq \dim V - \dim W$. By the rank-nullity theorem, for any $T \in \linmap(V,W)$:
+  \begin{equation}
+    \dim V = \dim \myrange(T) + \dim \mynull(T).
+  \end{equation}
+
+  Setting $\mynull(T) :\equiv U$, we have
+  \begin{equation}
+    \dim \myrange(T) = \dim V - \dim U.
+  \end{equation}
+
+  Since $\dim V - \dim U \leq \dim W$, it follows that $\myrange(T) \subseteq W$, so $T$ exists. Now we want to show how such a $T$ could look like.
+
+  \prooffont{Explicit Construction of $T$:}
+  Suppose $\dim U \geq \dim V - \dim W$. Let $u_1, \dots, u_k$ be a basis for $U$ (where $k = \dim U$), and extend it to a basis $u_1, \dots, u_k, v_1, \dots, v_m$ for $V$ (where $m = \dim V - \dim U$). Let $w_1, \dots, w_m$ be a basis for $W$. Define $T \in \linmap(V,W)$ by setting $T(u_i) = 0$ for $1 \leq i \leq k$, and $T(v_i) = w_i$ for $1 \leq i \leq m$. Then $\mynull(T) = U$ and $\myrange(T) = W$.
+\end{prf}
+

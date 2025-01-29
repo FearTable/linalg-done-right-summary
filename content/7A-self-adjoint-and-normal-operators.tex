@@ -344,7 +344,7 @@ If $\myF = \real$, then every eigenvalue is real, so the next result is interest
   \]
 \end{thm}
 \begin{prf}
-  \qt{$\Rightarrow$ direction:} If $u,w \in V$, then
+  \Rightarrowdirection If $u,w \in V$, then
   \begin{itemize}
     \item $\ip{T(u+w)}{u+w} = \ip{Tu}{u} + \ip{Tw}{u} + \ip{Tu}{w} + \ip{Tw}{w}$
     \item $\ip{T(u-w)}{u-w} = \ip{Tu}{u} - \ip{Tw}{u} - \ip{Tu}{w} + \ip{Tw}{w}$
@@ -376,9 +376,10 @@ If $\myF = \real$, then every eigenvalue is real, so the next result is interest
 
   Note that each term in the numerator of the two big expressions which have the denominator $4$ are of the form $\ip{Tv}{v}$ for appropriate $v \in V$, for example $\ip{T(u-iw)}{u-iw}$, where $u-iw \in V$. Note that this two fractions added together are equal to $\ip{Tu}{w} \quad \forall u,w \in V$ at the end.
 
-  Now suppose $\ip{Tv}{v} = 0 \quad \forall v \in V$. Then the equation above implies that $\ip{Tu}{w} = 0 \quad \forall u, w \in V$, which implies that $Tu=0 \quad \forall u \in V$, because only $\vec 0$ is always orthogonal to every vector (take $w=Tu$. Only if $w=Tu=\vec 0$, the expresssion $\ip{Tu}{Tu}$ can always  be $0$). Hence $T=0$, as desired. Here the last $0$ means the zero operator.
+  Now suppose $\ip{Tv}{v} = 0 \quad \forall v \in V$. Then the (big) equation above implies that $\ip{Tu}{w} = 0 \quad \forall u, w \in V$.
+  We can further conclude that $Tu=0 \quad \forall u \in V$, because only $\vec 0$ is always orthogonal to every vector (take $w=Tu$. Only if $w=Tu=\vec 0$, the expresssion $\ip{Tu}{Tu}$ can always  be $0$). Hence $T=0$, as desired. Here the last $0$ means the zero operator.
 
-  \qt{$\Leftarrow$ direction: } If $T = 0$ then trivially $\ip{Tv}{v}=0 \quad \forall v \in V$.
+  \Leftarrowdirection If $T = 0$ then trivially $\ip{Tv}{v}=0 \quad \forall v \in V$.
 \end{prf}
 
 \mce{14}
