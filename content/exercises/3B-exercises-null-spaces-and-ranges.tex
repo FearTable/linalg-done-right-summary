@@ -3,22 +3,23 @@
 \phantom{.}
 
 \setcounter{xrcs}{8}
-\begin{xrcs}
-  Suppose $T \in \linmap(V,W)$ is injective and $v_1, \ddd, v_n$ is linearly independent in $V$. Prove that $Tv_1, \ddd, Tv_n$ is linearly independent in $W$.
-\end{xrcs}
-\begin{prf}
-  Let $a_1, \ddd, a_n \in \myF$ such that $a_1 v_1 + \cdots + a_n v_n  = 0$. We know that following equivalences hold:
-  \begin{equation}
-    \begin{aligned}
-              a_1 v_1 + \cdots + a_n v_n  &= 0 \\
-      \iff T (a_1 v_1 + \cdots + a_n v_n) &= 0 \\
-      \iff a_1 T v_1 + \cdots + a_n T v_n &= 0 \\
-    \end{aligned}
-  \end{equation}
+%\begin{xrcs}
+%  Suppose $T \in \linmap(V,W)$ is injective and $v_1, \ddd, v_n$ is linearly independent in $V$. Prove that $Tv_1, \ddd, Tv_n$ is linearly independent in $W$.
+%\end{xrcs}
+%\begin{prf}
+%  Let $a_1, \ddd, a_n \in \myF$ such that $a_1 v_1 + \cdots + a_n v_n  = 0$. We know that following equivalences hold:
+%  \begin{equation}
+%    \begin{aligned}
+%              a_1 v_1 + \cdots + a_n v_n  &= 0 \\
+%      \iff T (a_1 v_1 + \cdots + a_n v_n) &= 0 \\
+%      \iff a_1 T v_1 + \cdots + a_n T v_n &= 0 \\
+%    \end{aligned}
+%  \end{equation}
+%
+%  Since we know this only happens if $a_1 = 0, \ddd, a_n = 0$, the last equation shows that $T v_1, \ddd, T v_n$ is linearly independent. We have used the fact that $T$ is injective for the first equivalence.
+%\end{prf}
 
-  Since we know this only happens if $a_1 = 0, \ddd, a_n = 0$, the last equation shows that $T v_1, \ddd, T v_n$ is linearly independent. We have used the fact that $T$ is injective for the first equivalence.
-\end{prf}
-
+\setcounter{xrcs}{7}
 \begin{xrcs} % ChatGTP did a lot of changes
   Suppose $T \in \linmap(V,W)$ is injective and $v_1, \ddd, v_n$ is linearly independent in $V$. Prove that $Tv_1, \ddd, Tv_n$ is linearly independent in $W$.
 \end{xrcs}
@@ -182,14 +183,14 @@
 \begin{prf}
   \Rightarrowdirection If there exists an injective linear map $T \in \linmap(V,W)$, then $\mynull(T) = \{0\}$, so $\dim \mynull(T) = 0$. By the rank-nullity theorem:
   \begin{equation}
-    \dim V = \dim \myrange(T) \leq \dim W, $because$ \myrange(T) \subseteq W.
+    \dim V = \dim \myrange(T) \leq \dim W, \quad $ because $ \myrange(T) \subseteq W.
   \end{equation}
 
   \Leftarrowdirection Let $\dim V \leq \dim W$. For any $T \in \linmap(V,W)$, we know
   \begin{equation}
     \dim \mynull(T) = \dim V - \dim \myrange(T) \geq \dim V - \dim W.
   \end{equation}
-  Since $\dim V \leq \dim W$, it follows that $\dim \mynull(T) \geq 0$, which is consistent with the existence of an injective map $T$ where $\mynull(T) = \{0\}$.
+  Since $\dim V \leq \dim W$, it follows that $\dim \mynull(T) \geq 0$, which is consistent with the existence of an injective map $T \in \linmap(V,W)$ where $\mynull(T) = \{0\}$.
 
   \prooffont{Explicit Construction of $T$}:
   Suppose $\dim V \leq \dim W$. Let $v_1, \dots, v_n$ be a basis for $V$ (where $n = \dim V$), and let $w_1, \dots, w_m$ be a basis of $W$ (where $m = \dim W$). Define $T$ by $T(v_i) = w_i$ for $1 \leq i \leq n$. Then $T$ is injective, as $\mynull(T) = \{0\}$.
@@ -218,8 +219,11 @@
   Since $\dim V \geq \dim W$, we can select $T$ such that $\myrange(T) = W$, ensuring surjectivity.
 
   \prooffont{Explicit Construction of $T$:} \\
-  Suppose $\dim V \geq \dim W$. Let $v_1, \dots, v_n$ be a basis of $V$ (where $n = \dim V$) and let $w_1, \dots, w_m$ be a basis of $W$ (where $m = \dim W$).  Define $T$ on $V$ by setting $T(v_i) = w_i$ for $1 \leq i \leq m$, and $T(v_i) = 0$ for $m+1 \leq i \leq n$. Note that we have $\dim V \geq \dim W$ which is the same as $n \geq m$. So if $n = m$, then we do not set any $T(v_i)$ to be $0$ and $\mynull T = \{0\}$. If $T$ is constructed like this, $T$ is surjective, as $\myrange(T) = W$.
-  % TODO: more detail why T is surjective
+  Suppose $\dim V \geq \dim W$. Let $v_1, \dots, v_n$ be a basis of $V$ (where $n = \dim V$) and let $w_1, \dots, w_m$ be a basis of $W$ (where $m = \dim W$).  Define $T$ on $V$ by setting $T(v_i) = w_i$ for $1 \leq i \leq m$, and $T(v_i) = 0$ for $m+1 \leq i \leq n$. Note that we have $\dim V \geq \dim W$ which is the same as $n \geq m$. So if $n = m$, then we do not set any $T(v_i)$ to be $0$ and $\mynull T = \{0\}$. If $T$ is constructed like this, $T$ is surjective, as $\myrange(T) = W$. To show that, let $w \in W$ such that
+  $
+    w = a_1 w_1 + \cdots + a_m w_m.
+  $
+  We see that: $T(a_1 v_1 + \cdots + a_m v_m)= a_1 w_1 + \cdots a_m w_m = w$. Thus, for every $w \in W$, we have found a preimage $v \in V$ such that $T(v) = w$, proving that $T$ is surjective.
 \end{prf}
 
 \begin{xrcs}
@@ -253,9 +257,100 @@
     \dim \myrange(T) = \dim V - \dim U.
   \end{equation}
 
-  Since $\dim V - \dim U \leq \dim W$, it follows that $\myrange(T) \subseteq W$, so $T$ exists. Now we want to show how such a $T$ could look like.
+  Since $\dim V - \dim U \leq \dim W$, it follows that $\myrange(T) \subseteq W$, so $T\linmap (V,W)$ exists. Now we want to show how such a $T$ could look like.
 
   \prooffont{Explicit Construction of $T$:}
   Suppose $\dim U \geq \dim V - \dim W$. Let $u_1, \dots, u_k$ be a basis for $U$ (where $k = \dim U$), and extend it to a basis $u_1, \dots, u_k, v_1, \dots, v_m$ for $V$ (where $m = \dim V - \dim U$). Let $w_1, \dots, w_m$ be a basis for $W$. Define $T \in \linmap(V,W)$ by setting $T(u_i) = 0$ for $1 \leq i \leq k$, and $T(v_i) = w_i$ for $1 \leq i \leq m$. Then $\mynull(T) = U$ and $\myrange(T) = W$.
 \end{prf}
 
+\hrule
+
+\begin{xrcs}
+  Suppose $W$ is finite-dimensional and $T\in \linmap(V,W)$. Prove that $T$ is injective $\iff$ $\exists S \in \linmap(W,V)$ such that $ST$ is the identity operator on $V$.
+\end{xrcs}
+\begin{prf}
+  \Rightarrowdirection Let $T \in \linmap (V,W)$ be injective. Let $v_1, \ddd, v_m$ be a basis of $V$. We know from exercise 10 that $T v_1, \ddd, Tv_m$ spans $\myrange T$. We also know from exercise 9 that $T v_1, \ddd, Tv_m$ is linearly independent in $W$ and thus is a basis of $\myrange T$. Let $n :\equiv \dim W$. This basis can be extended to a basis of $T v_1, \ddd, Tv_m, w_{m+1}, \ddd, w_n$ of $W$, given $m < n$ ($\dim V < \dim W$). Therefore, every $w \in W$ can be written as follows:
+  \begin{equation}
+    w = a_1 T v_1 + \cdots + a_m T v_m + a_{m+1} w_{m+1} + \cdots + a_{n} w_n,
+    \quad
+    $for some unique scalars $ a_1, \ddd, a_m, a_{m+1}, \ddd, a_n \in \myF.
+  \end{equation}
+
+  Since $T$ is injective, we can define $S \in \linmap (W,V)$ for any $w \in W$ such that
+  \begin{equation}
+    \begin{aligned}
+      S(w) &= \;  S(a_1 T v_1 + \cdots + a_m T v_m + a_{m+1} w_{m+1} + \cdots + a_{n} w_m)  \\
+           &:\equiv a_1 v_1 + \cdots + a_m v_m
+    \end{aligned}
+  \end{equation}
+
+  Now it is easy to see that for any $v \in V$:
+  \begin{equation}
+    \begin{aligned}
+      ST(v) &= ST(a_1 v_1 + \cdots + a_m v_m) \\
+            &= S(a_1 T v_1 + \cdots + a_m T v_m) \\
+            &= a_1 v_1 + \cdots + a_m v_m = v.
+    \end{aligned}
+  \end{equation}
+
+  Thus, $ST$ is the identity operator on $V$.
+
+  \Leftarrowdirection Let $ST$ be the identity operator on $V$. That means: $\forall v \in V: S(T)(v) = v$. Suppose $u \in V$ satisfies $T(u) = 0$. Then we have $S(T(u)) = S(0) = 0$. Since $ST = I$, it follows that $u = 0$. We conclude that $\mynull T = \{0\}$, hence $T$ is injective.
+\end{prf}
+\begin{prf} % ChatGTP corrections
+  \Rightarrowdirection Let $T \in \linmap (V,W)$ be injective. Let $v_1, \ddd, v_m$ be a basis of $V$. From Exercise 10, we know that $T v_1, \ddd, T v_m$ spans $\operatorname{range}(T)$. Moreover, Exercise 9 tells us that $T v_1, \ddd, T v_m$ is linearly independent in $W$ and thus forms a basis of $\operatorname{range}(T)$.
+
+  Let $n \equiv \dim W$. This basis can be extended to a basis of $W$, say $T v_1, \ddd, T v_m, w_{m+1}, \ddd, w_n$, provided that $m < n$ (i.e., $\dim V < \dim W$). Therefore, every $w \in W$ can be uniquely expressed as
+  \begin{equation}
+    w = a_1 T v_1 + \cdots + a_m T v_m + a_{m+1} w_{m+1} + \cdots + a_{n} w_n,
+  \end{equation}
+  for some uniquely determined scalars $a_1, \ddd, a_m, a_{m+1}, \ddd, a_n \in \mathbb{F}$.
+
+  Define $S \in \linmap(W,V)$ by setting
+  \begin{equation}
+    \begin{aligned}
+      S(w) &= S(a_1 T v_1 + \cdots + a_m T v_m + a_{m+1} w_{m+1} + \cdots + a_{n} w_n)  \\
+      &:\equiv a_1 v_1 + \cdots + a_m v_m.
+    \end{aligned}
+  \end{equation}
+
+  Now, for any $v \in V$, we have
+  \begin{equation}
+    \begin{aligned}
+      ST(v) &= S(T(a_1 v_1 + \cdots + a_m v_m)) \\
+      &= S(a_1 T v_1 + \cdots + a_m T v_m) \\
+      &= a_1 v_1 + \cdots + a_m v_m = v.
+    \end{aligned}
+  \end{equation}
+
+  Thus, $ST$ is the identity operator on $V$.
+\end{prf}
+
+\hrule
+
+\begin{xrcs}
+  Suppose $W$ is finite-dimensional and $T \in \linmap (V,W)$. Prove that $T$ is surjective $\iff$ $\exists S \in \linmap (W,V)$ such that $TS$ is the identity operator on $W$.
+\end{xrcs}
+\begin{prf}
+  \Rightarrowdirection Let $T \in \linmap (V,W)$ such that $T$ is surjective. Hence $\myrange T = W$. Let $w_1, \ddd, w_m$ be a basis of $W$ and hence of $\myrange T$ as well. Since $T$ is sujrective, we have $\forall j \in \{1, \ddd, m\}$:
+  \begin{equation}
+    \exists v_j \in V \text{ such that } w_j = T(v_j).
+  \end{equation}
+
+  Based on this list $v_1, \ddd, v_j$ which has no other special properties, we can define $S \in \linmap (W,V)$ for each $w \in W$ as follows:
+  \begin{equation}
+    S(w) = S(a_1 w_1 + \cdots a_m w_m) :\equiv a_1 v_1 + \cdots + a_n v_n.
+  \end{equation}
+
+  Now we have $\forall w \in W$:
+  \begin{equation}
+    \label{eq: strange way of calculating TS}
+    TS(w) = a_1 TS(w_1) + \cdots +a_n TS (w_n) = a_1 w_1 + \cdots + a_n w_n = w,
+  \end{equation}
+
+  which makes $TS$ the identity operator on $W$. A different way of calculating $TS$ would be $TS(w) = T(a_1 v_1 + \cdots + a_n v_n) = a_1 T v_1 + \cdots + a_n T v_n = a_1 w_1 + \cdots + a_n w_n = w$. In equation \eqref{eq: strange way of calculating TS} we were using $S(w_j) = v_j$ for $1 \leq j \leq m$.
+
+  \Leftarrowdirection Let $T \in \linmap (V,W)$ and $S \in \linmap(W,V)$ such that $TS$ is the identity operator on $W$. Let $w \in W$ and $v \in V$ such that $v=S(w)$. Now we apply $T$ on both sides and get $T(v) = T(S(w)) = w$. So for any $w \in W$ we found a preimage $v \in V$ such that $T(v) = w$, which makes $T$ surjective.
+\end{prf}
+
+\clearpage
