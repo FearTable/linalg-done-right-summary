@@ -21,28 +21,38 @@
 \setcounter{thm}{29}
 \begin{thm} [every spanning list contains a basis]
   \label{thm: every spanning list contains a basis}
-  Every spanning list of a \vs can be reduced to a basis of the \vs.
+  Every spanning list $v_1, \ddd, v_n$ of a vector space $V$ can be reduced to a basis of $V$. So if $V= \myspan (v_1, \ddd, v_n)$, then we can delete elements from that list, or leave the list unchainched, such that the list forms a basis.
 \end{thm}
 \begin{prf}
   Suppose $V=\myspan{v_1, \ldots, v_n}.$ Let $B_0 :\equiv (v_1, \ldots, v_n)$.
 
-  \emph{\bfseries Step 1: } If $v_1 = 0$, delete $v_1$ from $B_0$:
+  \emph{\bfseries Step 1: }
+  If $v_1 = 0$, delete $v_1$ from $B_0$:
   \begin{equation}
-    $Let $B_1 :\equiv (v_2, \ldots, v_n).
+    $Therefore, let $B_1 :\equiv (v_2, \ldots, v_n).
   \end{equation}
 
-  If $v_1 \neq 0$, then leave $B_0$ unchanged. $B_1 :\equiv B_0=(v_1, \ldots, v_n)$.
-
-  \emph{\bfseries Step k: } If $v_k$ $\in$ $\myspan{v_1^*, \ldots, v_{k-1}^*}$, then delete $v_k$ from list $B_{k-1}$ sucht that:
+  If $v_1 \neq 0$, then leave $B_0$ unchanged.
   \begin{equation}
-    B_k :\equiv B_{k-1} - v_k = (v_{1}^*, \ldots, v_{k-1}^*, v_{k+1}, \ldots, v_n)
+    B_1 :\equiv B_0=(v_1, \ldots, v_n).
   \end{equation}
 
-  where $v_1^*, \ldots, v_{k-1}^*$ are not necessarily the original elements $v_1, \ldots, v_{k-1}$ from $B_0$.
+  \emph{\bfseries Step k: } \\
+  Let $B_{k-1} = (\underbrace{v_{1}^*, \ldots, v_{k-1}^*}_{\substack{\text{modified} \\ \text{elements}}}, \underbrace{v^{\phantom{*}}_{k}, \ldots, v^{\phantom{*}}_n}_{\substack{\text{original} \\ \text{elements}}})$ be our list from our previous steps, where $v_1^*, \ldots, v_{k-1}^*$ are not necessarily the original elements $v_1, \ldots, v_{k-1}$ from $B_0$. The $*$ indicates, that those elements may have been modified in the previous steps.
 
-  If $v_k \in \myspan{v_1, \ldots, v_{k-1}}$, leave the basis unchanged: $B_k :\equiv B_{k-1}$.
+  If $v_k$ $\in$ $\myspan{v_1^*, \ldots, v_{k-1}^*}$, then delete $v_k$ from list $B_{k-1}$ sucht that:
+  \begin{equation}
+    B_k :\equiv  (v_{1}^*, \ldots, v_{k-1}^*, v_{k+1}, \ldots, v_n)
+  \end{equation}
 
-  Stop the process after step $n$, getting a list $B_n$. The list $B_n$ spans $V$ because our original list $B_0$ spanned $V$  have discarded only vectors that were already in the span of the previous vectors. The process ensures that no vector in $B$ is in the span of the previous ones. Thus $B$ is linearly independent. Hence $B$ is a basis of $V$.
+
+
+  If $v_k \in \myspan{v_1, \ldots, v_{k-1}}$, leave the list unchanged:
+  \begin{equation}
+    B_k :\equiv B_{k-1}.
+  \end{equation}
+
+  Stop the process after step $n$, getting a list $B_n$. The list $B_n$ spans $V$ because our original list $B_0$ spanned $V$, and we have discarded only vectors that were already in the span of the previous vectors. The process ensures that no vector in $B$ is in the span of the previous ones. Thus $B$ is linearly independent. Hence $B$ is a basis of $V$.
   %TODO: Why does axler cite linear dependence lemma 2.19.
 \end{prf}
 

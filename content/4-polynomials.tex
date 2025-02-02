@@ -157,7 +157,7 @@ In case you are wondering where the $a_0$ went by subtracting $p(\lambda)$ from 
     \end{aligned}
   \end{equation}
 
-  Not that the last equation holds for all $z \in \compl$ except possibly $z = \lambda_1$. Remember that our goal is to use induction on the degree of the polynomial. So it would come in handy if the remaining polynomials would be equal after cancelation and behave like any other polynomial. But sadly, we have derived the last formula in \eqref{eq: original equation for z-lambda_2 ...} by the assumtion that $z \neq \lambda_1$ using devision. Here comes the trick. Now lets assume that $(z - \lambda_2) \cdots (z-\lambda_m)$ and $(z - \tau_2) \cdots (z-\tau_m)$ are not always equal. Thus, with the standard laws of polynomial arithmetic we can form a new polynomial $s \in \polyn_{m-1}(\compl)$ (is it $m-1$?) with
+  Not that the last equation holds for all $z \in \compl$ except possibly $z = \lambda_1$. Remember that our goal is to use induction on the degree of the polynomial. So it would come in handy if the remaining polynomials would be equal after cancelation and behave like any other polynomial. But we have derived the last formula in \eqref{eq: original equation for z-lambda_2 ...} by the assumtion that $z \neq \lambda_1$ using devision. Here comes the trick. Now lets assume that $(z - \lambda_2) \cdots (z-\lambda_m)$ and $(z - \tau_2) \cdots (z-\tau_m)$ are not always equal. Thus, with the standard laws of polynomial arithmetic we can form a new polynomial $s \in \polyn_{m-1}(\compl)$ (is it $m-1$?) with
   \begin{equation}
     s(z) :\equiv   \Big((z - \lambda_2) \cdots (z-\lambda_m)\Big) - \Big((z-\tau_2) \cdots (z-\tau_m)\Big), \mytext{where $s$ is not the $0$ polynomial.}
   \end{equation}
@@ -167,7 +167,7 @@ In case you are wondering where the $a_0$ went by subtracting $p(\lambda)$ from 
     (z - \lambda_2) \cdots (z-\lambda_m) = (z - \tau_2) \cdots (z-\tau_m).
    \]
 
-   So we get two identical polynomials after canceling ouut $(z-\lambda_1)$. By our induction hypothesis, the equation above implies that except for the order, the $\lambda$'s are the same as the $\tau$'s, comleting the proof of uniqueness.
+   So we get two identical polynomials after canceling out $(z-\lambda_1)$. By our induction hypothesis, the equation above implies that except for the order, the $\lambda$'s are the same as the $\tau$'s, comleting the proof of uniqueness.
 \end{prf}
 
 \section{Factorization of Polynomials over \texorpdfstring{$\real$}{R}}

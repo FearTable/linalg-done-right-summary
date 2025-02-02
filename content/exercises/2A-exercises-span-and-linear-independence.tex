@@ -8,10 +8,10 @@
 
 \begin{xrcs}
   Claim: If $v_1, v_2, v_3, v_4$ spans $V$, then the list $v_1 - v_2, v_2 -v_3, v_3 -v_4, v_4$ also spans $V$.
-\end{xrcs}
-\begin{prf}
-  Let $u \in V$ and $a_i, b_i \in \myF$ \st
-  \[
+
+  \begin{prf}
+    Let $u \in V$ and $a_i, b_i \in \myF$ \st
+    \[
     \begin{aligned}
       u
       &= a_1 (v_1 -v_2) + a_2 (v_2-v_3) + a_3 (v_3-v_4)-a_4 v_4 \\
@@ -22,20 +22,22 @@
       b_3 &= a_3 - a_2 = a_3 - b_1 -b_2 \iff a_3 = b_1 + b_2 + b_3 \\
       b_4 &= a_4 - a_3 = a_4 - b_1 - b_2 - b_3 \iff a_4 = b_1 + b_2 + b_3 + b_4
     \end{aligned}
-  \]
+    \]
 
-  So if we have an arbitrary vector $u \in V$ such that
-  \[
+    So if we have an arbitrary vector $u \in V$ such that
+    \[
     u = b_1 v_1 +  b_2 v_2 + b_3 v_3 + b_4 v_4
-  \]
+    \]
 
-  it can be rewritten as a linear combination
-  \[
+    it can be rewritten as a linear combination
+    \[
     u = b_1 (v_1 - v_2) + (b_1-b_2)(v_2-v_3) + (b_1+b_2+b_3)(v_2-v_4)+(b_1+b_2+b_3+b_4)v_4
-  \]
+    \]
 
-  So the list $v_1 - v_2, v_2 -v_3, v_3 -v_4, v_4$ also spans $V$.
-\end{prf}
+    So the list $v_1 - v_2, v_2 -v_3, v_3 -v_4, v_4$ also spans $V$.
+  \end{prf}
+\end{xrcs}
+
 
 \begin{xrcs}
   Claim: Let $v_1, \ddd, v_m \in V$ and
@@ -44,62 +46,64 @@
   \]
 
   Then $\myspan{v_1, \ddd, v_m} = \myspan{w_1, \ddd, w_m}$.
-\end{xrcs}
-\begin{prf}
-  Observe that
-  \[
+
+  \begin{prf}
+    Observe that
+    \[
     \begin{aligned}
-    w_1 &= v_1
-    & \qquad v_1 &= w_1       \\
-    w_2 &= v_1 + v_2
-    & \qquad v_2 &= w_2-v_1 = w_2 - w_1 \\
-    w_3 &= \boxed{v_1 + v_2 + v_3}
-    & \qquad v_3 &= w_3-v_1-v_2 = w_3-w_1-w_2+w_1 = w_3 - w_2 \\
-    w_4 &= v_1 + v_2 + v_3 + v_4
-    & \qquad v_4 &= w_4-\boxed{(v_1 + v_2 + v_3)}=w_4 - w_3 \\
-    &\;\;\vdots
-    &            &\;\;\vdots \\
-    w_m &= v_1 + \cdots + v_m
-    & \qquad v_m &= w_m - w_{m-1}
+      w_1 &= v_1
+      & \qquad v_1 &= w_1       \\
+      w_2 &= v_1 + v_2
+      & \qquad v_2 &= w_2-v_1 = w_2 - w_1 \\
+      w_3 &= \boxed{v_1 + v_2 + v_3}
+      & \qquad v_3 &= w_3-v_1-v_2 = w_3-w_1-w_2+w_1 = w_3 - w_2 \\
+      w_4 &= v_1 + v_2 + v_3 + v_4
+      & \qquad v_4 &= w_4-\boxed{(v_1 + v_2 + v_3)}=w_4 - w_3 \\
+      &\;\;\vdots
+      &            &\;\;\vdots \\
+      w_m &= v_1 + \cdots + v_m
+      & \qquad v_m &= w_m - w_{m-1}
     \end{aligned}
-  \]
+    \]
 
-  \qt{Step 1:} So if $u \in \myspan{v_1, \ddd, v_m}$ we have for some $a_1, \ddd, a_m \in \myF$
-  \[
-  \begin{aligned}
+    \StepOne So if $u \in \myspan{v_1, \ddd, v_m}$ we have for some $a_1, \ddd, a_m \in \myF$
+    \[
+    \begin{aligned}
       u &= a_1 v_1 + \cdots + a_m v_m \\
-    &= a_1 w_1 + a_2 (-w_1 + w_2) + a_3(-w_2 + w_3) + \cdots + a_m (-w_{m-1} + w_m) \\
-    &= (a_1 - a_2) w_1 + (a_2-a_3) w_2 + \cdots + (a_{m-1} + a_m) w_{m-1} + a_m w_m \\
-  \end{aligned}
-  \]
+      &= a_1 w_1 + a_2 (-w_1 + w_2) + a_3(-w_2 + w_3) + \cdots + a_m (-w_{m-1} + w_m) \\
+      &= (a_1 - a_2) w_1 + (a_2-a_3) w_2 + \cdots + (a_{m-1} + a_m) w_{m-1} + a_m w_m \\
+    \end{aligned}
+    \]
 
-  Thus, $u \in \myspan {w_1, \ddd, w_m}$ and therefore
-  \begin{equation}
-    \label{eq: fact1}
-    \myspan{v_1, \ddd, v_m} \subseteq \myspan{w_1, \ddd, w_m}.
-  \end{equation}
+    Thus, $u \in \myspan {w_1, \ddd, w_m}$ and therefore
+    \begin{equation}
+      \label{eq: fact1}
+      \myspan{v_1, \ddd, v_m} \subseteq \myspan{w_1, \ddd, w_m}.
+    \end{equation}
 
 
-  \qt{Step 2:} If $u \in \myspan{w_1, \ddd, w_m}$ we have for some $a_1, \ddd, a_m \in \myF$
-  \[
-  \begin{aligned}
-    u &= a_1 w_1 + \cdots + a_m w_m \\
-    &= a_1 v_1 + a_2 (v_1+v_2) + \cdots + a_m(v_1 + \cdots + v_m) \\
-    &= a_1 v_1 + (a_2 v_1+ a_2 v_2) + \cdots + (a_m v_1 + \cdots + a_m v_m) \\
-    &= (a_1 + \cdots + a_m) v_1 + (a_2 + \cdots + a_m) v_2 + \cdots + a_m v_m
-  \end{aligned}
-  \]
+    \StepTwo If $u \in \myspan{w_1, \ddd, w_m}$ we have for some $a_1, \ddd, a_m \in \myF$
+    \[
+    \begin{aligned}
+      u &= a_1 w_1 + \cdots + a_m w_m \\
+      &= a_1 v_1 + a_2 (v_1+v_2) + \cdots + a_m(v_1 + \cdots + v_m) \\
+      &= a_1 v_1 + (a_2 v_1+ a_2 v_2) + \cdots + (a_m v_1 + \cdots + a_m v_m) \\
+      &= (a_1 + \cdots + a_m) v_1 + (a_2 + \cdots + a_m) v_2 + \cdots + a_m v_m
+    \end{aligned}
+    \]
 
-  Thus, $u \in \myspan{v_1, \ddd, v_m}$ and therefore
-  \begin{equation}
-    \label{eq: fact2}
-    \myspan{w_1, \ddd, w_m} \subseteq \myspan{v_1, \ddd, v_m}.
-  \end{equation}
+    Thus, $u \in \myspan{v_1, \ddd, v_m}$ and therefore
+    \begin{equation}
+      \label{eq: fact2}
+      \myspan{w_1, \ddd, w_m} \subseteq \myspan{v_1, \ddd, v_m}.
+    \end{equation}
 
-  \eqref{eq: fact1} and \eqref{eq: fact2} together imply that $\myspan{w_1, \ddd, w_m} = \myspan{v_1, \ddd, v_m}$.
-\end{prf}
+    \eqref{eq: fact1} and \eqref{eq: fact2} together imply that $\myspan{w_1, \ddd, w_m} = \myspan{v_1, \ddd, v_m}$.
+  \end{prf}
+\end{xrcs}
 
-\setcounter{xrcs}{15}
+
+\setcounter{xrcscount}{15}
 \begin{xrcs}
   $\polyn_4(\myF)$ has $5$ degrees of freedom ans looks like this:
   \[
@@ -109,28 +113,31 @@
   So we have $5$ degrees of freedom. If you span $4$ polynomials, you can not get $5$ degrees of freedom.
 \end{xrcs}
 
-\setcounter{xrcs}{19}
+\setcounter{xrcscount}{19}
 \begin{xrcs}
-  Suppose $p_0, p_1, \ddd, p_m$ are polynomials in $\polyn_m(\myF)$ such that $p_k(2) = 0 \quad \forall k \in \{0, \ddd, m\}$. Prove that $p_0, p_1, \ddd, p_m$ is not linearly independent in $\polyn_m(\myF)$.
+  Suppose $p_0, p_1, \ddd, p_m$ are polynomials in $\polyn_m(\myF)$ such that $p_k(2) = 0$ for $0\leq k \leq m$. \\
+  Prove that $p_0, p_1, \ddd, p_m$ is not linearly independent in $\polyn_m(\myF)$.
+
+  \begin{prf}
+    Define an evaluation map $\varphi : \polyn_m(\myF) \to \myF$ such that
+    \[
+    \varphi(p) :\equiv p(2) \quad \forall p \in \polyn(\myF).
+    \]
+
+    The polynomials that vanish at $z=2$ lies in the subspace $\mynull(\varphi)$ of $\polyn_m(\myF)$. So  we have
+    \[
+    \mynull(\varphi) \subseteq \polyn_m(\myF).
+    \]
+
+    Any polynomial $p \in \mynull(\varphi)$ can be written as
+    \[
+    p(z) = (z-2) q(z) \where q(z) \in \polyn_{m-1} (\myF).
+    \]
+
+    Therefore, $\mydim \mynull(\varphi) = m$. Since $p_0, p_1, \ddd, p_m \in \mynull(\varphi)$, the given list is not linearly independent by \ref{thm: length of linearly dependent list less or equal to length of spanning list}, because it has length $m+1$.
+  \end{prf}
+
 \end{xrcs}
-\begin{prf}
-  Define an evaluation map $\varphi : \polyn_m(\myF) \to \myF$ such that
-  \[
-  \varphi(p) :\equiv p(2) \quad \forall p \in \polyn(\myF).
-  \]
-
-  The polynomials that vanish at $z=2$ lies in the subspace $\mynull(\varphi)$ of $\polyn_m(\myF)$. So  we have
-  \[
-  \mynull(\varphi) \subseteq \polyn_m(\myF).
-  \]
-
-  Any polynomial $p \in \mynull(\varphi)$ can be written as
-  \[
-  p(z) = (z-2) q(z) \where q(z) \in \polyn_{m-1} (\myF).
-  \]
-
-  Therefore, $\mydim \mynull(\varphi) = m$. Since $p_0, p_1, \ddd, p_m \in \mynull(\varphi)$, the given list is not linearly independent by \ref{thm: length of linearly dependent list less or equal to length of spanning list}, because it has length $m+1$.
-\end{prf}
 
 %\begin{xrcs}
 %  Suppose $p_0, p_1, \ddd, p_m$ are polynomials in $\polyn_m(\myF)$ such that $p_k(2) = 0 \quad \forall k \in \{0, \ddd, m\}$. Prove that $p_0, p_1, \ddd, p_m$ is not linearly independent in $\polyn_m(\myF)$.

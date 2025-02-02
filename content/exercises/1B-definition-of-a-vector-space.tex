@@ -4,34 +4,37 @@
 
 %1
 \begin{xrcs}
-  Prove that $-(-v) = v \quad \forall v \in V.$
+  Prove that $-(-v) = v \quad \forall v \in V$.
+
+  \begin{prf}
+    Let $v \in V$. By definition, we know that $v + (-v) = 0$. We also know by definition, that the additive inverse of $(-v)$, which is unique by \ref{thm: unique additive identity}, is denoted by $-(-v)$. The first equations shows that $-(-v) = v$, making $-(-v) + (-v) = 0$.
+  \end{prf}
 \end{xrcs}
-\begin{prf}
-  Let $v \in V$. By definition, we know that $v + (-v) = 0$. We also know by definition, that the additive inverse of $(-v)$, which is unique by \ref{thm: unique additive identity}, is denoted by $-(-v)$. The first equations shows that $-(-v) = v$, making $-(-v) + (-v) = 0$.
-\end{prf}
 
 %2
 \begin{xrcs}
   Suppose $a \in \myF, v \in V$ and $a \cdot v = 0$. Prove that $a=0$ or $v=0$.
-\end{xrcs}
-\begin{prf}
-  There are two cases for $a$. Either $a=0$ or $a\neq 0$. If $a=0$, we are done. If $a \neq 0$, then
-  \[
-    av=0 \iff \tfrac{1}{a}(av)=\tfrac{1}{a}0 \iff \left(\tfrac{1}{a} \right)v = 0 \iff v = 0.
-  \]
 
-  So either $a=0$ or $v=0$.
-\end{prf}
+  \begin{prf}
+    There are two cases for $a$. Either $a=0$ or $a\neq 0$. If $a=0$, we are done. If $a \neq 0$, then
+    \[
+    av=0 \iff \tfrac{1}{a}(av)=\tfrac{1}{a}0 \iff \left(\tfrac{1}{a} \right)v = 0 \iff v = 0.
+    \]
+
+    So either $a=0$ or $v=0$.
+  \end{prf}
+\end{xrcs}
+
 
 %3
 \begin{xrcs}
   Suppose $v,w \in V$. Explain why there exists a unique $x \in V$ such that $v + 3x = w$.
 
-  Explaination: To solve this equation for $x$, we first need to subtract $v$ from $w$ and aftwewards devide by $3$. The additive inverse of $v$ is unique. But also the result of multyplying a vector by a number is unique.
+  \prooffont{Solution:} To solve this equation for $x$, we first need to subtract $v$ from $w$ and aftwewards devide by $3$. The additive inverse of $v$ is unique. But also the result of multyplying a vector by a number is unique.
 \end{xrcs}
 
 \begin{xrcs}
-  The only requirement for a vector space the empty set fails to satisfy is the existence of a additive idenity.
+  \prooffont{Solution:} The only requirement for a vector space the empty set fails to satisfy is the existence of a additive idenity.
 \end{xrcs}
 
 \begin{xrcs}
@@ -39,20 +42,17 @@
   \[
     0v = 0 \quad \forall v \in V.
   \]
+
+  \begin{prf}
+    By the distributive properties we get $\forall v \in V:$
+    \[
+    \begin{aligned}
+      0 = 0v &= (1 + (-1))v
+      &= 1v + (-1)v
+      &= v + (-1)v
+    \end{aligned}
+    \]
+
+    So $\forall v \in V: 0= v + (-1)v$ means that for every $v$ we have an additive inverse $(-1)v$.
+  \end{prf}
 \end{xrcs}
-\begin{prf}
-  By the distributive properties we get $\forall v \in V:$
-  \[
-  \begin{aligned}
-    0 = 0v &= (1 + (-1))v
-    &= 1v + (-1)v
-    &= v + (-1)v
-  \end{aligned}
-  \]
-
-  So $\forall v \in V: 0= v + (-1)v$ means that for every $v$ we have an additive inverse $(-1)v$.
-\end{prf}
-\phantom{.}
-\hrule
-
-\clearpage

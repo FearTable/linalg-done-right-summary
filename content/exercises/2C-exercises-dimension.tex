@@ -1,6 +1,6 @@
 \subsection*{Exercises about Dimension 2C}
 
-\setcounter{xrcs}{19}
+\setcounter{xrcscount}{19}
 \begin{xrcs}
   Explain why you might guess, motivated by analogy with the formula for the number of elements in the union of three finite sets, that if $V_1$, $V_2$, $V_3$ are subspaces of a finite-dimensional vector space $V$, then
   \[
@@ -243,73 +243,73 @@ Now finally, since we know that $r_1,  \ddd r_{n_{123}} ,  \widetilde{v}_1, \ddd
 So we have shown that in equation \eqref{eq: linear independence formula} that all $a$'s, $b$'s, $c$'s, $d$'s, $e$'s, $f$'s and $g$'s must be $0$. Therefore, we have shown that the list \eqref{eq: basis of V_1 + V_2 + V_3} is indeed a basis of $V_1 + V_2 + V_3$.
 \end{xrcs}
 
-\section*{Statement}
-We are asked to prove the following equality between subspaces of a vector space:
-\[
-(V_1 + V_2) \cap V_3 = (V_1 \cap V_3) + (V_2 \cap V_3),
-\]
-where \( V_1, V_2, V_3 \) are subspaces of some vector space.
-
-\section*{Proof}
-
-We will prove the equality by showing both inclusions:
-\[
-(V_1 + V_2) \cap V_3 \subseteq (V_1 \cap V_3) + (V_2 \cap V_3) \quad \text{and} \quad (V_1 \cap V_3) + (V_2 \cap V_3) \subseteq (V_1 + V_2) \cap V_3.
-\]
-
-\subsection*{Inclusion 1: \( (V_1 + V_2) \cap V_3 \subseteq (V_1 \cap V_3) + (V_2 \cap V_3) \)}
-
-Let \( v \in (V_1 + V_2) \cap V_3 \). This means that \( v \) satisfies two conditions:
-1. \( v \in V_1 + V_2 \), which implies that \( v \) can be written as \( v = v_1 + v_2 \) for some \( v_1 \in V_1 \) and \( v_2 \in V_2 \).
-2. \( v \in V_3 \), which means that \( v \) also belongs to the subspace \( V_3 \).
-
-Thus, we have:
-\[
-v = v_1 + v_2 \quad \text{with} \quad v_1 \in V_1, \, v_2 \in V_2, \, v \in V_3.
-\]
-
-We aim to show that \( v_1 \in V_1 \cap V_3 \) and \( v_2 \in V_2 \cap V_3 \). This would imply that:
-\[
-v = v_1 + v_2 \in (V_1 \cap V_3) + (V_2 \cap V_3),
-\]
-and thus \( v \in (V_1 \cap V_3) + (V_2 \cap V_3) \).
-
-Now, suppose for the sake of contradiction that \( v_1 \notin V_3 \) or \( v_2 \notin V_3 \). Since \( v_1 \in V_1 \), \( v_2 \in V_2 \), and \( v = v_1 + v_2 \in V_3 \), we note that \( V_3 \) is a subspace and therefore closed under addition. If either \( v_1 \notin V_3 \) or \( v_2 \notin V_3 \), their sum cannot be in \( V_3 \), leading to a contradiction. Therefore, both \( v_1 \in V_3 \) and \( v_2 \in V_3 \) must hold.
-
-Thus, \( v_1 \in V_1 \cap V_3 \) and \( v_2 \in V_2 \cap V_3 \), and consequently:
-\[
-v \in (V_1 \cap V_3) + (V_2 \cap V_3).
-\]
-This proves that:
-\[
-(V_1 + V_2) \cap V_3 \subseteq (V_1 \cap V_3) + (V_2 \cap V_3).
-\]
-
-\subsection*{Inclusion 2: \( (V_1 \cap V_3) + (V_2 \cap V_3) \subseteq (V_1 + V_2) \cap V_3 \)}
-
-Now, we prove the second inclusion: \( (V_1 \cap V_3) + (V_2 \cap V_3) \subseteq (V_1 + V_2) \cap V_3 \).
-
-Let \( v \in (V_1 \cap V_3) + (V_2 \cap V_3) \). By the definition of the sum of two subspaces, there exist vectors \( v_1 \in V_1 \cap V_3 \) and \( v_2 \in V_2 \cap V_3 \) such that:
-\[
-v = v_1 + v_2.
-\]
-Since \( v_1 \in V_1 \cap V_3 \), we know that \( v_1 \in V_1 \) and \( v_1 \in V_3 \). Similarly, since \( v_2 \in V_2 \cap V_3 \), we know that \( v_2 \in V_2 \) and \( v_2 \in V_3 \).
-
-Therefore, we have \( v = v_1 + v_2 \) with \( v_1 \in V_1 \) and \( v_2 \in V_2 \). Since \( v_1 \in V_3 \) and \( v_2 \in V_3 \), it follows that \( v \in V_3 \), because \( V_3 \) is a subspace and closed under addition. Moreover, since \( v_1 \in V_1 \) and \( v_2 \in V_2 \), we conclude that \( v \in V_1 + V_2 \).
-
-Thus, \( v \in (V_1 + V_2) \cap V_3 \), which proves that:
-\[
-(V_1 \cap V_3) + (V_2 \cap V_3) \subseteq (V_1 + V_2) \cap V_3.
-\]
-
-\subsection*{Conclusion}
-
-We have shown both inclusions:
-\[
-(V_1 + V_2) \cap V_3 \subseteq (V_1 \cap V_3) + (V_2 \cap V_3) \quad \text{and} \quad (V_1 \cap V_3) + (V_2 \cap V_3) \subseteq (V_1 + V_2) \cap V_3.
-\]
-Therefore, we conclude that:
-\[
-(V_1 + V_2) \cap V_3 = (V_1 \cap V_3) + (V_2 \cap V_3),
-\]
-which completes the proof.
+%\section*{Statement}
+%We are asked to prove the following equality between subspaces of a vector space:
+%\[
+%(V_1 + V_2) \cap V_3 = (V_1 \cap V_3) + (V_2 \cap V_3),
+%\]
+%where \( V_1, V_2, V_3 \) are subspaces of some vector space.
+%
+%\section*{Proof}
+%
+%We will prove the equality by showing both inclusions:
+%\[
+%(V_1 + V_2) \cap V_3 \subseteq (V_1 \cap V_3) + (V_2 \cap V_3) \quad \text{and} \quad (V_1 \cap V_3) + (V_2 \cap V_3) \subseteq (V_1 + V_2) \cap V_3.
+%\]
+%
+%\subsection*{Inclusion 1: \( (V_1 + V_2) \cap V_3 \subseteq (V_1 \cap V_3) + (V_2 \cap V_3) \)}
+%
+%Let \( v \in (V_1 + V_2) \cap V_3 \). This means that \( v \) satisfies two conditions:
+%1. \( v \in V_1 + V_2 \), which implies that \( v \) can be written as \( v = v_1 + v_2 \) for some \( v_1 \in V_1 \) and \( v_2 \in V_2 \).
+%2. \( v \in V_3 \), which means that \( v \) also belongs to the subspace \( V_3 \).
+%
+%Thus, we have:
+%\[
+%v = v_1 + v_2 \quad \text{with} \quad v_1 \in V_1, \, v_2 \in V_2, \, v \in V_3.
+%\]
+%
+%We aim to show that \( v_1 \in V_1 \cap V_3 \) and \( v_2 \in V_2 \cap V_3 \). This would imply that:
+%\[
+%v = v_1 + v_2 \in (V_1 \cap V_3) + (V_2 \cap V_3),
+%\]
+%and thus \( v \in (V_1 \cap V_3) + (V_2 \cap V_3) \).
+%
+%Now, suppose for the sake of contradiction that \( v_1 \notin V_3 \) or \( v_2 \notin V_3 \). Since \( v_1 \in V_1 \), \( v_2 \in V_2 \), and \( v = v_1 + v_2 \in V_3 \), we note that \( V_3 \) is a subspace and therefore closed under addition. If either \( v_1 \notin V_3 \) or \( v_2 \notin V_3 \), their sum cannot be in \( V_3 \), leading to a contradiction. Therefore, both \( v_1 \in V_3 \) and \( v_2 \in V_3 \) must hold.
+%
+%Thus, \( v_1 \in V_1 \cap V_3 \) and \( v_2 \in V_2 \cap V_3 \), and consequently:
+%\[
+%v \in (V_1 \cap V_3) + (V_2 \cap V_3).
+%\]
+%This proves that:
+%\[
+%(V_1 + V_2) \cap V_3 \subseteq (V_1 \cap V_3) + (V_2 \cap V_3).
+%\]
+%
+%\subsection*{Inclusion 2: \( (V_1 \cap V_3) + (V_2 \cap V_3) \subseteq (V_1 + V_2) \cap V_3 \)}
+%
+%Now, we prove the second inclusion: \( (V_1 \cap V_3) + (V_2 \cap V_3) \subseteq (V_1 + V_2) \cap V_3 \).
+%
+%Let \( v \in (V_1 \cap V_3) + (V_2 \cap V_3) \). By the definition of the sum of two subspaces, there exist vectors \( v_1 \in V_1 \cap V_3 \) and \( v_2 \in V_2 \cap V_3 \) such that:
+%\[
+%v = v_1 + v_2.
+%\]
+%Since \( v_1 \in V_1 \cap V_3 \), we know that \( v_1 \in V_1 \) and \( v_1 \in V_3 \). Similarly, since \( v_2 \in V_2 \cap V_3 \), we know that \( v_2 \in V_2 \) and \( v_2 \in V_3 \).
+%
+%Therefore, we have \( v = v_1 + v_2 \) with \( v_1 \in V_1 \) and \( v_2 \in V_2 \). Since \( v_1 \in V_3 \) and \( v_2 \in V_3 \), it follows that \( v \in V_3 \), because \( V_3 \) is a subspace and closed under addition. Moreover, since \( v_1 \in V_1 \) and \( v_2 \in V_2 \), we conclude that \( v \in V_1 + V_2 \).
+%
+%Thus, \( v \in (V_1 + V_2) \cap V_3 \), which proves that:
+%\[
+%(V_1 \cap V_3) + (V_2 \cap V_3) \subseteq (V_1 + V_2) \cap V_3.
+%\]
+%
+%\subsection*{Conclusion}
+%
+%We have shown both inclusions:
+%\[
+%(V_1 + V_2) \cap V_3 \subseteq (V_1 \cap V_3) + (V_2 \cap V_3) \quad \text{and} \quad (V_1 \cap V_3) + (V_2 \cap V_3) \subseteq (V_1 + V_2) \cap V_3.
+%\]
+%Therefore, we conclude that:
+%\[
+%(V_1 + V_2) \cap V_3 = (V_1 \cap V_3) + (V_2 \cap V_3),
+%\]
+%which completes the proof.

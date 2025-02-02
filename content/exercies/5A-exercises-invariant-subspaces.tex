@@ -1,6 +1,4 @@
 \subsection*{Exercises about Invariant Subspaces 5A}
-%\hrule
-%\phantom{.}
 
 \begin{xrcs}
   Suppose $T \in \linmap(V)$ and $U$ is a subspace of $V$. Then
@@ -8,27 +6,33 @@
     \item $U \subseteq \mynull T \implies$ $U$ is invariant under $T$.
     \item $\myrange T \subseteq U \implies$ $U$ is invariant under $T$.
   \end{enumerate}
+
+  \begin{prf}
+    { }1. { }If $v \in U$, then $Tv = 0 \in U$, since $U$ is a subspace and therefore $0 \in U$. \\
+    2. { }Let $w \in U\subseteq V$. $\implies$ $Tw \in \myrange T$, and since $\myrange T \subseteq U$, $Tw \in U$.
+  \end{prf}
+
 \end{xrcs}
-\begin{prf}
-  { }1. { }If $v \in U$, then $Tv = 0 \in U$, since $U$ is a subspace and therefore $0 \in U$. \\
-  2. { }Let $w \in U\subseteq V$. $\implies$ $Tw \in \myrange T$, and since $\myrange T \subseteq U$, $Tw \in U$.
-\end{prf}
+
 
 \begin{xrcs}
   Suppose that $T \in \linmap (V)$ and $V_1, \ddd, V_m$ are subspaces of $V$ invariant under $T$. \\
   Prove that $V_1 + \cdots + V_m$ is invariant under $T$.
-\end{xrcs}
-\begin{prf}
-  Let $w \in V_1 + \cdots + V_m$ \st
-  $
+
+  \begin{prf}
+    Let $w \in V_1 + \cdots + V_m$ \st
+    $
     w = v_1 + \cdots + v_m \mytext{where} v_1 \in V_1, \ddd, v_m \in V_m.
-  $ \\
-  Then $Tw = Tv_1 + \cdots + Tv_m$ such that $Tv_1 \in V_1, \ddd, Tv_m \in V_m$ because $V_1, \ddd, V_m$ are invariant under $T$. Therefore we have $Tw \in V_1 + \cdots + V_m$. So $V_1 + \cdots + V_m$ is invariant under $T$ as well.
-\end{prf}
+    $ \\
+    Then $Tw = Tv_1 + \cdots + Tv_m$ such that $Tv_1 \in V_1, \ddd, Tv_m \in V_m$ because $V_1, \ddd, V_m$ are invariant under $T$. Therefore we have $Tw \in V_1 + \cdots + V_m$. So $V_1 + \cdots + V_m$ is invariant under $T$ as well.
+  \end{prf}
+\end{xrcs}
+
 
 \begin{xrcs}
   Suppose $T \in \linmap(V)$. Prove that the intersection of every collection of subspaces of $V$ invariant under $T$ is invariant under $T$.
+
+  \begin{prf}
+    Let $w \in V_1 \cap \cdots \cap V_m \subseteq V$ where each $V_i$ is invariant under $T$. Then $w \in V_1, \ddd, w \in V_m$ and thus $Tw \in V_1, \ddd, Tw \in V_m$. Hence $Tw \in V_1 \cap \cdots \cap V_m$.
+  \end{prf}
 \end{xrcs}
-\begin{prf}
-  Let $w \in V_1 \cap \cdots \cap V_m \subseteq V$ where each $V_i$ is invariant under $T$. Then $w \in V_1, \ddd, w \in V_m$ and thus $Tw \in V_1, \ddd, Tw \in V_m$. Hence $Tw \in V_1 \cap \cdots \cap V_m$.
-\end{prf}

@@ -1,6 +1,11 @@
 % abbriviation for rightarrow direction and leftarrow direction:
 \newcommand{\Rightarrowdirection}{\prooffont{$\Rightarrow$ direction: }}
 \newcommand{\Leftarrowdirection}{\prooffont{$\Leftarrow$ direction: }}
+\newcommand{\StepOne}{\prooffont{Step 1: }}
+\newcommand{\StepTwo}{\prooffont{Step 2: }}
+\newcommand{\StepThree}{\prooffont{Step 3: }}
+\newcommand{\StepFour}{\prooffont{Step 4: }}
+\newcommand{\StepFive}{\prooffont{Step 5: }}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % change operatorname font
@@ -34,8 +39,6 @@
 \titlespacing{\chapter}{0pt}{0em}{0.4em}
 \titlespacing{\section}{0pt}{1.3em}{0.4em} %15pt, 3pt
 \titlespacing{\subsection}{0pt}{1em}{0.4em} %15pt, 3pt
-%\titlespacing{\subsubsection}{0pt}{6pt}{3pt}
-%\titlespacing*{\chapter}{0pt}{-19pt}{0pt}
 
 %For item, enumerate, description, lists
 \setitemize{noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt}
@@ -98,7 +101,6 @@
 {\textbf{:\,}}       % Punctuation after theorem head
 {.2em}                        % Space after theorem head
 {{\textbf{\scshape{\thmname{#1}\thmnumber{ #2}}}{\normalfont \thmnote{ ({\itshape#3})}}}}
-                              % Theorem head spec (can be left empty, meaning ‘normal’)
 
 % If we ever want to use the same font as in theorem head:
 \newcommand{\theoremfont}[1]{\textbf{\scshape{#1}}}
@@ -118,44 +120,48 @@
 \newtheorem{example}[thm]{Example}
 \newtheorem*{example-non}{Example}
 
-\newtheorem{xrcs}{Exercise}[section]
-\newtheorem*{xrcs-non}{Exercise}
 
-%\newtheoremstyle{indented-prf}
-%{.2em}        % space before
-%{0em}         % space after
-%{
-% \setlength{\leftskip}{\mathindent}
-% \setlength{\parindent}{0pt}
-% \addtolength{\linewidth}{-\mathindent-3em}
-% \setlist[enumerate]{align=parleft,left=\mathindent..\mathindent+\mathindent-30pt}
-% \setlist[description]{leftmargin=\mathindent,labelindent=\mathindent-6pt-27pt}
-% \addtolength{\mathindent}{\mathindent}
-%}
-%{0em}         % indent
-%{\bfseries}   % header font
-%{\textbf{:}}  % punctuation
-%{.3em}        % after theorem header
-%{{\textbf{\scshape{\thmname{#1}\thmnumber{ #2}}}{\normalfont \thmnote{ (#3)}}}}
+%% BEGIN custom therem and proof environments ***************
+%\newtheoremstyle{xrcs-style} % name
+%{0.4em}                       % Space above {\topsep}
+%{.2em}                        % Space below
+%{}                            % Body font
+%{0em}                         % Indent amount
+%{}                            % Theorem head font {\ttfamily\fontseries{b}\selectfont}
+%{\textbf{:\,}}       % Punctuation after theorem head
+%{.2em}                        % Space after theorem head
+%{{\textbf{\scshape{\thmname{#1}\thmnumber{ #2}}}{\normalfont \thmnote{ ({\itshape#3})}}}}
+%
+%\theoremstyle{xrcs-style}
+%\newtheorem{xrcs}{Exercise}[section]
+%%\newtheorem*{xrcs-non}{Exercise}
 
-% define 'prf'-environment
-%\theoremstyle{indented-prf}
-%\newtheorem*{prf}{Proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Define the custom environment for exercises. %%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%\def\endprf{
-%  {\setlength{\leftskip}{\mathindent}\setlength{\rightskip}{3em}\setlength{\parindent}{0pt}\addtolength{\linewidth}{-\mathindent-3em}\setlist[enumerate]{align=parleft,left=\mathindent..\mathindent+\mathindent-30pt}\setlist[description]{leftmargin=\mathindent,labelindent=\mathindent-6pt-27pt} \addtolength{\mathindent}{\mathindent} \hfill$\blacksquare$}
-%}
+% Define the exercise counter.
+\newcounter{xrcscount}
 
-%\renewenvironment{proof}
-%{{\textbf{Proof:}}}
-%{\hfill $\Box$}
-% END custom proof and thereom environments ****************
-
-
-% BEGIN custom commands ************************************
-%\DeclarePairedDelimiter\norm{\lVert}{\rVert}
-%\DeclarePairedDelimiter\innerproduct{\langle}{\rangle}
-
+\newenvironment{xrcs}{%
+  % Manually step the counter.
+  \refstepcounter{xrcscount}%
+  % Begin a list that prints the label using our macro \thexrcs.
+  \begin{list}{\textbf{\thesection.\thexrcscount}}{%
+      % Adjust these lengths to control the indentation:
+      \setlength{\leftmargin}{3em}% distance from left edge to the body of the item
+      %\setlength{\itemindent}{0em}% ensures wrapped lines line up with the first line
+      \setlength{\labelwidth}{3.5em}% space reserved for the label (adjust as needed)
+      \setlength{\labelsep}{0.6em}% space between the label and the text
+      \setlength{\listparindent}{0em}% paragraph indent within the list
+      %\setlength{\parsep}{0pt}% vertical space between paragraphs in the item
+    }%
+    \item
+  }{%
+  \end{list}
+}
 
 % equality with text above
 \newcommand\eqwtxt[1]{

@@ -41,11 +41,11 @@
   $\implies \forall k: v_k = 0$, because eigenvectors corresponding to distinct eigenvalues are linearly independent by \ref{thm: linearly independent eigenvectors}. Thus $E(\lambda_1, T) + \cdots + E(\lambda_m)$ is a direct sum by \ref{thm: condition for a direct sum}.
 
   By \ref{thm: a sum is a direct sum if and only if the dimensions add up}, the dimensions of a direct sum add up. By \ref{thm: dimension of a subspace}, the dimension of a subspace is always smaller or equal to the space itself, if it is \fd. Therefore,
-  $
+  \begin{equation}
       \dim E(\lambda_1, T) + \cdots + \dim E(\lambda_m, T)
-       = \dim \left( E(\lambda_1, T)  \oplus \cdots \oplus E(\lambda_m, T) \right)
-       \leq \dim V
-  $
+    = \dim \left( E(\lambda_1, T)  \oplus \cdots \oplus E(\lambda_m, T) \right) \leq \dim V
+  \end{equation}
+  \vspace{-1em}
 \end{prf}
 
 \subsection{Conditions for Diagonalizability}
