@@ -1,7 +1,9 @@
 \subsection*{Exercises about Null Spaces and Ranges 3B}
 \hrule
 \phantom{.}
-
+\begin{xrcs}
+  Exercise 1
+\end{xrcs}
 \setcounter{xrcscount}{8}
 %\begin{xrcs}
 %  Suppose $T \in \linmap(V,W)$ is injective and $v_1, \ddd, v_n$ is linearly independent in $V$. Prove that $Tv_1, \ddd, Tv_n$ is linearly independent in $W$.
@@ -258,7 +260,7 @@
       \dim \myrange(T) = \dim V - \dim U.
     \end{equation}
 
-    Since $\dim V - \dim U \leq \dim W$, it follows that $\myrange(T) \subseteq W$, so $T\linmap (V,W)$ exists. Now we want to show how such a $T$ could look like.
+    Since $\dim V - \dim U \leq \dim W$, it follows that $\myrange(T) \subseteq W$, so $T \in \linmap (V,W)$ exists. Now we want to show how such a $T$ could look like.
 
     \prooffont{Explicit Construction of $T$:}
     Suppose $\dim U \geq \dim V - \dim W$. Let $u_1, \dots, u_k$ be a basis for $U$ (where $k = \dim U$), and extend it to a basis $u_1, \dots, u_k, v_1, \dots, v_m$ for $V$ (where $m = \dim V - \dim U$). Let $w_1, \dots, w_m$ be a basis for $W$. Define $T \in \linmap(V,W)$ by setting $T(u_i) = 0$ for $1 \leq i \leq k$, and $T(v_i) = w_i$ for $1 \leq i \leq m$. Then $\mynull(T) = U$ and $\myrange(T) = W$.
@@ -269,18 +271,22 @@
   Suppose $W$ is finite-dimensional and $T\in \linmap(V,W)$. Prove that $T$ is injective $\iff$ $\exists S \in \linmap(W,V)$ such that $ST$ is the identity operator on $V$.
 
   \begin{prf}
-    \Rightarrowdirection Let $T \in \linmap (V,W)$ be injective. Let $v_1, \ddd, v_m$ be a basis of $V$. We know from exercise 10 that $T v_1, \ddd, Tv_m$ spans $\myrange T$. We also know from exercise 9 that $T v_1, \ddd, Tv_m$ is linearly independent in $W$ and thus is a basis of $\myrange T$. Let $n :\equiv \dim W$. This basis can be extended to a basis of $T v_1, \ddd, Tv_m, w_{m+1}, \ddd, w_n$ of $W$, given $m < n$ ($\dim V < \dim W$). Therefore, every $w \in W$ can be written as follows:
+    \Rightarrowdirection Let $T \in \linmap (V,W)$ be injective. Let $v_1, \ddd, v_m$ be a basis of $V$. We know from exercise 10 that $T v_1, \ddd, Tv_m$ spans $\myrange T$. We also know from exercise 9 that $T v_1, \ddd, Tv_m$ is linearly independent in $W$ and thus is a basis of $\myrange T$. Let $n :\equiv \dim W$. This basis can be extended to a basis of
     \begin{equation}
-      w = a_1 T v_1 + \cdots + a_m T v_m + a_{m+1} w_{m+1} + \cdots + a_{n} w_n,
-      \quad
-      $for some unique scalars $ a_1, \ddd, a_m, a_{m+1}, \ddd, a_n \in \myF.
+      \label{eq: basis of W}
+      T v_1, \ddd, Tv_m, w_{m+1}, \ddd, w_n
     \end{equation}
 
-    Since $T$ is injective, we can define $S \in \linmap (W,V)$ for any $w \in W$ such that
+    of $W$, given $m < n$ ($\dim V < \dim W$). Therefore, every $w \in W$ can be written as follows:
+    \begin{equation}
+      w = a_1 T v_1 + \cdots + a_m T v_m + a_{m+1} w_{m+1} + \cdots + a_{n} w_n,
+    \end{equation}
+
+    for some unique scalars $a_1, \ddd, a_m, a_{m+1}, \ddd, a_n \in \myF$. Given the basis \eqref{eq: basis of W} of $W$, we can define $S \in \linmap (W,V)$ for any $w \in W$, letting
     \begin{equation}
       \begin{aligned}
-        S(w) &= \;  S(a_1 T v_1 + \cdots + a_m T v_m + a_{m+1} w_{m+1} + \cdots + a_{n} w_m)  \\
-        &:\equiv a_1 v_1 + \cdots + a_m v_m
+        S(w) &= \;  S(a_1 T v_1 + \cdots + a_m T v_m + a_{m+1} w_{m+1} + \cdots + a_{n} w_n)
+        :\equiv a_1 v_1 + \cdots + a_m v_m
       \end{aligned}
     \end{equation}
 
@@ -399,6 +405,104 @@
   \end{prf}
 \end{xrcs}
 
+\exercise{22}
+\begin{xrcs}
+  \begin{enumerate}
+    \item {
+    Suppose $U$ and $V$ are finite-dimensional vector spaces and $S \in \linmap (V,W)$ and $T \in \linmap(U,W)$ and $T \in \linmap (U,W)$. Prove that $\dim \mynull ST \leq \dim \mynull S + \dim \mynull T$.
+    \begin{prf}
+      Note that $ST \in \linmap(U,W)$ and $\mynull T \subseteq \mynull ST$ (this implies $\dim \mynull T \leq \dim \mynull ST$). According to the rank-nullity theorem, the following three formulas hold:
+      \begin{equation}
+        \begin{aligned}
+          \dim U &= \dim \myrange T\phantom{S} + \dim \mynull T\phantom{S} \\
+          \dim V &= \dim \myrange S\phantom{T} + \dim \mynull S\phantom{T} \\
+          \dim U &= \dim \myrange ST + \dim \mynull ST
+        \end{aligned}
+      \end{equation}
+
+      Equaling the first and the last formula, we can deduce that:
+      \begin{equation}
+        \label{eq: dim null ST}
+        \dim \mynull ST = \dim \myrange T - \dim \myrange ST + \dim \mynull T
+      \end{equation}
+
+      So what is $\dim \myrange T - \dim \myrange ST$? It is all the vectors that get mapped to zero that are not mapped $0$ to by applying $T$ (by looking at the formula). If we can show that $\dim \myrange T - \dim \myrange ST \leq \dim \mynull S$, the proof is complete. We know that:
+      \begin{equation}
+        \dim V - \dim \myrange S = \dim \mynull S
+      \end{equation}
+
+      Since $\dim \myrange T \leq \dim V$ and $\dim \myrange ST \leq \dim \myrange S$, we conclude:
+      \begin{equation}
+        \dim \myrange T - \dim \myrange ST \leq \dim \mynull S.
+      \end{equation}
+
+      Therefore, \eqref{eq: dim null ST} becomes
+      \begin{equation}
+        \dim \mynull ST \leq \dim \mynull S + \dim \mynull T.
+      \end{equation}
+
+      Note: If $\dim \myrange T = \dim \myrange ST$, \eqref{eq: dim null ST} becomes $\dim \mynull ST = \dim \mynull T$.
+    \end{prf}
+    }
+    \item{
+      Give an example of $S, T \in \linmap(\myF^5)$ with $ST = 0$ and $\dim \myrange TS = 0$.
+
+      \prooffont{Solution: }
+      Let $S, T \in \linmap(\myF^5)$ such that for all $x \in \linmap(\myF^5)$:
+      \begin{equation}
+        S(x) :\equiv (0,0,0,x_4,x_5) \quad \mytext{and} \quad T(x) :\equiv (x_1 + x_4, x_2 + x_5, 0,0,0)
+      \end{equation}
+
+      If we compute $ST$ and $TS$ for $x \in \linmap(\myF^5)$ we get
+      \begin{equation}
+        \begin{aligned}
+          &ST(x) = S((x_1 + x_4, x_2 + x_5, 0,0,0)) = (0,0,0,0,0) = 0 \\
+          &TS(x) = T((0,0,0,x_4,x_5)) = (0+x_4, 0+x_5, 0,0,0) = (x_4, x_5, 0,0,0)
+        \end{aligned}
+      \end{equation}
+
+      Hence, $\dim \myrange TS = 2$.
+    }
+
+  \end{enumerate}
+
+\end{xrcs}
+
+\exercise{24}
+\begin{xrcs}
+  Suppose $\dim V = 5$ and $S, T \in \linmap (V)$ are such that $ST = 0$. Prove that $\dim \myrange TS \leq 2$.
+
+  \begin{prf}
+    According to the rank-nullity theorem, we have
+    \begin{equation}
+      \begin{aligned}
+        5 &= \dim \myrange T + \dim \mynull T. \\
+        5 &= \dim \myrange S + \dim \mynull S
+      \end{aligned}
+    \end{equation}
+
+    From exercise 3B.22, we know
+    \begin{equation}
+      \begin{aligned}
+        \label{eq:  null space of ST}
+        \dim \mynull ST & \leq \dim \mynull S + \dim \mynull T, \\
+        5 & \leq \dim \mynull S + \dim \mynull T.
+      \end{aligned}
+    \end{equation}
+
+    From exercise 3B.23, we know
+    \begin{equation}
+      \begin{aligned}
+        \label{eq: dim myrange TS}
+        \dim \myrange TS & \leq \min \{ \dim \myrange S, \dim \myrange T\} \\
+        & =     \min \{ 5 - \dim \mynull S, 5 - \dim \mynull T \}
+      \end{aligned}
+    \end{equation}
+
+    Equation \eqref{eq: null space of ST} and the equation \eqref{eq: dim myrange TS} above tell us, that $\myrange TS$ is at its maximum, if either $\dim \mynull S$ or $\dim \mynull T$ is $2$ and the other one is $3$. Hence $\dim \myrange TS = \min \{2,1\} = 2$.
+  \end{prf}
+\end{xrcs}
+
 %\begin{xrcs}
 %  Suppose $V$ is finite-dimensional, $U$ is a subspace of $V$, and $T \in \linmap (V,W)$. Prove that $X :\equiv {v \in V \mid Tv \in U }$ is a subspace of $V$ and
 %  \begin{equation}
@@ -438,45 +542,177 @@
 %  This validates equation \eqref{eq: dim X}, completing the proof.
 %\end{prf}
 
-
+\exercise{25}
 \begin{xrcs}
   Suppose $W$ is finite-dimensional and $S, T \in \linmap (V,W)$. Prove that $\mynull S \subseteq \mynull T$ $\iff$ there exists a $E \in \linmap (W)$ such that $T=ES$.
 
   \begin{prf}
-    \Rightarrowdirection Let $S, T \in \linmap (V,W)$ such that $\mynull S \subseteq \mynull T$. (i.e. $\dim \mynull S \leq \dim \mynull T$). Let $U \subseteq V$ such that $V = \mynull S \oplus U$. This implies that
+    \Rightarrowdirection Let $S, T \in \linmap (V,W)$ such that $\mynull S \subseteq \mynull T$. (i.e. $\dim \mynull S \leq \dim \mynull T$). Let $U$ be a subspace of $V$ such that $V = \mynull S \oplus U$. This implies that
     \begin{equation}
-      S|_U : U \to \myrange S \mytext{is injective.}
+      S|_U : U \to \myrange S
     \end{equation}
 
-   Which further implies that $\dim U = \dim \myrange S|_U = \dim \myrange S$, because $\dim \mynull S|_U =0$. Here we have been using again the rank-nullity thereom and the fact that $\myrange S|_U = \myrange S$. This is because any vector $v \in V$ can be written as $v = r + u$, where $r \in \mynull S$ and $u \in U$. For this $v$ we have  $S(v) = S(r) + S(u) = S(u) = S|_U(u) = S|_U(r) + S|_U(u)= S|_U(v)$. So $S$ and $S|_U$ have the same range.
-
-   Now if $u_1, \ddd, u_n$ is a basis of $U$, then $S u_1, \ddd, S u_n$ is a basis of $\myrange S \subseteq W$. Therefore we can extend $S u_1, \ddd, S u_n$ to a basis $S u_1, \ddd, S u_n, w_{n+1}, \ddd, w_{m}$ of $W$. Note that the extension might be empty and no $w$'s are added. If $n = m$ the basis of $W$ just consists of $S u_1, \ddd, S u_n$ and $\myrange S = W$. So we have $n \leq m$ for $n = \dim \myspan S$ and $m = \dim W$.
-
-   So we can define $E: W \to W$ for $w \in W$, letting
+   is injective, because $\mynull S|_U = \{0\}$. Using the rank nullity-theorem and the fact that $\dim \mynull S|_U =0$, we can conclude that:
    \begin{equation}
-     E(w) = E(a_1 Su_1 + \cdots + a_n Su_n + a_{n+1} w_{n+1} + \cdots + a_m w_m) :\equiv a_1 T u _1 + a_n T u_n.
+     \dim U = \dim \myrange S|_U = \dim \myrange S.
+   \end{equation}
+
+   The equation above also made use of the fact that $\myrange S|_U = \myrange S$. This is because any vector $v \in V$ can be written as $v = r + u$, where $r \in \mynull S$ and $u \in U$. For this $v$ we have:
+   \begin{equation}
+     S(v) = S(r) + S(u) = S(u) = S|_U(u) = S|_U(r) + S|_U(u)= S|_U(v).
+   \end{equation}
+
+   Thus, $S$ and $S|_U$ have the same range, $\myrange S|_U = \myrange S$.
+
+   Now if $u_1, \ddd, u_n$ is a basis of $U$, then $S u_1, \ddd, S u_n$ is a basis of $\myrange S \subseteq W$. Therefore, we can extend $S u_1, \ddd, S u_n$ to a basis
+   \begin{equation}
+     S u_1, \ddd, S u_n, w_{n+1}, \ddd, w_{m}
+   \end{equation}
+
+   of $W$. Note that the extension might be empty and no $w$'s are added. If $n = m$ the basis of $W$ just consists of $S u_1, \ddd, S u_n$ and $\myrange S = W$. So we have $n \leq m$ for $n = \dim \myspan S$ and $m = \dim W$.
+
+   Now we define $E: W \to W$ for $w \in W$, letting
+   \begin{equation}
+     E(w) = E(a_1 Su_1 + \cdots + a_n Su_n + a_{n+1} w_{n+1} + \cdots + a_m w_m) :\equiv a_1 T u _1 + \cdots + a_n T u_n.
    \end{equation}
 
    If we decompose $v \in V = \mynull S \oplus U$ again as $v = r + u$ where  $r \in \mynull S$ and $u \in U$, then
    \begin{equation}
-     ES ( v ) = ES ( r + u) = ES( u) = E (a_1 S u_1 + \cdots + a_n S u_n) = a_1 T u_n + \cdots + a_n T u_n.
+     ES ( v ) = ES ( r + u) = ES( u) = E (a_1 S u_1 + \cdots + a_n S u_n) = a_1 T u_1 + \cdots + a_n T u_n.
    \end{equation}
 
-   Since $\mynull S \subseteq \mynull T$, if we take the same $v$ we have:
+   Since $\mynull S \subseteq \mynull T$, and we take the same $v=r+u$, we have $T(r)=0$. Hence:
    \begin{equation}
-     T(v) = T(r) + T(u) = T(u) = a_1 T(u_1) + \cdots + a_n T(u_n).
+     T(v) = T(r) + T(u) = T(u) = a_1 T u_1 + \cdots + a_n T u_n.
    \end{equation}
 
    Thus we conclude: $ES=T$.
 
-   \Leftarrowdirection Assume $W$ is finite-dimensinal and we have $S,T \in \linmap(V,W)$ and $E \in \linmap (W)$ such that $T=ES$. Now assume that $\mynull S$ is not a subset of $\mynull T$. Then there exists a $v \in V$ such that $S(v) = 0$ but $T(v) \neq 0$. Because of \ref{thm: linear maps take 0 to 0} it must be that $E(0) = 0$, and thus $ES(v) = 0$. But we assumed that $T=ES$. Now we have $ES \neq T$ (because $T(v)\neq 0$). The assumption that $\mynull S$ is not a subset of $\mynull T$ has lead to a contradiction. Therefore, $\mynull S \subseteq \mynull T$, as desired.
+   \Leftarrowdirection Assume $W$ is finite-dimensional and we have $S,T \in \linmap(V,W)$ and $E \in \linmap (W)$ such that $T=ES$. Now assume that $\mynull S$ is not a subset of $\mynull T$. Then there exists a $v \in V$ such that $S(v) = 0$ but $T(v) \neq 0$. Because of \ref{thm: linear maps take 0 to 0} it must be that $E(0) = 0$, and thus $ES(v) = 0$. But we assumed that $T=ES$. Now we have $ES \neq T$ (because $T(v)\neq 0$). The assumption that $\mynull S$ is not a subset of $\mynull T$ has lead to a contradiction. Therefore, $\mynull S \subseteq \mynull T$, as desired.
   \end{prf}
 \end{xrcs}
+
+%\begin{xrcs}
+%  Suppose that $V$ is finite-dimensional and $S, T \in \linmap (V,W)$. Prove that $\myrange S \subseteq \myrange T$ $\iff$ there exists $E \in \linmap(V)$ such that $S=TE$.
+%
+%  \begin{prf}
+%    \Rightarrowdirection Suppose $V$ is finite dimensional. Suppose $S, T \in \linmap (V,W)$ such that $\myrange S \subseteq \myrange T$. Note that this implies
+%    \begin{equation}
+%      \label{eq: null T subseteq null S}
+%      \mynull T \subseteq \mynull S.
+%    \end{equation}
+%
+%    Let $U \subseteq V$ such that $V = \mynull S \oplus U$. Observe that
+%    \begin{equation}
+%      \forall u \in U: S(u) \in \myrange T.
+%    \end{equation}
+%
+%    This means that $\forall u \in U$ we have a $v$ in $V$ such that $S(u) = T(v)$. Now we decompose $v$ like this: $v=r+u'$ where $r \in \null S$ and $u' \in U$. The linearity of of $T$ yields that $T(v) = T(r+u') = T(r) + T(u') = T(u')$. Therefore,
+%    \begin{equation}
+%      S(u) = T(u'), \mytext{where } u, u' \in U
+%    \end{equation}
+%
+%    But $S(u') = S(u)$ only if $u' = u$.
+%
+%    This means that $S|_U$ and $T|_U$ are identical and both are injective since $\mynull S|_U  = \mynull T|_U = \{0\}$. \textbf{Todo: better :)}
+%
+%    Let $u_1, \ddd, u_n$ be a basis of $U$. This means that $S u_1, \ddd, S u_n$ and $T u_1, \ddd, S u_n$ both are a basis of $\myrange S = \myrange S|_U = \myrange T|_U$. This will be used later in the construction of $E$.
+%
+%    If $u_1, \ddd, u_n$ is a basis of $U$, it can be extended to a basis $u_1, \ddd, u_n, r_{n+1}, \ddd, r_m$ of $V$. Note that this extension can be empty if $U = V$ and $\mynull S = \{0\}$.  This makes $r_{n+1}, \ddd, r_m$ a basis of $\mynull S$. Therefore we have $n \leq m$ for $m = \dim V$.
+%
+%    Now we define $E: V \to V$ for $v \in V$ by letting
+%    \begin{equation}
+%      E(v) = E(a_1 u_1 + \cdots + a_n u_n + a_{n+1} r_{n+1} + \cdots + a_m r_m) :\equiv a_1 u_1 + \cdots + a_n u_n, \mytext{where} a_1, \ddd, a_m \in \myF.
+%    \end{equation}
+%
+%    %for every $v \in V$ sucht that $v= a_1 u_1 + \cdots + a_n u_n + a_{n+1} r_{n+1} + \cdots + a_m r_m$, where the $a$'s are scalars.
+%
+%    Now let $w \in V$ such that $w = r + u$, where $r \in \mynull S$ and $u \in U$. We compute:
+%    \begin{equation}
+%      \begin{aligned}
+%        TE(w) &= TE(r+u)= TE(r) + TE(u) = TE(u) \\
+%              &= T(a_1u_n + \cdots + a_n u_n) \\
+%              &= a_1 T u_1 + \cdots + a_n T u_n.
+%      \end{aligned}
+%    \end{equation}
+%
+%    For the same $w$ we compute:
+%    \begin{equation}
+%      S(w) = S(r+u) = S(u) = a_1 S u_1 + \cdots + a_n S u_n.
+%    \end{equation}
+%
+%    Earlier we claimed that $S|_U$ and $T|_U$ are identical. Hence,
+%    \begin{equation}
+%      a_1 T u_1 + \cdots + a_n T u_n = a_1 S u_1 + \cdots + a_n S u_n.
+%    \end{equation}
+%
+%    Therefore, $S=TE$.
+%
+%    \Leftarrowdirection This direction of the proof is left to the reader as an exercise.
+%  \end{prf}
+%
+%\end{xrcs}
 
 \begin{xrcs}
-  Suppose that $V$ is finite-dimensinal and $S, T \in \linmap (V,W)$. Prove that $\myrange S \subseteq \myrange T$ $\iff$ there exists $E \in \linmap(V)$ such that $S=TE$
+  Suppose that $V$ is finite-dimensional and $S, T \in \linmap (V,W)$. Prove that $\myrange S \subseteq \myrange T$ $\iff$ there exists $E \in \linmap(V)$ such that $S=TE$.
 
-  \begin{prf}
+  \begin{xprf}
+    \Rightarrowdirection Let $V$ be finite-dimensional and $S,T \in \linmap (V,W)$ such that $\myrange S \subseteq \myrange T$. Let $Q$ be a subspace of $V$ such that $V = \mynull S \oplus Q$. Let $q_1, \ddd, q_m$ be a basis of $Q$. We can extend this list to a basis
+    \begin{equation}
+      q_1, \ddd, q_m, r_{m+1}, \ddd, r_n
+    \end{equation}
 
-  \end{prf}
+    of $V$ with $\dim V = n$. Note that $r_{m+1}, \ddd, r_n$ is a basis of the null space of $S$, i.e $\mynull S$. The restriction $S|_Q$ is injective because $\mynull S|_Q = \{0\}$. This makes
+    \begin{equation}
+      S q_1, \ddd, S q_m
+    \end{equation}
+
+    a basis of the range of $S$, i.e $\myrange S$.
+    From $\myrange S \subseteq \myrange T$, it follows that $\forall j \in \{1, \ddd, m\}$:
+    \begin{equation}
+      \exists u_j \in V \mytext{such that} T(u_j) = S (q_j).
+    \end{equation}
+
+    So we have a list of distinct preimage vectors $u_1, \ddd, u_m$. The linear map lemma \ref{thm: linear map lemma} tells us, we can construct $E: V \to V$ as follows:
+    \begin{equation}
+      \label{eq: definition of E}
+      \begin{aligned}
+        E(q_k) &= u_k \quad \forall k \in \{1, \ddd, m\} \\
+        E(r_k) &= 0 \quad \forall k \in \{m+1, \ddd, n\}
+      \end{aligned}
+    \end{equation}
+
+    This lemma guarantees the existence (and uniqueness) of a linear map on $V$ that sends the basis vectors $q$'s and $r$'s to the specified vectors $u$'s and $0$'s respectively.
+    This ensures $E$ is well defined.
+    For a $v \in V$, given as $v= (c_1 q_1 + \cdots c_m q_m) + (c_{m+1} r_{m+1} + \cdots + c_n r_n)$ with its coordinates and its basis, the linear map $E$ looks like this:
+    \begin{equation}
+      E(v) :\equiv c_1 u_1 + \cdots + c_m u_m
+    \end{equation}
+
+    One can verify that this coincides with the definition \eqref{eq: definition of E} above, using the fact that $E$ is linear.
+
+    Now what does $TE$ look like? It computes as follows:
+    \begin{equation}
+      \begin{aligned}
+        T(E(v)) &= TE\Big((c_1 q_1 + \cdots + c_m q_m) + (c_{m+1} r_{m+1} + \cdots + c_n r_n)\Big) \\
+        &= T(c_1 u_1 + \cdots + c_m u_m) = c_1 T (u_1) + \cdots + c_m T (u_m) \\
+        &= c_1 S (q_1) + \cdots + c_m S (q_m).
+      \end{aligned}
+    \end{equation}
+
+    Compare this with $S$:
+    \begin{equation}
+      \begin{aligned}
+        S(v) &= S\Big((c_1 q_1 + \cdots + c_m q_m) + (c_{m+1} r_{m+1} + \cdots + c_n r_n)\Big)
+        = S(c_1 q_1 + \cdots + c_m q_m) \\
+        &= c_1 S (q_1) + \cdots + c_m S (q_m).
+      \end{aligned}
+    \end{equation}
+
+    Therefore, $S = TE$.
+
+    \Leftarrowdirection Suppose there exists $E \in \linmap (V)$ such that $S=TE$. Then for any $v \in V$, $S(v) = T(E(v))$ implies that $S(v) \in \myrange T$. Hence, $\myrange S \subseteq \myrange T$.
+  \end{xprf}
 \end{xrcs}
+
+

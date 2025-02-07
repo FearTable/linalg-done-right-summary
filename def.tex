@@ -73,8 +73,35 @@
 }
 
 \surroundwithmdframed[style=proof-style]{prf}
-\surroundwithmdframed[style=proof-style]{proof}
 \newtheorem*{prf}{Proof}
+
+% for exercises, we may be want proofs to look different:
+\mdfdefinestyle{exercise-proof-style}{
+  skipabove         = 0.1em,% .5\baselineskip ,
+  skipbelow         = 8em,%.5\baselineskip ,
+  leftmargin        = 0.4em ,
+  rightmargin       = 0.4em ,
+  innermargin       = 0pt ,
+  innertopmargin    = 0.5em, %0.6 %.675em ,
+  innerleftmargin   = 0.4em, %.675em ,
+  innerrightmargin  = 0.4em,
+  innerbottommargin = 0.4em, %.675em +3pt,
+  hidealllines      = true,
+%  singleextra       = {
+%    \draw [thick] (O) -- ++(0,1.8em) (O) -- ++(1.8em,0) ;
+%    \draw [thick] (P-|O) -- ++(0,-1.8em) (P-|O) -- ++(1.8em,0) ;
+%  },
+%  firstextra        = {
+%    \draw [thick] (P-|O) -- ++(0,-1.8em) (P-|O) -- ++(1.8em,0) ;
+%  },
+%  secondextra       = {
+%    \draw [thick] (O) -- ++(0,1.8em) (O) -- ++(1.8em,0) ;
+%  },
+}
+
+\surroundwithmdframed[style=exercise-proof-style]{xprf}
+\newtheorem*{xprf}{Proof}
+
 
 % custom QED Symbol
 %\newcommand*\closedbox{%
@@ -84,7 +111,9 @@
 %\renewcommand{\qedsymbol}{\rule{0.7em}{0.7em}}
 
 \renewenvironment{prf}{{\textbf{\scshape \slshape Proof:}}}{\hfill $\qedsymbol$}
-\renewenvironment{proof}{{\textbf{\scshape \slshape Proof:}}}{\hfill $\qedsymbol$}
+\renewenvironment{xprf}{{\textbf{\scshape \slshape Proof:}}}{\hfill $\qedsymbol$}
+
+%\renewenvironment{proof}{{\textbf{\scshape \slshape Proof:}}}{\hfill $\qedsymbol$}
 
 \newcommand{\prooffont}[1]{\textbf{\scshape \slshape #1}}
 
@@ -143,7 +172,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Define the exercise counter.
-\newcounter{xrcscount}
+\newcounter{xrcscount}[section]
+
+\newcommand{\exercise}[1]{\setcounter{xrcscount}{#1-1}}
 
 \newenvironment{xrcs}{%
   % Manually step the counter.
