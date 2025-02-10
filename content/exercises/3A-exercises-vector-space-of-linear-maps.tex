@@ -36,13 +36,13 @@
 
   Prove that $T$ is not a linear map on $V$.
 
-  \begin{prf}
+  \begin{xprf}
     Let $u \in U$ and $v \in V$ with $v \notin U$ ($v \in V \backslash U$). Consider the sum $u + v$. We claim that $u+v \notin U$, because if $u+v \in U$ then by closure of $U$, we would have $(u+v)-u = v \in U$, which contradicts $v \notin U$. Therefore, it holds that
     \begin{equation}
       T(\underbrace{u+v}_{\notin \; U}) = 0 \neq Su + 0 = Tu + Tv.
     \end{equation}
 
     The inequality above demonstrates that $T$ is not a linear map, because it fails to satisfy additivity. The failure of $T$ to be a linear map arises because $T$ is defined differently on $U$ and $V \backslash U$, breaking the additivity required for linearity.
-  \end{prf}
+  \end{xprf}
 \end{xrcs}
 

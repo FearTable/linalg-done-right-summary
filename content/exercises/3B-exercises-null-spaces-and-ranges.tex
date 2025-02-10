@@ -25,7 +25,7 @@
 \begin{xrcs} % ChatGTP did a lot of changes
   Suppose $T \in \linmap(V,W)$ is injective and $v_1, \ddd, v_n$ is linearly independent in $V$. Prove that $Tv_1, \ddd, Tv_n$ is linearly independent in $W$.
 
-  \begin{prf}
+  \begin{xprf}
     Let $a_1, \ddd, a_n \in \myF$ such that
     \[
     a_1 Tv_1 + \cdots + a_n Tv_n = 0.
@@ -43,25 +43,25 @@
     a_1 = 0, \ddd, a_n = 0.
     \]
     Thus, $Tv_1, \ddd, Tv_n$ are linearly independent in $W$.
-  \end{prf}
+  \end{xprf}
 \end{xrcs}
 
 \begin{xrcs}
   Suppose $v_1, \ddd, v_n$ spans $V$ and $T \in \linmap(V,W)$. Show that $Tv_1, \ddd, Tv_n$ spans $\myrange T$.
 
-  \begin{prf}
+  \begin{xprf}
     Let $v = a_1 v_1 + \cdots + a_n v_n \in V$, where $a_1, \ddd, a_n \in \myF$.
     \begin{equation}
       \implies Tv = a_1 T v_1 + \cdots + a_n T v_n \in \myrange T.
     \end{equation}
 
-    Thus, every element of $Tv \in \myrange T$ can be written as a linear combination of $Tv_1, \ddd, Tv_n$. This shows that
+    Thus, every element of $Tv \in \myrange T$ can be written as a linear combination of $Tv_1, \ddd, Tv_n$. Hence,
     \begin{equation}
       \myrange T \subseteq \myspan{T v_1, \ddd, T v_n}.
     \end{equation}
 
     Conversely, \( Tv_1, \ddd, Tv_n \in \myrange T \) and $\myrange T$ is a vector space which is closed under addition and multiplication. Therefore, $\myrange T = \myspan{Tv_1, \ddd, Tv_n}$.
-  \end{prf}
+  \end{xprf}
 \end{xrcs}
 
 
@@ -170,20 +170,102 @@
 %  \end{equation}
 %\end{prf}
 
+\exercise{12}
+\begin{xrcs}
+  Suppose $T$ is a linear map from $\myF^4$ to $\myF^2$ such that
+  \begin{equation}
+    \mynull T :\equiv \{(x_1, x_2, x_3, x_4) \in \myF \mid x_1 = 5x_2 \text{and} x_3 = 7x_4 \}.
+  \end{equation}
 
-\setcounter{xrcscount}{14} % With some help of ChatGTP
+  Prove that $T$ is surjective.
+
+  \begin{xprf}
+    To prove that $T$ is surjective, we need to find the dimension of $\mynull T$. We can rewrite:
+    \begin{equation}
+      \begin{aligned}
+        \mynull T &= \{(5a, a, 7b,b) \mid a \in \myF \mytext{and} b \in \myF \} \\
+                  &= \{t_1 (5,1,0,0) + t_2(0,0,7,1) \mid t_1 \in \myF \mytext{and} t_2 \in \myF \}.
+      \end{aligned}
+    \end{equation}
+
+    Which shows that $\mynull T$ is a $2$-dimensional plane in $\myF^4$. Since according to the rank-nullity theorem we have $\dim \myF^4 = \dim \mynull T + \dim \myrange T$, we derive that $\dim \myrange T = 2$. Using $\ref{thm: subspace of full dimension equals the whole space}$, we conclude:
+    \begin{equation}
+      \label{eq: range T = F^2}
+      \myrange T = \myF^2.
+    \end{equation}
+
+    Theorem $\ref{thm: subspace of full dimension equals the whole space}$ states that if a subspace of a vector space has the same dimension as the vector space itself, then the subspace is equals to the whole space. This is what we have uses above. Equation \eqref{eq: range T = F^2} tells us that $T$ is surjective.
+  \end{xprf}
+\end{xrcs}
+
+\exercise{13}
+\begin{xrcs}
+  Suppose $U$ is a three-dimensional subspace of $\real^8$ and $T$ is a linear map from $\real^8$ to $\real^5$ such that
+  \begin{equation}
+    \mynull T = U.
+  \end{equation}
+
+  Prove that $T$ is surjective.
+
+  \begin{xprf}
+    According to the rank-nullity theorem we have
+    \begin{equation}
+      \begin{aligned}
+        \dim \real^8 &= \dim \mynull T + \dim \myrange T \\
+                 8 &= 3 + \dim \myrange T.
+      \end{aligned}
+    \end{equation}
+
+    Thus, $\dim \myrange T = 5$. We also know that $\myrange T \subseteq \real^5$. Since a subspace of full dimension equals the whole space itself according to \ref{thm: subspace of full dimension equals the whole space}, we conclude:
+    \begin{equation}
+      \myrange T = \real^5.
+    \end{equation}
+
+    Thus, $T$ is surjective.
+  \end{xprf}
+\end{xrcs}
+
+\exercise{14}
+\begin{xrcs}
+  Prove that there does not exist a linear map from $\myF^5$ to  $\myF^2$ whose null space equals
+  \begin{equation}
+    S :\equiv \{(x_1, x_2, x_3, x_4, x_5) \in \myF^5 \mid x_1 = 3 x_2 \mytext{and} x_3 = x_4 = x_5 \}.
+  \end{equation}
+
+  \begin{xprf}
+    We can rewrite $S$ as
+    \begin{equation}
+      \begin{aligned}
+        S = \{ ( 3a, a, b,b,b) \mid a \in \myF \mytext{and} b \in \myF \}
+        = \{ t_1 (3,1,0,0,0) + t_2 (0,0,1,1,1) \mid  t_1 \in \myF \mytext{and} t_2 \in \myF \}.
+      \end{aligned}
+    \end{equation}
+
+    As we can see, $\dim S = 2$. Using the rank-nullity theorem we have
+    \begin{equation}
+      \begin{aligned}
+        &\dim \myF^5 = \dim \mynull T + \dim \myF^2 \\
+        &\implies \dim \mynull T = 3 \neq 2 = \dim \mynull S.
+      \end{aligned}
+    \end{equation}
+
+    Therefore, $\mynull T$ could never equal $S$.
+  \end{xprf}
+\end{xrcs}
+
+\exercise{15}
 \begin{xrcs}
   Suppose there exists a linear map $T \in \linmap(V)$ on $V$ such that its null space $\mynull(T)$ and range $\myrange(T)$ are both finite-dimensional. Prove that $V$ is finite-dimensional.
 
-  \begin{prf}
-    According to the rank-nullity theorem, we have: $ \dim V = \dim \myrange(T) + \dim \mynull(T). $Since both $\dim \myrange T$ and $\dim \mynull T$ are finte by assumption, their sum is also finite. Hence, $\dim V$ is finite, and V is finite-dimensional.
-  \end{prf}
+  \begin{xprf}
+    According to the rank-nullity theorem, we have: $ \dim V = \dim \myrange(T) + \dim \mynull(T)$. Since both $\dim \myrange T$ and $\dim \mynull T$ are finte by assumption, their sum is also finite. Hence, $\dim V$ is finite, and V is finite-dimensional.
+  \end{xprf}
 \end{xrcs}
 
 \begin{xrcs}
   Suppose $V$ and $W$ are both finite-dimensional. Prove that there exists an injective linear map $T \in \linmap(V,W)$ $\iff$ $\dim V \leq \dim W$.
 
-  \begin{prf}
+  \begin{xprf}
     \Rightarrowdirection If there exists an injective linear map $T \in \linmap(V,W)$, then $\mynull(T) = \{0\}$, so $\dim \mynull(T) = 0$. By the rank-nullity theorem:
     \begin{equation}
       \dim V = \dim \myrange(T) \leq \dim W, \quad $ because $ \myrange(T) \subseteq W.
@@ -197,14 +279,14 @@
 
     \prooffont{Explicit Construction of $T$}:
     Suppose $\dim V \leq \dim W$. Let $v_1, \dots, v_n$ be a basis for $V$ (where $n = \dim V$), and let $w_1, \dots, w_m$ be a basis of $W$ (where $m = \dim W$). Define $T$ by $T(v_i) = w_i$ for $1 \leq i \leq n$. Then $T$ is injective, as $\mynull(T) = \{0\}$.
-  \end{prf}
+  \end{xprf}
 \end{xrcs}
 
 
 \begin{xrcs}
   Suppose $V$ and $W$ are both finite-dimensional. Prove that there exists a surjective linear map from $V$ onto $W$ $\iff$ $\dim V \geq \dim W$.
 
-  \begin{prf}
+  \begin{xprf}
     \Rightarrowdirection Suppose $\exists T \in \linmap(V,W)$ such that $T$ is surjective. Then $\myrange(T) = W$, so by the rank-nullity theorem:
     \begin{equation}
       \begin{aligned}
@@ -226,14 +308,14 @@
     w = a_1 w_1 + \cdots + a_m w_m.
     $
     We see that: $T(a_1 v_1 + \cdots + a_m v_m)= a_1 w_1 + \cdots a_m w_m = w$. Thus, for every $w \in W$, we have found a preimage $v \in V$ such that $T(v) = w$, proving that $T$ is surjective.
-  \end{prf}
+  \end{xprf}
 \end{xrcs}
 
 
 \begin{xrcs}
   Suppose $V$ and $W$ are finite-dimensional, and that $U$ is a subspace of $V$. Prove that there exists a $T \in \linmap(V,W)$ such that $\mynull T = U$ $\iff$ $\dim U \geq \dim V - \dim W$.
 
-  \begin{prf}
+  \begin{xprf}
     \Rightarrowdirection Suppose $T \in \linmap(V,W)$ satisfies $\mynull T = U$. By the rank-nullity theorem:
     \begin{equation}
       \begin{aligned}
@@ -264,13 +346,13 @@
 
     \prooffont{Explicit Construction of $T$:}
     Suppose $\dim U \geq \dim V - \dim W$. Let $u_1, \dots, u_k$ be a basis for $U$ (where $k = \dim U$), and extend it to a basis $u_1, \dots, u_k, v_1, \dots, v_m$ for $V$ (where $m = \dim V - \dim U$). Let $w_1, \dots, w_m$ be a basis for $W$. Define $T \in \linmap(V,W)$ by setting $T(u_i) = 0$ for $1 \leq i \leq k$, and $T(v_i) = w_i$ for $1 \leq i \leq m$. Then $\mynull(T) = U$ and $\myrange(T) = W$.
-  \end{prf}
+  \end{xprf}
 \end{xrcs}
 
 \begin{xrcs}
   Suppose $W$ is finite-dimensional and $T\in \linmap(V,W)$. Prove that $T$ is injective $\iff$ $\exists S \in \linmap(W,V)$ such that $ST$ is the identity operator on $V$.
 
-  \begin{prf}
+  \begin{xprf}
     \Rightarrowdirection Let $T \in \linmap (V,W)$ be injective. Let $v_1, \ddd, v_m$ be a basis of $V$. We know from exercise 10 that $T v_1, \ddd, Tv_m$ spans $\myrange T$. We also know from exercise 9 that $T v_1, \ddd, Tv_m$ is linearly independent in $W$ and thus is a basis of $\myrange T$. Let $n :\equiv \dim W$. This basis can be extended to a basis of
     \begin{equation}
       \label{eq: basis of W}
@@ -302,7 +384,7 @@
     Thus, $ST$ is the identity operator on $V$.
 
     \Leftarrowdirection Let $ST$ be the identity operator on $V$. That means: $\forall v \in V: S(T)(v) = v$. Suppose $u \in V$ satisfies $T(u) = 0$. Then we have $S(T(u)) = S(0) = 0$. Since $ST = I$, it follows that $u = 0$. We conclude that $\mynull T = \{0\}$, hence $T$ is injective.
-  \end{prf}
+  \end{xprf}
 %  \begin{prf} % ChatGTP corrections
 %    \Rightarrowdirection Let $T \in \linmap (V,W)$ be injective. Let $v_1, \ddd, v_m$ be a basis of $V$. From Exercise 10, we know that $T v_1, \ddd, T v_m$ spans $\operatorname{range}(T)$. Moreover, Exercise 9 tells us that $T v_1, \ddd, T v_m$ is linearly independent in $W$ and thus forms a basis of $\operatorname{range}(T)$.
 %
@@ -336,7 +418,7 @@
 \begin{xrcs}
   Suppose $W$ is finite-dimensional and $T \in \linmap (V,W)$. Prove that $T$ is surjective $\iff$ $\exists S \in \linmap (W,V)$ such that $TS$ is the identity operator on $W$.
 
-  \begin{prf}
+  \begin{xprf}
     \Rightarrowdirection Let $T \in \linmap (V,W)$ such that $T$ is surjective. Hence $\myrange T = W$. Let $w_1, \ddd, w_m$ be a basis of $W$ and hence of $\myrange T$ as well. Since $T$ is sujrective, we have $\forall j \in \{1, \ddd, m\}$:
     \begin{equation}
       \exists v_j \in V \text{ such that } w_j = T(v_j).
@@ -356,7 +438,7 @@
     which makes $TS$ the identity operator on $W$. A different way of calculating $TS$ would be $TS(w) = T(a_1 v_1 + \cdots + a_n v_n) = a_1 T v_1 + \cdots + a_n T v_n = a_1 w_1 + \cdots + a_n w_n = w$. In equation \eqref{eq: strange way of calculating TS} we were using $S(w_j) = v_j$ for $1 \leq j \leq m$.
 
     \Leftarrowdirection Let $T \in \linmap (V,W)$ and $S \in \linmap(W,V)$ such that $TS$ is the identity operator on $W$. Let $w \in W$ and $v \in V$ such that $v=S(w)$. Now we apply $T$ on both sides and get $T(v) = T(S(w)) = w$. So for any $w \in W$ we found a preimage $v \in V$ such that $T(v) = w$, which makes $T$ surjective.
-  \end{prf}
+  \end{xprf}
 \end{xrcs}
 
 
@@ -371,7 +453,7 @@
     \dim X = \dim \{v \in V \mid Tv \in U \} = \dim \mynull T + \dim (U \cap \myrange T).
   \end{equation}
 
-  \begin{prf}
+  \begin{xprf}
     Let $v_1, v_2 \in X$. Thus $v_1, v_2 \in V$ as well as $T(v_1 + v_2) = T v_1 + T v_2 \in U$, because $U$ is closed under addition. $\implies v_1 + v_2 \in X$. So $X$ is closed under addition as well. Similarly, $\lambda v_1 \in X$ for $\lambda \in \myF$. So $X$ is closed under scalar multiplication. We also have the additive identity $0 \in X$ because $T0=0\in U$. Therefore, $X$ is a subspace of $V$.
 
     The formula we need to prove reminds us of the ranke nulllity theorem. We want to show that:
@@ -402,36 +484,57 @@
     \end{equation}
 
     Therefore, $\myrange T|_X = (U \cap \myrange T)$, which validates equation \eqref{eq: dim X}
-  \end{prf}
+  \end{xprf}
 \end{xrcs}
 
 \exercise{22}
 \begin{xrcs}
   \begin{enumerate}
     \item {
-    Suppose $U$ and $V$ are finite-dimensional vector spaces and $S \in \linmap (V,W)$ and $T \in \linmap(U,W)$ and $T \in \linmap (U,W)$. Prove that $\dim \mynull ST \leq \dim \mynull S + \dim \mynull T$.
-    \begin{prf}
-      Note that $ST \in \linmap(U,W)$ and $\mynull T \subseteq \mynull ST$ (this implies $\dim \mynull T \leq \dim \mynull ST$). According to the rank-nullity theorem, the following three formulas hold:
+    Suppose $U$, $V$ and $W$ are finite-dimensional vector spaces and $S \in \linmap (V,W)$ and $T \in \linmap(U,V)$. Prove that $\dim \mynull ST \leq \dim \mynull S + \dim \mynull T$.
+
+    \begin{xprf}
+      Note that $ST \in \linmap(U,W)$ and $\mynull T \subseteq \mynull ST$ (this implies $\dim \mynull T \leq \dim \mynull ST$). According to the rank-nullity theorem, the following two formulas hold:
       \begin{equation}
         \begin{aligned}
           \dim U &= \dim \myrange T\phantom{S} + \dim \mynull T\phantom{S} \\
-          \dim V &= \dim \myrange S\phantom{T} + \dim \mynull S\phantom{T} \\
           \dim U &= \dim \myrange ST + \dim \mynull ST
         \end{aligned}
       \end{equation}
 
-      Equaling the first and the last formula, we can deduce that:
+      Equating the two formulas, we obtain:
       \begin{equation}
         \label{eq: dim null ST}
         \dim \mynull ST = \dim \myrange T - \dim \myrange ST + \dim \mynull T
       \end{equation}
 
-      So what is $\dim \myrange T - \dim \myrange ST$? It is all the vectors that get mapped to zero that are not mapped $0$ to by applying $T$ (by looking at the formula). If we can show that $\dim \myrange T - \dim \myrange ST \leq \dim \mynull S$, the proof is complete. We know that:
+      So, what is $\dim \myrange T - \dim \myrange ST$? It equals the dimension of the null space of the restriction map $S|_{\myrange T}$. If we can show that $\dim \myrange T - \dim \myrange ST \leq \dim \mynull S$, the proof is complete. Consider the restriction map
       \begin{equation}
-        \dim V - \dim \myrange S = \dim \mynull S
+        S|_{\myrange T}: \myrange T \to W.
       \end{equation}
 
-      Since $\dim \myrange T \leq \dim V$ and $\dim \myrange ST \leq \dim \myrange S$, we conclude:
+      Notice two things. First, for every $x \in U$ we have $S(T(x)) = (S|_{\myrange T}) (T(x))$; hence,
+      \begin{equation}
+        \label{eq: myrange S|_T = myrange ST}
+        \myrange S|_{\myrange T} = \myrange ST.
+      \end{equation}
+
+      Second, $\mynull (S|_{\myrange T}) = \{ y \in \myrange T \mid S(y) = 0 \}$. Clearly, every such $y$ is contained in $\mynull S$, so
+      \begin{equation}
+        \label{eq: null S|_range T subseteq null S}
+        \mynull S|_{\myrange T} \subseteq \mynull S.
+      \end{equation}
+
+      Now we can apply the Rank-Nullity Theorem to $S|_{\myrange T}$ and use \eqref{eq: myrange S|_T = myrange ST} and \eqref{eq: null S|_range T subseteq null S} consecutively. Thus,
+      \begin{equation}
+        \begin{aligned}
+          \dim \myrange T & =    \dim \mynull S|_{\myrange T} + \dim \myrange S|_{\myrange T} \\
+                          & =    \dim \mynull S|_{\myrange T} + \dim \myrange ST \\
+                          & \leq \dim \mynull S + \dim \myrange ST.
+        \end{aligned}
+      \end{equation}
+
+      Rearranging, we obtain:
       \begin{equation}
         \dim \myrange T - \dim \myrange ST \leq \dim \mynull S.
       \end{equation}
@@ -442,18 +545,18 @@
       \end{equation}
 
       Note: If $\dim \myrange T = \dim \myrange ST$, \eqref{eq: dim null ST} becomes $\dim \mynull ST = \dim \mynull T$.
-    \end{prf}
+    \end{xprf}
     }
     \item{
-      Give an example of $S, T \in \linmap(\myF^5)$ with $ST = 0$ and $\dim \myrange TS = 0$.
+      Give an example of $S, T \in \linmap(\myF^5)$ with $ST = 0$ and $\dim \myrange TS = 2$.
 
       \prooffont{Solution: }
-      Let $S, T \in \linmap(\myF^5)$ such that for all $x \in \linmap(\myF^5)$:
+      Let $S, T \in \linmap(\myF^5)$ such that for all $x \in \myF^5$:
       \begin{equation}
         S(x) :\equiv (0,0,0,x_4,x_5) \quad \mytext{and} \quad T(x) :\equiv (x_1 + x_4, x_2 + x_5, 0,0,0)
       \end{equation}
 
-      If we compute $ST$ and $TS$ for $x \in \linmap(\myF^5)$ we get
+      If we compute $ST$ and $TS$ for $x \in \myF^5$ we get
       \begin{equation}
         \begin{aligned}
           &ST(x) = S((x_1 + x_4, x_2 + x_5, 0,0,0)) = (0,0,0,0,0) = 0 \\
@@ -472,7 +575,7 @@
 \begin{xrcs}
   Suppose $\dim V = 5$ and $S, T \in \linmap (V)$ are such that $ST = 0$. Prove that $\dim \myrange TS \leq 2$.
 
-  \begin{prf}
+  \begin{xprf}
     According to the rank-nullity theorem, we have
     \begin{equation}
       \begin{aligned}
@@ -500,7 +603,7 @@
     \end{equation}
 
     Equation \eqref{eq: null space of ST} and the equation \eqref{eq: dim myrange TS} above tell us, that $\myrange TS$ is at its maximum, if either $\dim \mynull S$ or $\dim \mynull T$ is $2$ and the other one is $3$. Hence $\dim \myrange TS = \min \{2,1\} = 2$.
-  \end{prf}
+  \end{xprf}
 \end{xrcs}
 
 %\begin{xrcs}
@@ -546,7 +649,7 @@
 \begin{xrcs}
   Suppose $W$ is finite-dimensional and $S, T \in \linmap (V,W)$. Prove that $\mynull S \subseteq \mynull T$ $\iff$ there exists a $E \in \linmap (W)$ such that $T=ES$.
 
-  \begin{prf}
+  \begin{xprf}
     \Rightarrowdirection Let $S, T \in \linmap (V,W)$ such that $\mynull S \subseteq \mynull T$. (i.e. $\dim \mynull S \leq \dim \mynull T$). Let $U$ be a subspace of $V$ such that $V = \mynull S \oplus U$. This implies that
     \begin{equation}
       S|_U : U \to \myrange S
@@ -589,7 +692,7 @@
    Thus we conclude: $ES=T$.
 
    \Leftarrowdirection Assume $W$ is finite-dimensional and we have $S,T \in \linmap(V,W)$ and $E \in \linmap (W)$ such that $T=ES$. Now assume that $\mynull S$ is not a subset of $\mynull T$. Then there exists a $v \in V$ such that $S(v) = 0$ but $T(v) \neq 0$. Because of \ref{thm: linear maps take 0 to 0} it must be that $E(0) = 0$, and thus $ES(v) = 0$. But we assumed that $T=ES$. Now we have $ES \neq T$ (because $T(v)\neq 0$). The assumption that $\mynull S$ is not a subset of $\mynull T$ has lead to a contradiction. Therefore, $\mynull S \subseteq \mynull T$, as desired.
-  \end{prf}
+  \end{xprf}
 \end{xrcs}
 
 %\begin{xrcs}

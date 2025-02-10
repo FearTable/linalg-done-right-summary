@@ -10,9 +10,8 @@
     v_1 + v_2, v_2 + v_3, v_3+v_4, v_4 $ is also a basis of $V.
   \end{equation}
 
-
-  \begin{prf}
-    \qt{First step:} We first show linear independence. Let $a_1, a_2, a_3, a_4 \in \myF$ such that
+  \begin{xprf}
+    \StepOne We first show linear independence. Let $a_1, a_2, a_3, a_4 \in \myF$ such that
     \begin{equation}
       a_1 (v_1+v_2) + a_2(v_2+v_3) + a_3(v_3+v_4)+a_4 v_4 = 0.
     \end{equation}
@@ -25,7 +24,7 @@
 
     Since $v_1, \ldots, v_4$ are linearly independent, this is only the case if $0 = a_1 = a_1 + a_2 = a_2 + a_3 = a_3 + a_4$ and therefore, since $a_1=0$, $\iff$ $a_1 = \cdots = a_4 = 0$. So the list $v_1 + v_2, v_2 + v_3, v_3+v_4, v_4$ is linearly independent as well.
 
-    \qt{Second step:} Now we also have to show, that $v_1 + v_2, v_2 + v_3, v_3+v_4, v_4$ spans $V$. Let $u \in V$. With our old basis, $u$ would have been written as
+    \StepTwo Now we also have to show, that $v_1 + v_2, v_2 + v_3, v_3+v_4, v_4$ spans $V$. Let $u \in V$. With our old basis, $u$ would have been written as
     \begin{equation}
       \label{eq: equation of u}
       u = b_1 v_1 + \cdots + b_4 v_4.
@@ -53,16 +52,16 @@
     \]
 
     which can be verified by comparing the coefficents of the $v$'s. For example, adding the two coefficients $(b_3 - b_2+b_1)$ and $(b_4-b_3+b_2-b_1)$ of $v_4$ together yields $b_4$. So every $u \in V$ can be expressed in either of the two lists $v_1, v_2, v_3, v_4$ or $v_1 + v_2, v_2 + v_3, v_3+v_4, v_4$. Since we have shown linear independence as well, $v_1 + v_2, v_2 + v_3, v_3+v_4, v_4$ is a basis of $V$.
-  \end{prf}
+  \end{xprf}
 \end{xrcs}
 
 % E 8
 \begin{xrcs}
   Claim: If $v_1, v_2, v_3, v_4$ is a basis of $V$ and $U \subseteq V$, such that $v_1, v_2 \in U$ and $v_3 \notin U$ and $v_4 \notin U$, then $v_1, v_2$ is a basis of $U$.
 
-  \begin{prf}
+  \begin{xprf}
     Any vector in $U$ can be represented as a unique linear combination of $v_1, v_2, v_3, v_4$ since $U \subseteq V$. Let $u\in U$ such that $u=a_1 v_1 + a_2 v_2 + a_3 v_3 + a_4 v_4$. In this case, $a_3$ must equal to $0$, because otherwise, due to closedness under addition and multiplication, we could subtract $a_1 v_1 + a_2 v_2+a_4v_4$ from $u$ and multiply by $\frac{1}{a_3}$ to get $v_3$, which is not in $U$. The same goes for $a_4$, which must be $0$ as well. So every vector in $U$ is of the form $u=a_1 v_1 + a_2 v_2$, since $v_1, v_2 \in U$ and $v_3, v_4 \notin U$. Since every basis has the same length and $v_1$ and $v_2$ are linearly independent, the list $v_1, v_2$ forms a basis of $U$.
-  \end{prf}
+  \end{xprf}
 \end{xrcs}
 
 
@@ -74,7 +73,7 @@
 
   Show that $v_1, \ldots, v_m$ is a basis of $V$ if and only if $w_1, \ldots, w_m$ is a basis of $V$.
 
-  \begin{prf}
+  \begin{xprf}
     Let us first observe the following two patterns
     \begin{equation}
       \begin{aligned}
@@ -86,7 +85,7 @@
         w_n &= v_1 + \cdots + v_n     & \qquad v_n &= w_n - w_{n-1}
       \end{aligned}
     \end{equation}
-  \end{prf}
+  \end{xprf}
 \end{xrcs}
 
 
