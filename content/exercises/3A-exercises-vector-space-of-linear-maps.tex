@@ -46,3 +46,27 @@
   \end{xprf}
 \end{xrcs}
 
+\exercise{13}
+\begin{xrcs}
+  Suppose $V$ is finite-dimensional. Prove that every linear map on a subspace of $V$ can be extended to a linear map on $V$. In other words, show that if $U$ is a subspace of $V$ and $S \in \linmap (U,W)$, then $\exists T \in \linmap(L, W)$ such that
+  \begin{equation}
+    T u = S u, \; \; \forall u \in U.
+  \end{equation}
+
+  \begin{xprf}
+    Let  $U$ be a subspace of a finite dimensional vector space $V$, $S \in \linmap(U,W)$, and $T \in \linmap(V,W)$. Let $X \subseteq V$ such that $V = U \oplus X$, and such that $u_1, \ddd, u_m$ is a basis of $U$ and $x_{m+1}, \ddd, x_n$ is a basis of $X$. This makes
+    \begin{equation}
+      u_1, \ddd, u_m, x_{m+1}, \ddd, x_{n}
+    \end{equation}
+
+    a basis of $V$. So we define $T \in \linmap(V,W)$ for $v \in V$ as follows:
+    \begin{equation}
+      \begin{aligned}
+        T(v)  &\phantom{:}= T(c_1 u_1 + \cdots + c_m u_m + c_{m+1} x_{m+1} + \cdots + c_n x_n) \\
+              &:=           c_1 S u_1 + \cdots + c_m S u_m
+      \end{aligned}
+    \end{equation}
+
+    Clearly, $T u = S u$ for all $u \in U$.
+  \end{xprf}
+\end{xrcs}

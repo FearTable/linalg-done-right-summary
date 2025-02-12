@@ -3,17 +3,101 @@
 \setcounter{xrcscount}{19}
 \begin{xrcs}
   Explain why you might guess, motivated by analogy with the formula for the number of elements in the union of three finite sets, that if $V_1$, $V_2$, $V_3$ are subspaces of a finite-dimensional vector space $V$, then
-  \[
-    \begin{aligned}
+  \begin{equation}
+      \begin{aligned}
       \dim (V_1 + V_2 + V_3) &= \dim (V_1) + \dim (V_2) + \dim (V_3) \\
       & \quad - \dim(V_1 \cap V_2) - \dim (V_1 \cap V_3) - \dim (V_2 \cap V_3) \\
       & \quad + \dim (V_1 \cap V_2 \cap V_3).
     \end{aligned}
-  \]
-
-  Then either prove the forumula above or give a counterexample.
+  \end{equation}
 
 
+  Then either prove the formula above or give a counterexample.
+
+  \prooffont{Solution:}
+
+  The formula is \textbf{wrong}. Consider the following subspaces of $\real^2$:
+  \begin{itemize}
+    \item $V_1 := \{ (x,0) \mid x \in \real \} $ (the $x$-axis) \\
+    \item $V_2 := \{ (x,x) \mid x \in \real \} $ (the line $y=x$)
+    \item $V_3 := \{ (0,y) \mid y \in \real \} $ (the $y$-axis)
+  \end{itemize}
+
+  The right-hand side of the formula gives: $1+1+1-0-0-0+0 = 3$, whereas the left-hand side is
+  \begin{equation}
+    \dim (V_1 + V_2 + V_3) = 2.
+  \end{equation}
+
+  So the formula does not hold for this example.
+
+  It does, however, hold in every case where one of the subspaces is contained in another; hence, without loss of generality, assume that $V_1 \subseteq V_3$. For this situation, we have the following lemma.
+
+  \prooffont{Lemma:} If $V_1, V_2, V_3$ are finite-dimensional subspaces of a vector space, and $V_1 \subseteq V_3$, then
+  \begin{equation}
+    \label{eq: lemma}
+     (V_1 + V_2) \cap V_3 = (V_1 \cap V_3) + (V_2 \cap V_3)
+  \end{equation}
+
+  \begin{xprf}
+    If $v \in (V_1 \cap V_3) + (V_2 \cap V_3)$ we have $v = u + w$ where $u \in V_1$ and $u \in V_3$ and $w \in V_2$ and $w \in V_3$.
+    Because $V_3$ is closed under addition and both $u$ and $w$ are in $V_3$, so is $v$. Hence, $v \in V_3$ and $v=u+w$, such that $u \in V_1$ and $w \in V_2$. Therefore, $v \in (V_1 + V_2) \cap V_3$. We conclude:
+    \begin{equation}
+      \label{eq: first inclusion}
+      (V_1 \cap V_3) + (V_2 \cap V_3) \subseteq (V_1 + V_2) \cap V_3
+    \end{equation}
+
+    Conversely, if $v \in (V_1 + V_2) \cap V_3$, we have that $v = u + w$ such that $u \in V_1$ and $w \in V_2$ and $v \in V_3$. Since $V_1 \subseteq V_3$ according to the assumption that one of the subspaces is contained in the other, we rewrite
+    \begin{equation}
+      w = \underbrace{v}_{\in \; V_3}-\underbrace{u}_{\in \; V_3}.
+    \end{equation}
+
+    Since both $u$ and $v$ belong to $V_3$, so does $w$. Therefore, $v=u+w$ such that $u \in V_1 \cap V_3$ and $w \in V_2 \cap V_3$. Hence, $v \in (V_1 \cap V_3) + (V_2 \cap V_3)$. We conclude:
+    \begin{equation}
+      \label{eq: second inclusion}
+      (V_1 + V_2) \cap V_3 \subseteq (V_1 \cap V_3) + (V_2 \cap V_3)
+    \end{equation}
+
+    Inclusion \eqref{eq: first inclusion} and \eqref{eq: second inclusion} togher yield
+    \begin{equation}
+      (V_1 + V_2) \cap V_3 = (V_1 \cap V_3) + (V_2 \cap V_3)
+    \end{equation}
+
+    for $V_1 \subseteq V_3$.
+  \end{xprf}
+
+
+  Using the dimension formula \eqref{thm: dimension of a sum of subspaces} for the sum of two vector spaces, we get
+  \begin{equation}
+    \begin{aligned}
+      \dim (V_1 + V_2 + V_3) &= \dim ((V_1+V_2) + V_3) \\
+        &= \dim (V_1 + V_2) + \dim (V_3) - \dim((V_1 +V_2) \cap V_3) \\
+        &= \dim (V_1) + \dim (V_2) + \dim (V_3) - \dim (V_1 \cap V_2) - \dim ((V_1 + V_2) \cap V_3)
+    \end{aligned}
+  \end{equation}
+
+  Using the assumption that $V_1 \subseteq V_3$, we calculate:
+  \begin{equation}
+    \begin{aligned}
+      \dim ((V_1 + V_2) \cap V_3)
+      &= \dim ((V_1 \cap V_3) + (V_2 \cap V_3)) \\
+      &= \dim (V_1 \cap V_3) + \dim (V_2 \cap V_3) - \underbrace{\dim ((V_1 \cap V_3) \cap (V_2\cap V_3))}_{= \; \dim ((V_1 \cap V_2 \cap V_3))}
+    \end{aligned}
+  \end{equation}
+
+  If we plug in this result in the first formula, we have
+  \begin{equation}
+    \begin{aligned}
+      \dim (V_1 + V_2 + V_3)
+      &= \dim (V_1) + \dim (V_2) + \dim (V_3) - \dim (V_1 \cap V_2) - \dim ((V_1 + V_2) \cap V_3) \\
+      &= \dim (V_1) + \dim (V_2) + \dim (V_3) - \dim (V_1 \cap V_2) \\
+      &\quad - \big(\dim (V_1 \cap V_3) + \dim (V_2 \cap V_3) - \dim ((V_1 \cap V_2 \cap V_3)) \big) \\
+      &= \dim (V_1) + \dim (V_2) + \dim (V_3) \\
+      & \quad - \dim(V_1 \cap V_2) - \dim (V_1 \cap V_3) - \dim (V_2 \cap V_3) \\
+      & \quad + \dim (V_1 \cap V_2 \cap V_3).
+    \end{aligned}
+  \end{equation}
+
+  So, under certain conditions (i.e. $V_1 \subseteq V_3$), the formula is \textbf{true}.
 \end{xrcs}
 
 \begin{xrcs}
@@ -26,7 +110,8 @@
   \end{aligned}
 \end{equation}
 
-\prooffont{Solution:} Let $r_1, \ddd, r_{n_{123}} \in V$ be a basis of $V_1 \cap V_2 \cap V_3$, where $n_{123} \in \nat_{\geq 0}$, meaning the basis can also be the empty list and $V_1 \cap V_2 \cap V_3$ might be equal to $\{\vec 0\}$. Note that the empty list is defined to be linearly independent and that its span is defined to be $\{\vec 0\}$. By this definition we have
+\prooffont{Solution:} \\
+Let $r_1, \ddd, r_{n_{123}} \in V$ be a basis of $V_1 \cap V_2 \cap V_3$, where $n_{123} \in \nat_{\geq 0}$, meaning that the basis can also be the empty list and $V_1 \cap V_2 \cap V_3$ might be equal to $\{\vec 0\}$. Note that the empty list is defined to be linearly independent and that its span is defined to be $\{\vec 0\}$. By this definition, we have
 \begin{equation}
   \label{eq: dim for V_1 cap V_2 cap V_3}
   \dim (V_1 \cap V_2 \cap V_3) = n_{123}.
@@ -179,8 +264,9 @@ So all that is left to prove is that \eqref{eq: basis of V_1 + V_2 + V_3} is lin
 This equation can be rewritten so we can isolate the $u$ terms:
 \[
 \begin{aligned}
-  e_{1} u_1 + \cdots + e_j u_j &= - a_1r_1 -  \cdots - a_{n_{123}} r_{n_{123}} - b_1v_1 -  \cdots - b_{m_{12}} v_{m_{12}} -  c_1\widetilde{v}_1 - \cdots - c_{m_{13}}\widetilde{v}_{m_{13}} - d_{1}\overline{v}_1 - \cdots - d_{m_{23}}\overline{v}_{m_{23}} \\
-  & \quad - f_1 w_1 - \cdots - f_k w_k - g_1 z_1 - \cdots - g_l z_l
+  e_{1} u_1 + \cdots + e_j u_j = &- a_1r_1 -  \cdots - a_{n_{123}} r_{n_{123}} - b_1v_1 -  \cdots - b_{m_{12}} v_{m_{12}} \\
+  &-  c_1\widetilde{v}_1 - \cdots - c_{m_{13}}\widetilde{v}_{m_{13}} - d_{1}\overline{v}_1 - \cdots - d_{m_{23}}\overline{v}_{m_{23}} \\
+  &  - f_1 w_1 - \cdots - f_k w_k - g_1 z_1 - \cdots - g_l z_l
 \end{aligned}
 \]
 

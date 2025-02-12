@@ -17,12 +17,12 @@
 
     \item It is not a subspace because is does not contain $0$. It is also not closed under addtition and scalar multiplication.
 
-    \item Let $U :\equiv \{(x_1, x_2, x_3) \in \myF \mid x_1 x_2 x_3 = 0\}$. Then $U$ is actually the union of the $xy$-, the $xz$- and the $yz$-plane, because its description tells us that at least one of its coordinates has to be zero. So we have
+    \item Let $U :\equiv \{(x_1, x_2, x_3) \in \myF \mid x_1 x_2 x_3 = 0\}$. Then $U$ is actually the union of the $xy$-, the $xz$- and the $yz$-plane, because its description tells us that at least one of its coordinates has to be zero. Thus we have
     \[
-    (1,1,0) + (0,1,1) = (1,2,1) \notin U,
+    (1,1,0) + (0,1,1) = (1,2,1) \notin U.
     \]
 
-    so $U$ is not closed under addition. But it is closed under scalar multiplication and we also have $0 \in U$. Therefore, $U$ is not a subspace of $\myF^3$.
+    Therefore, $U$ is not closed under addition. But it is closed under scalar multiplication and we also have $0 \in U$. Therefore, $U$ is not a subspace of $\myF^3$.
 
     \item Let $U :\equiv \{(x_1, x_2, x_3) \in \myF \mid x_1 = 5x_3\}$. Then $0 \in U$, so we have checked for additive identity. Let $u,v \in U$. Then $u+v= (5u_3+5v_3, u_2+v_2, u_3+v_3) = (5(u_3+v_3), u_2+v_2, u_3+v_3) \in U$, so its closed under addition. Simmilarly for $\lambda \in \myF$ and $w \in U$ we have $\lambda u = (\lambda 5u_3, \lambda u_2, \lambda u_3) = (5 \lambda u_3, \lambda u_2, \lambda u_3) \in U$, so $U$ is a subspace of $\myF^3$.
   \end{enumerate}
@@ -37,7 +37,8 @@
     \item {
       If $b \in \myF$ then $U :\equiv \{(x_1, x_2, x_3, x_4) \in \myF \mid x_3 = 5x_4+b \}$ is a subspace of $\myF^4$ $\iff$ $b=0$.
 
-      \textbf{Solution:} If $v,u \in U$ then
+      \prooffont{Solution:} \\
+      If $v,u \in U$ then
       \begin{equation}
         \begin{aligned}
           v+u & = (v_1+u_1, v_2+u_2, v_3+u_3, v_4+u_4, v_5+u_4) \\
@@ -58,20 +59,22 @@
     \item{
       The set of differentiable real-valued functions of $\real$ is a subspace of $\real^\real$.
 
-      \prooffont{Solution:}
+      \prooffont{Solution:} \\
+      We check for all three properties: \\
       \emph{Additive identity:} $f(x) :\equiv 0 \quad \forall x \in \real$ is in the set of differentiable real-valued functions since $f'(x) = 0 \quad \forall x \in \real$ is also contained.
 
-      \emph{Closed under addition:} Let $h(x) :\equiv f(x) + g(x)$ for two differentiable real-valued functions $f$ and $g$. Then $h'(x) = \frac{d}{dx} (f(x)+g(x)) = f'(x) + g'(x)$, so this sum $h$ also belongs to set of differentiable real-valued functions.
+      \emph{Closededness under addition:} Let $h(x) :\equiv f(x) + g(x)$ for two differentiable real-valued functions $f$ and $g$. Then $h'(x) = \frac{d}{dx} (f(x)+g(x)) = f'(x) + g'(x)$, so this sum $h$ also belongs to set of differentiable real-valued functions.
 
-      \emph{Closed under multiplication:} Let $h(x) :\equiv c f(x)$. Then $h'(x) = \frac{d}{dx} (c f(x)) = c f'(x)$. So this product $h$ also belongs to the set of differentiable real-valued functions.
+      \emph{Closedednes under multiplication:} Let $h(x) :\equiv c f(x)$. Then $h'(x) = \frac{d}{dx} (c f(x)) = c f'(x)$. So this product $h$ also belongs to the set of differentiable real-valued functions.
     }
 
     \item{
       The set $S$ of differentiable real-valued functions $f$ on the inverfall $(0,3)$ such that $f'(2) = b$ is a subspace of $\real^{(0,3)}$ if and only if $b=0$.
 
-      \emph{Solution:} For $f(x) :\equiv 0$ we have $f'(x) = 0$. The condition $f'(2) =  0 = b$ only holds if and only if $b=0$.
+      \prooffont{Solution:} \\
+      For $f(x) :\equiv 0$ we have $f'(x) = 0$. The condition $f'(2) =  0 = b$ only holds if and only if $b=0$.
 
-      For $h(x) :\equiv f(x) + g(x)$ we have $h'(x) = f'(x) + g'(x)$. The condition $h'(2) = f'(2) + g'(2) = 2b = b$ only holds if and only if $b=0$.
+      For $h(x) :\equiv f(x) + g(x)$ we have $h'(x) = f'(x) + g'(x)$. The condition $h'(2) = f'(2) + g'(2) = 2b = b$  holds if and only if $b=0$.
 
       For $h(x) :\equiv cf(x)$ we have $h'(x) = cf'(x)$. $h'(2) = cf'(2) = cb = b$ can only hold for all constants $c$ if and only if $b=0$.
     }

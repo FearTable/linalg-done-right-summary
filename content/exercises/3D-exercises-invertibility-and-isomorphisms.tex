@@ -1,0 +1,160 @@
+\subsection*{Exercises about Invertibility and Isomorphisms 3D}
+\hrule
+\phantom{.}
+
+% exercise 1
+\begin{xrcs}
+  Suppose $T \in \linmap(V,W)$ is invertible. Show that $T^{-1}$ is invertible and $(T^{-1})^{-1} = T$.
+
+  \begin{xprf}
+    $T^{-1}$ is the unique element in $\linmap(W,V)$ such that
+    \begin{equation}
+      T^{-1} T = I_V \mytext{and} TT^{-1} = I_W.
+    \end{equation}
+
+    But this makes $T$ the unique element in $\linmap(V,W)$ such that
+    \begin{equation}
+      T(T^{-1}) = I_W \mytext{and} T^{-1} T = I_V.
+    \end{equation}
+
+    This makes $T$ the inverse of $T^{-1}$. Since the inverse is unique by THM 3.60, we conclude that $(T^{-1})$ = $T$.
+  \end{xprf}
+\end{xrcs}
+
+% exercise 2
+\begin{xrcs}
+  Suppose $T \in \linmap(U,V)$ and $S \in \linmap(V,W)$ are both invertible linear maps. Prove that $ST \in \linmap(U,W)$ is invertible and that $(ST)^{-1} ) T^{-1} S^{-1}$.
+
+  \begin{xprf}
+    Let $T \in \linmap(U,V)$ and $S \in \linmap(V,W)$ be both invertible linear maps. Thus:
+    \begin{equation}
+      \begin{aligned}
+        (ST)^{-1} (T^{-1} S^{-1}) = S (T T^{-1}) S^{-1}
+                                  = S S^{-1}
+                                  = I_W \\
+        (T^{-1} S^{-1}) (ST)^{-1} = T^{-1} (S^{-1} S) T
+                                  = T^{-1} T
+                                  = I_U
+      \end{aligned}
+    \end{equation}
+
+    Therefore, $(ST)^{-1} = T^{-1} S^{-1}$.
+  \end{xprf}
+\end{xrcs}
+
+% exercise 3
+\begin{xrcs}
+  Suppose $V$ is finite-dimensional and $T \in \linmap(V)$. Prove that the following are equivalent:
+  \begin{enumerate}
+    \item $T$ is invertible.
+    \item $T v_1, \ddd, T v_n$ is a basis of $V$ for every basis $v_1, \ddd, v_n$ of $V$.
+    \item $T v_1, \ddd, T v_n$ is a basis of $V$ for some basis $v_1, \ddd, v_n$ of $V$.
+  \end{enumerate}
+
+  \begin{xprf}
+    For all proof-steps, let $T \in \linmap(V)$ and $V$ be a finite-dimensional vector space. In each step of the proof, we show one equivalence listed above.
+
+    \StepOne Clearly, (b) implies (c).
+
+%    \StepTwo We start of by showing that (c) implies (b). So let $T v_1, \ddd, T v_n$ be a basis of $V$ for some basis of $v_1, \ddd, v_n$ of $V$. Let $u_1, \ddd, u_n$ be another basis of $V$. Let $E \in \linmap(V)$ such that $E(u_k) = v_k$ for $k = 1, \ddd, n$. Now let $c_1, \ddd, c_n \in \myF$ such that
+%    \begin{equation}
+%      0 = c_1 T u_1 + \cdots + c_n T u_n.
+%    \end{equation}
+%
+%    By applying $E$, it follows that
+%    \begin{equation}
+%      \begin{aligned}
+%        E(0) &= E(c_1 T u_1 + \cdots + c_n T u_n) \iff \\
+%        0    &= c_1 T E u_1 + \cdots + c_n T E u_n \iff \\
+%        0    &= c_1 T v_1 + \cdots + c_n T v_n.
+%      \end{aligned}
+%    \end{equation}
+%
+%    Since $T v_1, \ddd, T v_n$ is linearly independent, it muste be that
+%    \begin{equation}
+%      0 = c_1 = \cdots = c_n.
+%    \end{equation}
+%
+%    Hence, $T u_1, \ddd, T u_n$ is linearly independent as well. Since the list is of length $n = \dim V$, it is a basis of $V$. So we have shown that (c) implies (b).
+
+    \StepTwo We start by showing that (c) implies (a). Actually, the proof that (b) implies (a) would look the same. Suppose $T v_1, \ddd, T v_n$ is a basis of $V$ for some basis $v_1, \ddd, v_n$. Since $\dim V = n$, we have $\myrange T = V$. It follows that $Tv_1, \ddd, Tv_n$ is a basis of $\myrange T$. So $T$ is a surjective map on $V$ by the definition \ref{def: surjectivity} of surjectivity. Using theorem \ref{thm: injectivity is equivalent to surjectivity}, we conclude that $T$ is invertible. It states that for a linear map from a vector space to another one of the same dimension, invertibility, injectivity and surjectivity are equivalent.
+
+    \StepThree Now we want to show that (c) implies (b). So let $T v_1, \ddd, T v_n$ be a basis of $V$ for some basis of $v_1, \ddd, v_n$ of $V$. Let $u_1, \ddd, u_n$ be another basis of $V$. We already know that (c)
+    $\implies$ (a), so $T$ is injective. This means, that $T u_1, \ddd, T u_n$ is a basis of $V$ as well. Since $u_1, \ddd, u_n$ was arbitrary, we have shown that (c) $\implies$ (b).
+
+    \StepFour Lastly, we want to show that (a) implies (c). Suppose $T \in \linmap(V)$ such that $T$ is invertible. Let $v_1, \ddd, v_n$ be a basis of $V$. Let $a_1, \ddd, a_n \in \myF$ such that
+    \begin{equation}
+      0= a_1 T v_1 + \cdots a_n T v_n
+    \end{equation}
+
+    Hence,
+    \begin{equation}
+      \begin{aligned}
+        T^{-1} (0) &= T^{-1} (a_1 T v_1 + \cdots a_n T v_n) \iff \\
+        0          &= a_1 T^{-1} T v_1 + \cdots + a_n T^{-1} T v_n \iff \\
+        0          &= a_1 v_1 + \cdots a_n v_n.
+      \end{aligned}
+    \end{equation}
+
+    Therefore, $0 = a_1 = \cdots = a_n$, because all the $v$'s are linearly independent. We conclude that $Tv_1, \cdots, T v_n$ is a linearly independent list of length $n = \dim V$ and hence a basis of $V$. Thus, (a) implies (c).
+
+    Overall, we have shown that (b) $\implies$ (c), (c) $\implies$ (b), (c) $\implies$ (a), and (a) $\implies$ (c). So all three statements are equivalent.
+  \end{xprf}
+\end{xrcs}
+
+\exercise{5}
+\begin{xrcs}
+  Suppose $V$ is finite-dimensional, $U$ is a subspace of $V$, and $S \in \linmap(U,V)$. Prove that there exists an invertible linear map $T \in \linmap (U,V)$ such that $Tu = Su \; \; \forall u \in U$ $\iff$ $S$ is injective.
+  \begin{xprf}
+    Suppose $V$ is finite-dimensional, $U$ is a subspace of $V$ and $S \in \linmap(U,V)$.
+
+    \Rightarrowdirection
+    Suppose for every $u \in U$ we have that $Tu = Su$. Let $u_1, u_2 \in U$ such that $S(u_1) = S(u_2)$. This implies that
+    \begin{equation}
+      \begin{aligned}
+        &T(u_1) = T(u_2) \\
+        &T^{-1} T(u_1) = T^{-1} T(u_2) \\
+        &u_1 = u_2 \\
+      \end{aligned}
+    \end{equation}
+
+    Hence, $S$ is injective.
+
+    \Leftarrowdirection Suppose $S$ is injective. Let $u_1, \ddd, u_m$ be a basis of $U$ and $S u_1, \ddd, S u_m$ be a basis of $\myrange S$. We extend
+    \begin{equation}
+      \label{eq: basis of V consisting of u's and v's}
+      u_1, \ddd, u_m, v_{m+1}, \ddd, v_m
+    \end{equation}
+
+    to a basis of $V$, and
+    \begin{equation}
+      \label{eq: basis of V consisting of Su's and r's}
+      Su_1, \ddd, Su_m, r_{m+1}, \ddd, r_{n}
+    \end{equation}
+
+    to a basis of $V$ as well. We define $T \in \linmap(V)$ for each $v \in V$ as follows:
+    \begin{equation}
+      \begin{aligned}
+        T(v) = &\, T(c_1 u_1 + \cdots + c_m u_m + c_{m+1} v_{m+1} + \cdots + c_n v_n) \\
+            := &\, c_1 S u_1 + \cdots + c_m S u_m + c_{m+1} r_{m+1} + \cdots + c_n r_n.
+      \end{aligned}
+    \end{equation}
+
+    Clearly, $\forall u \in U: T(u) = S(u)$. Now we have to show that $T$ is injective and surjective. If $v_1, v_2 \in V$ such that
+    \begin{equation}
+      y_1 = T(v_1) = T(v_2) = y_2
+    \end{equation}
+
+    All the $c$ coefficents of $y_1$ and $y_2$, which are defined over the basis \eqref{eq: basis of V consisting of Su's and r's} match the $c$ coefficients of $v_1$ and $v_2$, which are defined over the basis \eqref{eq: basis of V consisting of u's and v's}. So these representations are unique and therefore $v_1$ = $v_2$. We conclude that $T$ is injective. To prove that $T$ is surjective, we have to show that for any given $y \in V$ there is a $v \in V$ such that $T(v) = y$. So let
+    \begin{equation}
+      y := c_1 S u_1 + \cdots + c_m S u_m + c_{m+1} r_{m+1} + \cdots + c_n r_n.
+    \end{equation}
+
+    Then there is exactly one $v \in V$  such that $T(v) = y$, namely
+    \begin{equation}
+      v := c_1 u_1 + \cdots + c_m u_m + c_{m+1} v_{m+1} + \cdots + c_n v_n.
+    \end{equation}
+
+    For this choice of $y$ and $v$, we have $T(v) = y$. Hence, $T$ is injective and surjective. This makes $T$ invertible.
+  \end{xprf}
+\end{xrcs}
