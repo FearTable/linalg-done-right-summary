@@ -820,4 +820,59 @@
   \end{xprf}
 \end{xrcs}
 
+\begin{xrcs}
+  Suppose $P \in \linmap(V)$ and $P^2 = P$. Prove that $V= \mynull P \oplus \myrange P$.
 
+  \begin{xprf}
+    Suppose $U$ is a subspace of a finite-dimensional vector space $V$ such that $V = \mynull P \oplus U$. We want to show that $U = \myrange P$. We do this by showing $\myrange P \subseteq U$ and $U \subseteq \myrange P$.
+
+    \StepOne Let $v \in \myrange P$. We can write $v = r+u$ such that $r \in \mynull P$ and $u \in U$. Thus, we have
+    \begin{equation}
+      P(P(v)) = P(v) \in \myrange P,
+    \end{equation}
+
+    and $P(v) = P(r) + P(u) = P(u)$. The formula $P^2 = P$ tells us that $P$ acts as the identity operator on $\myrange P$. So we can just write: $v = u$; hence, $v \in  U$. Therefore,
+    \begin{equation}
+      \myrange P \subseteq U.
+    \end{equation}
+
+    \StepTwo Conversely, let $u \in U$. Notice that we can write
+    \begin{equation}
+      \label{eq: decomposition of U with P(U)}
+      u = \underbrace{(u-P(u))}_{\in \; \mynull P} + P(u).
+    \end{equation}
+
+    $u-P(u)$ lies in $\mynull P$, because
+    \begin{equation}
+      P (u-P(u)) = P(u) - P(P(u)) = P(u) - P(u) = 0.
+    \end{equation}
+
+    The decomposition of any vector in $U$ (or $V$) as an element of $\mynull P$ plus an element of $U$ is unique. Thus, the two decompositions of $u\in U$, $u=0+u$ and $\eqref{eq: decomposition of U with P(U)}$ must coincide. This forces $u-P(u) = 0$ and $P(u) = u$. Therefore, we conclude that $u=P(u)$, which means that $u \in \myrange P$. It follows that
+    \begin{equation}
+      U \subseteq \myrange P
+    \end{equation}
+
+    Therefore, $U = \myrange P$.
+
+      % ChatGTP's version of the proof:
+    \prooffont{Alternative proof:} For any $v \in V$, let $u := P(v)$ and $w := v-P(v)$. Then clearly, $v = w + u$. By definition, $u \in \myrange P$. If we apply $P$ to $w$, we have
+    \begin{equation}
+      P (w) = P(v-P(v)) = P(v) - P(P(v)) = P(v) - P(v) = 0.
+    \end{equation}
+
+    Thus, $w \in \mynull P$.
+
+    Now we have to verify the uniqueness of the sum. Suppose a vector $u$ lies both in $\mynull P$ and $\myrange P$. Then, $u = P(v)$ for some $v \in V$ and also $P(u) = 0$. But since $P(u) = u$, we have $u = 0$. Therefore, we conclude that the intersection is trivial:
+    \begin{equation}
+      \mynull P \cap \myrange P = \{ 0 \}.
+    \end{equation}
+
+    This implies,
+    \begin{equation}
+      V = \mynull P \oplus \myrange P.
+    \end{equation}
+  \end{xprf}
+
+\end{xrcs}
+
+    % \StepTwo Conversely, let $v \in V$ such that $v \neq 0$. We know that $P$ is the identity operator in $\myrange P$; in other words, $P(P(v)) = P(v)$. So $P(v) \notin \mynull P$. Hence, $P(v) \in \myrange (P)$. But since we can decompose $v$ as $v = r + u$, where $r \in \mynull P$ and $u \in U$, we have $P(v) = P(r) + P(u) = P(u)$, and thus $P(u) \in \myrange P$. Since $V$ is a direct sum of $\mynull P$ and $U$, we have shown this for every $U$.
