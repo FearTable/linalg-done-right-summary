@@ -63,7 +63,7 @@
 \end{thm}
 \begin{prf}
   Let $v \in V$ such that $v= c_1v_1 + \cdots c_mv_m$. Applying
-  $\varphi_j$ on both sides gives $\varphi_j(v)=c_j$ $\forall j\in \{1, \dots, m\}$. Hence
+  $\varphi_j$ on both sides gives $\varphi_j(v)=c_j$ for $j = 1, \ddd, m$. Hence,
   $v=\varphi_1 (v)v_1 + \cdots \varphi_m(v)v_m$.
 \end{prf}
 
@@ -73,12 +73,12 @@
   The dual basis of a basis of $V$ is a basis of the dual space $\dual{V}$.
 \end{thm}
 \begin{prf}
-  Suppose $v_1, \ddd, v_n$ is a basis of $V$. Let $\varphi_1, \ddd, \varphi_n$ denote the dual basis. Suppose
+  Suppose $v_1, \ddd, v_n$ is a basis of $V$. Let $\varphi_1, \ddd, \varphi_n$ denote its dual basis. Suppose
   \[
     a_1 \varphi_1 + \cdots + a_n \varphi_n = 0 \; $ for some $ a_1, \ddd, a_n \in \myF.
   \]
 
-  Which means that we get a function in $\linmap(V, \myF)$ that always returns $0$. So $\forall v \in V: (a_1 \varphi_1 + \cdots + a_n \varphi_n)(v)=0$. Now
+  Which means that we get a function in $\linmap(V, \myF)$ that always returns $0$. In other words, $\forall v \in V: (a_1 \varphi_1 + \cdots + a_n \varphi_n)(v)=0$. This implies
   \[
     (a_1 \varphi_1 + \cdots + a_n \varphi_n)(v_k)=a_k \quad \forall k \in \{1, \ddd, n\}.
   \]

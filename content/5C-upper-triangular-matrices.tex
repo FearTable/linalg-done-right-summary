@@ -89,18 +89,18 @@
   \begin{equation}
     A = \mmatrix(T)
     =
-    \left( {\begin{array}{ccc}
+    \begin{pmatrix}
         \lambda_1 &         &  * \\
                   &  \ddots &    \\
         0         &         & \lambda_n
-    \end{array} } \right)
+    \end{pmatrix}
     =
-    \begin{blockarray}{(cccc)}
+    \begin{pmatrix}
        \lambda_1&  A_{1,2}  &  \cdots &  A_{1,n} \\
                 & \lambda_2 &     *   &  A_{2,n} \\
                 &           &  \ddots &  \vdots  \\
           0     &           &         & \lambda_n
-    \end{blockarray}
+    \end{pmatrix}
   \end{equation}
   \end{minipage}
 
@@ -204,11 +204,11 @@
   Let $v_1, \ldots, v_n$ denote a basis of $V$ with respect to which $T$ has an upper-triangular matrix with diagonal entries $\lambda_1, \ldots, \lambda_n$.
   \begin{equation}
     \mmatrix(T) =
-    \left( {\begin{array}{ccc}
+    \begin{pmatrix}
         \lambda_1 &         &  * \\
         &  \ddots &    \\
         0      &         & \lambda_n
-    \end{array} } \right)
+    \end{pmatrix}
   \end{equation}
 
   Because $T v_1 = \lambda_1 v_1$, we see that $\lambda_1$ is an eigenvalue of $T$.

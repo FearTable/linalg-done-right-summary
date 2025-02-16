@@ -202,7 +202,7 @@ are the coefficients of the minimal polynomial of $T$.
 \end{thm}
 \begin{prf} Let $p$ be the minimal polynomial of $T$.
   \begin{enumerate}[label=\textbf{(\alph*)}]
-    \item \qt{$\Rightarrow$-direction:} Suppose $\lambda \in \myF$ is a zero of $p$. $\implies p(z)=(z-\lambda)q(z)$, whre $q$ is a monic polynomial with coefficients in $\myF$ (see \ref{factororing-out-zeros-of-a-polynomial-always-possible})
+    \item \Rightarrowdirection Suppose $\lambda \in \myF$ is a zero of $p$. $\implies p(z)=(z-\lambda)q(z)$, whre $q$ is a monic polynomial with coefficients in $\myF$ (see \ref{factororing-out-zeros-of-a-polynomial-always-possible})
     \begin{equation}
       p(T)=0\implies 0=(T-\lambda I)(q(T)v) \quad \forall v\in V.
     \end{equation}
@@ -213,7 +213,7 @@ are the coefficients of the minimal polynomial of $T$.
 
     which makes $q(T)u$ an eigenvector with eigenvalue $\lambda$.
 
-    \qt{$\Leftarrow$-direction:} Conversly, suppose $\lambda \in \myF$ is an eigenvalue of $T$. Thus there exists $v\in V, v \neq 0$ such that $Tv=\lambda v$. Repeated applications of $T$ on both sides of this equation show that $T^kv =\lambda^k v \quad \forall k\in \nat$.
+    \Leftarrowdirection Conversly, suppose $\lambda \in \myF$ is an eigenvalue of $T$. Thus there exists $v\in V, v \neq 0$ such that $Tv=\lambda v$. Repeated applications of $T$ on both sides of this equation show that $T^kv =\lambda^k v \quad \forall k\in \nat$.
     $\implies p(T)v=p(\lambda)v$. Because $p$ is the minimal polynomial of $T$, we have $p(T)v=0$. $\implies p(\lambda) = 0$. $\implies$ $\lambda$ is a zero of $p$.
 
     \item use (a) and the second version of the fundamental theorem of algebra. (\ref{fundamental-theorem-of-algebra-second-version})
@@ -234,7 +234,7 @@ are the coefficients of the minimal polynomial of $T$.
 
   \begin{description}
 
-    \item{\qt{$\Rightarrow$ direction:}}{
+    \item{\Rightarrowdirection}{
       Suppose $q(T)=0$.
       By (\ref{division-algorithm-for-polynomials}) there exists $s,r \in \mathcal{P} (\myF)$ such that
       \begin{equation}
@@ -247,7 +247,7 @@ are the coefficients of the minimal polynomial of $T$.
       \end{equation}
       The equation above implies that $r=0$. Otherwise, dividing $r$ by its highest\-/degree coefficient would produce a monic polynomial that when applied to $T$ gives $0$. A contradiction because $\deg r < \deg p$ and $p$ is minimal. Thus \eqref{eq: 0 = q(T) = p(T)s(T) + r(T) = r(T)} becomes the equation $q=ps$, as desired
     }
-    \item{\qt{$\Leftarrow$ direction:}}{
+    \item{\Leftarrowdirection}{
       Suppose $q=ps$ for $q,p,s \in \mathcal{P}(\myF)$. We have
       \begin{equation}
         q(T) = p(T)s(T)=0s(T)=0,

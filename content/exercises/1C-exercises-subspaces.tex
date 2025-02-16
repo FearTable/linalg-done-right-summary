@@ -11,8 +11,8 @@
     \item $\{(x_1, x_2, x_3) \in \myF \mid x_1 = 5x_3\}$
   \end{enumerate}
 
-  \prooffont{Solution:}
-  \begin{enumerate}
+  \begin{xsol}
+    \begin{enumerate}
     \item Let $E :\equiv \{(x_1, x_2, x_3) \in \myF \mid x_1 + 2x_2 + 3 x_3 = 0\}$, then $E$ is a subspace of $\myF^3$ because it is a plane. We have the additive identity  $0 \in \{(x_1, x_2, x_3) \in \myF \mid x_1 + 2x_2 + 3 x_3 = 0\}$. For $u,v \in E$ with their coordinates satisfying $u_1 + 2u_2 + 3u_3 = 0$ and $v_1 + 2v_2 + 3v_3 = 0$, we also have the condition that $(u_1 + v_1) + 2 (u_2 + v_2) + 3(u_3 + v_3)= 0$. So $u+v \in E$. Hence $E$ is closed under addition. If $w \in E$ and $\lambda \in \myF$, then if $u_1 + 2u_2 + 3u_3 = 0$, it also holds that $\lambda u_1 + 2\lambda u_2 + 3\lambda u_3 = 0$. Hence $\lambda u \in E$. So $E$ is closed under scalar multiplication. Therefore, $E$ is a subspace of $\myF^3$ by \ref{thm: conditions for a subspace}.
 
     \item It is not a subspace because is does not contain $0$. It is also not closed under addtition and scalar multiplication.
@@ -26,6 +26,7 @@
 
     \item Let $U :\equiv \{(x_1, x_2, x_3) \in \myF \mid x_1 = 5x_3\}$. Then $0 \in U$, so we have checked for additive identity. Let $u,v \in U$. Then $u+v= (5u_3+5v_3, u_2+v_2, u_3+v_3) = (5(u_3+v_3), u_2+v_2, u_3+v_3) \in U$, so its closed under addition. Simmilarly for $\lambda \in \myF$ and $w \in U$ we have $\lambda u = (\lambda 5u_3, \lambda u_2, \lambda u_3) = (5 \lambda u_3, \lambda u_2, \lambda u_3) \in U$, so $U$ is a subspace of $\myF^3$.
   \end{enumerate}
+  \end{xsol}
 
 \end{xrcs}
 
@@ -37,46 +38,52 @@
     \item {
       If $b \in \myF$ then $U :\equiv \{(x_1, x_2, x_3, x_4) \in \myF \mid x_3 = 5x_4+b \}$ is a subspace of $\myF^4$ $\iff$ $b=0$.
 
-      \prooffont{Solution:} \\
-      If $v,u \in U$ then
-      \begin{equation}
-        \begin{aligned}
-          v+u & = (v_1+u_1, v_2+u_2, v_3+u_3, v_4+u_4, v_5+u_4) \\
-          & = (v_1+u_1, v_2+u_2, v_3+u_3, 5v_4+b+5u_4+b, v_5+u_4) \\
-          & = (v_1+u_1, v_2+u_2, v_3+u_3, 5(v_4 + u_4) + 2b, v_5+u_4)
-        \end{aligned}
-      \end{equation}
+      \begin{xsol}
+        If $v,u \in U$, then
+        \begin{equation}
+          \begin{aligned}
+            v+u & = (v_1+u_1, v_2+u_2, v_3+u_3, v_4+u_4, v_5+u_4) \\
+            & = (v_1+u_1, v_2+u_2, v_3+u_3, 5v_4+b+5u_4+b, v_5+u_4) \\
+            & = (v_1+u_1, v_2+u_2, v_3+u_3, 5(v_4 + u_4) + 2b, v_5+u_4)
+          \end{aligned}
+        \end{equation}
 
-      Only if $b=0$ it can hold that the third coordinate of $v+u$ is $5$ times the fourth coordinate of $v+u$ plus an element of $\myF$, given the constraints of $v$ and $u$ themselfes. Also note that if $\lambda \in \myF$ and $w \in U$, then $\lambda w = (\lambda w_1, \lambda w_2, \lambda u_4 + \lambda b, \lambda u_4)$. In this case, we only have $\lambda w \in U$ if and only if $b=0$.
+        Only if $b=0$, it can hold that the third coordinate of $v+u$ is $5$ times the fourth coordinate of $v+u$ plus an element of $\myF$ acting as $b$. %, given the constraints of $v$ and $u$ themselfes.
+        Also note that if $\lambda \in \myF$ and $w \in U$, then $\lambda w = (\lambda w_1, \lambda w_2, \lambda u_4 + \lambda b, \lambda u_4)$. In this case, we have $\lambda w \in U$ if and only if $b=0$.
+      \end{xsol}
     }
 
     \item{
       The set of continious real-valued functions on the intervall $[0,1]$ is a subspace of $\real^{[0,1]}$ (The set of real valued functions on the invervall $[0,1]$)
 
-      \emph{Solution:} The constant function $0$ is continious. Adding two continious functions together ~yields a continious function. Multiplying a continious function with a scalar also gives us a continious function.
+      \begin{xsol}
+        The constant function $0$ is continious. Adding two continious functions together yields a continious function. Multiplying a continious function with a scalar also gives us a continious function.
+      \end{xsol}
     }
 
     \item{
       The set of differentiable real-valued functions of $\real$ is a subspace of $\real^\real$.
 
-      \prooffont{Solution:} \\
-      We check for all three properties: \\
-      \emph{Additive identity:} $f(x) :\equiv 0 \quad \forall x \in \real$ is in the set of differentiable real-valued functions since $f'(x) = 0 \quad \forall x \in \real$ is also contained.
+      \begin{xsol}
+        We check for all three properties. \\
+        \emph{Additive identity:} $f(x) :\equiv 0 \quad \forall x \in \real$ is in the set of differentiable real-valued functions since $f'(x) = 0 \quad \forall x \in \real$ is also contained.
 
-      \emph{Closededness under addition:} Let $h(x) :\equiv f(x) + g(x)$ for two differentiable real-valued functions $f$ and $g$. Then $h'(x) = \frac{d}{dx} (f(x)+g(x)) = f'(x) + g'(x)$, so this sum $h$ also belongs to set of differentiable real-valued functions.
+        \emph{Closededness under addition:} Let $h(x) :\equiv f(x) + g(x)$ for two differentiable real-valued functions $f$ and $g$. Then $h'(x) = \frac{d}{dx} (f(x)+g(x)) = f'(x) + g'(x)$, so this sum $h$ also belongs to set of differentiable real-valued functions.
 
-      \emph{Closedednes under multiplication:} Let $h(x) :\equiv c f(x)$. Then $h'(x) = \frac{d}{dx} (c f(x)) = c f'(x)$. So this product $h$ also belongs to the set of differentiable real-valued functions.
+        \emph{Closedednes under multiplication:} Let $h(x) :\equiv c f(x)$. Then $h'(x) = \frac{d}{dx} (c f(x)) = c f'(x)$. So this product $h$ also belongs to the set of differentiable real-valued functions.
+      \end{xsol}
     }
 
     \item{
       The set $S$ of differentiable real-valued functions $f$ on the inverfall $(0,3)$ such that $f'(2) = b$ is a subspace of $\real^{(0,3)}$ if and only if $b=0$.
 
-      \prooffont{Solution:} \\
-      For $f(x) :\equiv 0$ we have $f'(x) = 0$. The condition $f'(2) =  0 = b$ only holds if and only if $b=0$.
+      \begin{xsol}
+        For $f(x) :\equiv 0$ we have $f'(x) = 0$. The condition $f'(2) =  0 = b$ only holds if and only if $b=0$.
 
       For $h(x) :\equiv f(x) + g(x)$ we have $h'(x) = f'(x) + g'(x)$. The condition $h'(2) = f'(2) + g'(2) = 2b = b$  holds if and only if $b=0$.
 
       For $h(x) :\equiv cf(x)$ we have $h'(x) = cf'(x)$. $h'(2) = cf'(2) = cb = b$ can only hold for all constants $c$ if and only if $b=0$.
+      \end{xsol}
     }
   \end{enumerate}
 \end{xrcs}
@@ -85,26 +92,29 @@
 \begin{xrcs}
   Show that the set $S$ of differentiable real-valued functions $f$ on the invervall $(-4,4)$ such that $f'(-1) = 3f(2)$ is a subspace of $\real^{(-4,4)}$.
 
-  \prooffont{Solution:} \\
-  \emph{Additive identity:} For $f(x) :\equiv 0, f'(x) = 0$ we have $f'(-1) = 0 = 3 \cdot 0 = 3f(2)$, so $f'$ belongs so $S$ as well.
+  \begin{xsol} We check for all three properties. \\
+    \emph{Additive identity:} For $f(x) :\equiv 0, f'(x) = 0$ we have $f'(-1) = 0 = 3 \cdot 0 = 3f(2)$, so $f'$ belongs so $S$ as well.
 
-  \emph{Closed under addition:} For $h(x) :\equiv f(x) + g(x), h'(x) = f'(x) + g'(x)$ we got $h'(-1) = f'(-1) + g'(-1) = 3f(2) + 3g(2) = 3(f(2)+g(2)) = 3h(2)$. Therefore, $h \in S$.
+    \emph{Closed under addition:} For $h(x) :\equiv f(x) + g(x), h'(x) = f'(x) + g'(x)$ we got $h'(-1) = f'(-1) + g'(-1) = 3f(2) + 3g(2) = 3(f(2)+g(2)) = 3h(2)$. Therefore, $h \in S$.
 
-  \emph{Closed under scalar multiplication:} For $h(x) :\equiv cf(x), h'(x) = cf'(x)$ we got $h'(-1) = cf'(-1) = c3f(2) = 3cf(2) = 3h(x)$. So if $h' \in S$ whenever $h \in S$.
+    \emph{Closed under scalar multiplication:} For $h(x) :\equiv cf(x), h'(x) = cf'(x)$ we got $h'(-1) = cf'(-1) = c3f(2) = 3cf(2) = 3h(x)$. So if $h' \in S$ whenever $h \in S$.
 
-  Hence $S$ is a subspace of $\real^{(-4,4)}$.
+    Hence $S$ is a subspace of $\real^{(-4,4)}$.
+  \end{xsol}
 \end{xrcs}
 
 \setcounter{xrcscount}{7}
 \begin{xrcs}
   Prove or give a counterexample: If $U$ is a nonempty subset of $\real^2$ such that $U$ is closed under addition and under taking additive inverses (meaning $-u \in U$ whenever $u \in U$), then $U$ is subspace of $\real^2$.
 
-  \emph{Solution:} This statement is wrong. Take $U :\equiv \{(x,y) \in \real^2 \mid (x,y) \in \integer^2 \} \subset \real^2$. Then $U$ is closed under addtion since $\integer$ is closed under addition. Example: $(2,1)+(-2,1)+(1,1) = (1,1) \in U$. But if $\lambda \in \real$ such that $\lambda \notin \integer$ we have for $a,b \in \integer$:
+  \begin{xsol}
+    This statement is wrong. Take $U :\equiv \{(x,y) \in \real^2 \mid (x,y) \in \integer^2 \} \subset \real^2$. Then $U$ is closed under addtion since $\integer$ is closed under addition. Example: $(2,1)+(-2,1)+(1,1) = (1,1) \in U$. But if $\lambda \in \real$ such that $\lambda \notin \integer$ we have for $a,b \in \integer$:
   \[
   \lambda(a,b) = (\lambda a, \lambda b) \notin U.
   \]
 
   For example: $\pi (3,4) \notin U$. Therefore $U$ is not a subspace of $\real^2$.
+  \end{xsol}
 \end{xrcs}
 
 
@@ -117,23 +127,24 @@
     \Leftarrowdirection Let $U$ and $W$ be two subspaces of $V$. If $U \subseteq W$ then $U \cup W = W \subseteq V$ and if $W \subseteq U$ then $U \cup W = U \subseteq V$.
 
     \Rightarrowdirection We can prove this either \underline{directly} or \underline{by contradiction}. In both proofs, lets assume that $U \cup W$ is a subspace of $V$ given that $U$ and $W$ are subspaces of $V$ as well. \\
-    \prooffont{Proof by contradiction:} Suppose $U \subsetneq W$ and $W \subsetneq U$. Note that this would imply that $U \neq \{0\}$ and $W \neq \{0\}$. Therefore we have that
+    \prooffont{$\Rightarrow$ direction proof by contradiction:} Suppose $U \subsetneq W$ and $W \subsetneq U$. Note that this would imply that $U \neq \{0\}$ and $W \neq \{0\}$. Therefore, we have that
     \[
     \begin{aligned}
-      \exists u \in U: u \notin W \myand \\
-      \exists w \in W: w \notin U.
+      &\exists u \in U: u \notin W \myand \\
+      &\exists w \in W: w \notin U.
     \end{aligned}
     \]
 
     Since $u,w \in U \cup W \implies u+w \in U \cup W $ we have that either $u+w \in U$ or $u+w \in W$ (or both).
-    \begin{description}
-      \item{\prooffont{Case $\mathbf{u+w \in U:}$}} In this case, let $\widetilde u :\equiv u + w \in U$. Hence $w = \widetilde{u} - u \in U$, a contradiction.
-      \item{\prooffont{Case $\mathbf{u+w \in W:}$}} Let $\widetilde w :\equiv u + w \in W$. Hence $u = \widetilde{w} - u \in W$, again a contradiction.
-    \end{description}
 
-    So the assumption that $U \subsetneq W$ and $W \subsetneq U$ can not hold. So the opposite is true. By de Morgan's rule it must hold that $U \subseteq W$ or $W \subseteq U$.
+    \begin{itemize}
+      \item \prooffont{Case $\mathbf{u+w \in U:}$} In this case, let $\widetilde{u} := u + w \in U$. Hence, $w = \widetilde{u} - u \in U$, a contradiction, because we had $w \notin U$
+      \item \prooffont{Case $\mathbf{u+w \in W:}$} Let $\widetilde w := u + w \in W$. Hence $u = \widetilde{w} - u \in W$, again a contradiction, because we had $u \notin W$.
+    \end{itemize}
 
-    \prooffont{Direct proof:} We have $2$ cases. $W \subseteq U$ or $W \subsetneq U$. If $W \subseteq U$, then the disjunction \[
+    Therefore, the assumption that $U \subsetneq W$ and $W \subsetneq U$ can not hold. Hence, the opposite is true. By de Morgan's rule, it must hold that $U \subseteq W$ or $W \subseteq U$.
+
+    \prooffont{Direct $\Rightarrow$ direction proof:} We have $2$ cases. $W \subseteq U$ or $W \subsetneq U$. If $W \subseteq U$, then the disjunction \[
     W \subseteq U $ or $ U \subseteq W
     \]
     is automatically true. So lets assume that $W \subsetneq U$ and prove that this implies that $U \subseteq W$.
@@ -147,7 +158,7 @@
     w = (u+w) + (-u) \in U,
     \]
 
-    which is impossible. Hence $u+w \in W$ and therefore
+    which is impossible. Hence $u+w \in W$ and therefore,
     \[
     u= (u+w) -w \in W
     \]
@@ -161,17 +172,29 @@
 \begin{xrcs}
   Prove or give a counterexample: If $V_1, V_2, U$ are subspaces of $V$ such that $V=V_1 \oplus U$ and $V=V_2 \oplus U$, then $V_1 = V_2$.
 
-  \emph{Solution:} The statement is not ture. One counterexample would be $V :\equiv \real^2$ and $U :\equiv \{ (x_1, x_2) \mid x_2=0 \}$, where $U$ is the $x$-axis. Let $V_1$ and $V_2$ be defined as follows:
-  \[
-    V_1 :\equiv \underbrace{\{(x_1, x_2) \in \real^2 \mid x_1 = 0 \}}_{\text{$y$-axis}} \quad $ and $
-    V_2 :\equiv \underbrace{\{ (x_1, x_2) \in \real^2 \mid x_2 = x_1 \}}_{\text{straight line with slope $1$}}
-  \]
+  \begin{xsol}
+    The statement is not ture. One counterexample would be $V :\equiv \real^2$ and
+    \begin{equation}
+      U :\equiv \{ (x_1, x_2) \mid x_2=0 \},
+    \end{equation}
 
-  We can see that $V=\real^2=V_1 \oplus U = V_2 \oplus U$  because each $(x,y)\in \real^2$ can be uniquely represented as \begin{equation}
-    \underbrace{(a,0)}_{\in U}+\underbrace{(0,b)}_{\in V_1}$ or $\underbrace{(c,0)}_{\in U}+\underbrace{(k,k)}_{\in V_2}=(c+k,k)$ where $a,b,c,k \in \real
-  \end{equation}
+    where $U$ is the $x$-axis. Let $V_1$ and $V_2$ be defined as follows:
+    \[
+      V_1 :\equiv \underbrace{\{(x_1, x_2) \in \real^2 \mid x_1 = 0 \}}_{\text{$y$-axis}} \quad $ and $
+      V_2 :\equiv \underbrace{\{ (x_1, x_2) \in \real^2 \mid x_2 = x_1 \}}_{\text{straight line with slope $1$}}
+    \]
 
-  So the statement is not true.
+    We can see that
+    \begin{equation}
+      V=\real^2=V_1 \oplus U = V_2 \oplus U,
+    \end{equation}
+
+    because each $(x,y)\in \real^2$ can be uniquely represented as \begin{equation}
+      \underbrace{(a,0)}_{\in U}+\underbrace{(0,b)}_{\in V_1}$ or $\underbrace{(c,0)}_{\in U}+\underbrace{(k,k)}_{\in V_2}=(c+k,k)$ where $a,b,c,k \in \real
+    \end{equation}
+
+    So the statement is not true.
+  \end{xsol}
 \end{xrcs}
 
 \phantom{.}

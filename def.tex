@@ -1,3 +1,7 @@
+% declare how \emph{} should behave:
+\DeclareEmphSequence{\scshape\bfseries}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 % abbriviation for rightarrow direction and leftarrow direction:
 \newcommand{\Rightarrowdirection}{\prooffont{$\Rightarrow$ direction: }}
 \newcommand{\Leftarrowdirection}{\prooffont{$\Leftarrow$ direction: }}
@@ -12,52 +16,62 @@
 \makeatletter
 \renewcommand\operator@font{\sf}
 \makeatother
-%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-% configurations for enumerates
+% change enumerations to alphabetical as default
 \setlist[enumerate]{itemsep=\itemsep,topsep=\itemsep}
 \setlist[enumerate,1]{label=\textbf{(\alph*)}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+% For item, enumerate, description, lists
+\setitemize{noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt}
+\setenumerate{noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt}
+\setdescription{noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt}
+\setlist{noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% change the size of math-boxes
 \setlength{\fboxsep}{.5\fboxsep}
-
-% A short function to set a counter. 'mce' stands for make counter equal.
-\newcommand{\mce}[1]{\setcounter{thm}{#1-1}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % only displays equation numbers if they are referenced
 \mathtoolsset{showonlyrefs,showmanualtags}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\DeclareEmphSequence{\scshape\bfseries}
 
-% BEGIN custom geometry ************************************
+% Nice way to write '\theorem{#theoremnumber}' or \definition{#definitionnumber'}
+\newcommand{\setthm}[1]{\setcounter{thm}{#1-1}}
+\newcommand{\setdef}[1]{\setcounter{thm}{#1-1}}
+\newcommand{\setxmpl}[1]{\setcounter{thm}{#1-1}}
+% Previously used: a short function to set a counter. 'mce' stands for make counter equal.
+\newcommand{\mce}[1]{\setcounter{thm}{#1-1}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% spacing inside and after math equations:
 \setlength{\abovedisplayskip}{0.1em}
 \setlength{\belowdisplayskip}{0em}
 \setlength{\abovedisplayshortskip}{0pt}
 \setlength{\belowdisplayshortskip}{0pt}
 \setlength{\jot}{0pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \titlespacing{\chapter}{0pt}{0em}{0.4em}
 \titlespacing{\section}{0pt}{1.3em}{0.4em} %15pt, 3pt
 \titlespacing{\subsection}{0pt}{1em}{0.4em} %15pt, 3pt
 
-%For item, enumerate, description, lists
-\setitemize{noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt}
-\setenumerate{noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt}
-\setdescription{noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt}
-\setlist{noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt}
-
-% END custom geometry **************************************
 
 % new mdframed style that places the edges at the corners (.675em):
 \mdfdefinestyle{proof-style}{
   skipabove         = 0.1em,% .5\baselineskip ,
   skipbelow         = 8em,%.5\baselineskip ,
-  leftmargin        = 0.5em ,
-  rightmargin       = 0.5em ,
+  leftmargin        = 7pt ,
+  rightmargin       = 0em ,
   innermargin       = 0pt ,
   innertopmargin    = 0.5em, %0.6 %.675em ,
-  innerleftmargin   = 0.5em, %.675em ,
-  innerrightmargin  = 0.5em,
+  innerleftmargin   = 7pt, %.675em ,
+  innerrightmargin  = 0em,
   innerbottommargin = 0.5em, %.675em +3pt,
   hidealllines      = true,
   singleextra       = {
@@ -78,30 +92,22 @@
 % for exercises, we may be want proofs to look different:
 \mdfdefinestyle{exercise-proof-style}{
   skipabove         = 0.1em,% .5\baselineskip ,
-  skipbelow         = 8em,%.5\baselineskip ,
-  leftmargin        = 0.4em ,
-  rightmargin       = 0.4em ,
+  skipbelow         = 0.5em,%.5\baselineskip ,
+  leftmargin        = 7pt,
+  rightmargin       = 0em ,
   innermargin       = 0pt ,
   innertopmargin    = 0.5em, %0.6 %.675em ,
-  innerleftmargin   = 0.4em, %.675em ,
-  innerrightmargin  = 0.4em,
+  innerleftmargin   = 7pt, %.675em ,
+  innerrightmargin  = 0em,
   innerbottommargin = 0.4em, %.675em +3pt,
   hidealllines      = true,
-%  singleextra       = {
-%    \draw [thick] (O) -- ++(0,1.8em) (O) -- ++(1.8em,0) ;
-%    \draw [thick] (P-|O) -- ++(0,-1.8em) (P-|O) -- ++(1.8em,0) ;
-%  },
-%  firstextra        = {
-%    \draw [thick] (P-|O) -- ++(0,-1.8em) (P-|O) -- ++(1.8em,0) ;
-%  },
-%  secondextra       = {
-%    \draw [thick] (O) -- ++(0,1.8em) (O) -- ++(1.8em,0) ;
-%  },
 }
 
 \surroundwithmdframed[style=exercise-proof-style]{xprf}
 \newtheorem*{xprf}{Proof}
 
+\surroundwithmdframed[style=exercise-proof-style]{xsol}
+\newtheorem*{xsol}{Solution}
 
 % custom QED Symbol
 %\newcommand*\closedbox{%
@@ -112,9 +118,9 @@
 
 \renewenvironment{prf}{{\textbf{\scshape \slshape Proof:}}}{\hfill $\qedsymbol$}
 \renewenvironment{xprf}{{\textbf{\scshape \slshape Proof:}}}{\hfill $\qedsymbol$}
+\renewenvironment{xsol}{{\textbf{\scshape \slshape Solution:}}}{ }
 
-%\renewenvironment{proof}{{\textbf{\scshape \slshape Proof:}}}{\hfill $\qedsymbol$}
-
+% custom command to have the same slanted font as "Proof:"
 \newcommand{\prooffont}[1]{\textbf{\scshape \slshape #1}}
 
 % put the new mdframed style around the 'proof' and 'xmpl0 environment:
