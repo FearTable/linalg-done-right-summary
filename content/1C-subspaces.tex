@@ -19,8 +19,8 @@
 \end{thm}
 \begin{prf} We need to show the proposition in two directions.
   \begin{description}
-    \item{\qt{$\Rightarrow$ direction:}} If $U$ is a subspace of $V$, then $U$ satisfies the three conditions above by the definition of a vector space.
-    \item{\qt{$\Leftarrow$ direction:}} The first condition ensures, that the additive identiy $0$ of $U$ is in $U$. The other two conditions make sure, that addition and scalar multiplication make sense on $U$.
+    \item{\Rightarrowdirection} If $U$ is a subspace of $V$, then $U$ satisfies the three conditions above by the definition of a vector space.
+    \item{\Leftarrowdirection} The first condition ensures, that the additive identiy $0$ of $U$ is in $U$. The other two conditions make sure, that addition and scalar multiplication make sense on $U$.
     Thanks to \ref{thm: minus one times a vector} and the third condition (closedness under scalar multiplication), every $u \in U$ has an additive inverse $-u = (-1) u$.
     The other parts of the definition of a vector space, such as associativity, commutativity and the distributive properties, are automatically satisfied for $U$ because they hold on the larger space $V$. Thus $U$ is a vector space and hence a subspace of $V$.
   \end{description}
@@ -41,7 +41,7 @@
 \begin{mydef}[sum of subspaces]
   If $V_1, \ldots, V_m$ are subspaces of $V$, the \qt{sum} of $V_1, \ldots, V_m$, denoted by $V_1 + \cdots + V_m$, is the set of all possible sums of elements of $V_1, \ldots, V_m$. More precisely,
 \begin{equation}
-    V_1 + \cdots + V_m :\equiv \{v_1 + \cdots + v_m \mid v_1 \in V_1, \ddd , v_m \in V_m \}.
+    V_1 + \cdots + V_m := \{v_1 + \cdots + v_m \mid v_1 \in V_1, \ddd , v_m \in V_m \}.
 \end{equation}
 \end{mydef}
 
@@ -49,29 +49,29 @@
 \setcounter{thm}{39}
 \begin{thm} [sum of subspaces is the smallest containing subspace]
   \label{thm: sum of subspaces is the smallest containing subspace}
-  $V_1 + \cdots + V_m$ is the smallest subspace of $V$ containing $V_1, \ddd , V_m$.
+  If $V_1, \ddd, V_m$ are subspaces of $V$, then $V_1 + \cdots + V_m$ is the smallest subspace of $V$ containing $V_1, \ddd , V_m$.
 \end{thm}
 \begin{prf}
-  First we need to show, that $V_1 + \cdots + V_m$ is a subspace of $V$. Clearly, the additive identity $0 = 0 + \cdots + 0 \in V_1 + \cdots + V_m \in V$.
-  Next we show that our sum is closed under addition. Let $u,w \in V_1 + \cdots + V_m$.  Then we have $u = v_1 + \cdots + v_m$ \st $v_1 \in V_1, \ddd, v_m \in V_m$ and $w=v'_1 + \cdots + v'_m$ \st $v'_1, \ddd , v'_m \in V_m$. Therefore
+  First we need to show, that $V_1 + \cdots + V_m$ is a subspace of $V$. Clearly, the additive identity $0 = 0 + \cdots + 0$ belongs to $V_1 + \cdots + V_m$.
+  Next we need to show that our sum is closed under addition. Let $u,w \in V_1 + \cdots + V_m$.  Thus, we have $u = v_1 + \cdots + v_m$ \st $v_1 \in V_1, \ddd, v_m \in V_m$ and $w=v'_1 + \cdots + v'_m$ \st $v'_1, \ddd , v'_m \in V_m$. Therefore,
   \begin{equation}
-    u+w = (v_1 + \cdots + v_m) + (v'_1 + \cdots + v'_m) =  \underbrace{(v_1+v'_1)}_{\in V_1} + \cdots + \underbrace{(v_m+v'_m)}_{\in V_m} \in  V_1 + \cdots + V_m \in V.
+    u+w = (v_1 + \cdots + v_m) + (v'_1 + \cdots + v'_m) =  \underbrace{(v_1+v'_1)}_{\in \, V_1} + \cdots + \underbrace{(v_m+v'_m)}_{\in V_m} \in \, V_1 + \cdots + V_m.
   \end{equation}
 
-  So $V_1 + \cdots + V_m$ is closed under addition.
+  Hence, $V_1 + \cdots + V_m$ is closed under addition.
   For $\lambda \in \myF$ we have that
   \begin{equation}
-      \lambda u = \lambda(v_1 + \cdots + v_m) = \underbrace{\lambda v_1}_{\in V_1} + \cdots + \underbrace{\lambda v_m}_{\in V_m} \in V_1 + \cdots + V_m \in V,
+      \lambda u = \lambda(v_1 + \cdots + v_m) = \underbrace{\lambda v_1}_{\in \, V_1} + \cdots + \underbrace{\lambda v_m}_{\in \, V_m} \in V_1 + \cdots + V_m,
   \end{equation}
 
-  so it is closed under scalar multiplication. So we have shown that $V_1 + \cdots + V_m$ is a subspace of $V$.
-  Now we have to show the minimality.
-  The subspaces $V_1, \ddd, V_m$ are all contained in $V_1+\cdots+V_m$. Because $\forall \kInOneTillM:$
+  so it is closed under scalar multiplication. Therefore, $V_1 + \cdots + V_m$ fullfills all critieria for a subspace accoring to \ref{thm: conditions for a subspace}.
+  Now we have to show the minimality of $V_1+\cdots+V_m$ and that $V_1+\cdots+V_m$ is containded in every subspace of $V$.
+  The subspaces $V_1, \ddd, V_m$ are all contained in $V_1+\cdots+V_m$, because $\forall \kInOneTillM:$
   \begin{equation}
     V_k = \{ v \mid v \in V_k \} \subseteq \{v_1 + \cdots + v_m \mid v_1 \in V_1,  \ddd , v_m \in V_m \} = V_1 + \cdots + V_m.
   \end{equation}
 
-  Conversely, every subspace of $V$ containing $V_1, \ldots, V_m$ contains $V_1 + \cdots + V_m$, because its closed under addition. Thus $V_1 + \cdots + V_m$ is the smallest subspace of $V$ containing $V_1, \ldots, V_m$.
+  Conversely, every subspace of $V$ containing $V_1, \ldots, V_m$ contains $V_1 + \cdots + V_m$, because $V$ is closed under addition. Thus, $V_1 + \cdots + V_m$ is the smallest subspace of $V$ containing $V_1, \ldots, V_m$.
 \end{prf}
 
 \subsection{Direct Sums}
@@ -81,9 +81,9 @@
 \begin{mydef}[direct sum, $\oplus$]
   \label{def: direct sum}
   %NO COMMA BEFORE IF ACC TO AXLER
-  $V_1 + \cdots + V_m$ is called a \qt{direct sum} if each element of $V_1 +\cdots+V_m$ can be written in only one way as a sum $v_1 + \cdots + v_m$, where each $v_k \in V_k$. In this case we write:
+  $V_1 + \cdots + V_m$ is called a \qt{direct sum} if each element of $V_1 +\cdots+V_m$ can be written in only one way as a sum $v_1 + \cdots + v_m$, where each $v_k \in V_k$. In this case, we write:
   \begin{equation}
-    V_1 \oplus \cdots \oplus V_m :\equiv V_1 + \cdots + V_m
+    V_1 \oplus \cdots \oplus V_m := V_1 + \cdots + V_m
   \end{equation}
 \end{mydef}
 
@@ -104,7 +104,7 @@
 \begin{prf}
     Let  $V_1, \ldots, V_m$ be subspaces of $V$
 
-    \qt{$\Rightarrow$ direction:} First suppose $V_1 + \cdots + V_m$ is a direct sum. Let $0 = v_1 + \cdots + v_m,$ where each $v_k \in V_k$.
+    \qt{\Rightarrowdirection} First suppose $V_1 + \cdots + V_m$ is a direct sum. Let $0 = v_1 + \cdots + v_m,$ where each $v_k \in V_k$.
     $\implies$ all the $v_k$'s are equal to $0$, because otherwise multiplying the equation above with a scalar $\lambda \in \myF$ would give a different sum (a different way to add them up).
     \begin{equation}
       0 = \lambda0= \lambda v_1 + \cdots + \lambda v_m, \whereEach \lambda v_k \in V_k
@@ -112,7 +112,7 @@
 
     Or a different way to argue, $0 = 0 + \cdots + 0$ is already a unique solution.
 
-    \qt{$\Leftarrow$ direction:} Now suppose that the only way to write $0$ as a sum $w_1 + \cdots + w_m$ where each $w_k \in V_k$, is by taking each $w_k = 0$. Let $v \in V$ \st $v$ has two representations denoted as
+    \Leftarrowdirection Now suppose that the only way to write $0$ as a sum $w_1 + \cdots + w_m$ where each $w_k \in V_k$, is by taking each $w_k = 0$. Let $v \in V$ \st $v$ has two representations denoted as
     \begin{equation}
       \begin{aligned}
         v& :\equiv v_1 + \cdots + v_m \where v_1 \in V_1, \ddd, v_m \in V_m \myand \\
@@ -142,18 +142,18 @@
 \end{thm}
 \begin{prf} Let $U$ and $W$ be subspaces of the same vector space.
   \begin{description}
-    \item{\qt{$\Rightarrow$ direction:}} First suppose $U+W$ is a direct sum. If $v \in U \cap W$, then $v, -v \in U \myand v, -v \in W$. We also have that
+    \item{\Rightarrowdirection} First suppose $U+W$ is a direct sum. If $v \in U \cap W$, then $v, -v \in U \myand v, -v \in W$. We also have that
     \begin{equation}
       0 = v + (-v), \where v\in U \myand (-v) \in W.
     \end{equation}
-    $\implies v=0$, because $U+W$  is a direct sum and $0 = 0+(-0)=0+0$ is unique. Therefore $U \cap W = \{0\}$.
+    Because $U+W$  is a direct sum and writing $0$ as $0 = 0+(-0)=0+0$ is unique, the equation above implies that $v=0$. Therefore $U \cap W = \{0\}$.
 
-    \item{\qt{$\Leftarrow$ direction:}} Suppose $U\cap W = \{0\}$. Let  $u\in U$ and $w \in W$ such that
+    \item{\Leftarrowdirection} Suppose $U\cap W = \{0\}$. Let  $u\in U$ and $w \in W$ such that
     \begin{equation}
       \label{eq: zero equals u plus w}
       0 = u+w
     \end{equation}
-    By \ref{thm: condition for a direct sum} we know that our goal is to show that this implies $u=w=0$. The equation \eqref{eq: zero equals u plus w} above implies that $u=-w\in W$  and $w=-u \in U$ for all arbitrary choices of $U$ and $W$. Thus $u,w \in U\cap W = \{0\} \implies u=w=0.$ Therefore, $U+W$ is a direct sum.
+    By \ref{thm: condition for a direct sum}, we know that our goal is to show that this implies $u=w=0$. The equation \eqref{eq: zero equals u plus w} above implies that $u=-w\in W$  and $w=-u \in U$ for all arbitrary choices of $U$ and $W$. Thus $u,w \in U\cap W$. Hence, $u=w=0$. Therefore, $U+W$ is a direct sum.
   \end{description}
   \vspace{-\baselineskip}
 \end{prf}

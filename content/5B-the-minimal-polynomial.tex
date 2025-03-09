@@ -6,31 +6,33 @@
   Every operator on a \fd non\-zero complex vector space has an eigenvalue.
 \end{thm}
 \begin{prf}
-  Suppose $\infty \neq \dim(V)=n>0$ and $T\in \linmap(V).$ Choose $v\in V, v\neq0$. Then
+  Suppose $V$ is finite-dimensional with $\dim V \geq 1$ and $T\in \linmap(V)$. Let $v\in V$ with  $v\neq0$. Then
   \begin{equation}
     v, Tv, T^2v, \dots, T^nv
   \end{equation}
   is not linearly independent,
-  because the list has length $n+1$. Therefore some linear combination of these vectors equals $0$.
-
-  $\implies$ there exists a non-constant polynomial $p$ of smallest degree such that
+  because the list has length $n+1$. Therefore, some non-trivial linear combination of these vectors equals $0$.
+  Hence, there exists a non-constant polynomial $p \in \polyn(\compl)$ of smallest degree such that
   \begin{equation}
     p(T)v = 0.
   \end{equation}
 
-  By the first version of the fundamental theorem of algebra \ref{fundamental-theorem-of-algebra-first-version}, we have
+  By the first version of the fundamental theorem of algebra \ref{fundamental-theorem-of-algebra-first-version}, we know that $\exists \lambda \in \compl$ such that
   \begin{equation}
-    \begin{aligned}
-      &\exists \lambda \in \compl: p(\lambda) = 0. \\
-      &\text{(\ref{factororing-out-zeros-of-a-polynomial-always-possible})}
-      \implies \exists q \in \mathcal {P} (\compl): p(z) = (z-\lambda)  q(z) \quad \forall z \in \compl \\
-      &\text{(\ref{multiplicative-properties})} \implies 0=p(T)v=(T-\lambda I) (q(T)v).
-    \end{aligned}
+    p(\lambda) = 0.
   \end{equation}
 
-  Because $q$ has a smaller degree than $p \implies q(T)v \neq 0$. (Why? May be because $q(T)v$ consists of $n=\dim V$ linearly independent vectors added together. The sum of zero is unique in this case.)
+  By \ref{factororing-out-zeros-of-a-polynomial-always-possible} we know that $\exists q \in \mathcal {P} (\compl)$ such that we can factour out $(z-\lambda)$ and get
+  \begin{equation}
+    p(z) = (z-\lambda)  q(z) \quad \forall z \in \compl.
+  \end{equation}
 
-  $\implies$ $\lambda$ is an eigenvalue of $T$ with eigenvector $q(T)v$.
+  Using the multiplicative properties of linear maps \ref{multiplicative-properties}, we can compute \begin{equation}
+    0=p(T)v=((T-\lambda I)q(T))(v)=(T-\lambda I) (q(T)v).
+  \end{equation}
+
+  Because $q$ has a smaller degree than $p$, we know that $ q(T)v \neq 0$. (Why?)
+  Hence, we know that $\lambda$ is an eigenvalue of $T$ with eigenvector $q(T)v$.
 \end{prf}
 
 \subsection{Eigenvalues and the Minimal Polynomial}
@@ -43,136 +45,167 @@
 \end{example}
 
 \begin{thm}[existence, uniqueness, and degree of minimal polynomial]
-  \label{thm: unique monice polynomial of smallest degree}
+  \label{thm: unique monic polynomial of smallest degree}
   Suppose $T\in \linmap(V)$. Then there exists a unique monic polynomial $p\in \mathcal{P}(\myF)$ of smallest degree such that
   \begin{equation}
     p(T)=0.
   \end{equation}
-  Furthermore $\deg p \leq \dim V$.
+
+  Furthermore, $\deg p \leq \dim V$.
 \end{thm}
 \begin{prf}
-  Before we can start our proof with induction, let us look at some base cases. This proof will first look at the existence of such a monic polynomial and deal with the uniqueness of such at the end. Both proofs are completely independent.
+  Before beginning our inductive proof, we examine some base cases. We first prove the existence of a monic polynomial that annihilates $T$ and later establish its uniqueness; these two parts are independent.
 
-  If $\dim V=0$, then identity operator $I$ is the zero-operator on $V$ and we let $p=1$ such that
+  %Before we can start our proof with induction, let us look at some base cases. This proof will first look at the existence of such a monic polynomial and deal with the uniqueness of such at the end. Both proofs are completely independent.
+
+  \prooffont{Base case:} If $\dim V=0$, then the identity operator $I$ is the zero-operator on $V$, and we let $p=1$ such that
   \begin{equation}
       1I\vec0=0.
   \end{equation}
 
-  If $\dim V=1$, the list $v, Tv$ is linearly dependent for $v \in V, v\neq 0$ because it has length $2$ and we have $c_0v + Tv = 0$ for some $c_0 \in \myF$. If we choose $q(z) :\equiv c_0+z$ then
+  \prooffont{Another base case:} Now suppose that $\dim V=1$. For any nonzero $v \in V$, the list $v, Tv$ is linearly dependent (since it has length $2$), so there exists a scalar $c_0 \in \myF$ such that
+  \begin{equation}
+    c_0v + Tv = 0
+  \end{equation}
+
+  This follows from the linear dependence lemma \ref{thm: linear dependence lemma}. If we choose $q(z) := c_0+z \quad \forall z \in \compl$, then
   \begin{equation}
     q(T)v=(c_0 I+T)(v)=c_0v+Tv=0.
   \end{equation}
-  So we have $\dim \mynull q(T) = 1$ and therefore $\dim \myrange q(T) = \dim V - \dim \myrange q(T) = 0$. So every vector on our one dimensional line is a multiple of $v$ and maps to zero if $q(T)$ is applied. So we have found our polynomial minimal $q(T)$.
 
-  If $\dim V=2$, the list $v, Tv, T^2v$ is linearly dependent for $v\in V, v\neq0$ because it has length $3$. According to the linear dependence lemma \ref{thm: linear dependence lemma}, we either have
- \begin{equation}
+  In the case where $T$ is the zero operator, one may instead choose $q(z) = z$. So we have $\dim \mynull q(T) = 1$ and therefore $\dim \myrange q(T) = \dim V - \dim \myrange q(T) = 1-1= 0$. Thus, every vector in this one-dimensional space is a scalar multiple of $v$ and maps to zero by $q(T)$. Thus, $q(z)$ serves as a minimal polynomial for $T$.
+
+  \prooffont{Yet another base case:} Suppose $\dim V=2$. For any nonzero $v \in V$, the list $v, Tv, T^2v$ is linearly dependent (since it has length $3$). According to the linear dependence lemma \ref{thm: linear dependence lemma}, we either have
+  \begin{equation}
      c_0v + Tv = 0 \mytext{or}
-     c_0v + c_1Tv + T^2v = 0 \mytext{for some specific} c_0, c_1 \in  \myF.
- \end{equation}
+     c_0v + c_1Tv + T^2v = 0,
+  \end{equation}
 
-  If we define $q(z) :\equiv c_0+z$ or $q(z) :\equiv c_0+c_1z+z^2$
-%  $q(z) :\equiv c_0+\cdots c_mz^m$
-%  accordingly for $m\in \{1,2\}$
-  accordingly, then $q(T)v=0$ as before. Note that if $k \in \nat$, then
+  For some scalars $c_0, c_1 \in  \myF$. If we define $q(z) := c_0+z$ in the first case or $q(z) := c_0+c_1z+z^2$ in the second case accordingly, then $q(T)v=0$.
+
+  In the first case where $(-1)c_0v=Tv$ and $q(z)=c_0+z$, the vector $v$ by itself is linearly independent and thus $\dim \mynull q(T) \geq 1$.  Therefore
+  \begin{equation}
+    \dim \myrange q(T) \leq \dim V - \dim \mynull q(T) \leq 1.
+  \end{equation}
+
+  Since $\myrange q(T)$ is at most one-dimensional and is invariant under $T$ (by \ref{thm: null space and range of p(T) are invariant under T}), we can restrict $T$ to this subspace. In this restricted setting $\myrange q(T)$, we know how to construct the desired polynomial; denote it by $s$, defined such that
+  %  For a at most one-dimensional space like $\myrange q(T)$, we already know how to construct such a polynomial. Since $\myrange q(T)$ is invariant under $T$ by \ref{thm: null space and range of p(T) are invariant under T}, we can restrict $T$ to this subspace. So for the operator $\left. T \right |_{\myrange q(T)}$, we know how to construct such a polynomial. Let us call it $s$. Let $s$ be defined such that
+  \begin{equation}
+    \begin{aligned}
+        &s \left(\left. T \right |_{\text{range $q(T)$}} \right)=0.
+    \end{aligned}
+  \end{equation}
+
+  Just for clearity, the equation above means that $s$ is the zero-operator of $\left. T \right |_{\myrange q(T)}$. Therefore,
+  \begin{equation}
+    \forall u \in V: \left((sq)(T)\right)(u) = s(T)(q(T)u)=0
+  \end{equation}
+
+  Thus, $sq$ is a candidate to for our minimal polynomial of $T$.
+
+  A similar reasoning goes for the case where $(-1)c_0v+(-1)c_1Tv=T^2v$ and $q(z) = c_0+c_1z+z^2.$
+  Here we have $v$ and $Tv$ as linearly independent vectors. Note that if $k \in \nat$, then
   \begin{equation}
     \label{eq: nice equation for q(t)}
     q(T)(T^kv)=T^k(q(T)v) =T^k (0) =0,
   \end{equation}
 
-  which will be used later.
-
-  In the first case where $(-1)c_0v=Tv$ and $q(z)=c_0+z$, the vector $v$ by itself is linearly independent and thus $\dim \mynull q(T) \geq 1$ and therefore
-  \begin{equation}
-    \dim \myrange q(T) \leq \dim V - \dim \mynull q(T) \leq 1.
-  \end{equation}
-
-  For a at most one\-/dimensioanl space like $\myrange q(T)$, we already now how to construct such a polynomial. Since $\myrange q(T)$ is invariant under $T$ by \ref{thm: null space and range of p(T) are invariant under T}, we can restrict $T$ to this subspace. So for the operator $\left. T \right |_{\myrange q(T)}$, we know how to construct such a polynomial. Let us call it $s$. Let $s$ be defined such that
-  \begin{equation}
-    \begin{aligned}
-        &s (\left. T \right |_{\text{range $q(T)$}})=0, \mytext{which means that $s$ is the zero-operator of $\left. T \right |_{\myrange q(T)}.$}\\
-        &\implies \forall u \in V: \left((sq)(T)\right)(u) = s(T)(q(T)u)=0.
-    \end{aligned}
-  \end{equation}
-  Thus, $sq$ is a candidate to for our minimal polynomial of $T$.
-
-  A similar reasoning goes for the case where $(-1)c_0v+(-1)c_1Tv=T^2v$ and $q(z) = c_0+c_1z+z^2.$
-  Here we have $v$ and $Tv$ as linearly independent vectors. Equation \eqref{eq: nice equation for q(t)} tells us, that $v\in \mynull q(T)$ and $Tv \in \mynull q(T)$. Here we conclude that $\dim \mynull q(T) \geq 2$ and therefore $\dim \myrange q(T) = 0$.
-%  Here we would multiply the identity operator $I$ with our polynomial $q(T)$ to get our wanted minimal polynomial. Another way to look at it: ^
-  Since $\dim \mynull q(T) = 2$ we have that
+  Hence the equation \eqref{eq: nice equation for q(t)} above tells us that $v\in \mynull q(T)$ and $Tv \in \mynull q(T)$. Here in this case we conclude that $\dim \mynull q(T) \geq 2$ and therefore $\dim \myrange q(T) = 0$.   Since $\dim \mynull q(T) = 2$, we have that
   \begin{equation}
     \mynull q(T) = V.
   \end{equation}
-  This means, every vector of $V$ gets maped to $0$ if $q(T)$ is applied. So we have found a minimal monic polynomial!
 
-  As we can now see a pattern, we can use induction on $\dim V$ and we assume $\dim V > 0$ and that the theorem holds for all vector spaces of smaller dimension than $\dim V$.
+  This means that every vector of $V$ gets mapped to $0$ if $q(T)$ is applied. So we have found a minimal monic polynomial!
 
-  Let $v\in V, v \neq 0$. The list \begin{equation}
+  \prooffont{General case:} As we can see a pattern now, we can use induction on $\dim V$ and assume $\dim V > 2$ and that the theorem holds for all vector spaces of smaller dimension than $\dim V$.
+
+  Let $v\in V$ be nonzero. Then the list
+  \begin{equation}
+    \label{eq: v Tv T^dimV}
     v, Tv, \dots, T^{\dim V}
   \end{equation}
-  has length $1+\dim V.$
-  $\implies$ the list is linearly dependent.
 
-  By the linear dependence lemma (\ref{thm: linear dependence lemma}), there is a smallest positive integer $m\leq \dim V$ such that
+  (which has length $1+\dim V$) is linearly dependent.
+  By the linear dependence lemma (\ref{thm: linear dependence lemma}), there is a smallest positive integer $m\leq \dim V$,  and some $c_0, \ldots, c_{m-1} \in \myF$ such that
   \begin{equation}
     \begin{aligned}
-      &c_0 v + c_1 Tv + \cdots + c_{m-1} T^{m-1} v + (1)\cdot T^m v = 0
-      \mytext {for some} c_0, c_1, \ldots, c_{m-1} \in \myF. \mytext{ Let us define}\\
-      &q(z) :\equiv c_0 + c_1z + \cdots + c_{m-1} z^{m-1} +z^{m} \in \mathcal{P}_m (\myF) \mytext{ accordingly.}
+      &c_0 v + c_1 Tv + \cdots + c_{m-1} T^{m-1} v + T^m v = 0
     \end{aligned}
   \end{equation}
 
-  Thus we have
+  Let us define
   \begin{equation}
-    q(T) v=0. $ Note that $q(z)$ is a monic polynomial.$
+    q(z) := c_0 + c_1z + \cdots + c_{m-1} z^{m-1} +z^{m} \in \mathcal{P}_m (\myF)
   \end{equation}
 
-  If $k \in \nat$, then
+  accordingly. Thus, we have
+  \begin{equation}
+    q(T) v=0.
+  \end{equation}
+
+  Note that $q(z)$ is a monic polynomial and that $\deg q = m$. Observe that if $k \in \nat$, then
   \begin{equation}
     \label{eq: nice equation for q(T) again}
     q(T)(T^kv)=T^k(q(T)v) =T^k (0) =0.
   \end{equation}
-  By the linear dependence lemma (\ref{thm: linear dependence lemma}) \begin{equation}
-     v, Tv, \dots, T^{m-1}v
+
+  By the linear dependence lemma (\ref{thm: linear dependence lemma}) and the definition of $m$, the list
+  \begin{equation}
+    \label{eq: v, Tv, T^m-1v}
+    v, Tv, \dots, T^{m-1}v
   \end{equation}
-  from before are linearly independent. This fact together with equation \eqref{eq: nice equation for q(T) again}
+
+  from before is linearly independent (This is not the same list as \eqref{eq: v Tv T^dimV}). This fact together with equation \eqref{eq: nice equation for q(T) again} imply that the vectors of the list \eqref{eq: v, Tv, T^m-1v} all belong to $\mynull q(T)$. Hence,
   \begin{equation}
     \begin{aligned}
-      \implies &\dim \mynull q(T)   \geq m \\
-      \implies &\dim \myrange q(T)  = \dim V - \dim \mynull q(T)
-      \leq \dim V - m
+      &\dim \mynull q(T)   \geq m \\
     \end{aligned}
   \end{equation}
 
-  Because $\myrange q(T)$ is invariant under $T$ by  \ref{thm: null space and range of p(T) are invariant under T}, we can apply our induction hypothesis to the operator $\left.T\right|_{\myrange q(T)}$.
-
-  So there exists monic $s \in \mathcal{P} (\myF):$
+  Using the Rank-Nullity Theorem, this implies:
   \begin{equation}
-  \begin{aligned}
-    &\deg s \leq \dim V - m \myand s(\left.T\right|_{\myrange q(T)})=0 \\
-    &\implies \forall u \in V: \left((sq)(T)\right)(u) = s(T) (q(T)u) = 0,
-  \end{aligned}
+    \dim \myrange q(T)  = \dim V - \dim \mynull q(T) \leq \dim V - m
   \end{equation}
 
-  because $q(T)u \in \myrange q(T)$ and \begin{equation}
+  Because $\myrange q(T)$ is invariant under $T$ by  \ref{thm: null space and range of p(T) are invariant under T}, we can apply our induction hypothesis to the operator $\left.T\right|_{\myrange q(T)}$.
+  Hence, there exists monic $s \in \mathcal{P} (\myF)$ such that $\deg s \leq \dim V - m$ and
+  \begin{equation}
+    s\left(\left.T\right|_{\myrange q(T)}\right)=0
+  \end{equation}
+
+  In other words, $\forall u \in \myrange q(T): s(T)(u) = 0$. So we can safely say that
+  \begin{equation}
     \left.s(T)\right|_{\myrange q(T)}=s\left( \left.T\right|_{\myrange q(T)} \right ).
   \end{equation}
-  Therefore, $sq$ is a monic polynomial such that $\deg sq \leq \dim V$ and $(sq)(T)=0$.
+
+  Because $\forall u \in V: q(T)u \in \myrange q(T)$, we conclude:
+  \begin{equation}
+     \forall u \in V: \left((sq)(T)\right)(u) = s(T) (q(T)u) = 0
+  \end{equation}
+
+
+  Therefore, $sq$ is a monic polynomial such that
+  \begin{equation}
+    \deg sq \leq (\dim V -m ) + m = \dim V
+  \end{equation}
+
+  and $(sq)(T)=0$.
 
   \prooffont{Proof of uniqueness:} Let $p\in \mathcal{P} (\myF)$ a monic polynomial of smallest degree such that
   \begin{equation}
     p(T)=0.
-  \end{equation} Let $r\in \mathcal{P} ( \myF)$ another monic polynomial of same degree such that $r(T)=0.$
+  \end{equation} Let $r\in \mathcal{P} ( \myF)$ be another monic polynomial of the same degree such that $r(T)=0$. This implies
   \begin{equation}
-    \implies (p-r) (T) = 0
+    (p-r) (T) = 0.
   \end{equation}
 
-  and also $\deg (p-r) < \deg p = \deg r$ If $p-r \neq 0$, we could devide $p-r$ by the coefficient of the highest order term in $p-r$ to get a monic polynomial that when applied to $T$ gives the $0$-operator. This polynomial would have a smaller degree than $p$ or $r$, which would be a contradiction. Therefore $p-r=0 \iff p = r$.
+  Moreover, $\deg (p-r) < \deg p = \deg r$. If $p-r \neq 0$, we could divide $p-r$ by the coefficient of the highest order term in $p-r$ to obtain a monic polynomial that, when applied to $T$, yields the zero-operator. This polynomial would have a smaller degree than $p$ or $r$, which would be a contradiction. Therefore, $p-r=0 \iff p = r$.
 \end{prf}
 
 \setcounter{thm}{23}
 
 \begin{mydef} [minimal polynomial]
-  Let $T\in \linmap (v)$. The \qt{minimal polynomial of $T$} is the unique monic polynomial $p\in \mathcal{P}(\myF)$ of smallest degree \st $p(T)=0$
+  Let $T\in \linmap (v)$. The \qt{minimal polynomial of $T$} is the unique monic polynomial $p\in \mathcal{P}(\myF)$ of smallest degree \st $p(T)=0$.
 \end{mydef}
 \bfemph{Computation:} Find the smallest $m \in \nat$ such that: \\
 $c_0I + c_1 T + \cdots + c_{m-1} T^{m-1} = -T^{m}$ has a solution $c_0, \dots, c_{m-1} \in \myF$. Solve for $m=1,2,\dots,\dim V$
@@ -202,7 +235,7 @@ are the coefficients of the minimal polynomial of $T$.
 \end{thm}
 \begin{prf} Let $p$ be the minimal polynomial of $T$.
   \begin{enumerate}[label=\textbf{(\alph*)}]
-    \item \Rightarrowdirection Suppose $\lambda \in \myF$ is a zero of $p$. $\implies p(z)=(z-\lambda)q(z)$, whre $q$ is a monic polynomial with coefficients in $\myF$ (see \ref{factororing-out-zeros-of-a-polynomial-always-possible})
+    \item \Rightarrowdirection Suppose $\lambda \in \myF$ is a zero of $p$. $\implies p(z)=(z-\lambda)q(z)$, where $q$ is a monic polynomial with coefficients in $\myF$ (see \ref{factororing-out-zeros-of-a-polynomial-always-possible})
     \begin{equation}
       p(T)=0\implies 0=(T-\lambda I)(q(T)v) \quad \forall v\in V.
     \end{equation}
@@ -213,7 +246,7 @@ are the coefficients of the minimal polynomial of $T$.
 
     which makes $q(T)u$ an eigenvector with eigenvalue $\lambda$.
 
-    \Leftarrowdirection Conversly, suppose $\lambda \in \myF$ is an eigenvalue of $T$. Thus there exists $v\in V, v \neq 0$ such that $Tv=\lambda v$. Repeated applications of $T$ on both sides of this equation show that $T^kv =\lambda^k v \quad \forall k\in \nat$.
+    \Leftarrowdirection Conversely, suppose $\lambda \in \myF$ is an eigenvalue of $T$. Thus there exists $v\in V, v \neq 0$ such that $Tv=\lambda v$. Repeated applications of $T$ on both sides of this equation show that $T^kv =\lambda^k v \quad \forall k\in \nat$.
     $\implies p(T)v=p(\lambda)v$. Because $p$ is the minimal polynomial of $T$, we have $p(T)v=0$. $\implies p(\lambda) = 0$. $\implies$ $\lambda$ is a zero of $p$.
 
     \item use (a) and the second version of the fundamental theorem of algebra. (\ref{fundamental-theorem-of-algebra-second-version})
@@ -284,14 +317,82 @@ are the coefficients of the minimal polynomial of $T$.
 \end{prf}
 
 \subsection{Eigenvalues on Odd-Dimensional Real Vector Spaces}
+
 \begin{thm}[even-dimensional null space]
-  Suppose $\myF = \real$ and $V$ is \fd.
-  Suppose also that $T \in \linmap (V)$ and $b,c \in \real$ with $b^2 < 4c$.
-  \begin{equation}
-    \implies \dim \mynull (T^2 +bT +cI) \mytext{is an even number}
-  \end{equation}
+  \label{thm: even-dimensional null space}
+  Suppose $\myF = \real$ and $V$ is finite-dimensional. Suppose also that $T \in \linmap (V)$ and $b,c \in \real$ with $b^2 < 4c$. Then $\dim \mynull (T^2 +bT +cI)$ is an even number.
 \end{thm}
+\begin{prf}
+  Recall that $\mynull (T^2 +bT +cI)$ is invariant under $T$, by \ref{thm: null space and range of p(T) are invariant under T}. Let
+  \begin{align}
+    N &:= \mynull (T^2 +bT +cI) \myand \\
+    S &:= T|_N.
+  \end{align}
+
+  With these definitions above, we can assume that
+  \begin{equation}
+    \label{eq: equation for S}
+    S^2 + bS + cI = 0,
+  \end{equation}
+
+  where $0$ means the zero operator. We now need to prove that $\dim N$ is even. Suppose $\lambda \in \real$ and $v \in N$ are such that $Sv = \lambda v$. Then
+  \begin{equation}
+    0 = (S^2 + bS + cI)v = (\lambda ^2 + b \lambda + c)v = \underbrace{\left( \left( \lambda + \tfrac{b}{2}\right)^2 + c - \tfrac{b^2}{4} \right)}_{\geq \; 0, \mytext{since} b^2 \leq 4c} v
+  \end{equation}
+
+  The term in the large parentheses above is a positive number. Thus, the equation above implies that $v = 0$. Hence, we have shown that $S$ has no eigenvalues.
+
+  Let $U$ be a subspace of $N$ with even dimension, that is invariant under $S$ and has the largest dimension among all subspaces of $N$. Note that $U$ could be $\{0\}$. If $U = N$, then we are done.
+
+  Assume that $U \neq N$. By maximality, $U$ is not properly contained in any larger even-dimensional $S$-invariant subspace of $N$. Hence, there exists $w \in N$ such that $w \notin U$. Now, let
+  \begin{equation}
+    W := \myspan {w, Sw}.
+  \end{equation}
+
+  Clearly, $W \subseteq N$, and since $w \notin U, W \subsetneq U$. We can rewrite \eqref{eq: equation for S} as $ S(Sw) = -bSw - cw $. Using this, we calculate for $x \in W$, written as $x = a_1 w + a_2 Sw$ for some scalars $a_1, a_2$:
+  \begin{align}
+    S(x) &= a_1 S w + a_2 S^2 w = a_1 S w - a_2 (b Sw + cw) \\
+         &= (a_1 - a_2 b) Sw -  a_2 c  w \\
+         & \in W
+  \end{align}
+
+  Thus, we see that $W$ is invariant under $S$ (remember, $S = T|_N$). Furthermore, $\dim W = 2$, because otherwise $w$ would be an eigenvalue of $S$, since $w$ and $Sw$ would be linearly dependent. This means that there would exist nonzero scalars $a_1$ and $a_2$, such that we have a nontrivial relation $a_1w + a_2 Sw = 0$. In this case, $-\sfrac{a_1}{a_2}$ would be an eigenvalue of $S$ with eigenvector $w$, which is impossible. Now, using \ref{thm: dimension of a sum of subspaces}:
+  \begin{equation}
+    \dim (U + W) = \dim U + \underbrace{\dim W}_{= \; 2} - \underbrace{\dim (U \cap W)}_{= \; 0} = \dim U + 2,
+  \end{equation}
+
+  where $U \cap W = \{0\}$, because otherwise, $U \cap W$ would be a one-dimensional $S$-invariant subspace providing an eigenvector for $S$, which is impossible. And the dimension of $U \cap W$ can not be $2$ either, because then we would have $U \cap W = W$, using \ref{thm: subspace of full dimension equals the whole space}. But then $W \subseteq U$, contradicting the fact that $w \notin U$. Since $U$ was assumed to be maximal among even-dimensional $S$-invariant subspaces, the existence of $U+W$, with $\dim (U+W)=\dim U+2$, contradicts the maximality of $U$.
+  Thus, the assumption that $U \neq N$ was incorrect. Therefore, we conclude that $U = N$. Hence, $N= \mynull (S^2 +bS +cI)=\mynull (T|_N^2 +bT|_N +cI)=\mynull (T^2 +bT +cI)$ has even dimension $\dim N$.
+\end{prf}
+  %Since $U+W$ is invariant under $S$ because both $U$ and $W$ are invariant under $S$, the equation above shows that there exists a subspace of $N$ invariant under $S$ of even dimension larger than $\dim U$.
 
 \begin{thm}[operators on odd-dimensional vectors spaces have eigenvalues]
   Every operator on an odd\-/dimensional vector space has an eigenvalue.
 \end{thm}
+\begin{prf}
+  Suppose $\myF = \real$ and $V$ is finite-dimensional. Let $n := \dim V$, and suppose $n$ is an odd number. Let $T \in \linmap(V)$. We will use induction on $n$ in steps of size two to show that $T$ has an eigenvalue. Note that the desired result holds if $\dim V = 1$, because then every nonzero vector in $V$ is an eigenvector of $T$.
+
+  Now, suppose $n \geq 3$ and the desired result holds for all operators on all odd-dimensional vector spaces of dimension less $n$, i.e. with dimension $\leq n-2$. Let $p$ denote the minimal polynomial of $T$. If $p$ is a polynomial multiple of $x-\lambda$ for some $\lambda \in \real$, then $\lambda$ is and eigenvalue of $T$ by theorem \ref{thm: eigenvalues are the zeros of the minimal polynomial} and we are done. Thus, we can assume that there exists $b, c \in \real$ such that $b^2 < 4c$ and $p$ is a polynomial multiple of $x^2 + bx + c$ by \ref{thm: factorization of a polynomial over R}. By looking at this thoerem, we can see that there exists a monic polynomial $q \in \polyn(\real)$ such that $p(x) = q(x)(x^2 + bx + c) \quad \forall x \in \real$. Now,
+  \begin{equation}
+    0 = p(T) = (q(T)) (T^2 + bT + cI),
+  \end{equation}
+
+  which means that $q(T)$ equals $0$ on $\myrange(T^2 + bT + cI)$. Or with other words,
+  \begin{equation}
+    q(T)|_{\myrange(T^2 + bT + cI)} = 0.
+  \end{equation}
+
+  Because $\deg q < \deg p$ and $p$ is the minimal polynomial of $T$, this implies that
+  \begin{equation}
+    \label{eq: subspace unequal to V}
+    \myrange (T^2 + bT + cI) \neq V.
+  \end{equation}
+
+  The rank-nullity theorem \ref{rank-nullity-theorem} tells us that
+  \begin{equation}
+    \label{eq: equation for dim V}
+    \dim V = \dim \mynull (T^2 + bT + cI) + \dim \myrange(T^2 + bT + cI)
+  \end{equation}
+
+  The previous theorem \ref{thm: even-dimensional null space} tells us that $\dim \mynull (T^2 + bT + cI)$ is even. Since $\dim V$ is odd, the equation \eqref{eq: equation for dim V} above and equation \eqref{eq: subspace unequal to V} shows that $\dim \myrange(T^2 + bT + cI)$ is odd as well and at least $2$ less than $\dim V$. We know that $\myrange(T^2 + bT + cI)$ is invariant under $T$ by \ref{thm: null space and range of p(T) are invariant under T}. Our induction hypothesis now implies that $T$ restricted to $\myrange(T^2 + bT + cI)$, which is a subset of $V$, has an eigenvalue; this also means that $T$ has an eigenvalue.
+\end{prf}

@@ -58,7 +58,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \titlespacing{\chapter}{0pt}{0em}{0.4em}
-\titlespacing{\section}{0pt}{1.3em}{0.4em} %15pt, 3pt
+\titlespacing{\section}{0pt}{1em}{0.4em} %15pt, 3pt
 \titlespacing{\subsection}{0pt}{1em}{0.4em} %15pt, 3pt
 
 
@@ -121,7 +121,7 @@
 \renewenvironment{xsol}{{\textbf{\scshape \slshape Solution:}}}{ }
 
 % custom command to have the same slanted font as "Proof:"
-\newcommand{\prooffont}[1]{\textbf{\scshape \slshape #1}}
+%\newcommand{\prooffont}[1]{\textbf{\scshape \slshape #1}}
 
 % put the new mdframed style around the 'proof' and 'xmpl0 environment:
 %\surroundwithmdframed[style=proof]{xmpl}
@@ -133,9 +133,9 @@
 {}                            % Body font
 {0em}                         % Indent amount
 {}                            % Theorem head font {\ttfamily\fontseries{b}\selectfont}
-{\textbf{:\,}}       % Punctuation after theorem head
+{\textbf{:\,}\\}       % Punctuation after theorem head
 {.2em}                        % Space after theorem head
-{{\textbf{\scshape{\thmname{#1}\thmnumber{ #2}}}{\normalfont \thmnote{ ({\itshape#3})}}}}
+{\underline{\textbf{\scshape{\thmname{#1}\thmnumber{ #2}}}{\normalfont \thmnote{ ({\itshape#3})}}}}
 
 % If we ever want to use the same font as in theorem head:
 \newcommand{\theoremfont}[1]{\textbf{\scshape{#1}}}
@@ -186,11 +186,14 @@
   % Manually step the counter.
   \refstepcounter{xrcscount}%
   % Begin a list that prints the label using our macro \thexrcs.
-  \begin{list}{\textbf{\thesection.\thexrcscount}}{%
+  % \begin{list}{\textbf{\thesection.\thexrcscount}}{%
+  \begin{list}{\prooffont{\thexrcscount} \;}{%
       % Adjust these lengths to control the indentation:
       \setlength{\leftmargin}{3em}% distance from left edge to the body of the item
+      %\setlength{\leftmargin}{\mathindent}% distance from left edge to the body of the item
       %\setlength{\itemindent}{0em}% ensures wrapped lines line up with the first line
       \setlength{\labelwidth}{3.5em}% space reserved for the label (adjust as needed)
+      %\setlength{\labelwidth}{.3\mathindent}% space reserved for the label (adjust as needed)
       \setlength{\labelsep}{0.6em}% space between the label and the text
       \setlength{\listparindent}{0em}% paragraph indent within the list
       %\setlength{\parsep}{0pt}% vertical space between paragraphs in the item
@@ -379,8 +382,23 @@ drop lifted shadow,
 \renewcommand*{\thesection}{\arabic{chapter}\Alph{section}}
 \renewcommand*{\thesubsection}{\arabic{chapter}\Alph{section}\arabic{subsection}}
 
+%\renewcommand{\thechapter}{\arabic{chapter}}
+%\renewcommand{\thesection}{\thechapter\Alph{section}}
+%\renewcommand{\thesubsection}{\thesection\arabic{subsection}} % e.g. 2A, 2B, etc.
+%\renewcommand{\thesubsubsection}{\thesubsection\Alph{subsubsection}} % e.g. 2B1, 2B2
+
 \titleformat{\chapter}[block]
-{\bfseries\scshape}{\underline{\relscale{1.2}#1 {\footnotesize (Chapter \thechapter)}}}{0.5em}{\large}
-\titleformat{\section}{\bfseries\scshape}{}{0em}{\underline{{\relscale{1.1}#1} {\footnotesize(Section  \thesection)}}} %Large
-\titleformat{\subsection}{\relscale{1.1}\bfseries\scshape}{}{0em}{#1 {\footnotesize (Sub-Section \thesubsection)}} %large
+{\bfseries\scshape}{\underline{\relscale{1.2}#1 {\footnotesize (Chapter \thechapter)}}}{0em}{\large}
+
+\titleformat{\section}{\relscale{1.1}\bfseries\scshape}{}{0em}{\underline{#1 {\footnotesize(Section  \thesection)}}}[]
+
+\titleformat{name=\section,numberless}
+[runin] % shape
+{\relscale{1.1}\bfseries\scshape} % format
+{} % label
+{0em} % sep
+{} % before-code
+[\underline{#1 \thesection}] % after-code
+
+\titleformat{\subsection}{\relscale{1.1}\bfseries\scshape}{}{0em}{\underline{#1 {\footnotesize (Sub-Section \thesubsection)}}} %large
 % END custom chapter format ********************************

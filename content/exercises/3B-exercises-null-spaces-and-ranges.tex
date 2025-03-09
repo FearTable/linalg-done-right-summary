@@ -1,4 +1,4 @@
-\subsection*{Exercises about Null Spaces and Ranges 3B}
+\section*{Exercises about Null Spaces and Ranges 3B}
 \hrule
 \phantom{.}
 
@@ -305,7 +305,7 @@
     Since $\dim V \geq \dim W$, we can select $T$ such that $\myrange(T) = W$, ensuring surjectivity.
 
     \prooffont{Explicit Construction of $T$:} \\
-    Suppose $\dim V \geq \dim W$. Let $v_1, \dots, v_n$ be a basis of $V$ (where $n = \dim V$) and let $w_1, \dots, w_m$ be a basis of $W$ (where $m = \dim W$).  Define $T$ on $V$ by setting $T(v_i) = w_i$ for $1 \leq i \leq m$, and $T(v_i) = 0$ for $m+1 \leq i \leq n$. Note that we have $\dim V \geq \dim W$ which is the same as $n \geq m$. So if $n = m$, then we do not set any $T(v_i)$ to be $0$ and $\mynull T = \{0\}$. If $T$ is constructed like this, $T$ is surjective, as $\myrange(T) = W$. To show that, let $w \in W$ such that
+    Suppose $\dim V \geq \dim W$. Let $v_1, \dots, v_n$ be a basis of $V$ (where $n = \dim V$) and let $w_1, \dots, w_m$ be a basis of $W$ (where $m = \dim W$).  Define $T$ on $V$ by setting $T(v_i) = w_i$ for $1 \leq i \leq m$, and $T(v_i) = 0$ for $m+1 \leq i \leq n$. Note that we have $\dim V \geq \dim W$, which is the same as $n \geq m$. So if $n = m$, then we do not set any $T(v_i)$ to be $0$ and $\mynull T = \{0\}$. If $T$ is constructed like this, $T$ is surjective, as $\myrange(T) = W$. To show that, let $w \in W$ such that
     $
     w = a_1 w_1 + \cdots + a_m w_m.
     $
@@ -421,14 +421,14 @@
   Suppose $W$ is finite-dimensional and $T \in \linmap (V,W)$. Prove that $T$ is surjective $\iff$ $\exists S \in \linmap (W,V)$ such that $TS$ is the identity operator on $W$.
 
   \begin{xprf}
-    \Rightarrowdirection Let $T \in \linmap (V,W)$ such that $T$ is surjective. Hence $\myrange T = W$. Let $w_1, \ddd, w_m$ be a basis of $W$ and hence of $\myrange T$ as well. Since $T$ is sujrective, we have $\forall j \in \{1, \ddd, m\}$:
+    \Rightarrowdirection Let $T \in \linmap (V,W)$ such that $T$ is surjective. Hence, $\myrange T = W$. Let $w_1, \ddd, w_m$ be a basis of $W$ and, hence, of $\myrange T$ as well. Since $T$ is sujrective, we have $\forall j \in \{1, \ddd, m\}$:
     \begin{equation}
       \exists v_j \in V \text{ such that } w_j = T(v_j).
     \end{equation}
 
     Based on this list $v_1, \ddd, v_j$ which has no other special properties, we can define $S \in \linmap (W,V)$ for each $w \in W$ as follows:
     \begin{equation}
-      S(w) = S(a_1 w_1 + \cdots a_m w_m) :\equiv a_1 v_1 + \cdots + a_n v_n.
+      S(w) = S(a_1 w_1 + \cdots a_m w_m) := a_1 v_1 + \cdots + a_n v_n.
     \end{equation}
 
     Now we have $\forall w \in W$:

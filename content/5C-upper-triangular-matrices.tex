@@ -3,15 +3,15 @@
 \setcounter{thm}{38}
 \begin{thm} [conditions for upper-triangular matrix]
   \label{conditions for upper-triangular matrix}
-  If $T \in \linmap (V)$ and $v_1, \dots, v_n$ is a basis of $V$. Then the following are equivalent.
+  If $T \in \linmap (V)$ and $v_1, \dots, v_n$ is a basis of $V$, then the following are equivalent.
   \begin{enumerate}[label=\textbf{(\alph*)}]
-    \item The matrix of $T$ with respect to $v_1, \dots, v_n$ is upper triangular.
-    \item $\myspan{v_1, \dots, v_k}$ is invariant under $T$ $\quad \forall k \in \{ 1, \dots, n\}$
-    \item $T v_k \in \myspan{v_1, \dots, v_k} \quad \forall k \in \{1, \dots, n\}$
+    \item The matrix $\mmatrix(T)$ of $T$ with respect to $v_1, \dots, v_n$ is upper triangular.
+    \item $\myspan{v_1, \dots, v_k}$ is invariant under $T$. $\quad \forall k \in \{ 1, \dots, n\}$
+    \item $T v_k \in \myspan{v_1, \dots, v_k}. \quad \forall k \in \{1, \dots, n\}$
   \end{enumerate}
 \end{thm}
-\begin{proof}
-  First suppose (a) holds. So like in \ref{def: matrix of a linear map}, the matrix $\mmatrix(T)$ looks like this
+\begin{prf}
+  First, suppose (a) holds. So like in \ref{def: matrix of a linear map}, the matrix of $T$ looks like this:
 
   \begin{minipage}{\linewidth}
   \begin{equation}
@@ -21,63 +21,58 @@
     \begin{block}{c(ccccc)}
       v_1    & A_{1,1} & \cdots & A_{1,j}  & \cdots & A_{1,n} \\
       \vdots &         & \ddots & \vdots   &   *    & \vdots  \\
-      \vdots &         &        & A_{j,j}  &   *    & \vdots  \\
+      v_j &         &        & A_{j,j}  &   *    & \vdots  \\
       \vdots &         &        &          & \ddots & \vdots  \\
       v_n    &         &        &          &        & A_{n,n} \\
     \end{block}
-  \end{blockarray}
+  \end{blockarray}.
   \end{equation}
   \end{minipage}
 
-
-  Using a modified version of the equation in \ref{def: matrix of a linear map}, we have for $j\in \{1, \ldots n \}$
+  \StepOne Using a modified version of the equation in \ref{def: matrix of a linear map}, we have for $j\in \{1, \ddd, n \}$:
   \begin{equation}
-    T v_j = A_{1,j} v_j + \cdots + A_{j,j} v_j = \sum_{l=1}^{j} A_{l,j} v_j
+    T v_j = A_{1,j} v_j + \cdots + A_{j,j} v_j = \sum_{l=1}^{j} A_{l,j} v_j.
   \end{equation}
 
-  which implies
+  This implies
   \begin{equation}
-    T v_j \in \myspan{v_1, \ldots, v_j} \quad \forall j\in \{1, \ldots n \}
+    T v_j \in \myspan{v_1, \ddd, v_j} \quad \forall j\in \{1, \ddd, n \}
   \end{equation}
 
-  Now suppose $j, k \in \{1 \ldots n \}$ such that $j \leq  k.$ Because
+  Now suppose $j, k \in \{1, \ddd, n \}$ such that $j \leq  k.$ Because
   \begin{equation}
-    \myspan{v_1, \ldots, v_j} \subseteq \myspan{v_1, \ldots, v_k}
+    \myspan{v_1, \ddd, v_j} \subseteq \myspan{v_1, \ddd, v_k},
   \end{equation}
 
   we see that
   \begin{equation}
-    T v_j \in \myspan{v_1 \ldots v_k} \mytext{for each} j \in \{1, \ddd, k\}.
+    T v_j \in \myspan{v_1, \ddd, v_k} \quad \mytext{(for each} j \in \{1, \ddd, k\}).
   \end{equation}
 
-  Thus $\myspan{v_1 \ldots v_k}$ is invariant under $T$, completing the proof that (a) implies (b)
+  Thus, $\myspan{v_1, \ddd, v_k}$ is invariant under $T$, completing the proof that (a) implies (b)
 
-  Now suppose (b) holds, so $\myspan{v_1, \ldots, v_k}$ is invariant under $T$ for each $k \in \{1 \ldots n\}.$
-
-  In particular
+  \StepTwo Now suppose (b) holds. Hence, we assume $\myspan{v_1, \ddd, v_k}$ is invariant under $T$ for each $k \in \{1, \ddd, n\}$. In particular
   \begin{equation}
     T v_k \in \myspan{v_1, \ldots, v_k} \quad \forall k \in \{1 \ldots n\}.
   \end{equation}
 
   Thus (b) implies (c).
 
-  Now suppose (c) holds, so $T v_k \in \myspan{v_1, \ldots, v_k} \quad \forall k \in \{1 \ldots n\}$, which is the same as
+  \StepThree Now suppose (c) holds. Therefore, $T v_k \in \myspan{v_1, \ldots, v_k}$ for $k = 1, \ddd, n$. This implies that there exists $a_1, \dots, a_k \in \myF$, such that
   \begin{equation}
     \label{eq: equation for T v_k}
-    T v_k = a_1 v_1 + \cdots + a_k v_k \where a_1, \dots, a_k \in \myF
+    T v_k = a_1 v_1 + \cdots + a_k v_k.
   \end{equation}
 
-  Hence all the entries under the diagonal of $\mmatrix (T)$ are $0$, because $v_1, \ldots, v_n$ are linearly independent and we can not choose another representation for $T v_k$ in respect to that list as in \eqref{eq: equation for T v_k}. Thus $\mmatrix(T)$ is an upper-triangular matrix, completing the proof that (c) implies (a).
-
+  Hence, all the entries under the diagonal of $\mmatrix (T)$ are $0$, because the list $v_1, \ldots, v_n$ is linearly independent and we can not choose another representation for $T v_k$ in respect to that list as in \eqref{eq: equation for T v_k}. Thus, $\mmatrix(T)$ is an upper-triangular matrix, completing the proof that (c) implies (a).
   Afterall, we have shown that (a) $\implies$ (b) $\implies$ (c) $\implies$ (a)
-  %TODO: comma?
-\end{proof}
+\end{prf}
 
 \begin{thm}[equation satisfied by operator with upper-triangular matrix]
   \label{thm: equation satisfied by operator with upper triangular matrix}
-  Suppose $T\in \linmap(V)$ and $V$ has a basis with respect to which $T$ has an upper-triangular matrix with diagonal entries $\lambda_1, \dots, \lambda_n$.
+  Suppose $T\in \linmap(V)$ and $V$ has a basis with respect to which $T$ has an upper-triangular matrix $\mmatrix(T)$ with diagonal entries $\lambda_1, \dots, \lambda_n$. Then
   \begin{equation}
-    \implies (T-\lambda_1I) \cdots (T-\lambda_nI)=0
+    (T-\lambda_1I) \cdots (T-\lambda_nI)=0.
   \end{equation}
 
   Note that this theorem does not mention anything about eigenvalues.
@@ -97,7 +92,7 @@
     =
     \begin{pmatrix}
        \lambda_1&  A_{1,2}  &  \cdots &  A_{1,n} \\
-                & \lambda_2 &     *   &  A_{2,n} \\
+                & \lambda_2 &  \cdots &  A_{2,n} \\
                 &           &  \ddots &  \vdots  \\
           0     &           &         & \lambda_n
     \end{pmatrix}
@@ -206,8 +201,8 @@
     \mmatrix(T) =
     \begin{pmatrix}
         \lambda_1 &         &  * \\
-        &  \ddots &    \\
-        0      &         & \lambda_n
+                  &  \ddots &    \\
+           0      &         & \lambda_n
     \end{pmatrix}
   \end{equation}
 
@@ -253,7 +248,7 @@
 
 \end{thm}
 \begin{prf}
-  \qt{$\Rightarrow$-direction:} Suppose $T$ has an upper-triangular matrix with respect to some basis of $V$. Let $\alpha_1, \ddd, \alpha_n$ denote the diagonal entries of that matrix.
+  \Rightarrowdirection Suppose $T \in \linmap(V)$ has an upper-triangular matrix with respect to some basis of $V$. Let $\alpha_1, \ddd, \alpha_n$ denote the diagonal entries of that matrix.
   \begin{equation}
   \mmatrix(T) =
   \left( {\begin{array}{ccc}
@@ -265,15 +260,19 @@
 
   Let $q\in \polyn(\myF)$, \st
   \begin{equation}
-    q(z) :\equiv (z-\alpha_1) \cdots (z-\alpha_n).
+    q(z) := (z-\alpha_1) \cdots (z-\alpha_n).
   \end{equation}
 
-  Then $q(T) = 0$, by \ref{thm: equation satisfied by operator with upper triangular matrix}. $\implies$ $q$ is a polynomial multiple of the minimal polynomial of $T$. $\implies$ The minimal polynomial of $T$ equals $(z-\lambda_1) \cdots (z-\lambda_m)$ for some $\lambda_1, \ddd, \lambda_m \in \myF$ with $\{ \lambda_1 , \ddd, \lambda_m \} \subseteq \{\alpha_1, \ddd, \alpha_n \}.$
+  Then $q(T) = 0$, by \ref{thm: equation satisfied by operator with upper triangular matrix}. $\implies$ $q$ is a polynomial multiple of the minimal polynomial of $T$. \\
+  $\implies$ the minimal polynomial of $T$ equals $(z-\lambda_1) \cdots (z-\lambda_m)$ for some $\lambda_1, \ddd, \lambda_m \in \myF$ with
+  \begin{equation}
+    \{ \lambda_1 , \ddd, \lambda_m \} \subseteq \{\alpha_1, \ddd, \alpha_n \}.
+  \end{equation}
 
-  \qt{$\Leftarrow$-direction:} Let $p \in \polyn(\myF)$ be the minimal polynomial of $T$ \st
+  \Leftarrowdirection Let $p \in \polyn(\myF)$ be the minimal polynomial of $T$ \st
   \begin{equation}
     \label{eq: definition of the minimal polynomial}
-    p(z) :\equiv (z-\lambda_1) \cdots (z-\lambda_m) \mytext{for some} \lambda_1, \ddd, \lambda_m \in \myF.
+    p(z) := (z-\lambda_1) \cdots (z-\lambda_m) \mytext{for some} \lambda_1, \ddd, \lambda_m \in \myF.
   \end{equation}
 
   If $m=1$, then $z-\lambda_1$ is the minimal polynomial of $T$. $\implies$ $T=\lambda_1I$, which implies that the matrix of $T$ is the identity matrix times a scalar.
@@ -282,40 +281,42 @@
   \end{equation}
 
   So $\mmatrix(T)$ is upper triangular. Therefore we are ready to use induction over $m$.
-
-  Now suppose $m > 1$ and the result holds for all smaller integers /  polynomials. Let
+  Now suppose $m > 1$ and the result holds for all smaller integers / polynomials. Let
   \begin{equation}
-    U :\equiv \myrange(T - \lambda_m I)
+    \label{eq: definition of U}
+    U := \myrange(T - \lambda_m I)
   \end{equation}
 
   In this case, $U$ is invariant under $T$, because of \ref{thm: null space and range of p(T) are invariant under T} where $p(z)$ would be $z-\lambda_m$. Thus $\left. T \right |_{U}$ is an operator on $U$.
-  If $u \in U$, then $u=(T - \lambda_m I) v$ for some $v \in V$. For this arbitrary $u$ and corresponding $v$ it holds that
-  \begin{equation}
-    (T-\lambda_1 I) \cdots (T-\lambda_{m-1}I)u=(T-\lambda_1I)\cdots(T-\lambda_{m-1}I)(T-\lambda_mI)v=0, $ because of \eqref{eq: definition of the minimal polynomial}.$
-  \end{equation}
+  If $u \in U$, then $u=(T - \lambda_m I) v$ for some $v \in V$. For this arbitrary $u$ and corresponding $v$, it holds that
+  \begin{align}
+    (T-\lambda_1 I) \cdots (T-\lambda_{m-1}I)u
+    &=(T-\lambda_1I)\cdots(T-\lambda_{m-1}I)(T-\lambda_mI)v \\
+    &=0,
+  \end{align}
 
-  Hence $(T-\lambda_1 I) \cdots (T-\lambda_{m-1}I)$ is a multiple of the minimal polynomial of $\left. T \right |_{U}$, by \ref{thm: every zero polynomial is a multiple of the minimal polynomial}. With other words: It is the product of at most $m-1$ terms of the form $z-\lambda_k \quad \forall k \in \{1, \ddd, m-1 \}$.
-
-  By the induction hypothesis, there is a basis $u_1, \ddd, u_M$ of $U$ with respect to which $\left. T \right |_{U}$ has an upper-triangular matrix. Using \ref{conditions for upper-triangular matrix}
+  because of \eqref{eq: definition of the minimal polynomial}. Hence, $(T-\lambda_1 I) \cdots (T-\lambda_{m-1}I)$ is a polynomial multiple of the minimal polynomial of $\left. T \right |_{U}$, by \ref{thm: every zero polynomial is a multiple of the minimal polynomial}. With other words: It is the product of at most $m-1$ terms of the form $(z-\lambda_k)$ for $k = 1, \ddd, m-1$.
+  By the induction hypothesis, there is a basis $u_1, \ddd, u_M$ of $U$ with respect to which $\left. T \right |_{U}$ has an upper-triangular matrix. Using \ref{conditions for upper-triangular matrix}, we know that
   \begin{equation}
     \label{eq: first eq for T v_k}
-    \implies \forall k \in \{ 1, \ddd, M \}:
+    \forall k \in \{ 1, \ddd, M \}:
     T u_k = ( \left. T \right|_{U})(u_k)
     \in \myspan{u_1, \ddd, u_k}.
   \end{equation}
 
-  Extend $u_1, \ddd, u_m$ to a basis $u_1, \ddd, u_M, v_1, \ddd, v_N$ of $V$. If $k \in \{1, \ddd, N\}$, then
+  Extend $u_1, \ddd, u_M$ to a basis $u_1, \ddd, u_M, v_1, \ddd, v_N$ of $V$. If $k \in \{1, \ddd, N\}$, then
   \begin{equation}
+    \label{eq: equation for T v_k as lin. comb. of range(T-lambda_m I) + lambda_m v_k}
     T v_k = T v_k - \lambda_m v_k + \lambda_m v_k = (T-\lambda_m I)v_k + \lambda_m v_k.
   \end{equation}
 
-  The definition of $U=\myrange(T-\lambda_mI)$ shows that $(T-\lambda_mI) v_k \in U = \myspan{u_1, \ddd, u_m}.$ Thus the equation above shows that
+  The definition \eqref{eq: definition of U} of $U$ shows that $(T-\lambda_mI) v_k \in U = \myspan{u_1, \ddd, u_M}.$ Thus the equation \eqref{eq: equation for T v_k as lin. comb. of range(T-lambda_m I) + lambda_m v_k} above shows that
   \begin{equation}
     \label{eq: second eq for T u_k}
-    \forall k \in \{ 1, \ddd, N \}: T v_k \in \myspan{u_1, \ddd, u_m, v_1, \ddd, v_k}
+    \forall k \in \{ 1, \ddd, N \}: T v_k \in \myspan{u_1, \ddd, u_M, v_1, \ddd, v_k}
   \end{equation}
 
-  Using \ref{conditions for upper-triangular matrix} together with \eqref{eq: first eq for T v_k} and \eqref{eq: second eq for T u_k}, we conclude that $T$ has an upper-triangular matrix with respect to basis $u_1, \ddd, u_M, v_1, \ddd, v_N$ of $V$.
+  Using theorem \ref{conditions for upper-triangular matrix} together with \eqref{eq: first eq for T v_k} and \eqref{eq: second eq for T u_k}, implies that $T \in \linmap(V)$ has an upper-triangular matrix with respect to the basis $u_1, \ddd, u_M, v_1, \ddd, v_N$ of $V$.
 \end{prf}
 
 
@@ -325,5 +326,10 @@
   Let $\myF = \compl$. Let $T\in \linmap (V),$ $\dim V \neq \infty$. Then $T$ has an upper-triangular matrix with respect to some basis of $V$.
 \end{thm}
 \begin{prf}
-  This follows from \ref{thm: necessary and sufficient condition to have an upper-triangular-matrix} and the second version of the fundamental theorem of algebra \ref{fundamental-theorem-of-algebra-second-version} (?).
+  This follows from the previous theorem and \ref{thm: necessary and sufficient condition to have an upper-triangular-matrix} and the second version of the fundamental theorem of algebra \ref{fundamental-theorem-of-algebra-second-version}. Because $\myF = \compl$, the minimal polynomial of $T$ can be expressed as $p \in \polyn(\compl)$, where
+  \begin{equation}
+    p (z) := (z-\lambda_1) \cdots (z-\lambda_m) \quad \forall z \in \compl.
+  \end{equation}
+
+  Hence, $T$ has an upper-triangular matrix $\mmatrix(T)$.
 \end{prf}

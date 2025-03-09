@@ -11,7 +11,7 @@
 
 % 5.2
 \begin{mydef} [invariant subspace]
-  Let $T\in \linmap(V).$ $U \subseteq V$ is called \qt{invariant under $T$} if $\forall u \in U: Tu \in U.$ \\
+  Let $T\in \linmap(V).$ A subspace $U$ of $V$ is called \qt{invariant under $T$} if $\forall u \in U: Tu \in U.$ \\
   Thus $U$ is invariant under $T$ if $\left.T\right|_{U}$ is an operator on $U.$
 \end{mydef}
 
@@ -45,7 +45,7 @@ Conversely if $Tv = \lambda v$, $\lambda \in \myF$, then $\myspan{v}$ is a one-d
 \setcounter{thm}{6}
 \begin{thm} [equivalent conditions to be an eigenvalue]
   \label{thm: equivalent conditions to be an eigenvalue}
-  The following are equivalent for $T \in \linmap(V)$ and $\lambda \in \myF$:
+  The following are equivalent for $T \in \linmap(V)$ and $\lambda \in \myF$.
   \begin{enumerate}[label=\textbf{(\alph*)}]
     \item $\lambda$ is an eigenvalue of $T$. \label{first}
     \item $T-\lambda I$ is not injective. \label{second}
@@ -54,14 +54,8 @@ Conversely if $Tv = \lambda v$, $\lambda \in \myF$, then $\myspan{v}$ is a one-d
   \end{enumerate}
 \end{thm}
 \begin{prf}
-  Conditions \ref{first} and \ref{second} are equivalent because the eigenvector $v$ is a solution to
-  \begin{equation}
-    Tv=\lambda v
-  \end{equation} which is equivalent to
-  \begin{equation}
-    (T-\lambda I)v=0.
-  \end{equation} So there is a non-zero solution to $T-\lambda I$.
-  \ref{second}, \ref{third} and \ref{forth} are equivalent by
+  Conditions \ref{first} and \ref{second} are equivalent because the eigenvector $v$ is a solution to $Tv=\lambda v$, which is equivalent to $(T-\lambda I)v=0$. Hence, $\dim \mynull (T-\lambda I) > 0$, which implies that $T-\lambda I$ is not injective.
+  \ref{second}, \ref{third} and \ref{forth} are therefore equivalent by
   \ref{thm: injectivity is equivalent to surjectivity}.
 \end{prf}
 
@@ -69,7 +63,7 @@ Conversely if $Tv = \lambda v$, $\lambda \in \myF$, then $\myspan{v}$ is a one-d
 \begin{mydef} [eigenvector]
   Let $T\in \linmap(V).$ A vector $v \in V$ is called an \qt{eigenvector} of $T$ corresponding to $\lambda$ if $v\neq 0$ and $Tv = \lambda v$.
   In other words:
-  \\A vector $v\in V, v \neq 0$ is an eigenvector corresponding to $\lambda \iff v \in \operatorname{null}(T-\lambda I_V)$
+  A vector $v\in V, v \neq 0$ is an eigenvector corresponding to $\lambda \iff v \in \operatorname{null}(T-\lambda I_V)$
 \end{mydef}
 
 % 5.12
@@ -106,11 +100,11 @@ Conversely if $Tv = \lambda v$, $\lambda \in \myF$, then $\myspan{v}$ is a one-d
 
 \begin{thm}[number of eigenvectors]
   \label{thm: operator cannot have more eigenvalues than dimension of vector space}
-  Each operator on $V$ has at most $\dim V$ distinct eigenvalues.
+  Each operator $T \in \linmap(V)$ on $V$ has at most $\dim V$ distinct eigenvalues.
 \end{thm}
 \begin{prf}
-  Let $T \in \linmap(V).$ Suppose $\lambda_1, \ldots, \lambda_m$ are distinct eigenvalues of with corresponding eigenvectors $v_1, \ldots, v_m \in V$. Then \ref{thm: linearly independent eigenvectors} implies that the list $v_1, \ldots, v_m$ is linearly independent. Thus \ref{thm: length of linearly dependent list less or equal to length of spanning list}
-  implies $m \leq \dim V$.
+  Let $T \in \linmap(V).$ Suppose $\lambda_1, \ddd, \lambda_m$ are distinct eigenvalues of with corresponding eigenvectors $v_1, \ddd, v_m \in V$. Hence, \ref{thm: linearly independent eigenvectors} implies that the list $v_1, \ddd, v_m$ is linearly independent. Thus, \ref{thm: length of linearly dependent list less or equal to length of spanning list}
+  implies that $m \leq \dim V$.
 \end{prf}
 
 
@@ -126,7 +120,7 @@ Conversely if $Tv = \lambda v$, $\lambda \in \myF$, then $\myspan{v}$ is a one-d
     \item If $T$ is invertible with inverse $T^{-1}$ then $T^{-m}\in \linmap(V)$ is defined by $T^{-m} :\equiv (T^{-1})^m$
   \end{itemize}
 \end{mydef}
-$\implies T^m T^n = T^{m+n}$ and $(T^m)^n=T^{mn}$ for $m,n \in \mathbb{Z}$ if $T$ is invertible. And for $m,n \in \mathbb{N}$ if $T$ is not invertible.
+$T^m T^n = T^{m+n}$ and $(T^m)^n=T^{mn}$ for $m,n \in \mathbb{Z}$ if $T$ is invertible. And for $m,n \in \mathbb{N}$ if $T$ is not invertible.
 
 \begin{mydef} [notation $p(T)$]
   For $\mathcal{P} (\myF) \ni p(z) = a_0+a_1z+a_2z^2+\cdots+a_mz^m$
@@ -167,7 +161,7 @@ $\implies T^m T^n = T^{m+n}$ and $(T^m)^n=T^{mn}$ for $m,n \in \mathbb{Z}$ if $T
   \end{equation}
 \end{thm}
 \begin{prf}
-  \qt{Step 1:} Suppose $u\in \operatorname{null} p(T)$
+  \StepOne Suppose $u\in \operatorname{null} p(T)$
   \begin{equation}
     \implies p(T)u = 0.
   \end{equation}
@@ -183,7 +177,7 @@ $\implies T^m T^n = T^{m+n}$ and $(T^m)^n=T^{mn}$ for $m,n \in \mathbb{Z}$ if $T
   % Hence
   Which implies that $Tu \in \mynull p(T)$.
 
-  \qt{Step 2:} Now suppose $u \in \myrange p(T)$
+  \StepTwo Now suppose $u \in \myrange p(T)$
   \begin{equation}
     \begin{aligned}
       &\implies \exists v\in V: u=p(T)v \\

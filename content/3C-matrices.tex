@@ -50,7 +50,6 @@
 \subsection{Matrix Multiplication}
 
 Let $v_1, \ldots, v_n$ be a basis of $V$, $w_1, \ldots, w_m$ be a basis of $W$ and $u_1, \ldots, u_p$ be a basis of $U$.
-
 Consider the linear maps $T: U \to V$ and $S: V \to W$. The composition $ST$ is a linear map from $U$ to $W$. Is it the case that
 \begin{equation}
   \mmatrix(ST) = \mmatrix(S)  \mmatrix(T) \; {\mathlarger ?}
@@ -59,10 +58,9 @@ Consider the linear maps $T: U \to V$ and $S: V \to W$. The composition $ST$ is 
 %One can choose a definition of matrix multiplication that forces this question to have a positive answer.
 
 Later on, matrix multiplication will be defined accordingly such that this question has a positive answer.
-
-Let $A :\equiv \mmatrix(S)\in \myF^{m,n}$ and $B :\equiv \mmatrix(T)\in \myF^{m,p}$. Here are the matrices of $A$ and $B$.
+For now, let $A := \mmatrix(S)\in \myF^{m,n}$ and $B := \mmatrix(T)\in \myF^{m,p}$. Now have a look at the matrices of $S$ and $T$:
 \begin{equation}
-  A :\equiv \mathcal{M} (S) =
+  A := \mathcal{M} (S) =
   \begin{blockarray}{cccccc}
     & v_1 & \cdots & v_r     & \cdots & v_n \\
     \begin{block}{c(ccccc)}
@@ -74,7 +72,7 @@ Let $A :\equiv \mmatrix(S)\in \myF^{m,n}$ and $B :\equiv \mmatrix(T)\in \myF^{m,
     \end{block}
   \end{blockarray},
   \quad
-  B :\equiv \mathcal{M} (T) =
+  B := \mathcal{M} (T) =
   \begin{blockarray}{cccccc}
     & u_1 & \cdots & u_k     & \cdots & u_p \\
     \begin{block}{c(ccccc)}

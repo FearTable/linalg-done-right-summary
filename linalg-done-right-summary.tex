@@ -9,7 +9,8 @@
 \usepackage[skip = 2pt, parfill]{parskip}
 \usepackage{blkarray}
 \usepackage{blindtext}
-\usepackage{geometry}
+%\usepackage[top=5pt, bottom=10pt, includehead, includefoot, showframe]{geometry}
+\usepackage[top=15mm, bottom=15mm, includefoot, nomarginpar]{geometry} % try 25 mm
 \usepackage[explicit]{titlesec} %"big, medium, small, tiny".
 \usepackage{xfakebold}
 \usepackage{amsthm}
@@ -37,8 +38,40 @@
 
 \usepackage[makeroom]{cancel}
 
+\usepackage{fancyhdr}
+
+\setlength{\footskip}{0.1em}
+
+\newcommand{\prooffont}[1]{\textbf{\scshape \slshape #1}}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+
+% Redefine \sectionmark to update \rightmark with the current section
+\makeatletter
+\renewcommand{\sectionmark}[1]{\markright{\scshape \small #1 \footnotesize(Section \thesection)}}
+\makeatother
+
+%\makeatletter
+%\renewcommand{\sectionmark}[1]{\markright{#1 ~~~(Section \thesection)}}
+%%\renewcommand{\chaptermark}[1]{\markboth{\if@mainmatter \fi#1}{}}
+%\makeatother
+
+
+% Adjust header offsets to span the full paper width
+\setlength{\fancyhfoffset[L]}{0pt}
+\setlength{\fancyhfoffset[R]}{0pt}
+
+% Place the current section in the center of the header
+\fancyhead[C]{\small \vspace*{1em} \hfill \newline \rightmark}
+%\fancyhead[C]{\small \rightmark}
+
+% Place the page number in the right footer
+\fancyfoot[C]{\hrule \vspace*{0.1em} \hfill \newline \prooffont{\thepage}}
+
 %\renewcommand{\bfdefault}{sb}
 %\DeclareMathAlphabet{\mathbf}{\encodingdefault}{\familydefault}{\bfdefault}{n}
+
 
 \setlist{nosep}
 
@@ -56,10 +89,10 @@
   total={170mm,257mm},
   left=20mm,
   right=20mm,
-  top=15mm,
+  %top=15mm,
 }
 
-\linespread{1.2}
+\linespread{1.3}
 
 %\title{[Title]}
 %\author{N.N.}
@@ -74,8 +107,7 @@
 %\end{titlepage}
 %\pagenumbering{arabic}
 
-\input{def}
-
+  \input{def}
 
   \chapter{Vector Spaces}
   \input{content/1A-Rn-and-Cn}
@@ -107,7 +139,7 @@
   \input{content/4-polynomials}
 
   \chapter{Eigenvalues and Eigenvectors}
-  %\input{content/5-eigenvalues-and-eigenvectors}
+  % \input{content/5-eigenvalues-and-eigenvectors}
   \input{content/5A-invariant-subspaces}
   \input{content/exercies/5A-exercises-invariant-subspaces} \clearpage
   \input{content/5B-the-minimal-polynomial}

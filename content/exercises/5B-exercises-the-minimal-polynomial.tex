@@ -1,6 +1,139 @@
-\subsection*{Exercises about the Minimal Polynomial 5B}
-\hrule
-\phantom{.}
+\section*{Exercises about the Minimal Polynomial}
+
+\begin{xrcs}
+  Suppose $T \in \linmap(V)$. Prove that $9$ is an eigenvalue of $T^2$ $\iff$ $3$ or $-3$ is an eigenvalue of $T$.
+  \begin{xprf}
+    \Leftarrowdirection Suppose $-3$ is an eigenvalue of $T$. Thus, there exists $v \in V$ such that $Tv = -3v$. If we apply $T$ a second time, we get $TT v = T (-3v) = -3 T v = (-3) (-3) v = 9v$. Therefore, $9$ is an eigenvalue of $T^2$. The case where we start with $3$ as an eigenvalue of $T$ is completely analogous.
+
+    \Rightarrowdirection Let $v \in V$ be an eigenvector of $T^2$ corresponding to $\lambda = 9$. Thus, $T^2 v = \lambda v$ or equivalently, $T(Tv) = \lambda v$. Since eigenvectors are scalar mutiples of each other, we assume that $v$ is also an eigenvector of $T$. Hence, let $\alpha \in \myF$ be such that $Tv = \alpha v$. Therefore,
+    \begin{align}
+      T(Tv) &= \lambda v \\
+      T(\alpha v) &= \lambda v \\
+      \alpha T v &= \lambda v \\
+      \alpha^2 v &= \lambda v = 9v
+    \end{align}
+
+    For this to happen, $\alpha$ must be $3$ or $-3$.
+  \end{xprf}
+\end{xrcs}
+
+\exercise{3}
+\begin{xrcs}
+  Suppose $n \in \nat_{>0}$ and $T \in \linmap(\myF^n)$ is defined by $T(x_1 , \ddd, x_n) := (x_1 + \cdots + x_n, \ddd, x_1 + \cdots + x_n)$. The matrix $\mmatrix (T)$ of $T$ looks like this
+  \begin{equation}
+    \mmatrix (T) =
+    \begin{pmatrix}
+      1 & 1 & \cdots & 1 \\
+      1 & 1 & \cdots & 1 \\
+      \vdots & \vdots & \ddots & \vdots \\
+      1 & 1 & \cdots & 1
+    \end{pmatrix}
+    %    =
+    %    \begin{blockarray}{ccccc}
+      %      \begin{block}{(ccccc)}
+        %        1      & 1      & \dots   & 1      & 1 \\
+        %        1      & 1      & \dots   & 1      & 1 \\
+        %        \vdots & \vdots & \ddots  & \vdots & \vdots \\
+        %        1      & 1      & \dots   & 1      & 1 \\
+        %      \end{block}
+      %    \end{blockarray}.
+  \end{equation}
+
+  \begin{enumerate}
+    \item Find all eigenvalues and eigenvectors of $T$.
+    \item Find the minimal polynomial of $T$.
+  \end{enumerate}
+
+  \begin{xsol}
+    We want to find all $x \in V$ such that $Tx = \lambda x$. Therefore,
+    \begin{equation}
+      \begin{aligned}
+        x_1 + \cdots + x_n &= \lambda x_1 \\
+        & \; \; \vdots \\
+        x_1 + \cdots + x_n &= \lambda x_n \\
+      \end{aligned}
+    \end{equation}
+
+    If we define $S := x_1 + \cdots + x_n$, we can rewrite the system of equations as
+    \begin{equation}
+      \label{eq: equations for S}
+      S= \lambda x_1, \ddd, S= \lambda x_n,
+    \end{equation}
+
+    or equivalently: $S = \lambda x_1 = \lambda x_2 = \cdots = \lambda x_n$. Solving by $x_i$ for $\lambda \neq 0$ gives
+    \begin{equation}
+      x_1 = \dfrac{S}{\lambda}, \; x_2 = \dfrac{S}{\lambda}, \; \ddd, \; x_n = \dfrac{S}{\lambda}
+    \end{equation}
+
+    Summing up all equations for $S$ in \eqref{eq: equations for S} gives:
+    \begin{equation}
+      nS = \lambda x_1 + \cdots + \lambda x_n = \lambda S
+    \end{equation}
+
+    Hence,
+    \begin{equation}
+      \begin{aligned}
+        % &S=n \dfrac{S}{\lambda}\\
+        &nS - \lambda S = 0 \\
+        &S (n-\lambda) = 0. \quad \mytext{(which is the same as $(S-0)(n-\lambda) = 0$)}
+      \end{aligned}
+    \end{equation}
+
+    If $\lambda = n$, then $x_1 = x_2 = \cdots = x_n$. Meaning all eigenvectors corresponding to the eigenvalue $n$ are s multiples of $(1, 1, \ddd ,1 ) \in \myF$.
+
+    If $\lambda \neq n$, then $S ( \lambda - n) = 0$ implies that $S=0$ and thus, $\lambda = 0$. This means that $x$ belongs to the eigenspace of $0$, if $x_1 + x_2 + x_3 + \cdots + x_n = 0$.
+
+    \prooffont{The minimal polynomial of T:}
+    \begin{equation}
+      \begin{aligned}
+        T(e_1) &= e_1 + \cdots + e_n \\
+        T(e_2) &= e_1 + \cdots + e_n \\
+        & \; \; \vdots \\
+        T(e_n) &= e_1 + \cdots + e_n
+      \end{aligned}
+    \end{equation}
+
+    Define $v := e_1 + \cdots + e_n$. Note that $\myrange T = \myspan{v}$. Applying $T$ to $v$ gives
+    \begin{equation}
+      \begin{aligned}
+        &T(v) = T(e_1 + \cdots + e_n) = T(e_1) + \cdots + T(e_n) = n v \\
+        &T^2(v) = n T(v) % = n^2 v
+      \end{aligned}
+    \end{equation}
+
+    The last line tells us that $T^2 = nT$ or equivalently $T(T-nI) = 0$. Therefore, the minimal polynomial is
+    \begin{equation}
+      p(z) = z(z-n).
+    \end{equation}
+
+    Because $\myrange T = \myspan{v}$, the polynomial is in fact minimal.
+  \end{xsol}
+\end{xrcs}
+
+\exercise{4}
+\begin{xrcs}
+  Suppose $\myF = \compl$, $T \in \linmap(V)$, $p \in \polyn(\compl)$, and $\alpha \in \compl$. Prove that $\alpha$ is an eigenvalue of $p(T)$ $\iff$ $\alpha = p(\lambda)$ for some eigenvalue $\lambda$ of $T$.
+  \begin{xprf}
+    If $\lambda$ is an eigenvalue of $T$, then $\exists v \in V$ such that
+    \begin{align}
+      T v   &= \lambda   v \\
+      T^2 v &= \lambda^2 v \\
+      T^k v &= \lambda^k v \quad \forall k \in \nat_{>0}.
+    \end{align}
+
+    \Rightarrowdirection If $\alpha$ is an eigenvalue of $p(T)$, then $\exists u \in V$ such that
+    \begin{align}
+      \alpha u &= p(T)(u)  \\
+      \alpha u &= c_0 u + c_1 T u + \cdots + c_{m-1} T^{m-1} u + T^m u \\
+      \alpha u &= c_0 \lambda^0 u + c_1 \lambda^1 u + \cdots + c_{m-1} \lambda^{m-1} u + \lambda ^m u \\
+      \alpha u &= (c_0 \lambda^0 + c_1 \lambda^1 + \cdots + c_{m-1} \lambda^{m-1} + \lambda ^m ) u \\
+      \alpha   &= c_0 \lambda^0 + c_1 \lambda^1 + \cdots + c_{m-1} \lambda^{m-1} + \lambda ^m \\
+      \alpha   &= p(\lambda)
+    \end{align}
+
+    But where have we been using the fact that $\myF = \compl$?
+  \end{xprf}
+\end{xrcs}
 
 \exercise{12}
 \begin{xrcs}
@@ -74,7 +207,7 @@
         T e_2 &= e_3 = T(Te_1) = T^2 e_1 \\
         T e_3 &= e_4 = T(Te_2) = T^3 e_1 \\
         T e_4 &= e_5 = T(Te_3) = T^4 e_1 \\
-              & \quad \vdots \\
+              & \; \; \vdots \\
         T e_{n-1} &= e_n = T(Te_{n-2}) = T^{n-1}e_1 \\
         T e_n &= -a_0 e_1  -a_1 e_2 - a_2 e_3 - \cdots - a_{n-2} e_{n-1} - a_{n-1} e_n
                = T (T^{n-1} e_1) = T^n e_1.
@@ -95,88 +228,3 @@
   \end{xsol}
 \end{xrcs}
 
-\begin{xrcs}
-  Suppose $n \in \nat_{>0}$ and $T \in \linmap(\myF^n)$ is defined by $T(x_1 , \ddd, x_n) = (x_1 + \cdots + x_n, \ddd, x_1 + \cdots + x_n)$. The matrix $\mmatrix (T)$ of $T$ looks like this
-  \begin{equation}
-    \mmatrix (T) =
-    \begin{pmatrix}
-      1 & 1 & \cdots & 1 \\
-      1 & 1 & \cdots & 1 \\
-      \vdots & \vdots & \ddots & \vdots \\
-      1 & 1 & \cdots & 1
-    \end{pmatrix}
-%    =
-%    \begin{blockarray}{ccccc}
-%      \begin{block}{(ccccc)}
-%        1      & 1      & \dots   & 1      & 1 \\
-%        1      & 1      & \dots   & 1      & 1 \\
-%        \vdots & \vdots & \ddots  & \vdots & \vdots \\
-%        1      & 1      & \dots   & 1      & 1 \\
-%      \end{block}
-%    \end{blockarray}.
-  \end{equation}
-
-  \begin{enumerate}
-    \item Find all eigenvalues and eigenvectors of $T$.
-    \item Find the minimal polynomial of $T$.
-  \end{enumerate}
-
-  \begin{xsol}
-    We want to find all $x \in V$ such that $Tx = \lambda x$. Therefore,
-    \begin{equation}
-      \begin{aligned}
-        x_1 + \cdots + x_n &= \lambda x_1 \\
-        & \; \; \vdots \\
-        x_1 + \cdots + x_n &= \lambda x_n \\
-      \end{aligned}
-    \end{equation}
-
-    If we define $S := x_1 + \cdots + x_n$, we can rewrite the system of equations as
-    \begin{equation}
-      S= \lambda x_1, \ddd, S= \lambda x_n,
-    \end{equation}
-
-    or equivalently: $S = \lambda x_1 = \lambda x_2 = \cdots = \lambda x_n$. Solving by $x_i$ gives
-    \begin{equation}
-      x_1 = \dfrac{S}{\lambda}, \; x_2 = \dfrac{S}{\lambda}, \; \ddd, \; x_n = \dfrac{S}{\lambda}
-    \end{equation}
-
-    Hence,
-    \begin{equation}
-      \begin{aligned}
-        &S=n \dfrac{S}{\lambda}\\
-        &\lambda S - nS = 0 \\
-        &S ( \lambda - n) = 0.
-      \end{aligned}
-    \end{equation}
-
-    If $\lambda = n$, then $x_1 = x_2 = \cdots = x_n$. Meaning all eigenvectors corresponding to the eigenvalue $n$ are s multiples of $(1, 1, \ddd ,1 ) \in \myF$.
-
-    If $\lambda \neq n$, then $S ( \lambda - n) = 0$ implies that $S=0$ and thus, $\lambda = 0$. This means that $x$ belongs to the eigenspace of $0$, if $x_1 + x_2 + x_3 + \cdots + x_n = 0$.
-
-    \prooffont{The minimal polynomial of T:}
-    \begin{equation}
-      \begin{aligned}
-        T(e_1) &= e_1 + \cdots + e_n \\
-        T(e_2) &= e_1 + \cdots + e_n \\
-               & \; \; \vdots \\
-        T(e_n) &= e_1 + \cdots + e_n
-      \end{aligned}
-    \end{equation}
-
-    Define $v := e_1 + \cdots + e_n$. Note that $\myrange T = \myspan{v}$. Applying $T$ to $v$ gives
-    \begin{equation}
-      \begin{aligned}
-        &T(v) = T(e_1 + \cdots + e_n) = T(e_1) + \cdots + T(e_n) = n v \\
-        &T^2(v) = n T(v) % = n^2 v
-      \end{aligned}
-    \end{equation}
-
-    The last line tells us that $T^2 = nT$ or equivalently $T(T-nI) = 0$. Therefore, the minimal polynomial is
-    \begin{equation}
-      p(z) = z(z-n).
-    \end{equation}
-
-    Because $\myrange T = \myspan{v}$, the polynomial is in fact minimal.
-  \end{xsol}
-\end{xrcs}

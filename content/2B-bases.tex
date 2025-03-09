@@ -37,7 +37,7 @@
     B_1 :\equiv B_0=(v_1, \ldots, v_n).
   \end{equation}
 
-  \emph{\bfseries Step k: } \\
+  \emph{\bfseries Step k: }
   Let $B_{k-1} = (\underbrace{v_{1}^*, \ldots, v_{k-1}^*}_{\substack{\text{modified} \\ \text{elements}}}, \underbrace{v^{\phantom{*}}_{k}, \ldots, v^{\phantom{*}}_n}_{\substack{\text{original} \\ \text{elements}}})$ be our list from our previous steps, where $v_1^*, \ldots, v_{k-1}^*$ are not necessarily the original elements $v_1, \ldots, v_{k-1}$ from $B_0$. The $*$ indicates, that those elements may have been modified in the previous steps.
 
   If $v_k$ $\in$ $\myspan{v_1^*, \ldots, v_{k-1}^*}$, then delete $v_k$ from list $B_{k-1}$ sucht that:
@@ -82,35 +82,31 @@
   If $V$ is \fd and $U$ is a subspace of $V$. Then there is another subspace $W$ of $V$ such that $V=U \oplus W.$
 \end{thm}
 \begin{prf}
-  Suppose $U$ is a subspace of a \fdvs $V$.
-
-  $\implies$ $U$ is also \fd (by \ref{thm: finite-dimensional subspace}).
-
-  $\implies$ $\exists u_1, \ldots, u_m \in U $ such that $u_1, \ldots, u_m $ form a basis of $U$. (by \ref{thm: every finite-dimensional vector space has a basis})
-
-  $\implies$ $u_1, \ldots, u_m$ can be extended to a basis $u_1, \ldots, u_m, w_1, \ldots, w_n$ of $V$. (by \ref{thm: every linearly independent list of vectors in a finite-dimensional vector space can be extended to a basis of the vector space})
+  Suppose $U$ is a subspace of a finite-dimensional vectorspace $V$.
+  Therefore, $U$ is also \fd by \ref{thm: finite-dimensional subspace}.
+  Hence, $\exists u_1, \ldots, u_m \in U $ such that $u_1, \ldots, u_m $ form a basis of $U$ by \ref{thm: every finite-dimensional vector space has a basis}.
+  We can extend $u_1, \ldots, u_m$ to a basis $u_1, \ldots, u_m, w_1, \ldots, w_n$ of $V$, using \ref{thm: every linearly independent list of vectors in a finite-dimensional vector space can be extended to a basis of the vector space}. Let
   \begin{equation}
-    $Let $W :\equiv \myspan{w_1, \ldots, w_n}.
+    W :=\myspan{w_1, \ldots, w_n}.
   \end{equation}
 
-  To prove $V=U\oplus W$, by $\ref{thm: sum and intersection of two subspaces}$ we only need to show that $V = U+W$ and $U \cap W = \{0\}$.
-
-
+  Using theorem $\ref{thm: sum and intersection of two subspaces}$, we only need to show that $V = U+W$ and $U \cap W = \{0\}$
+  to prove that $V=U\oplus W$.
   \begin{description}
-
-    \item{\bfemph{\slshape Proof of $V=U+W$:}} Let $v \in V$. Since $u_1, \ldots, u_m, w_1, \ldots, w_n$ is a basis of $V$, it spans $V$.
-    \begin{equation}
-      V = \myspan{u_1, \ldots, u_m, w_1, \ldots, w_n}.
-    \end{equation}
-
-    So we have $\exists a_1, \ldots, a_m, b_1, \ldots, b_n \in \myF$ \st
+    \item{\bfemph{\slshape Proof of $V=U+W$:}} Let $v \in V$. Since $u_1, \ldots, u_m, w_1, \ldots, w_n$ is a basis of $V$, it also spans $V$.
+%    \begin{equation}
+%      V = \myspan{u_1, \ldots, u_m, w_1, \ldots, w_n}.
+%    \end{equation}
+    So, we have $\exists a_1, \ldots, a_m, b_1, \ldots, b_n \in \myF$ \st
     \begin{equation}
       v = \underbrace{a_1 u_1 + \cdots a_m u_m}_{u} + \underbrace{b_1 w_1 + \cdots b_m w_m}_{w}.
     \end{equation}
 
     With $u$ and $w$ defined as above, we have $v=u+w$, where $u \in U$ and $w \in W$. Thus $v \in U+W,$ completing the proof that $V=U+W$.
 
-    \item{\bfemph{\slshape Proof of $U \cap W = \{0\}$:}} Let $v \in U \cap W$. $\implies$ $\exists a_1, \ldots, a_m, b_1, \ldots, b_n \in \myF$ \st $v= a_1 u _1 + \cdots + a_m u_m$ and $v= b_1 w_1 + \cdots + b_n w_n$. Thus $a_1 u_1 + \cdots + a_m u_m - b_1 w_1 - \cdots - b_n w_n = 0$.
+    \item{\bfemph{\slshape Proof of $U \cap W = \{0\}$:}} Let $v \in U \cap W$. Therefore, $\exists a_1, \ldots, a_m, b_1, \ldots, b_n \in \myF$ \st
+    $v= a_1 u _1 + \cdots + a_m u_m$ and $v= b_1 w_1 + \cdots + b_n w_n$.
+    Thus, $a_1 u_1 + \cdots + a_m u_m - b_1 w_1 - \cdots - b_n w_n = 0$.
 
     Because $u_1, \ldots, u_m, w_1, \ldots, w_n$ is linearly independent, this implies that
     \begin{equation}

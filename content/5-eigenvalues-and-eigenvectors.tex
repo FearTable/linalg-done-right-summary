@@ -73,18 +73,18 @@
 %5.65
 \begin{thm}[restriction of diagonalizable operator to invariant subspace]
   \label{thm: restriction of diagonalizable operator to invariant subspace}
-  $T\in \linmap(V)$. $T$ is diagonalizable and $U$ is a subspace of $V$ that is invariant under $T$. \\
-  $\implies$ $\left.T\right|_U$ is a diagonalizable operator on $U$.
+  Let $T\in \linmap(V)$. Suppose $T$ is diagonalizable and $U$ is a subspace of $V$ that is invariant under $T$.
+  Then $\left.T\right|_U$ is a diagonalizable operator on $U$.
 \end{thm}
 \begin{prf}
-%  Diagonazability of $T$ $\mathsmaller{\overset{\text{\ref{thm: necessary and sufficient condition for diagonalizability}}}{\iff}}$ the minimal polynomial of $T$ equals 
-    Diagonazability of $T$ $\iff_{(\ref{thm: necessary and sufficient condition for diagonalizability})}$ the minimal polynomial of $T$ equals 
+%  Diagonazability of $T$ $\mathsmaller{\overset{\text{\ref{thm: necessary and sufficient condition for diagonalizability}}}{\iff}}$ the minimal polynomial of $T$ equals
+  Diagonazability of $T$ $\iff_{(\ref{thm: necessary and sufficient condition for diagonalizability})}$ the minimal polynomial of $T$ equals
   \begin{equation}
     (z-\lambda_1)\cdots(z-\lambda_m) \mytext{for} \lambda_1 \neq \cdots \neq \lambda_m.
-  \end{equation} 
-  
+  \end{equation}
+
   By \ref{thm: minimal polynomial of a restriction operator}, the minimal polynomial of $T$ is a polynomial multiple of the minimal polynomial of $\left.T\right|_U$.
-  
+
   Hence the minimal polynomial of $\left.T\right|_U$  has the form required by \ref{thm: necessary and sufficient condition for diagonalizability}, which shows that $\left.T\right|_U$ is diagonalizable. It consists of factors $(z-\lambda_1)$ or $(z-\lambda_2), \dots, (z-\lambda_m)$.
 \end{prf}
 
@@ -92,5 +92,5 @@
 
 \section{Commuting Operators}
 \begin{mydef}
-  Two operators or matrices $A$ and $B$ ``commute" if $ST=TS$
+  Two operators or matrices $A$ and $B$  \qt{commute} if $ST=TS$
 \end{mydef}
