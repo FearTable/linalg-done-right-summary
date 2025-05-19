@@ -3,37 +3,91 @@
 
 \begin{thm} [existence of eigenvalues]
   \label{thm: existence of eigenvalues}
-  Every operator on a \fd non\-zero complex vector space has an eigenvalue.
+  Every operator on a \fd non\-zero, complex vector space has an eigenvalue.
 \end{thm}
 \begin{prf}
-  Suppose $V$ is finite-dimensional with $\dim V \geq 1$ and $T\in \linmap(V)$. Let $v\in V$ with  $v\neq0$. Then
+  Suppose $V$ is finite-dimensional with $\dim V \geq 1$ and $T\in \linmap(V)$. Let $v\in V$ be nonzero. Then the list
   \begin{equation}
     v, Tv, T^2v, \dots, T^nv
   \end{equation}
-  is not linearly independent,
-  because the list has length $n+1$. Therefore, some non-trivial linear combination of these vectors equals $0$.
-  Hence, there exists a non-constant polynomial $p \in \polyn(\compl)$ of smallest degree such that
+
+  of length $n+1$ cannot be linearly independent. Hence, some non-trivial linear combination of these vectors is zero, so there exists a non-constant polynomial $p \in \polyn(\compl)$ of minimal degree such that
   \begin{equation}
     p(T)v = 0.
   \end{equation}
 
-  By the first version of the fundamental theorem of algebra \ref{fundamental-theorem-of-algebra-first-version}, we know that $\exists \lambda \in \compl$ such that
+  By the first version of the fundamental theorem of algebra \ref{fundamental-theorem-of-algebra-first-version}, there exists a root $\exists \lambda \in \compl$ with
   \begin{equation}
     p(\lambda) = 0.
   \end{equation}
 
-  By \ref{factororing-out-zeros-of-a-polynomial-always-possible} we know that $\exists q \in \mathcal {P} (\compl)$ such that we can factour out $(z-\lambda)$ and get
+  By \ref{factororing-out-zeros-of-a-polynomial-always-possible}, we know that $\exists q \in \mathcal {P} (\compl)$ such that we can factor out $(z-\lambda)$ and write
   \begin{equation}
     p(z) = (z-\lambda)  q(z) \quad \forall z \in \compl.
   \end{equation}
 
-  Using the multiplicative properties of linear maps \ref{multiplicative-properties}, we can compute \begin{equation}
-    0=p(T)v=((T-\lambda I)q(T))(v)=(T-\lambda I) (q(T)v).
-  \end{equation}
-
-  Because $q$ has a smaller degree than $p$, we know that $ q(T)v \neq 0$. (Why?)
-  Hence, we know that $\lambda$ is an eigenvalue of $T$ with eigenvector $q(T)v$.
+Applying this to \(T\) gives
+\[
+0 = p(T)v = (T-\lambda I)\bigl(q(T)v\bigr).
+\]
+If \(q(T)v\) were zero, then \(q\) (of strictly smaller degree) would also annihilate \(v\), contradicting the minimality of \(p\).  Thus
+\[
+q(T)v \neq 0
+\]
+and so \(\lambda\) is an eigenvalue of \(T\) with eigenvector \(q(T)v\).
+%  Using the multiplicative properties of linear maps \ref{multiplicative-properties}, it follows that
+%  \begin{equation}
+%    0=p(T)v=((T-\lambda I)q(T))(v)=(T-\lambda I) (q(T)v).
+%  \end{equation}
+%
+%  Because $q$ has a strictly smaller degree than $p$, it holds that
+%  \begin{equation}
+%    q(T)v \neq 0.
+%  \end{equation}
+%
+%  Otherwise, $q(T)$ would also annihilate $v$, contradicting the minimality of $p$.
+%  Thus, $\lambda$ is an eigenvalue of $T$ with eigenvector $q(T)v$.
 \end{prf}
+
+
+%\begin{thm}[Existence of eigenvalues]
+%  \label{thm:existence-of-eigenvalues}
+%  Every operator on a finite-dimensional, nonzero complex vector space has an eigenvalue.
+%\end{thm}
+
+%\begin{prf}
+%  Suppose \(V\) is finite-dimensional with \(\dim V\ge1\) and \(T\in\Lin(V)\).  Let \(v\in V\) be nonzero.  Then the list
+%  \[
+%  v,\;T v,\;T^2 v,\;\dots,\;T^n v
+%  \]
+%  of length \(n+1\) cannot be linearly independent.  Hence some nontrivial linear combination of these vectors is zero, so there exists a nonconstant polynomial
+%  \[
+%  p(z)=a_0+a_1z+\cdots+a_nz^n\;\in\;\C[z]
+%  \quad(\text{of minimal degree})
+%  \]
+%  such that
+%  \[
+%  p(T)v \;=\; 0.
+%  \]
+%
+%  By the Fundamental Theorem of Algebra (first version) \ref{fundamental-theorem-of-algebra-first-version}, there is a root \(\lambda\in\C\) with
+%  \[
+%  p(\lambda)=0.
+%  \]
+%  By factorization of polynomials over \(\C\) \ref{factororing-out-zeros-of-a-polynomial-always-possible}, we write
+%  \[
+%  p(z)=(z-\lambda)\,q(z),
+%  \quad q\in\C[z],\;\deg q<\deg p.
+%  \]
+%  Then
+%  \[
+%  0
+%  \;=\;p(T)v
+%  \;=\;(T-\lambda I)\bigl(q(T)v\bigr).
+%  \]
+%  If \(q(T)v\) were zero, then \(q\) (of strictly smaller degree) would also annihilate \(v\), contradicting the minimality of \(p\).  Thus \(q(T)v\neq0\), and so
+%  \(\lambda\) is an eigenvalue of \(T\) with eigenvector \(q(T)v\).
+%\end{prf}
 
 \subsection{Eigenvalues and the Minimal Polynomial}
 
