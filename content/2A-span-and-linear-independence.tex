@@ -3,7 +3,7 @@
 
 \setcounter{thm}{1}
 \begin{mydef} [linear combination]
-  $a_1 v_1 + \cdots + a_m v_m$ is called a \qt{linear combination} of a list of vectors $v_1, \dots, v_m$.
+  $a_1 v_1 + \cdots + a_m v_m$ is called a \qt{linear combination} of a list of vectors $v_1, \dots, v_m$, for some scalars $a_1, \ddd, a_m \in \myF$.
 \end{mydef}
 
 \setcounter{thm}{3}
@@ -16,7 +16,7 @@
     \end{aligned}
   \end{equation}
 
-  The definition also implies that $\myspan{ 0} = \{0\}$ or $\myspan{\vec 0} = \{\vec 0\}$ . Note that sometimes we write $\vec 0$ and somtetimes we write $0$ throughout this document.
+  The definition also implies that $\myspan{ 0} = \{0\}$, or written differently,^ $\myspan{\vec 0} = \{\vec 0\}$ . Note that sometimes we write $\vec 0$ and somtetimes we write $0$ throughout this document.
 \end{mydef}
 
 \mce{6}
@@ -25,19 +25,25 @@
   The  span of a list of vectors in $V$ is the smallest subspace of $V$ containing all vectors in the list.
 \end{thm}
 \begin{prf}
-  Let $v_1, \ddd, v_m \in V$. We have $0 = 0v_1 + \cdots + 0v_m \in \myspan{v_1, \ddd, v_m}$, so the additive identity is in $\myspan{v_1, \ddd, v_m}$.
+  Let $v_1, \ddd, v_m \in V$. We have
+  \begin{equation}
+    0 = 0v_1 + \cdots + 0v_m \in \myspan{v_1, \ddd, v_m},
+  \end{equation}
 
-  Also, $\myspan{v_1, \ddd, v_m}$ is closed under addition, because for all $a$'s and $c$'s in $\myF$ we have
+  and hence, the additive identity is in $\myspan{v_1, \ddd, v_m}$.
+
+  $\myspan{v_1, \ddd, v_m}$ is closed under addition, because $\forall$ $a$'s and $c$'s in $\myF$ we have
   \[
     \underbrace{(a_1 v_1 + \cdots a_m v_m)}_{\in \; \myspan{v_1, \ddd, v_m}} + \underbrace{(c_1 v_1 + \cdots + c_m v_m)}_{\in \; \myspan{v_1, \ddd, v_m}} = (a_1 + c_1)v_1 + \cdots + (a_m + c_m)v_m \in \myspan{v_1, \ddd, v_m}.
   \]
 
-  Furthermore, $\myspan{v_1, \ddd, v_m}$ is closed under scalar multiplication because
+  Furthermore, $\myspan{v_1, \ddd, v_m}$ is closed under scalar multiplication because for $\lambda \in \real$:
   \[
-    \lambda (a_1 v_1 + \cdots + a_m v_m) = \lambda a_1 v_1 + \cdots + \lambda a_m v_m.
+    \lambda \underbrace{(a_1 v_1 + \cdots + a_m v_m)}_{\in \; \myspan{v_1, \ddd, v_m}} = \lambda a_1 v_1 + \cdots + \lambda a_m v_m \in \myspan{v_1, \ddd, v_m}.
   \]
 
-  Thus $\myspan{v_1, \ddd, v_m}$ is a subspace of $V$ by \ref{thm: conditions for a subspace}. Since every subspace of $V$ that contains each $v_k$ is closed under scalar multiplication and addition contains $\myspan{v_1, \ddd, v_m}$. Thus $\myspan{v_1, \ddd, v_m}$ is the smallest subspace containing each $v_1, \ddd, v_m$. That $\myspan{v_1, \ddd, v_m}$ contains every vector in the list should be obvious.
+  Thus, $\myspan{v_1, \ddd, v_m}$ is a subspace of $V$ by \ref{thm: conditions for a subspace}.
+  Every subspace of $V$ that contains each $v_k$ is closed under scalar multiplication and addition and therefore, contains $\myspan{v_1, \ddd, v_m}$. Hence, $\myspan{v_1, \ddd, v_m}$ is the smallest subspace containing each $v_1, \ddd, v_m$. The fact that $\myspan{v_1, \ddd, v_m}$ contains every vector in the list should be obvious.
 \end{prf}
 
 
@@ -81,10 +87,10 @@
 \end{mydef}
 
 % 2.12
-\begin{mydef}
-  $\polyn_m (\myF )=\myspan{1,z,\dots,z^m}$ denotes the set of all polynomials with coefficients in $\myF$ and degree at most $m$ (One should actually use the lambda notation $\lambda z.z^m$ to speak of functions). Note that
+\begin{mydef} [the set of all polynonmials with degree $m$]
+  $\polyn_m (\myF )=\myspan{1,z,\dots,z^m}$ denotes the set of all polynomials with coefficients in $\myF$ and degree at most $m$. One should actually use the lambda notation $\lambda z.z^m$ to speak of functions and write $\polyn_m (\myF )=\myspan{\lambda z.1,\lambda z.z,\dots,\lambda z.z^m}$, but this is not done most of the time. Note that
   \begin{equation}
-    \dim \polyn_m(\myF) = m+1
+    \dim \polyn_m(\myF) = m+1.
   \end{equation}
 \end{mydef}
 
@@ -99,7 +105,10 @@
 
 \setcounter{thm}{14}
 \begin{mydef} [linear independence]
-  There are $2$ ways to think about \qt{linear independence}. Lets first start with the motivation. A list of vectors $\oneTillM{v}$ is \qt{\lid}, if every combination of these vectors $w = b_1v_1 + \dots+ b_mv_m$ $\in \myspan{\oneTillM{v}}$ has a unique choice of scalars $b_1, \dots, b_m \in \myF$.
+  There are $2$ ways to think about \qt{linear independence}. Let's first start with the motivation. A list of vectors $\oneTillM{v}$ is called \qt{\lid}, if every combination of these vectors $w = b_1v_1 + \dots+ b_mv_m$ $\in \myspan{\oneTillM{v}}$ has a unique choice of scalars $b_1, \dots, b_m \in \myF$. That means there does not exist another choice $b'_1, \dots, b'_m \in \myF$, with at least one $b_j \neq b'_j$, such that
+  \begin{equation}
+    b_1v_1 + \dots+ b_mv_m = b'_1v_1 + \dots+ b'_mv_m.
+  \end{equation}
 
   \bfemph{The actual definition of linear independence:} \\
   A list of vectors $\oneTillM{v}$ is called \lid, if the only way to combine them together and yield zero, is if we choose every coefficient $\lambda_i$ to be zero.
@@ -140,60 +149,64 @@
 %\textbf{2.19}
 \begin{thm} [linear dependence lemma]
   \label{thm: linear dependence lemma}
-  Suppose $v_{1}, \dots, v_{m}\in V$ is a linearly dependent list.
+  Suppose the list $v_{1}, \dots, v_{m}\in V$ is a linearly dependent. Then there is an index $k \in \{ 1, \dots, m \}$ with
   \begin{equation}
-    \implies \exists k \in \{ 1, \dots, m \} : v_k \in \myspan {v_1, \dots, v_{k-1}}.
+    \label{eq: conditions in the linear dependence lemma}
+    v_k \in \myspan {v_1, \dots, v_{k-1}}.
   \end{equation}
-  Furthermore, if $k$ satisfies the conditions above and the $k^{\text{th}}$-term is removed from $v_1, \dots, v_m$, then the span of the remaining list equals $\myspan {v_1, \dots, v_{m}}$:
+  Furthermore, if $k$ satisfies the conditions above \eqref{eq: conditions in the linear dependence lemma} and the $k^{\text{th}}$-term is removed from $v_1, \dots, v_m$, then the span of the remaining list equals $\myspan {v_1, \dots, v_{m}}$:
   \begin{equation}
     \myspan {v_1, \dots, v_{k-1}, v_{k+1}, \dots, v_m} = \myspan {v_1, \dots, v_m}
   \end{equation}
 \end{thm}
 
 \begin{prf}
-  Because $\onetillm{v}$ are linearly dependent, we have
+  Because the list $\onetillm{v}$ is linearly dependent, we have a non-trivial linear combination
   \begin{equation}
-    a_1 v_1 + \cdots + a_m v_m = 0
-    $ where $a_1, \ldots, a_m \in \myF$ and $a_j \neq 0$ and $a_k \neq 0 $ for $j,k \in \{1, \ddd, m\}, j \neq k.
+    a_1 v_1 + \cdots + a_m v_m = 0,
   \end{equation}
 
-  So we know, at least $2$ $a$'s are not $0$.
-  Let $k$ be the largest element of $\setonetillm$ such that $a_k \neq 0$. Then
+  where $a_1, \ldots, a_m \in \myF$ and $a_j \neq 0$ and $a_k \neq 0 $, for $j,k \in \{1, \ddd, m\}, j \neq k$.
+  (we know, at least $2$ $a$'s are not $0$). Let $k$ be the largest element of $\setonetillm$ such that $a_k \neq 0$. Therefore,
   \begin{equation}
-    v_k = - \frac{a_1}{a_n}v_1 - \cdots - \frac{a_{k-1}}{a_k}v_k,
+    v_k = - \frac{a_1}{a_k}v_1 - \cdots - \frac{a_{k-1}}{a_k}v_{k-1},
   \end{equation}
 
-  which proves that $v_k \in \myspan{v_1, \ddd, v_{k-1}}$.
+  showing $v_k \in \myspan{v_1, \ddd, v_{k-1}}$.
 
   Now for the second claim, suppose $k$ is any element of $\setonetillm$ such that
   \begin{equation}
-    v_k \in \myspan{v_1, \ddd, v_{k-1}}.
+    v_k \in \myspan{v_1, \ddd, v_{k-1}}
   \end{equation}
 
-  Then we have
+  and write
   \begin{equation}
     \label{eq: equation for v_k}
     v_k = b_1v_1 + \cdots + b_{k-1}v_{k-1}, \mytext{where} b_1, \ddd, b_{k-1} \in \myF.
   \end{equation}
 
-  Suppose $u \in \myspan{v_1, \ddd, v_m}$. Then
+  Suppose $u \in \myspan{v_1, \ddd, v_m}$. So,
   \begin{equation}
-    \label{eq: linear comb for u}
+    \label{eq: first linear combination for u}
     u = c_1v_1 + \cdots + c_kv_k + \cdots +c_{m}v_{m}, \mytext{where} c_1, \ddd, c_{m} \in \myF.
   \end{equation}
 
-  Of course, for corner cases like $k=1$ or $k=2$ and such, the equations look different.
-
-  Now we can replace $v_k$ with the right side of \eqref{eq: equation for v_k} in equation \eqref{eq: linear comb for u}.
+  Now we can replace $v_k$ with the right side of \eqref{eq: equation for v_k} in equation \eqref{eq: first linear combination for u}.
   \begin{equation}
     \begin{aligned}
+      \label{eq: second linear combination for u}
       u
       & = c_1v_1 + \cdots + c_k \cdot (b_1v_1 + \cdots + b_{k-1}v_{k-1}) + \cdots +c_{m}v_{m} \\
       & = (c_1 + c_k b_1)\cdot v_1 + (c_2 + c_k b_2) \cdot v_2 + \cdots + (c_{k-1}+c_k b_{k-1}) \cdot v_{k-1} + c_{k+1} v_{k+1} + \cdots + c_m v_m
     \end{aligned}
   \end{equation}
 
-  Which shows $u \in \myspan{v_1, \ddd, v_{k-1}}$. Therefore $\myspan{v_1, \ddd, v_{k-1}, v_{k+1}, \ddd, v_m} = \myspan{v_1, \ddd, v_m}$.
+  Which shows that $u \in \myspan{v_1, \ddd, v_{k-1}}$. Combining \eqref{eq: first linear combination for u} and \eqref{eq: second linear combination for u}, we conclude that
+  \begin{equation}
+    \myspan{v_1, \ddd, v_{k-1}, v_{k+1}, \ddd, v_m} = \myspan{v_1, \ddd, v_m},
+  \end{equation}
+
+  as desired.
 \end{prf}
 
 \setcounter{thm}{21}

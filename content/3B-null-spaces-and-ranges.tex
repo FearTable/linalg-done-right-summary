@@ -36,23 +36,31 @@
   \label{thm: injectivity iff null space equals zero-set}
   Let $T \in \linmap(V,W)$. Then
   \begin{equation}
-    T $ is injective $ \iff \mynull T = \{0 \}.
+    T \text{ is injective } \iff \mynull T = \{0\}.
   \end{equation}
+
 \end{thm}
 \begin{prf}
-  \Rightarrowdirection First suppose that $T$ is injective. We already know that $\{0\} \subseteq \mynull T$ because $\mynull T$ is a vector space by \ref{thm: null space is a subspace} or simply by using \ref{thm: linear maps take 0 to 0}. To prove that $\mynull T \subseteq \{0\}$, suppose $v \in \mynull T$. Then
-  \[
-    T(v) = 0 = T(0), $ because linear maps take 0 to 0 by \ref{thm: linear maps take 0 to 0}$.
-  \]
+  \Rightarrowdirection First, assume that $T$ is injective.
+  Since $\mynull T$  is a subspace of $V$ (by \ref{thm: null space is a subspace}), we have $\{0\} \subseteq \mynull T$. To prove that $\mynull T \subseteq \{0\}$, suppose $v \in \mynull T$. Consequently,
+  \begin{equation}
+    T(v) = 0.
+  \end{equation}
 
-  Because $T$ is injective, the equation above implies that $v=0$. Thus we can conclude that $\mynull T = \{0\}$, as desired.
+  Moreover, since linear maps send $0$ to $0$ (by \ref{thm: linear maps take 0 to 0}), we have
+  \begin{equation}
+    T(0)=0.
+  \end{equation}
 
-  \Leftarrowdirection Now suppose $\mynull T = \{0\}$ and $u,v \in V$ \st $Tu = Tv$. Then
-  \[
+  Since $T$ is injective, both equations imply that $v=0$. Thus, we can conclude that $\mynull T = \{0\}$, as desired.
+
+  \Leftarrowdirection Second, assume $\mynull T = \{0\}$. Let $u,v \in V$ \st $Tu = Tv$. Then
+  \begin{equation}
     0 = Tu - Tv = T(u-v).
-  \]
+  \end{equation}
 
-  Thus $u-v \in \mynull T = \{0\}$. Hence $u-v=0$, which implies that $u=v$. We have shown that $Tu = Tv$ implies that $u=v$, hence $T$ is injective, as desired.
+  Thus, $u-v\in\mynull T$, so $u-v=0$, which gives $u=v$.  Therefore, $T$ is injective.
+  %Thus, $u-v \in \mynull T = \{0\}$. Hence, $u-v=0$, which implies that $u=v$. Hence, $Tu = Tv$ implies that $u=v$, so $T$ is injective.
 \end{prf}
 
 \subsection{Range and Surjectivity}
@@ -95,11 +103,10 @@
 
 \subsection{Fundamental Theorem of Linear Maps}
 
-% 3.21
-\mce{21}
+% Thm 3.21
+\setcounter{thm}{20}
 \begin{thm} [{\slshape \scshape Fundamental Theorem of Linear Maps or ``Rank Nullity Theorem''}]
   \label{rank-nullity-theorem}
-  \phantom{.} \\
   For $T \in \linmap(V,W)$, where $V$ is \fd, we have that $\myrange(T)$ is also \fd and
   \begin{equation}
     \dim V =
@@ -145,42 +152,83 @@
 
 
   %3.22
-  \setcounter{thm}{21}
-  \begin{thm} [linear map to a lower-dimensional space is not injective]
-    \label{thm: linear-map-to-a-lower-dimensional-space-is-not-injective}
-    \phantom{.}\\
-    If $\dim V$ $>$ $\dim W$
-    $\implies$ No \lm from $V$ to $W$ is injective.
-  \end{thm}
-  \begin{prf} Let $T\in \linmap(V,W)$ such that $\dim V > \dim W$. Using \ref{rank-nullity-theorem}, we have
-    \begin{equation}
-      \dim \mynull T = \dim V - \dim \myrange T \geq \dim V - \dim W > 0,
-    \end{equation}
-    The first inequality follows from \ref{thm: dimension of a subspace}, because $\myrange T$ is a subspace of $W$. The second inequality is because we assumed $\dim V > \dim W$. Now the equation tells us that $\dim \mynull T > 0$. Thus $T$ is not injective by \ref{def: injectivity}.
-  \end{prf}
+\setcounter{thm}{21}
+\begin{thm} [linear map to a lower-dimensional space is not injective]
+  \label{thm: linear-map-to-a-lower-dimensional-space-is-not-injective}
+  Suppose $V$ and $W$ are finite-dimensional vector spaces such that $\dim V$ $>$ $\dim W$.
+  Then no linear map from $V$ to $W$ is injective.
+\end{thm}
+\begin{prf} Let $T\in \linmap(V,W)$ such that $\dim V > \dim W$. Using \ref{rank-nullity-theorem}, we have
+  \begin{align}
+    \dim \mynull T &= \dim V - \dim \myrange T \\
+                   &\geq \dim V - \dim W  \\
+                   &> 0.
+  \end{align}
 
-  % 3.24
-  \mce{24}
-  \begin{thm} [linear map to a higher-dimensional space is not surjective]
-    \phantom{.}\\
-    If $\dim V < \dim W$ $\implies$ No \lm from $V$ to $W$ is surjective.
-  \end{thm}
-  \begin{prf}
-    Let $T\in \linmap (V,W)$ such that $\dim V < \dim W$. Then
-    \begin{equation}
-      \dim \myrange T = \dim V - \dim \mynull T \leq \dim V < \dim W
-    \end{equation}
-    Thus we have $\dim \myrange T < \dim W$. So $\myrange T \neq W$. Thus $T$ is not surjective by \ref{def: surjectivity}.
-  \end{prf}
+  The first inequality follows from \ref{thm: dimension of a subspace}, because $\myrange T$ is a subspace of $W$. The second inequality holds because we assumed $\dim V > \dim W$. Now, the equation tells us that $\dim \mynull T > 0$, implying $\mynull T$ is not equal to $\{0\}$ (meaning that $\mynull T$ contains vectors other than $0$). Thus, $T$ is not injective by \ref{thm: injectivity iff null space equals zero-set}.
+\end{prf}
 
-  %3.26
-  \setcounter{thm}{25}
-  \begin{thm} [homogenenous system of linear equations]
-    A homogeneous system of linear equations with more variables then equations has nonzero solutions.
-  \end{thm}
+% 3.24
+\mce{24}
+\begin{thm} [linear map to a higher-dimensional space is not surjective]
+  \label{thm: linear map to a higher-dimensional space is not surjective}
+  Suppose $V$ and $W$ are finite-dimensional vector spaces such that $\dim V < \dim W$. Then no linear map from $V$ to $W$ is surjective.
+\end{thm}
+\begin{prf}
+  Let $T\in \linmap (V,W)$ such that $\dim V < \dim W$. Then
+  \begin{align}
+    \dim \myrange T & = \dim V - \dim \mynull T \\
+                    & \leq \dim V  \\
+                    & < \dim W.
+  \end{align}
 
-  %\textbf{3.28}
-  \setcounter{thm}{27}
-  \begin{thm} [system of lienar equations with more equations than variables]
-    An inhomogeneous system of linear equations with more equations then variables has no solutions for some choice of constant terms.
-  \end{thm}
+  Thus, we have $\dim \myrange T < \dim W$. So $\myrange T \neq W$. Hence, $T$ is not surjective by \ref{def: surjectivity}.
+\end{prf}
+
+%3.26
+\mce{26}
+\begin{thm} [homogenenous system of linear equations]
+  A homogeneous system of linear equations with more variables then equations has nonzero solutions.
+\end{thm}
+\begin{prf} \qt{Homogeneous}, in this context, means, that the constant term on the right side of each equation below is $0$. Fix positive integers $m$ and $n$, let $A_{j,k} \in \myF$ for $j = 1, \ddd, m$ and $k = 1, \ddd, n$. Consider,
+\[
+\begin{aligned}
+  A_{1,1}x_1 + A_{1,2}x_2 + &\cdots + A_{1,n}x_n = \sum_{k=1}^n A_{1,k}\,x_k = 0,\\
+  A_{2,1}x_1 + A_{2,2}x_2 + &\cdots + A_{2,n}x_n = \sum_{k=1}^n A_{2,k}\,x_k = 0,\\
+  &\; \; \vdots & \\
+  A_{m,1}x_1 + A_{m,2}x_2 + &\cdots + A_{m,n}x_n = \sum_{k=1}^n A_{m,k}\,x_k = 0.
+\end{aligned}
+\]
+
+Clearly, $x_1 = \cdots = x_n = 0$ is a solution. Define $T: \myF^n \to \myF^m$ by
+\begin{equation}
+  T(x_1, \ddd, x_n) := \left(\sum_{k=1}^n A_{1,k}\,x_k,\sum_{k=1}^n A_{2,k}\,x_k, \ddd, \sum_{k=1}^n A_{m,k}\,x_k \right).
+\end{equation}
+
+Thus, we want to know if $\mynull T$ is strictly bigger than $\{0\}$, which is equivalent to $T$ not beeing injective (by \ref{thm: injectivity iff null space equals zero-set}). By \ref{thm: linear-map-to-a-lower-dimensional-space-is-not-injective}, this is the case if $\dim \myF^n > \dim \myF^m$, so if $n>m$. This is the case if we have more variables than equations.
+\end{prf}
+
+%\textbf{3.28}
+\mce{28}
+\begin{thm} [system of lienar equations with more equations than variables]
+  An inhomogeneous system of linear equations with more equations then variables has no solutions for some choice of constant terms.
+\end{thm}
+
+\begin{prf} We want to now whether a system of linear equations has no solutions for come choice of constant terms on the right hand side. Fix positive integers $m$ and $n$, let $A_{j,k} \in \myF$ for $j = 1, \ddd, m$ and $k = 1, \ddd, n$. For $c_1, \ddd, c_m \in \myF$, consider,
+  \begin{equation}
+    \label{eq: system of equations}
+    \begin{aligned}
+      A_{1,1}x_1 + A_{1,2}x_2 + &\cdots + A_{1,n}x_n = \sum_{k=1}^n A_{1,k}\,x_k = c_1,\\
+      %A_{2,1}x_1 + A_{2,2}x_2 + &\cdots + A_{2,n}x_n = \sum_{k=1}^n A_{2,k}\,x_k = c_2,\\
+      &\; \; \vdots & \\
+      A_{m,1}x_1 + A_{m,2}x_2 + &\cdots + A_{m,n}x_n = \sum_{k=1}^n A_{m,k}\,x_k = c_m.
+    \end{aligned}
+  \end{equation}
+
+  Define $T: \myF^n \to \myF^m$ by
+  \begin{equation}
+    T(x_1, \ddd, x_n) := \left(\sum_{k=1}^n A_{1,k}\,x_k,\sum_{k=1}^n A_{2,k}\,x_k, \ddd, \sum_{k=1}^n A_{m,k}\,x_k \right).
+  \end{equation}
+
+  Therefore, we can rewrite \eqref{eq: system of equations} as $T(x_1, \ddd, x_n) = (c_1, \ddd, c_m)$. Hence, we want to know if $\myrange T = \myF^m$ or $\myrange T \neq \myF^m$. What condition ensures that $T$ is not surjective? By \ref{thm: linear map to a higher-dimensional space is not surjective}, this is the case if $\dim \myF^n < \dim \myF^m$ or $n<m$. This means if we have more equations than variables in a system of linear equations, then there is no solutions for some constant terms.
+\end{prf}

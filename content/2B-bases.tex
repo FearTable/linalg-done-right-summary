@@ -21,7 +21,7 @@
 \setcounter{thm}{29}
 \begin{thm} [every spanning list contains a basis]
   \label{thm: every spanning list contains a basis}
-  Every spanning list $v_1, \ddd, v_n$ of a vector space $V$ can be reduced to a basis of $V$. So if $V= \myspan (v_1, \ddd, v_n)$, then we can delete elements from that list, or leave the list unchainched, such that the list forms a basis.
+  Every spanning list $v_1, \ddd, v_n$ of a vector space $V$ can be reduced to a basis of $V$. So if $V= \myspan {v_1, \ddd, v_n}$, then we can delete elements from that list, or leave the list unchainched, such that the list forms a basis.
 \end{thm}
 \begin{prf}
   Suppose $V=\myspan{v_1, \ldots, v_n}.$ Let $B_0 :\equiv (v_1, \ldots, v_n)$.
@@ -52,7 +52,7 @@
     B_k :\equiv B_{k-1}.
   \end{equation}
 
-  Stop the process after step $n$, getting a list $B_n$. The list $B_n$ spans $V$ because our original list $B_0$ spanned $V$, and we have discarded only vectors that were already in the span of the previous vectors. The process ensures that no vector in $B$ is in the span of the previous ones. Thus $B$ is linearly independent. Hence $B$ is a basis of $V$.
+  Stop the process after step $n$, getting a list $B_n$. The list $B_n$ spans $V$ because our original list $B_0$ spanned $V$, and we have discarded only vectors that were already in the span of the previous vectors. The process ensures that no vector in $B$ is in the span of the previous ones. Thus, $B$ is linearly independent. Hence, $B$ is a basis of $V$.
   %TODO: Why does axler cite linear dependence lemma 2.19.
 \end{prf}
 
@@ -78,43 +78,46 @@
 \end{prf}
 
 \begin{thm} [every subspace of $V$ is part of a direct sum equal to $V$]
-  \label{thm: every subspace of V is part of a direct sum equal to V}
-  If $V$ is \fd and $U$ is a subspace of $V$. Then there is another subspace $W$ of $V$ such that $V=U \oplus W.$
+\label{thm:every-subspace-of-V-is-part-of-a-direct-sum-equal-to-V}
+  Suppose $V$ is finite-dimensional and $U$ is a subspace of $V$. Then there is a subspace $W$ of $V$ such that
+  \begin{equation}
+    V = U \oplus W.
+  \end{equation}
+
+  Note: One may choose \(W=V\) or \(W=\{0\}\).
 \end{thm}
 \begin{prf}
-  Suppose $U$ is a subspace of a finite-dimensional vectorspace $V$.
-  Therefore, $U$ is also \fd by \ref{thm: finite-dimensional subspace}.
-  Hence, $\exists u_1, \ldots, u_m \in U $ such that $u_1, \ldots, u_m $ form a basis of $U$ by \ref{thm: every finite-dimensional vector space has a basis}.
-  We can extend $u_1, \ldots, u_m$ to a basis $u_1, \ldots, u_m, w_1, \ldots, w_n$ of $V$, using \ref{thm: every linearly independent list of vectors in a finite-dimensional vector space can be extended to a basis of the vector space}. Let
+  Suppose $U$ is a subspace of a finite-dimensional vector space $V$.
+  Therefore, by \ref{thm: finite-dimensional subspace}, $U$ is also \fd .
+  Hence, there exist vectors $u_1, \ldots, u_m \in U $ such that $u_1, \ldots, u_m $ form a basis of $U$ by \ref{thm: every finite-dimensional vector space has a basis}.
+  We may extend $u_1, \ldots, u_m$ to a basis $u_1, \ldots, u_m, w_1, \ldots, w_n$ of $V$, using \ref{thm: every linearly independent list of vectors in a finite-dimensional vector space can be extended to a basis of the vector space}. Set
   \begin{equation}
     W :=\myspan{w_1, \ldots, w_n}.
   \end{equation}
 
-  Using theorem $\ref{thm: sum and intersection of two subspaces}$, we only need to show that $V = U+W$ and $U \cap W = \{0\}$
-  to prove that $V=U\oplus W$.
+  By \ref{thm: sum and intersection of two subspaces}, to show that \(V = U \oplus W\) it suffices to prove that $V = U + W$ and $U \cap W = \{0\}$.
   \begin{description}
-    \item{\bfemph{\slshape Proof of $V=U+W$:}} Let $v \in V$. Since $u_1, \ldots, u_m, w_1, \ldots, w_n$ is a basis of $V$, it also spans $V$.
-%    \begin{equation}
-%      V = \myspan{u_1, \ldots, u_m, w_1, \ldots, w_n}.
-%    \end{equation}
-    So, we have $\exists a_1, \ldots, a_m, b_1, \ldots, b_n \in \myF$ \st
+    \item{\bfemph{\slshape Proof of $V=U+W$:}}
+    Let $v \in V$. Since $u_1, \ldots, u_m, w_1, \ldots, w_n$ is a basis of $V$, we may write
     \begin{equation}
-      v = \underbrace{a_1 u_1 + \cdots a_m u_m}_{u} + \underbrace{b_1 w_1 + \cdots b_m w_m}_{w}.
+      v = \underbrace{(a_1 u_1 + \cdots + a_m u_m)}_{u} + \underbrace{(b_1 w_1 + \cdots + b_n w_n)}_{w}
     \end{equation}
 
-    With $u$ and $w$ defined as above, we have $v=u+w$, where $u \in U$ and $w \in W$. Thus $v \in U+W,$ completing the proof that $V=U+W$.
+    for some scalars $ a_1, \ldots, a_m, b_1, \ldots, b_n \in \myF$. With $u$ and $w$ defined as above, we have $v=u+w$, where $u \in U$ and $w \in W$. Hence, $v \in U+W$ and so $V \subseteq U + W$. Conversely, since $U,W\subseteq V$, we have $U+W\subseteq V$.  Therefore, $V=U+W$.
 
-    \item{\bfemph{\slshape Proof of $U \cap W = \{0\}$:}} Let $v \in U \cap W$. Therefore, $\exists a_1, \ldots, a_m, b_1, \ldots, b_n \in \myF$ \st
-    $v= a_1 u _1 + \cdots + a_m u_m$ and $v= b_1 w_1 + \cdots + b_n w_n$.
+    \item{\bfemph{\slshape Proof of $U \cap W = \{0\}$:}}
+    Let $v \in U \cap W$. Then, there exist scalars $a_1, \ldots, a_m, b_1, \ldots, b_n \in \myF$ \st
+    \begin{equation}
+      v= a_1 u _1 + \cdots + a_m u_m
+    \end{equation}
+
+    and
+    \begin{equation}
+      v= b_1 w_1 + \cdots + b_n w_n.
+    \end{equation}
+
     Thus, $a_1 u_1 + \cdots + a_m u_m - b_1 w_1 - \cdots - b_n w_n = 0$.
-
-    Because $u_1, \ldots, u_m, w_1, \ldots, w_n$ is linearly independent, this implies that
-    \begin{equation}
-      a_1 = \cdots = a_m = b_1 = \cdots= b_n = 0.
-    \end{equation}
-
-    Thus $v=0$, completing the proof that $U\cap W = \{0\}.$
-
+    Linear independence of \(u_1,\dots,u_m,w_1,\dots,w_n\) forces all \(a_i=0\) and \(b_j=0\). Therefore, $v$ must be zero, and $U \cap W = \{ 0\}$.
   \end{description}
-  \vspace{-\baselineskip}
+  Hence, $V = U \oplus W$, as desired.
 \end{prf}

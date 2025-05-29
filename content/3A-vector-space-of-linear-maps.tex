@@ -30,6 +30,49 @@
     T(c_1 v_1 + \cdots + c_n v_n) = c_1 w_1 + \cdots + c_n w_n.
   \end{equation}
 \end{thm}
+\begin{prf}
+  Since the list $v_1, \dots, v_n$ is a basis of $V$, every $v \in V$ has a unique expansion
+  \begin{equation}
+    v = c_1 v_1 + \cdots + c_n v_n,
+  \end{equation}
+
+  where \( c_1, \dots, c_n \in \myF \). Define  $T: V \to W$ by
+  \[
+    T(c_1 v_1 + \cdots + c_n v_n) := c_1 w_1 + \cdots + c_n w_n.
+  \]
+  By uniqueness of the basis expansion, this rule defines a well-defined function \(T\colon V\to W\) (otherwise a single \(v\) could receive  different images).
+  In particular, choosing \(v=v_k\) (so \(c_k=1\), \(c_i=0\) for \(i\neq k\)) gives
+  \[
+    T(v_k)=w_k.
+  \]
+
+  Next, we verify that \( T \) is linear. Let \( u = a_1 v_1 + \cdots + a_n v_n \in V \) and \( v = b_1 v_1 + \cdots + b_n v_n \in V \), and let \( \lambda \in \myF \). Then,
+  \begin{align}
+    T(u + v) &= T((a_1 + b_1)v_1 + \cdots + (a_n + b_n)v_n) \\
+             &= (a_1 + b_1)w_1 + \cdots + (a_n + b_n)w_n \\
+             &= (a_1 w_1 + \cdots + a_n w_n) + (b_1 w_1 + \cdots + b_n w_n)  \\
+             &= T(u) + T(v),
+  \end{align}
+
+  and similarly,
+  \begin{align}
+    T(\lambda v) &= T(\lambda b_1 v_1 + \cdots + \lambda b_n v_n)  \\
+                 &= \lambda b_1 w_1 + \cdots + \lambda b_n w_n  \\
+                 &= \lambda (b_1 w_1 + \cdots + b_n w_n) \\
+                 &= \lambda T(v).
+  \end{align}
+
+  Hence $T$ is linear, so $T \in \linmap(V,W)$.
+
+  Finally, to prove uniqueness, suppose \( S \in \linmap(V, W) \) is another linear map such that \( S(v_k) = w_k \) for each $k=1, \ddd, n$. Then, for any \( v = c_1 v_1 + \cdots + c_n v_n \in V \), we have
+  \begin{align}
+    S(v) &= c_1 S(v_1) + \cdots + c_n S(v_n) \\
+         &= c_1 w_1 + \cdots + c_n w_n \\
+         &= T(v),
+  \end{align}
+
+  so \( S = T \). Therefore, the unique linear map sending each $v_k$ to $w_k$ (for $k \in \{1, \ddd, n \}$) is $T$.
+\end{prf}
 
 % 3.5
 \setcounter{thm}{4}

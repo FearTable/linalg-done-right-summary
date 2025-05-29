@@ -256,6 +256,106 @@ and so \(\lambda\) is an eigenvalue of \(T\) with eigenvector \(q(T)v\).
   Moreover, $\deg (p-r) < \deg p = \deg r$. If $p-r \neq 0$, we could divide $p-r$ by the coefficient of the highest order term in $p-r$ to obtain a monic polynomial that, when applied to $T$, yields the zero-operator. This polynomial would have a smaller degree than $p$ or $r$, which would be a contradiction. Therefore, $p-r=0 \iff p = r$.
 \end{prf}
 
+\begin{thm}[Existence, uniqueness, and degree of minimal polynomial]
+  \label{thm: unique monic polynomial of smallest degree}
+  Suppose $T \in \linmap(V)$. Then there exists a unique monic polynomial $p \in \mathcal{P}(\myF)$, of minimal degree, such that
+  \[
+  p(T) = 0.
+  \]
+  Furthermore, $\deg p \leq \dim V$.
+\end{thm}
+
+\begin{prf}
+  We prove existence first, and uniqueness second. The arguments are independent.
+
+  \prooffont{Base case:} If $\dim V = 0$, then $V = \{ \vec{0} \}$, and any operator on $V$ is both the zero and identity operator. Let $p(z) := 1$; then $p(T) = I = 0$ on $V$, so $p(T)\vec{0} = 0$.
+
+  \prooffont{Next base case:} Suppose $\dim V = 1$. Let $v \in V$, $v \ne 0$. Then the list $(v, Tv)$ is linearly dependent (length $2$ > dimension $1$), so there exists $c_0 \in \myF$ such that
+  \[
+  Tv + c_0 v = 0.
+  \]
+  Define $q(z) := z + c_0$; then $q(T)v = 0$. Since $v \ne 0$ and spans $V$, it follows that $q(T) = 0$ on all of $V$. If $T = 0$, we may instead use $q(z) := z$; in either case, $q$ is monic of degree $1$ and annihilates $T$.
+
+  \prooffont{Another base case:} Suppose $\dim V = 2$. Let $v \in V$, $v \ne 0$; then the list $(v, Tv, T^2v)$ is linearly dependent. By the linear dependence lemma, either
+  \[
+  Tv + c_0 v = 0, \quad \text{or} \quad T^2v + c_1 Tv + c_0 v = 0
+  \]
+  for some $c_0, c_1 \in \myF$. Define
+  \[
+  q(z) :=
+  \begin{cases}
+    z + c_0, & \text{in the first case}, \\
+    z^2 + c_1 z + c_0, & \text{in the second}.
+  \end{cases}
+  \]
+  Then $q(T)v = 0$.
+
+  If $v$ and $Tv$ are linearly dependent, then $\dim \mynull q(T) \geq 1$ and by rank-nullity,
+  \[
+  \dim \myrange q(T) \leq 1.
+  \]
+  Since $\myrange q(T)$ is $T$-invariant (Theorem~\ref{thm: null space and range of p(T) are invariant under T}), we restrict $T$ to this subspace, which has dimension $1$, and apply the previous case to obtain a monic polynomial $s$ such that
+  \[
+  s\left( \left. T \right|_{\myrange q(T)} \right) = 0.
+  \]
+  Then, for all $u \in V$,
+  \[
+  (sq)(T)u = s(T)(q(T)u) = 0.
+  \]
+  Thus $sq$ is a monic annihilating polynomial of degree at most $2$.
+
+  If instead $v$ and $Tv$ are linearly independent, then
+  \[
+  q(T)(T^k v) = T^k(q(T)v) = 0 \quad \forall k \in \mathbb{N}.
+  \]
+  Hence both $v$ and $Tv$ lie in $\mynull q(T)$, so
+  \[
+  \dim \mynull q(T) \geq 2 = \dim V \quad \Rightarrow \quad q(T) = 0.
+  \]
+
+  In either case, we find a monic annihilating polynomial of degree $\leq 2$.
+
+  \prooffont{Inductive step:} Assume the theorem holds for vector spaces of dimension less than $n$, and let $\dim V = n > 2$.
+
+  Pick $v \in V$, $v \ne 0$. The list $(v, Tv, \dots, T^n v)$ has length $n+1$, so it is linearly dependent. Let $m \leq n$ be minimal such that
+  \[
+  T^m v + c_{m-1} T^{m-1}v + \cdots + c_0 v = 0.
+  \]
+  Define the monic polynomial
+  \[
+  q(z) := z^m + c_{m-1} z^{m-1} + \cdots + c_0.
+  \]
+  Then $q(T)v = 0$. Since
+  \[
+  q(T)(T^k v) = T^k(q(T)v) = 0 \quad \forall k \in \mathbb{N},
+  \]
+  the vectors $v, Tv, \dots, T^{m-1}v$ lie in $\mynull q(T)$. By minimality of $m$, this list is linearly independent, so
+  \[
+  \dim \mynull q(T) \geq m \quad \Rightarrow \quad \dim \myrange q(T) \leq n - m.
+  \]
+
+  As $\myrange q(T)$ is $T$-invariant, we restrict $T$ to it and apply the inductive hypothesis: there exists a monic polynomial $s$ of degree at most $n - m$ such that
+  \[
+  s\left( \left. T \right|_{\myrange q(T)} \right) = 0.
+  \]
+  Since $q(T)u \in \myrange q(T)$ for all $u \in V$, it follows that
+  \[
+  (sq)(T)u = s(T)(q(T)u) = 0.
+  \]
+  Hence $sq$ is a monic annihilating polynomial with
+  \[
+  \deg(sq) = \deg s + \deg q \leq n.
+  \]
+
+  \prooffont{Uniqueness:} Suppose $p$ and $r$ are two monic polynomials of minimal degree such that $p(T) = r(T) = 0$. Then
+  \[
+  (p - r)(T) = 0,
+  \]
+  but $\deg(p - r) < \deg p$ unless $p = r$. This contradicts the minimality of $p$ unless $p = r$. Therefore, the monic minimal polynomial is unique.
+\end{prf}
+
+
+
 \setcounter{thm}{23}
 
 \begin{mydef} [minimal polynomial]

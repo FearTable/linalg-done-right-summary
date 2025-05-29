@@ -52,26 +52,32 @@
   If $V_1, \ddd, V_m$ are subspaces of $V$, then $V_1 + \cdots + V_m$ is the smallest subspace of $V$ containing $V_1, \ddd , V_m$.
 \end{thm}
 \begin{prf}
-  First we need to show, that $V_1 + \cdots + V_m$ is a subspace of $V$. Clearly, the additive identity $0 = 0 + \cdots + 0$ belongs to $V_1 + \cdots + V_m$.
-  Next we need to show that our sum is closed under addition. Let $u,w \in V_1 + \cdots + V_m$.  Thus, we have $u = v_1 + \cdots + v_m$ \st $v_1 \in V_1, \ddd, v_m \in V_m$ and $w=v'_1 + \cdots + v'_m$ \st $v'_1, \ddd , v'_m \in V_m$. Therefore,
+  We first prove that $W := \sum_{k=1}^m V_k$  is a subspace of $V$,
+  and then show it is the smallest such subspace
+  containing each $V_k$.
+  Since $0 \in V_k \;\forall k \in \{1, \ddd, m\}$, we have $0 = 0 + \cdots + 0 \in W$.
+  If
+  \(u = \sum_{k=1}^m v_k \in W\) and
+  \(w = \sum_{k=1}^m v'_k \in W\)
+  with \(v_k, v'_k\in V_k\), then
+  \[
+    \textstyle
+    u + w = \sum_{k=1}^m (v_k + v'_k)\;\in\;W, \quad \text{since each \(V_k\) is closed under addition.}
+  \]
+
+
+  For any $\lambda \in \myF$,
   \begin{equation}
-    u+w = (v_1 + \cdots + v_m) + (v'_1 + \cdots + v'_m) =  \underbrace{(v_1+v'_1)}_{\in \, V_1} + \cdots + \underbrace{(v_m+v'_m)}_{\in V_m} \in \, V_1 + \cdots + V_m.
+      \textstyle
+      \lambda u = \lambda \sum_{k=1}^m v_k =  \sum_{k=1}^m \underbrace{\lambda v_k}_{\in \, V_k}  \in W,
+      \quad \text{ as each \(V_k\) is closed under scalar multiplication. }
   \end{equation}
 
-  Hence, $V_1 + \cdots + V_m$ is closed under addition.
-  For $\lambda \in \myF$ we have that
-  \begin{equation}
-      \lambda u = \lambda(v_1 + \cdots + v_m) = \underbrace{\lambda v_1}_{\in \, V_1} + \cdots + \underbrace{\lambda v_m}_{\in \, V_m} \in V_1 + \cdots + V_m,
-  \end{equation}
+  Thus, $W$ contains $0$, is closed under addition and scalar multiplication, and hence, is a subspace of $V$, by \ref{thm: conditions for a subspace}.
+  Now, we have to show the minimality of $W$ and that $W$ is contained in every subspace of $V$, containing $V_1, \ddd, V_m$.
+  The subspaces $V_1, \ddd, V_m$ are all contained in $W$, i.e $\forall \kInOneTillM: V_k \subseteq W$. This is because every $v \in V_k$ can be written as $v = 0 + \cdots + v + \cdots + 0$.
 
-  so it is closed under scalar multiplication. Therefore, $V_1 + \cdots + V_m$ fullfills all critieria for a subspace accoring to \ref{thm: conditions for a subspace}.
-  Now we have to show the minimality of $V_1+\cdots+V_m$ and that $V_1+\cdots+V_m$ is containded in every subspace of $V$.
-  The subspaces $V_1, \ddd, V_m$ are all contained in $V_1+\cdots+V_m$, because $\forall \kInOneTillM:$
-  \begin{equation}
-    V_k = \{ v \mid v \in V_k \} \subseteq \{v_1 + \cdots + v_m \mid v_1 \in V_1,  \ddd , v_m \in V_m \} = V_1 + \cdots + V_m.
-  \end{equation}
-
-  Conversely, every subspace of $V$ containing $V_1, \ldots, V_m$ contains $V_1 + \cdots + V_m$, because $V$ is closed under addition. Thus, $V_1 + \cdots + V_m$ is the smallest subspace of $V$ containing $V_1, \ldots, V_m$.
+  Conversely, every subspace of $V$ containing $V_1, \ldots, V_m$ contains $W$, because $V$ is closed under addition. Thus, $W$ is the smallest subspace of $V$ containing $V_1, \ldots, V_m$.
 \end{prf}
 
 \subsection{Direct Sums}
@@ -99,38 +105,26 @@
 \setcounter{thm}{44}
 \begin{thm} [condition for a direct sum]
   \label{thm: condition for a direct sum}
-  $V_1 + \cdots + V_m$ is a direct sum $\iff$ the only write $0$ as a sum $v_1 + \cdots + v_m$, where each $v_k \in V_k$, is by taking each $v_k$ equal to $0$.
+  %$V_1 + \cdots + V_m$ is a direct sum $\iff$ the only write $0$ as a sum $v_1 + \cdots + v_m$, where each $v_k \in V_k$, is by taking each $v_k$ equal to $0$.
+  $\sum_{k=1}^m V_k$ is a direct sum (i. e. $\sum_{k=1}^m V_k = \bigoplus_{k=1}^m V_k$) $\iff$ the only way to express $0$ as $v_1 + \cdots + v_m$ with $v_k \in V_k$ is $v_1 = \cdots = v_m = 0$.
 \end{thm}
 \begin{prf}
-    Let  $V_1, \ldots, V_m$ be subspaces of $V$
+    \Rightarrowdirection
+    First, suppose $\sum_{k=1}^m V_k$ is a direct sum.
+    By uniqueness of decompositions, the only way to write $0 = v_1 + \cdots + v_m$ is $v_1 = \cdots = v_m = 0$.
 
-    \qt{\Rightarrowdirection} First suppose $V_1 + \cdots + V_m$ is a direct sum. Let $0 = v_1 + \cdots + v_m,$ where each $v_k \in V_k$.
-    $\implies$ all the $v_k$'s are equal to $0$, because otherwise multiplying the equation above with a scalar $\lambda \in \myF$ would give a different sum (a different way to add them up).
+    \Leftarrowdirection Second, suppose that the only way to write $0$ as a sum $w_1 + \cdots + w_m$ where each $w_k \in V_k$, is by taking each $w_k = 0$. Let $v \in \sum_{k=1}^m V_k$, with
     \begin{equation}
-      0 = \lambda0= \lambda v_1 + \cdots + \lambda v_m, \whereEach \lambda v_k \in V_k
-    \end{equation}
+        v = v_1 + \cdots + v_m = u_1 + \cdots + u_m, \quad v_k, u_k \in V_k \text{ for } k=1, \ddd, m.
+    \end{equation}.
 
-    Or a different way to argue, $0 = 0 + \cdots + 0$ is already a unique solution.
-
-    \Leftarrowdirection Now suppose that the only way to write $0$ as a sum $w_1 + \cdots + w_m$ where each $w_k \in V_k$, is by taking each $w_k = 0$. Let $v \in V$ \st $v$ has two representations denoted as
-    \begin{equation}
-      \begin{aligned}
-        v& :\equiv v_1 + \cdots + v_m \where v_1 \in V_1, \ddd, v_m \in V_m \myand \\
-        v& :\equiv u_1 + \cdots + u_m  \where u_1 \in V_1, \ddd, u_m \in V_m
-      \end{aligned}
-    \end{equation}
-
-    Subtracting these two equations, we have
+    Subtracting gives
     \begin{equation}
       0=(v_1-u_1)+\cdots+(v_m-u_m).
     \end{equation}
 
-    Because $v_1 - u_1 \in V_1, \ldots, v_m - u_m \in V_m$, the equation above implies that $\forall k \in \{1, \ddd, m\}$: $v_k -u_k$ equals $0$.
-    \begin{equation}
-      \implies v_1=u_1, \ddd, v_m=u_m
-    \end{equation}
-
-    So there is only one way to write $v$ as a sum. So $V_1 + \cdots + V_m$ is a direct sum.
+    By hypothesis, each summand must be zero, so $v_1=u_1, \ddd, v_m=u_m$.
+    Hence, every element has a unique decomposition, so $\sum_{k=1}^m V_k$ is direct.
 \end{prf}
 
 %\textbf{1.46}
@@ -138,7 +132,7 @@
 % TODO: better name
 \begin{thm} [sum and intersection of two subspaces]
   \label{thm: sum and intersection of two subspaces}
-  $U+W$ is a direct sum $\iff$ $U \cap W = \{0\}$.
+  $U+W$ is a direct sum, i.e. $U+W = U \oplus W$ $\iff$ $U \cap W = \{0\}$.
 \end{thm}
 \begin{prf} Let $U$ and $W$ be subspaces of the same vector space.
   \begin{description}

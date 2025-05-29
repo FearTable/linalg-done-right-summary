@@ -124,7 +124,7 @@
   \begin{xprf}
     \Leftarrowdirection Let $U$ and $W$ be two subspaces of $V$. If $U \subseteq W$ then $U \cup W = W \subseteq V$ and if $W \subseteq U$ then $U \cup W = U \subseteq V$.
 
-    \Rightarrowdirection We can prove this either \underline{directly} or \underline{by contradiction}. In both proofs, lets assume that $U \cup W$ is a subspace of $V$ given that $U$ and $W$ are subspaces of $V$ as well. \\
+    \Rightarrowdirection We can prove this either \underline{directly} or \underline{by contradiction}. In both proofs, let us assume that $U \cup W$ is a subspace of $V$, given that $U$ and $W$ are subspaces of $V$ as well. \\
     \prooffont{$\Rightarrow$ direction proof by contradiction:} Suppose $U \subsetneq W$ and $W \subsetneq U$. Note that this would imply that $U \neq \{0\}$ and $W \neq \{0\}$. Therefore, we have that
     \[
     \begin{aligned}
@@ -142,11 +142,12 @@
 
     Therefore, the assumption that $U \subsetneq W$ and $W \subsetneq U$ can not hold. Hence, the opposite is true. By de Morgan's rule, it must hold that $U \subseteq W$ or $W \subseteq U$.
 
-    \prooffont{Direct $\Rightarrow$ direction proof:} We have $2$ cases. $W \subseteq U$ or $W \subsetneq U$. If $W \subseteq U$, then the disjunction \[
+    \prooffont{Direct $\Rightarrow$ direction proof:} We have $2$ cases. $W \subseteq U$ or $W \subsetneq U$. If $W \subseteq U$, then the disjunction
+    $
     W \subseteq U $ or $ U \subseteq W
-    \]
-    is automatically true. So lets assume that $W \subsetneq U$ and prove that this implies that $U \subseteq W$.
-    Let $u \in U$ and $w \in W \backslash U$. By the definition of union, it also holds that $u,w \in U \cup W$. Since $U \cup W$ is a subspace of $V$:
+    $
+    is automatically true. So let us assume that $W \subsetneq U$ and prove that this implies that $U \subseteq W$.
+    Let $u \in U$ and $w \in W \backslash U$. By the definition of union, it also holds that $u,w \in U \cup W$. Since $U \cup W$ is a subspace of $V$, we write
     \[
     u+w \in U \cup W.
     \]

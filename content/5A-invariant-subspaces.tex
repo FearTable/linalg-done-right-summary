@@ -153,37 +153,36 @@ $T^m T^n = T^{m+n}$ and $(T^m)^n=T^{mn}$ for $m,n \in \mathbb{Z}$ if $T$ is inve
   which is the same as $(pq)(T) = p(T)q(T)$ as well as $(pq)(T) = q(T)p(T)$
 \end{prf}
 
-\begin{thm} [null space and range of $p(T)$ are invariant under $T$]
+\begin{thm}[null space and range of $p(T)$ are invariant under $T$]
   \label{thm: null space and range of p(T) are invariant under T}
-  For every $T \in \linmap(V)$ and $p\in \mathcal{P} (\myF)$:
+  For every $T \in \linmap(V)$, and every $p \in \mathcal{P} (\myF)$,
   \begin{equation}
-    \mynull p(T)$ and $\myrange p(T)$ are invariant under $T.
+    \mynull p(T) \text{ and } \myrange p(T) \text{ are invariant under } T.
   \end{equation}
 \end{thm}
 \begin{prf}
-  \StepOne Suppose $u\in \operatorname{null} p(T)$
+  \StepOne First, let $u \in \operatorname{null} p(T)$. Then,
   \begin{equation}
-    \implies p(T)u = 0.
+    p(T)u = 0.
   \end{equation}
 
-  Assoziativiy and distributivity of linear maps imply that
+  Since $p(T)$ commutes with $T$ (by associativity and distributivity of polynomial evaluation),
   \begin{equation}
     \begin{aligned}
-      (p(T))(Tu)&=(P(T)T)(u)=(Tp(T))(u) \\
-      &=T(p(T)u)=T(0)=0.
+      (p(T))(Tu) &= (p(T)T)(u) \\
+      &= (Tp(T))(u) \\
+      &= T(p(T)u) \\
+      &= T(0) = 0.
     \end{aligned}
   \end{equation}
 
-  % Hence
-  Which implies that $Tu \in \mynull p(T)$.
+  Hence, $Tu \in \mynull p(T)$.
 
-  \StepTwo Now suppose $u \in \myrange p(T)$
+  \StepTwo Second, let $u \in \myrange p(T)$. Then, $u = p(T)v$ for some $v \in V$. Thus,
   \begin{equation}
     \begin{aligned}
-      &\implies \exists v\in V: u=p(T)v \\
-      &\implies Tu=T(p(T)v)=p(T)(Tv) \\
-      &\implies Tu \in \myrange p(T)
+      Tu = T(p(T)v) = p(T)(Tv),
     \end{aligned}
   \end{equation}
-  \vspace{-1.1em}
+  so, $Tu \in \myrange p(T)$.
 \end{prf}
