@@ -216,46 +216,36 @@
   In a \fd vector space, the length of every linearly independent list of vectors is less than or equal to the length of every spanning list of vectors.
 \end{thm}
 \begin{prf}
-  Let $u_1, \ldots, u_m$ be a linearly independent list of vectors in $V$ and let $w_1, \ldots, w_n$ such that $V=\myspan{w_1, \ldots, w_n}$. We need to prove that $m \leq n$. We do this with following algorithm:
+  Let $u_1, \ldots, u_m \in V$ be a linearly independent list and let $w_1, \ldots, w_n \in V$ such that $V=\myspan{w_1, \ldots, w_n}$. We need to prove that $m \leq n$.
+  We construct, in $m$ steps, a spanning list of size $n$ that incorporates $u_1,\dots,u_m$; this forces $m\le n$.  Start with
+  \[
+      B_0 :=  (w_1, \dots, w_n),
+      \quad V = \myspan {B_0}.
+  \]
+
+  \prooffont{Step 1:} Add $u_1$ to $B_0$, so set
+  \begin{equation}
+    B_1^* := (u_1, w_1, \ldots, w_n).
+  \end{equation}
+
+  Since $u_1 \in \myspan {B_0}$, the enlarged list is dependent, so by the Linear Dependence Lemma \ref{thm: linear dependence lemma}, we can remove one of the original $w$'s, say $w_j$, obtaining
   \begin{equation*}
-      $Let $B_0 :\equiv  (w_1, \ldots, w_n)$. Note that $V=\myspan{B_0}.
+    B_1 := B_1^* \setminus \{w_j\} = \Big(u_1, w_1, \ldots, w_{j-1}, \xcancel{w_j}, w_{j+1}, \ldots, w_n\Big), \quad V=\myspan {B_1}.
   \end{equation*}
 
-  \prooffont{Step 1:} Let $B_1^* :\equiv (u_1, w_1, \ldots, w_n)$, which yields a linearly dependent list of length $n+1$, because $u_1$ can be written as a linear combination of $w_1, \ldots, w_n$. \\
-  In other words, the list
+  \prooffont{Step k, for k=2$\mathbf{, \ddd,}$m:} The list $B_{k-1}$ from the previous step $k-1$ spans $V$. So we have, $u_{k} \in \myspan{B_{k-1}}$, because the span never changed by our algorithm. Hence, if we add $u_k$ to the list, it becomes linearly dependent, since it has length $(n+1) = k + (n-(k-1))$. Let
   \begin{equation*}
-    (u_1, w_1, \ldots, w_n) = B_1^* $ is linearly dependent.$
+    B_k^* :\equiv \Big(u_1, \ldots, u_{k-1}, u_k, \underbrace{\widetilde w_{1}, \ldots, \widetilde w_{n-(k-1)} }_{\text{remaining $w$'s}} \Big), \quad V=\myspan {B_k^*},
   \end{equation*}
 
-  Thus by the linear dependence lemma (\ref{thm: linear dependence lemma}), one of the vectors of $B_1^*$ can be written as a linear combination of the of the previous vectors in the list. Since $u_1 \neq 0$, \ref{thm: linear dependence lemma} implies that we can remove one of the $w$'s, say $w_j$, so that the new list
+  where $\widetilde w_{1}, \ldots, \widetilde w_{n-(k-1)}$ are our remaining $n-(k-1)$ $w$'s at our current step $k$, which are the same as from the previous list $B_{k-1}$. We then remove another vector; since the $u$'s remain independent, that must be one of the $w$'s, say $\widetilde w_j$, obtaining
   \begin{equation*}
-    B_1 :\equiv B_1^* - {w_j} = (u_1 w_1, \ldots, w_{j-1}, w_{j+1}, \ldots, w_n)
+    B_k := B_k^* \setminus \{\widetilde w_j \} = \Big(u_1, \ldots, u_{k},  \widetilde w_1, \ldots, \widetilde w_{j-1}, \xcancel{\widetilde w_j}, \widetilde w_{j+1}, \ldots, \widetilde w_{n-(k-1)}\Big), \quad V=\myspan B_k.
   \end{equation*}
 
-  of length $n$ consisting of $u_1$ and the remaining $w$'s spans $V$.
-  \begin{equation*}
-    V=\myspan{B_1}
-  \end{equation*}
+  After each step $k$, $\lvert B_k\rvert = n$ and $u_1,\dots,u_k\in B_k$.
 
-  \prooffont{Step k, for k=2$\mathbf{, \ddd,}$m:} The list $B_{k-1}$ of length $n$ from previous step $k-1$ spans $V$. So we have, $u_k \in \myspan{B_{k-1}}$, because the span never changed by our algorithm. If we add $u_k$ to the list, our list becomes linearly dependent. Let
-  \begin{equation*}
-    B_k^* :\equiv (u_1, \ldots, u_{k-1}, u_k, \underbrace{\widetilde w_{1}, \ldots, \widetilde w_{n-(k-1)})}_{\text{remaining $w$'s}}
-  \end{equation*}
-  where $\widetilde w_{1}, \ldots, \widetilde w_{n-(k-1)}$ are our remaining $n-(k-1)$ $w$'s at our current step $k$, which are the same as from the previous list $B_{k-1}$$=$$(u_1, \ldots,u_{k-1},$$ \widetilde w_{1}, \ldots, \widetilde w_{n-(k-1)})$. Our new list has length $(n+1) = k + (n-(k-1))$. With the linear dependence lemma (\ref{thm: linear dependence lemma}), we can remove one vector of the list, since our new list $B_{k}^*$ was linearly dependent and spans $V$.
-  \begin{equation*}
-    V=\myspan{B_{k}^*}.
-  \end{equation*}
-
-  Because $u_1, \ldots, u_k$ are linearly independent, this vector can not be one of the $u's$. Hence there still must be at least one remaining $w$ at this step. $n-(k-1)$ $w's$ to be precise. So we can remove a $w$, lets say $\widetilde w_j$, so that the new list $B_k$ of length $n$ consisting of $u_1, \cdots, u_k$ and the remaining $w$'s spans $V$.
-  \begin{equation*}
-    B_k = B_k^* - \widetilde w_j$ such that $ V=\myspan{B_k}$ and length $|B_k|=n
-  \end{equation*}
-
-  \emph{\bfseries Conclusion:} After step $m$, we have added all the $u's$ and the precess stops. At each step $k$, as we add a $u$ to $B_{k-1}$, the linear dependence lemma implies that there is some $w$ to remove from $B_{k}^*$. Thus there are at least as many $w$'s as $u's$.
-  \begin{equation*}
-    \implies m \leq n
-  \end{equation*}
-  $\implies$ the length of $u_1, \ldots, u_m$ $\leq$ the length of $w_1, \ldots, w_n$.
+  \emph{\bfseries Conclusion:} After $m$ steps, $B_m$ is a spanning list of size $n$ containing the $m$ independent vectors, hence $m \leq n$.
 \end{prf}
 
 % 2.25
@@ -265,18 +255,32 @@
   Every subspace of a finite\-/dimensional vector space is finite\-/dimensional.
 \end{thm}
 \begin{prf}
-  Let $\dim V \neq \infty$ and $U \subseteq V$.
+  Suppose $\dim V<\infty$, and $U\subseteq V$. Let $m := \dim V$.
 
-  \emph{Step 1:} If $U = \{0\}$, the $U$ is finite\-/dimensional and we are done. If $u_1 \neq \{0\},$ then choose a nonzero vector $u_1 \in U$.
-
-  \emph{Step k:} If $ U = \myspan{u_1, \ldots, u_{k-1}},$ then $U$ is \fd and we are done.
-
-  If $U$ $\neq$ $\myspan{u_1, \ldots, u_{k-1}}$, then choose a vector $u_k \in U$ \st
+  \emph{Step 1:} If
   \begin{equation}
-    u_k \notin \myspan{u_1, \ldots, u_{k-1}}
+    U = \{0\},
   \end{equation}
 
-  After each stept, as long as the precess continues, we have constructed a list of vectors, such that no vector in the list is in the span of the previous vectors. Thus after each step we have constructed a linearly independent list, by the negation of of the linear dependence lemma (\ref{thm: linear dependence lemma}).
-  This list can not be longer than any spanning list of $V$ (by \ref{thm: length of linearly dependent list less or equal to length of spanning list}).
-  Thus the process eventually terminates, which means $U$ is \fd.
+  we are done. Otherwise, pick any nonzero $u_1 \in U$.
+
+  \prooffont{Step k, ($\mathbf{2 \le}$ k $\mathbf{\le m}$):} If
+  \begin{equation}
+    U = \myspan{u_1, \ldots, u_{k-1}},
+  \end{equation}
+
+  then $U$ is \fd and we are done.
+
+  If
+  \begin{equation}
+    U \neq \myspan{u_1, \ldots, u_{k-1}},
+  \end{equation}
+
+  then choose a vector $u_k \in U$ \st
+  \begin{equation}
+    u_k \notin \myspan{u_1, \ldots, u_{k-1}}.
+  \end{equation}
+
+  After each step, as long as the process continues, we have constructed a list of vectors such that no vector in the list is in the span of the previous vectors. Hence at each stage we maintain a linearly independent list (by the Linear Dependence Lemma (\ref{thm: linear dependence lemma}). No list of independent vectors in $V$ can exceed the length of any spanning list of $V$ (by \ref{thm: length of linearly dependent list less or equal to length of spanning list})).
+  Thus, the process eventually terminates (after at most $m=\dim V$ steps), so $U$ has a finite basis.
 \end{prf}
