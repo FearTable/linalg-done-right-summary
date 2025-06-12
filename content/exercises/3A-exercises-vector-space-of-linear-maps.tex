@@ -35,36 +35,96 @@
   Prove that $T$ is not a linear map on $V$.
 
   \begin{xprf}
-    Let $u \in U$ and $v \in V$ with $v \notin U$ ($v \in V \backslash U$). Consider the sum $u + v$. We claim that $u+v \notin U$, because if $u+v \in U$ then by closure of $U$, we would have $(u+v)-u = v \in U$, which contradicts $v \notin U$. Therefore, it holds that
+    Let $u \in U$ and $v \in V$ with $v \notin U$ (i.e. $v \in V \backslash U$). Consider the sum $u + v$. We claim that $u+v \notin U$, because if $u+v \in U$ then by closure of $U$, we would have $(u+v)-u = v \in U$, which contradicts $v \notin U$. Therefore, it holds that
     \begin{equation}
-      T(\underbrace{u+v}_{\notin \; U}) = 0 \neq Su + 0 = Tu + Tv.
+      T(\underbrace{u+v}_{\notin \; U}) = 0.
     \end{equation}
 
-    The inequality above demonstrates that $T$ is not a linear map, because it fails to satisfy additivity. The failure of $T$ to be a linear map arises because $T$ is defined differently on $U$ and $V \backslash U$, breaking the additivity required for linearity.
+    Whereas
+    \begin{equation}
+      Tu + Tv = Su + 0.
+    \end{equation}
+
+    We know that $Su \neq 0$ for some $u \in U$. This demonstrates that $T$ is not a linear map because it fails to satisfy additivity. The failure of $T$ to be a linear map arises because $T$
+     is defined differently on $U$ and $V \backslash U$, breaking the additivity required for linearity.
   \end{xprf}
 \end{xrcs}
 
 \exercise{13}
 \begin{xrcs}
-  Suppose $V$ is finite-dimensional. Prove that every linear map on a subspace of $V$ can be extended to a linear map on $V$. In other words, show that if $U$ is a subspace of $V$ and $S \in \linmap (U,W)$, then $\exists T \in \linmap(L, W)$ such that
+  Suppose $V$ is finite-dimensional. Prove that every linear map on a subspace of $V$ can be extended to a linear map on $V$. In other words, show that if $U$ is a subspace of $V$ and $S \in \linmap (U,W)$, then $\exists T \in \linmap(V, W)$ such that
   \begin{equation}
     T u = S u, \; \; \forall u \in U.
   \end{equation}
 
   \begin{xprf}
-    Let  $U$ be a subspace of a finite dimensional vector space $V$, $S \in \linmap(U,W)$, and $T \in \linmap(V,W)$. Let $X \subseteq V$ such that $V = U \oplus X$, and such that $u_1, \ddd, u_m$ is a basis of $U$ and $x_{m+1}, \ddd, x_n$ is a basis of $X$. This makes
+    Let $U$ be a subspace of a finite-dimensional vector space $V$, and let $S \in \linmap(U,W)$. Choose a subspace $X \subseteq V$ with $V = U \oplus X$. Let $u_1, \ddd, u_m$ be a basis of $U$ and let $x_{m+1}, \ddd, x_n$ be a basis of $X$. This makes
     \begin{equation}
       u_1, \ddd, u_m, x_{m+1}, \ddd, x_{n}
     \end{equation}
 
-    a basis of $V$. So we define $T \in \linmap(V,W)$ for $v \in V$ as follows:
+    a basis of $V$. Every $v \in V$ has a unique representation
+    \begin{equation}
+      v=c_1 u_1 + \cdots + c_m u_m + c_{m+1} x_{m+1} + \cdots + c_n x_n.
+    \end{equation}
+
+    Define $T \in \linmap(V,W)$ as follows:
     \begin{equation}
       \begin{aligned}
-        T(v)  &\phantom{:}= T(c_1 u_1 + \cdots + c_m u_m + c_{m+1} x_{m+1} + \cdots + c_n x_n) \\
-              &:=           c_1 S u_1 + \cdots + c_m S u_m
+        T(v) :=  c_1 S u_1 + \cdots + c_m S u_m.
       \end{aligned}
     \end{equation}
 
-    Clearly, $T u = S u$ for all $u \in U$.
+    Clearly, $T u = S u$ for all $u \in U$. It remains only to check linearity. By defining $T(u_i)=S(u_i)$ for $1 \leq i \leq m$, and $T(x_j) = 0$ for $m+1 \leq j \leq n$, we already ensured that $T$ is extended linearly on every basis vector of $V$. For illustration, we perform one more check of linearity. Let $v, v' \in V, \lambda, \lambda' \in \myF$, and $a_i, b_i$ be scalars in $\myF$ (for $i=1, \ddd, n$) such that $v = \sum_{i=1}^{m}a_i u_i + \sum_{i=m+1}^{n}a_i x_i$ and
+    $v' = \sum_{i=1}^{m}b_i u_i + \sum_{i=m+1}^{n}b_i x_i$. We calculate
+    \begin{equation}
+      \begin{aligned}
+        T\left(\lambda v + \lambda' v'\right)
+          &= T\left(\lambda\left(\sum_{i=1}^{m}a_i u_i + \sum_{i=m+1}^{n}a_i x_i\right)
+            + \lambda' \left(\sum_{i=1}^{m}b_i u_i + \sum_{i=m+1}^{n}b_i x_i\right)\right)  \\
+          &= \lambda   \left(
+               \sum_{i=1}^{m}T \left(a_i u_i\right) + \sum_{i=m+1}^{n}\underbrace{T \left(a_i x_i \right)}_{= \, 0}
+               \right) +
+              \lambda' \left(
+                \sum_{i=1}^{m}T \left(b_i u_i\right) + \sum_{i=m+1}^{n}\underbrace{T \left(b_i x_i\right)}_{= \, 0}
+              \right) \\
+          &= \lambda  \left(\sum_{i=1}^{m}S \left(a_i u_i\right)\right)  +
+             \lambda' \left(\sum_{i=1}^{m}S \left(b_i u_i\right) \right)\\
+          &= \lambda   \left(
+                \sum_{i=1}^{m}S \left(a_i u_i\right) + \sum_{i=m+1}^{n}T \left(a_i x_i \right)
+                \right) +
+                \lambda' \left(
+                \sum_{i=1}^{m}S \left(b_i u_i\right) + \sum_{i=m+1}^{n}T \left(b_i x_i\right)
+                \right) \\
+          &= \lambda T(v) + \lambda' T(v').
+      \end{aligned}
+    \end{equation}
+
+    Hence, $T \in \linmap(V,W)$ is linear and extends $S$, as required.
   \end{xprf}
 \end{xrcs}
+
+\exercise{15}
+\begin{xrcs}
+  Suppose $v_1, \ddd, v_m$ is a linearly dependent list of vectors in $V$. Suppose also that $W \neq \{0\}$. Prove that there exists $w_1, \ddd, w_m$ in $W$ such that no $T \in \linmap(V,W)$ satisfies
+  \begin{equation}
+    Tv_k = w_k \quad \text{(for $k=1, \ddd, m$)}.
+  \end{equation}
+\end{xrcs}
+\begin{xsol}
+  Let $v_1, \ddd, v_m \in V$ be a linearly dependent list and let $T \in \linmap(V,W)$ be a linear map satisfying $T v_j = w_j$ (for $j=1, \ddd, m$) for some $w_1, \ddd, w_m \in W$.
+  Since $v_1, \ddd, v_m$ is a linearly dependent list, there exists a $k \in \{1, \ddd, m\}$ such that $v_k \in \myspan{v_1, \ddd, \xcancel{v_k}, \ddd, v_m}$ (by \ref{thm: linear dependence lemma}). Hence, we write
+  \begin{equation}
+    v_k = \sum_{\substack{j = 1 \\ j \neq k}}^{m} c_j v_j, \quad \text{where } c_j \in \myF (j=1,\ddd,m).
+  \end{equation}
+
+  If we apply $T$, we get
+  \begin{equation}
+    \begin{aligned}
+      T v_k &= \sum_{\substack{j = 1 \\ j \neq k}}^{m} T(c_j v_j) \iff
+      w_k &= \sum_{\substack{j = 1 \\ j \neq k}}^{m} c_j w_j.
+    \end{aligned}
+  \end{equation}
+
+  This means that $w_1, \ddd, w_m$ must be a linearly dependent list as well and satisfy the equation above. Since $W \neq \{0\}$, choose a nonzero $w \in W$. If we now put instead $w_k := w$ and $w_j := 0$ (for $j \neq k$), every possible $T \in \linmap(V,W)$ would violate the linear dependence enforced by the list $v_1, \ddd, v_m$ with the same arguments as before (i.e., the forced relation $w_k = \sum_{j \neq k} c_j w_j$ becomes $w=0$, a contradiction). With this choice of the $w_j$, no $T \in \linmap (V,W)$ can satisfy $T (v_j) = w_j$ for all $j \in \{1, \ddd, m\}$.
+\end{xsol}
