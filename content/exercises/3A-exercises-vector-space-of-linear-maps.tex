@@ -1,4 +1,34 @@
-\subsection*{Exercises about Vector Space of Linear Maps}
+\section*{Exercises about Vector Space of Linear Maps}
+
+\exercise{7}
+%\begin{xrcs}
+%  Show that every linear map from a one-dimensional vector space to itself is a multiplication by some scalar. More precisely, prove that if $\mydim V = 1$ and $T \in \linmap (V)$, then there exists $\lambda in \myF$ such that $Tv = \lambda v$ for all $v \in V$.
+%  \begin{xprf}
+%    If $T$ is the zero operator, then the statement holds trivially for $\lambda = 0$. Therefore, assume $T \neq 0$. If $\mydim V = 1$, every $v \in V$ can be written as $a_1 v_1$, where $a_1 \in \myF$ and $v_1 \in V$. In this case, $v_1$ would denote the base vector of a one dimensional base for $V$. If we apply $T$, we get $Tv = T(a_1 v_1) = a_1 T v_1$. If we define $w_1 := T v_1$, this makes $w_1$ a base vector of $\myrange T$ and we have $Tv = a_1 w_1$. Since $V$ is one dimensional, we can express $w_1$ in terms of $v_1$, i.e. $w_1 = \lambda v_1$ for some $\lambda \in \myF$. Thus, we have
+%    \begin{equation}
+%      Tv = T(a_1 v_1) = a_1 T v_1 = a_1 w_1 = a_1 \lambda v_1 = \lambda a_1 v_1 = \lambda v.
+%    \end{equation}
+%
+%    This proves the claim.
+%  \end{xprf}
+%\end{xrcs}
+
+\begin{xrcs}
+  Show that every linear map from a one-dimensional vector space to itself is a multiplication by some scalar. More precisely, prove that if $\mydim V = 1$ and $T \in \linmap (V)$, then there exists $\lambda in \myF$ such that $Tv = \lambda v$ for all $v \in V$.
+  \begin{xprf}
+    If $T = 0$, take $\lambda = 0$ and there's nothing more to show. Otherwise, because $T \neq 0$ there exists $v_1 \in V$ with $T(v_1) \neq 0$. Since $\dim V = 1$, $\{v_1\}$ is a basis of $V$, so every $v \in V$ can be written uniquely as $v=a_1 v_1, \; a_1 \in \myF$. Because $T(v_1)$ lies in the one-dimensional space $V=\myspan{v_1}$, there is a unique scalar $\lambda \in \myF$ such that
+    \begin{equation}
+      T(v_1) = \lambda v_1.
+    \end{equation}
+
+    Then for any $v = a_1 v_1$,
+    \begin{equation}
+      T(v) = T(a_1 v_1) = a_1 T(v_1) = a_1 (\lambda v_1) = \lambda (a_1 v_1) = \lambda v
+    \end{equation}
+
+    Hence, $T$ acts by multiplication by $\lambda$ on all of $V$, as desired.
+  \end{xprf}
+\end{xrcs}
 
 \setcounter{xrcscount}{11}
 %\begin{xrcs}

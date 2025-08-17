@@ -66,7 +66,7 @@ The previous result along with \ref{thm: eigenvalues are the zeros of the minima
   \end{enumerate}
 \end{thm}
 \begin{prf}
-  \qt{First step:} First suppose (a) holds, so $T$ is self-adjoint. Our results on minimal polynomials, specifically
+  \StepOne First, suppose (a) holds, so $T$ is self-adjoint. Our results on minimal polynomials, specifically
   \begin{itemize}
     \item Every orthomormal list extends to an orthonormal basis (Todo: 6.37)
     \item minimal polynomial of self-adjoint operator
@@ -79,9 +79,9 @@ The previous result along with \ref{thm: eigenvalues are the zeros of the minima
 
   However, $T^*=T$. Thus $\mmatrix(T)^t=\mmatrix(T)$. Because $\mmatrix(T)$ is upper-triangular, this means that all entries of the matrix above and below the diagonal are $0$. Hence $\mmatrix(T)$  is a diagonal matrix with respect to the orthonormal basis. Thus (a) implies (b).
 
-  \qt{Second step:} Now suppose (b) holds, so $T$ has a diagonal matrix $\mmatrix(T)$ with respect to some orthonormal basis of $V$. That diagonal matrix $\mmatrix(T)$ equals its transpose, $\mmatrix(T)= \mmatrix(T)^t$. Thus with respect to that basis, $T^*=T$, proving that (b) implies (a).
+  \StepTwo Second, suppose (b) holds, so $T$ has a diagonal matrix $\mmatrix(T)$ with respect to some orthonormal basis of $V$. That diagonal matrix $\mmatrix(T)$ equals its transpose (i.e. $\mmatrix(T)= \mmatrix(T)^t$). Thus, with respect to that basis, $T^*=T$, proving that (b) implies (a).
 
-  \qt{Third step:} The equivalence of (b) and (c) follows from the definitions. Suppose (b) has a diagonal matrix whos entries are $\lambda_1, \ddd, \lambda_m$ with an orthonormal basis $e_1, \ddd, e_m$. Then we have $Te_k = \lambda_k e_k \; \; \forall k \in \{1, \ddd, m\}$. So we see that $e_1, \ddd, e_m$ are the eigenvectors of $T$.
+  \StepThree The equivalence of (b) and (c) follows from the definitions. Suppose (b) has a diagonal matrix whos entries are $\lambda_1, \ddd, \lambda_m$ with an orthonormal basis $e_1, \ddd, e_m$. Hence, $Te_k = \lambda_k e_k$ (for $k = 1, \ddd, m$). Therefore, $e_1, \ddd, e_m$ are the eigenvectors of $T$.
 \end{prf}
 
 \subsection{Complex Spectral Theorem}
@@ -96,7 +96,7 @@ The previous result along with \ref{thm: eigenvalues are the zeros of the minima
   \end{enumerate}
 \end{thm}
 \begin{prf}
-  Since $\myF=\compl$, by Schurs theorem, there is an orthonormal basis $e_1, \ddd, e_n$ of $V$ with respect to which $T$ as an upper-triangular matrix. Thus we can write
+  Since $\myF=\compl$, by Schurs theorem, there is an orthonormal basis $e_1, \ddd, e_n$ of $V$ with respect to which $T$ as an upper-triangular matrix. Thus, we can write
 
   \begin{equation}
     \label{eq: mmatrix T, e1...en}
@@ -134,14 +134,14 @@ The previous result along with \ref{thm: eigenvalues are the zeros of the minima
   \end{aligned}
   \]
 
-  \qt{First step:} Now suppose (a) holds. Because $T$ is normal, $\norm{T e_1}^2 = \norm{T^* e_1}^2$, see \ref{thm: condition for T to be normal}. Thus
+  \StepOne Now, suppose (a) holds. Because $T$ is normal, $\norm{T e_1}^2 = \norm{T^* e_1}^2$, see \ref{thm: condition for T to be normal}. Thus,
   \[
   |a_{1,1}|^2 = |a_{1,1}|^2 + \cdots + |a_{1,n}|^2
   \]
 
   imply that all entries in the first row of the matix $\mmatrix(T)$, exept possibly the first entry $a_{1,1},$ equal $0$.
 
-  Now \eqref{eq: mmatrix T, e1...en} implies that
+  Now, \eqref{eq: mmatrix T, e1...en} implies that
   \[
   \norm{Te_2}^2 = |a_{2,1}|^2 + |a_{2,2}|^2 = |a_{2,2}|^2 $ and $
   \]
@@ -149,9 +149,14 @@ The previous result along with \ref{thm: eigenvalues are the zeros of the minima
   \norm{T^* e_2}^2 = |a_{2,2}|^2 + |a_{2,3}|^2 + \cdots + |a_{2,n}|^2.
   \]
 
-  Because $T$ is normal, $\norm{T e_2} = \norm{T^* e_2}$ and therefore $|a_{2,2}|^2=|a_{2,2}|^2 + |a_{2,3}|^2 + \cdots + |a_{2,n}|^2$. Thus the equations above imply that all entries in the second row of the matrix in \eqref{eq: mmatrix T, e1...en}, except possibly for the diagonal entry $a_{2,2}$, equal $0$. Continuing in this fashion, we see that all nondiagonal entries in the matrix \eqref{eq: mmatrix T, e1...en} equal $0$. Thus (b) holds, completing the proof that $(a) \implies (b)$.
+  Because $T$ is normal, $\norm{T e_2} = \norm{T^* e_2}$, and therefore
+  \begin{equation}
+    |a_{2,2}|^2=|a_{2,2}|^2 + |a_{2,3}|^2 + \cdots + |a_{2,n}|^2.
+  \end{equation}
 
-  \qt{Second step:} Now suppose (b) holds, so $T$ as a diagonal matrix $\mmatrix(T)$ with respect to some orthornomal basis of $V$. The matrix $T^*$ (with respect to some basis) is obtained by taking the conjugate transpose of the matrix of $T$; hence $T^*$ also has a diagonal matrix. Any two diagonal matrices commute; thus $T$ commutes with $T^*$, which means that $T$ is normal. in other words, (a) holds, completing the prooof that $(b) \implies (a)$.
+  Thus, the equations above imply that all entries in the second row of the matrix in \eqref{eq: mmatrix T, e1...en}, except possibly for the diagonal entry $a_{2,2}$, equal $0$. Continuing in this fashion, we see that all nondiagonal entries in the matrix \eqref{eq: mmatrix T, e1...en} equal $0$. Thus (b) holds, completing the proof that $(a) \implies (b)$.
 
-  \qt{Third step:} The equivalence of (b) and (c) follows from the deinitions, see $\ref{thm: conditions equivalent to diagonalizability}$.
+  \StepTwo Now suppose (b) holds, so $T$ as a diagonal matrix $\mmatrix(T)$ with respect to some orthornomal basis of $V$. The matrix $T^*$ (with respect to some basis) is obtained by taking the conjugate transpose of the matrix of $T$; hence $T^*$ also has a diagonal matrix. Any two diagonal matrices commute; thus $T$ commutes with $T^*$, which means that $T$ is normal. in other words, (a) holds, completing the prooof that $(b) \implies (a)$.
+
+  \StepThree The equivalence of (b) and (c) follows from the deinitions, see $\ref{thm: conditions equivalent to diagonalizability}$.
 \end{prf}

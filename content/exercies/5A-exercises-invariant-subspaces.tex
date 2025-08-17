@@ -1,5 +1,6 @@
-\subsection*{Exercises about Invariant Subspaces 5A}
+\section*{Exercises about Invariant Subspaces}
 
+\exercise{1}
 \begin{xrcs}
   Suppose $T \in \linmap(V)$ and $U$ is a subspace of $V$. Then
   \begin{enumerate}
@@ -7,32 +8,103 @@
     \item $\myrange T \subseteq U \implies$ $U$ is invariant under $T$.
   \end{enumerate}
 
-  \begin{prf}
+  \begin{xprf}
     { }(a). { }If $v \in U$, then $Tv = 0 \in U$, since $U$ is a subspace and therefore $0 \in U$. \\
     (b). { }Let $w \in U\subseteq V$. $\implies$ $Tw \in \myrange T$, and since $\myrange T \subseteq U$, $Tw \in U$.
-  \end{prf}
+  \end{xprf}
 
 \end{xrcs}
 
-
+\exercise{2}
 \begin{xrcs}
   Suppose that $T \in \linmap (V)$ and $V_1, \ddd, V_m$ are subspaces of $V$ invariant under $T$. \\
   Prove that $V_1 + \cdots + V_m$ is invariant under $T$.
 
-  \begin{prf}
+  \begin{xprf}
     Let $w \in V_1 + \cdots + V_m$ \st
     $
     w = v_1 + \cdots + v_m \mytext{where} v_1 \in V_1, \ddd, v_m \in V_m.
-    $ \\
+    $
     Then $Tw = Tv_1 + \cdots + Tv_m$ such that $Tv_1 \in V_1, \ddd, Tv_m \in V_m$ because $V_1, \ddd, V_m$ are invariant under $T$. Therefore we have $Tw \in V_1 + \cdots + V_m$. So $V_1 + \cdots + V_m$ is invariant under $T$ as well.
-  \end{prf}
+  \end{xprf}
 \end{xrcs}
 
-
+\exercise{3}
 \begin{xrcs}
   Suppose $T \in \linmap(V)$. Prove that the intersection of every collection of subspaces of $V$ invariant under $T$ is invariant under $T$.
 
-  \begin{prf}
-    Let $w \in V_1 \cap \cdots \cap V_m \subseteq V$ where each $V_i$ is invariant under $T$. Then $w \in V_1, \ddd, w \in V_m$ and thus $Tw \in V_1, \ddd, Tw \in V_m$. Hence $Tw \in V_1 \cap \cdots \cap V_m$.
-  \end{prf}
+  \begin{xprf}
+    Let $w \in V_1 \cap \cdots \cap V_m \subseteq V$ where each $V_i$ is invariant under $T$. Then $w \in V_1, \ddd, w \in V_m$, and thus, $Tw \in V_1, \ddd, Tw \in V_m$. Hence, $Tw \in V_1 \cap \cdots \cap V_m$.
+  \end{xprf}
+\end{xrcs}
+
+\exercise{12}
+\begin{xrcs}
+  Suppose $V = U \oplus W$, where $U$ and $W$ are nonzero subspaces of $V$. Define $P \in \linmap(V)$ by $P(u+w) = u$ for each $u \in U$ and each $w \in W$. Find all eigenvalues and eigenvectors of $P$.
+  \begin{xsol}
+    We have an eigenvalue $\lambda_1 = 1$ for all vectors $u \in U$, because $P$ acts as the identity on $U$. We also have an eigenvalue $\lambda_0 = 0$ for all $w \in W$, because $P$ acts as the zero operator there.
+  \end{xsol}
+\end{xrcs}
+
+\exercise{21}
+\begin{xrcs}
+  Supppose $T \in \linmap(V)$ is invertible
+  \begin{enumerate}
+    \item Suppose $\lambda \in \myF$ with $\lambda \neq 0$. Prove that $\lambda$ is an eigenvalue of $T$ $\iff$ $\frac{1}{\lambda}$ is an eigenvalue of $T^{-1}$.
+    \item Prove that $T$ and $T^{-1}$ have the same eigenvectors.
+  \end{enumerate}
+  \begin{xsol}
+    Let $v \in V$ be such that $T(v) = \lambda v$. This is the case $\iff T^{-1} T(v) = T^{-1} (\lambda v)$ $\iff$ $T^{-1} (v) = \frac{1}{\lambda} v$. Note that in a field $\myF$, we can ``replace'' $\frac{1}{\lambda}\in \myF$ with its multiplicative inverse $\alpha \in \myF$. Since $\left(T^{-1}\right)^{-1} = T$, we have proven (a) and (b).
+  \end{xsol}
+\end{xrcs}
+
+\exercise{22}
+\begin{xrcs}
+  Suppose $T \in \linmap(V)$ and there exist nonzero vectors $u, w \in V$ such that
+  \begin{equation}
+    Tu = 3w \quad \text{ and } \quad Tw = 3u
+  \end{equation}
+
+  Prove that $3$ or $-3$ is an eigenvalue of $T$
+  \begin{xsol}
+    If $T$ is defined as above, then $T(u+w) = 3w + 3u = 3(u+w)$. Hence, $u+w$ get's sent to $3(u+w)$, which makes $3$ an eigenvalue of $T$. If we change the definition of $T$ to
+    \begin{equation}
+      T(u) = 3(-w) \quad \text{ and } \quad T(-w) = 3u,
+    \end{equation}
+
+    then we have
+    \begin{equation}
+      T(u+w) = T(u + (-1)(-1)w) = T(u) - T(-w) = -3w -3u = -3 (u+w).
+    \end{equation}
+
+    Thus, $u+w$ get's sent to $-3 (u+w)$ and $-3$ is an eigenvalue of $T$ as well. Note that we didn't prove that those are the only eigenvalues.
+  \end{xsol}
+\end{xrcs}
+
+\begin{xrcs}
+  Suppose $V$ is finite-dimensional and $T \in \linmap(V)$. Prove that $T$ has an eigenvalue $\iff$ there exists a subspace of $V$ of dimension $\mydim V - 1$ that is invariant under $T$.
+  \begin{xprf}
+    Suppose there exists $v_0 \in V, \lambda \in \myF$ such that $Tv_0 = \lambda v_0$. Define $\phi \in \dual{V}$ by
+    \begin{equation}
+      \dual{v_0} = 1
+    \end{equation}
+
+    and also define a subspace $U = \mynull \phi$. Thus, $\mydim U = \mydim V - 1$.
+    Then we can choose a subspace $U$ of with $V = U \oplus \myspan{v_0}$. We know already that $\myspan{v}$ is invarant under $T$. Let $u_1, \ddd, u_{m}$ be a basis of $U$ with $m = \mydim V - 1$. Hence,
+  \end{xprf}
+  \begin{xprf}
+    \Rightarrowdirection Suppose there exists $v_0 \in V, \lambda \in \myF$ such that $Tv_0 = \lambda v_0$. Then we can choose a subspace $U$ of with $V = U \oplus \myspan{v_0}$. We know already that $\myspan{v}$ is invarant under $T$. Let $u_1, \ddd, u_{m}$ be a basis of $U$ with $m = \mydim V - 1$. Hence,
+    \begin{equation}
+      u_1, \ddd, u_{m}, v_0
+    \end{equation}
+
+    is a basis of $V$ (since $V = U \oplus \myspan{v_0}$). If there exists a $k \in \{1, \ddd, m\}$ such that
+    \begin{equation}
+      T(u_k) \in \myspan{v_0}.
+    \end{equation}
+
+    we choose a subspace $W = \myspan{u_1, \ddd, \xcancel{u_k}, \ddd, u_m, v_0}$. Otherwise, no $T u$ for $u \in U$ lies inside $V \setminus U = \myspan{v}$. Therefore, $U$ or $W$ is invariant under $T$.
+
+    \Leftarrowdirection Suppose there exists a subspace of $U$ of $V$ with $\mydim U = \mydim V - 1$ that is invariant under $T$, and both have the right dimension.
+  \end{xprf}
 \end{xrcs}

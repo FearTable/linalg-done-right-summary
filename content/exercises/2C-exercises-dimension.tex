@@ -17,16 +17,14 @@
   \begin{xsol}
     The formula is \textbf{wrong}. Consider the following subspaces of $\real^2$:
     \begin{itemize}
-      \item $V_1 := \{ (x,0) \mid x \in \real \} $ \quad (the $x$-axis) \\
+      \item $V_1 := \{ (x,0) \mid x \in \real \} $ \quad (the $x$-axis)
       \item $V_2 := \{ (x,x) \mid x \in \real \} $ \quad (the line $y=x$)
       \item $V_3 := \{ (0,y) \mid y \in \real \} $ \quad (the $y$-axis)
     \end{itemize}
 
-    The right-hand side of the formula gives: $1+1+1-0-0-0+0 = 3$, whereas the left-hand side is $\dim (V_1 + V_2 + V_3) = 2$.
+    The right-hand side of the formula gives: $1+1+1-0-0-0+0 = 3$, whereas the left-hand side is $\dim (V_1 + V_2 + V_3) = 2$. So the formula \emph{does not hold} for this example.
 
-    So the formula does not hold for this example.
-
-    It does, however, hold in every case where one of the subspaces is contained in another; hence, without loss of generality, assume that $V_1 \subseteq V_3$. For this situation, we have the following lemma.
+    However, \emph{it does hold}  in every case where one of the subspaces is contained in another; hence, without loss of generality, assume that $V_1 \subseteq V_3$. For this situation, we have the following lemma.
 
     \prooffont{Lemma:} If $V_1, V_2, V_3$ are finite-dimensional subspaces of a vector space, and $V_1 \subseteq V_3$, then
     \begin{equation}

@@ -1,11 +1,23 @@
-\section*{Exercises about Null Spaces and Ranges 3B}
-\hrule
-\phantom{.}
-
+\section*{Exercises about Null Spaces and Ranges}
 
 \begin{xrcs}
   Exercise 1
 \end{xrcs}
+
+\exercise{2}
+\begin{xrcs}
+  Suppose $S, T \in \linmap(V)$ are such that $\myrange S \subseteq \mynull T$. Prove that $(ST)^2 = 0$.
+  \begin{xprf}
+    For any $v \in V$, $(ST)^2 (v) = (ST)(ST) (v) = ST (ST(v))$. Since $T(v) \in V$, we have $ST(v) = S(T(v)) \in \myrange S \subseteq \mynull T$, so $T(S(T(v)))=0$. Thus, we compute
+    \begin{equation}
+      (ST)^2 (v) = S(T(S(T(v)))) = S(0) = 0.
+    \end{equation}
+
+    Therefore, $(ST)^2$ sends every $v$ to $0$, i.e. $(ST)^2 = 0$.
+  \end{xprf}
+\end{xrcs}
+
+
 \setcounter{xrcscount}{8}
 %\begin{xrcs}
 %  Suppose $T \in \linmap(V,W)$ is injective and $v_1, \ddd, v_n$ is linearly independent in $V$. Prove that $Tv_1, \ddd, Tv_n$ is linearly independent in $W$.
@@ -26,25 +38,21 @@
 \setcounter{xrcscount}{7}
 \begin{xrcs} % ChatGTP did a lot of changes
   Suppose $T \in \linmap(V,W)$ is injective and $v_1, \ddd, v_n$ is linearly independent in $V$. Prove that $Tv_1, \ddd, Tv_n$ is linearly independent in $W$.
-
   \begin{xprf}
     Let $a_1, \ddd, a_n \in \myF$ such that
-    \[
+    $
     a_1 Tv_1 + \cdots + a_n Tv_n = 0.
-    \]
-    By the linearity of $T$, this implies:
-    \[
+    $
+    By the linearity of $T$, we can rewrite this equation as
+    $
     T(a_1 v_1 + \cdots + a_n v_n) = 0.
-    \]
-    Since $T$ is injective, and $T(0)=0$ by \ref{thm: linear maps take 0 to 0}, \( T(u) = 0 \) if and only if \( u = 0 \). Thus:
-    \[
+    $
+    Since $T$ is injective, and $T(0)=0$ by \ref{thm: linear maps take 0 to 0}, $ T(u) = 0 $ if and only if $ u = 0 $. Thus,
+    $
     a_1 v_1 + \cdots + a_n v_n = 0.
-    \]
-    Because $v_1, \ddd, v_n$ are linearly independent in $V$, we conclude:
-    \[
-    a_1 = 0, \ddd, a_n = 0.
-    \]
-    Thus, $Tv_1, \ddd, Tv_n$ are linearly independent in $W$.
+    $
+    Because $v_1, \ddd, v_n$ are linearly independent vectors in $V$, this forces $a_1 = 0, \ddd, a_n = 0$.
+    Hence, $Tv_1, \ddd, Tv_n$ is a linearly independent list of vectors in $W$.
   \end{xprf}
 \end{xrcs}
 
@@ -52,9 +60,9 @@
   Suppose $v_1, \ddd, v_n$ spans $V$ and $T \in \linmap(V,W)$. Show that $Tv_1, \ddd, Tv_n$ spans $\myrange T$.
 
   \begin{xprf}
-    Let $v = a_1 v_1 + \cdots + a_n v_n \in V$, where $a_1, \ddd, a_n \in \myF$.
+    Let $v = a_1 v_1 + \cdots + a_n v_n \in V$, where $a_1, \ddd, a_n \in \myF$. If we apply $T$, we get
     \begin{equation}
-      \implies Tv = a_1 T v_1 + \cdots + a_n T v_n \in \myrange T.
+      Tv = a_1 T v_1 + \cdots + a_n T v_n \in \myrange T.
     \end{equation}
 
     Thus, every element of $Tv \in \myrange T$ can be written as a linear combination of $Tv_1, \ddd, Tv_n$. Hence,
@@ -62,7 +70,7 @@
       \myrange T \subseteq \myspan{T v_1, \ddd, T v_n}.
     \end{equation}
 
-    Conversely, \( Tv_1, \ddd, Tv_n \in \myrange T \) and $\myrange T$ is a vector space which is closed under addition and multiplication. Therefore, $\myrange T = \myspan{Tv_1, \ddd, Tv_n}$.
+    Conversely, \( Tv_1, \ddd, Tv_n \in \myrange T \) and $\myrange T$ is a subspace of $V$ which is closed under addition and multiplication. Therefore, $\myspan{Tv_1, \ddd, Tv_n} \subseteq \myrange T$ and hence, $\myrange T = \myspan{Tv_1, \ddd, Tv_n}$.
   \end{xprf}
 \end{xrcs}
 
@@ -182,7 +190,7 @@
   Prove that $T$ is surjective.
 
   \begin{xprf}
-    To prove that $T$ is surjective, we need to find the dimension of $\mynull T$. We can rewrite:
+    To prove that $T$ is surjective, we have to find the dimension of $\mynull T$. We can rewrite:
     \begin{equation}
       \begin{aligned}
         \mynull T &= \{(5a, a, 7b,b) \mid a \in \myF \mytext{and} b \in \myF \} \\
@@ -190,13 +198,8 @@
       \end{aligned}
     \end{equation}
 
-    Which shows that $\mynull T$ is a $2$-dimensional plane in $\myF^4$. Since according to the rank-nullity theorem we have $\dim \myF^4 = \dim \mynull T + \dim \myrange T$, we derive that $\dim \myrange T = 2$. Using $\ref{thm: subspace of full dimension equals the whole space}$, we conclude:
-    \begin{equation}
-      \label{eq: range T = F^2}
-      \myrange T = \myF^2.
-    \end{equation}
-
-    Theorem $\ref{thm: subspace of full dimension equals the whole space}$ states that if a subspace of a vector space has the same dimension as the vector space itself, then the subspace is equals to the whole space. This is what we have uses above. Equation \eqref{eq: range T = F^2} tells us that $T$ is surjective.
+    Which shows that $\mynull T$ is a $2$-dimensional plane in $\myF^4$, since $(5,1,0,0)$ and $(0,0,7,1)$ are obviously linearly independent. According to the rank-nullity theorem, we have $\dim \myF^4 = \dim \mynull T + \dim \myrange T$, and thus we derive that $\dim \myrange T = 2$.
+    Theorem $\ref{thm: subspace of full dimension equals the whole space}$ states that if a subspace of a vector space has the same dimension as the vector space itself, then the subspace equals the whole space. In this case, it follows that $\myrange T = \myF^2$. Therefore, $T$ is surjective.
   \end{xprf}
 \end{xrcs}
 
@@ -212,18 +215,20 @@
   \begin{xprf}
     According to the rank-nullity theorem we have
     \begin{equation}
-      \begin{aligned}
-        \dim \real^8 &= \dim \mynull T + \dim \myrange T \\
-                 8 &= 3 + \dim \myrange T.
-      \end{aligned}
+        \dim \real^8 = \dim \mynull T + \dim \myrange T,
     \end{equation}
 
-    Thus, $\dim \myrange T = 5$. We also know that $\myrange T \subseteq \real^5$. Since a subspace of full dimension equals the whole space itself according to \ref{thm: subspace of full dimension equals the whole space}, we conclude:
+    or
+    \begin{equation}
+      8 = 3 + \dim \myrange T.
+    \end{equation}
+
+    Thus, $\dim \myrange T = 5$. We also know that $\myrange T \subseteq \real^5$. Since a subspace of full dimension equals the whole space itself, according to \ref{thm: subspace of full dimension equals the whole space}, we conclude:
     \begin{equation}
       \myrange T = \real^5.
     \end{equation}
 
-    Thus, $T$ is surjective.
+    Hence, $T$ is surjective.
   \end{xprf}
 \end{xrcs}
 
@@ -231,27 +236,24 @@
 \begin{xrcs}
   Prove that there does not exist a linear map from $\myF^5$ to  $\myF^2$ whose null space equals
   \begin{equation}
-    S :\equiv \{(x_1, x_2, x_3, x_4, x_5) \in \myF^5 \mid x_1 = 3 x_2 \mytext{and} x_3 = x_4 = x_5 \}.
+    S := \{(x_1, x_2, x_3, x_4, x_5) \in \myF^5 : x_1 = 3 x_2 \mytext{and} x_3 = x_4 = x_5 \}.
   \end{equation}
 
   \begin{xprf}
     We can rewrite $S$ as
     \begin{equation}
       \begin{aligned}
-        S = \{ ( 3a, a, b,b,b) \mid a \in \myF \mytext{and} b \in \myF \}
-        = \{ t_1 (3,1,0,0,0) + t_2 (0,0,1,1,1) \mid  t_1 \in \myF \mytext{and} t_2 \in \myF \}.
+        S &= \{ ( 3a, a, b,b,b) : a \in \myF \mytext{and} b \in \myF \} \\
+          &= \{ t_1 (3,1,0,0,0) + t_2 (0,0,1,1,1) :  t_1 \in \myF \mytext{and} t_2 \in \myF \}.
       \end{aligned}
     \end{equation}
 
-    As we can see, $\dim S = 2$. Using the rank-nullity theorem we have
+    Clearly, $\dim S = 2$. Using the rank-nullity theorem \ref{rank-nullity-theorem}, we have for every $T \in \linmap (\myF^5, \myF^2)$:
     \begin{equation}
-      \begin{aligned}
-        &\dim \myF^5 = \dim \mynull T + \dim \myF^2 \\
-        &\implies \dim \mynull T = 3 \neq 2 = \dim \mynull S.
-      \end{aligned}
+      \dim \myF^5 = \dim \myF^2 + \dim \mynull T  \\
     \end{equation}
 
-    Therefore, $\mynull T$ could never equal $S$.
+    Hence, $\dim \mynull T = 3$. Therefore, $\mynull T$ could never equal $S$.
   \end{xprf}
 \end{xrcs}
 
@@ -270,8 +272,10 @@
   \begin{xprf}
     \Rightarrowdirection If there exists an injective linear map $T \in \linmap(V,W)$, then $\mynull(T) = \{0\}$, so $\dim \mynull(T) = 0$. By the rank-nullity theorem:
     \begin{equation}
-      \dim V = \dim \myrange(T) \leq \dim W, \quad $ because $ \myrange(T) \subseteq W.
+      \dim V = \dim \myrange(T) \leq \dim W,
     \end{equation}
+
+    because $ \myrange(T) \subseteq W$.
 
     \Leftarrowdirection Let $\dim V \leq \dim W$. For any $T \in \linmap(V,W)$, we know
     \begin{equation}
@@ -421,9 +425,9 @@
   Suppose $W$ is finite-dimensional and $T \in \linmap (V,W)$. Prove that $T$ is surjective $\iff$ $\exists S \in \linmap (W,V)$ such that $TS$ is the identity operator on $W$.
 
   \begin{xprf}
-    \Rightarrowdirection Let $T \in \linmap (V,W)$ such that $T$ is surjective. Hence, $\myrange T = W$. Let $w_1, \ddd, w_m$ be a basis of $W$ and, hence, of $\myrange T$ as well. Since $T$ is sujrective, we have $\forall j \in \{1, \ddd, m\}$:
+    \Rightarrowdirection Let $T \in \linmap (V,W)$ such that $T$ is surjective. Hence, $\myrange T = W$. Let $w_1, \ddd, w_m$ be a basis of $W$ and, hence, of $\myrange T$ as well. Since $T$ is surjective, we have for every $j \in \{1, \ddd, m\}$ a preimage $v_j \in V$ of $w_j$ such that
     \begin{equation}
-      \exists v_j \in V \text{ such that } w_j = T(v_j).
+      w_j = T(v_j).
     \end{equation}
 
     Based on this list $v_1, \ddd, v_j$ which has no other special properties, we can define $S \in \linmap (W,V)$ for each $w \in W$ as follows:

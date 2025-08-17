@@ -1,0 +1,75 @@
+\section*{Exercises about Null Spaces and Ranges}
+
+\exercise{6}
+\begin{xrcs}
+  Suppose that $v, x \in V$ and that $U, W$ are subspaces of $V$ such that $v + U = x + W$. Prove that $U = W$.
+  \begin{xprf}
+    Since $v \in v + U$ and $v+U = x + W$, it follows that $v \in x + W$. Hence, there is  $w_0 \in W$ with $v = x + w_0$, so $(x-v) = -w_0 \in W$. Now,
+    \begin{equation}
+      U = (-v) + (v+U) = (-v) + (x + W) = (x-v) + W = W,
+    \end{equation}
+
+    where the last equality uses $x-v \in W$ and the fact that translating a subspace by one of its own elements leaves it unchanged (i.e., $(x-v) + W = W$). Hence, $U = W$.
+  \end{xprf}
+\end{xrcs}
+
+\exercise{10}
+\begin{xrcs}
+  Suppose $A_1 = v + U_1$ and $A_2 = w + U_2$ for some $v, w \in V$ and some subspaces $U_1, U_2$ of $V$. Prove that the intersection $A_1 \cap A_2$ is either a translate of some subspace of $V$ or is the empty set.
+  \begin{xprf}
+    By the definition of intersection, we get
+    \begin{equation}
+      A_1 \cap A_2 = \{ x \in V : x = v + u_1 \text{ and } x = w + u_2, \; u_1 \in U_1, \; u_2 \in U_2 \}.
+    \end{equation}
+
+    The condition $v + u_1 = w + u_2$ is equivalent to
+    \begin{equation}
+      v-w = u_2 - u_1, u_1 \in U_1, u_2 \in U_2 \quad \Longleftrightarrow \quad v-w \in U_1 + U_2.
+    \end{equation}
+
+    If $v-w \notin U_1 + U_2$, there is no solution for $u_1$ and $u_2$ and $A_1 \cap A_2 = \varnothing$. If a solution exists, put
+    \begin{equation}
+      \begin{aligned}
+        r^0 &:= v + u_1^0  \\
+            &:= w + u_2^0,
+      \end{aligned}
+    \end{equation}
+
+    where $r^0 \in A_1 \cap A_2$ and for appropriate $u_1^0 \in U_1, u_2^0 \in U_2$ (i.e., $v-w = u_2^0 - u_1^0$).
+    Define
+    \begin{equation}
+      S := \{ r^0 + u : u \in U_1 \cap U_2 \}.
+    \end{equation}
+
+    We want to show that $A_1 \cap A_2 = S$. Therefore, take any $x \in A_1 \cap A_2$, so that $x = v + u_1$ or $x = w + u_2$ with $u_1 \in U_1, u_2 \in U_2$. Now, it follows that
+    \begin{equation}
+      \begin{aligned}
+        x-r^0 &= (v + u_1) \,- (v + u_1^0) \, = u_1 - u_1^0 \in U_1,  \text{ and } \\
+        x-r^0 &= (w + u_2)   - (w + u_2^0)    = u_2 - u_2^0 \in U_2, \\
+      \end{aligned}
+    \end{equation}
+
+    and therefore, $x-r^0 \in U_1 \cap U_2$. Since $x = r^0 + (x-r^0)$, it is immediate that
+    \begin{equation}
+      x \in r^0 + (U_1 \cap U_2).
+    \end{equation}
+
+    Hence, $A_1 \cap A_2 \subseteq S$. Conversely, pick any $u \in U_1 \cap U_2$, so that $r^0 + u \in S$. Then
+    \begin{equation}
+      \begin{aligned}
+        r^0 + u &= (v + u_1^0) + u = v + ( u_1^0 + u) \in v + U_1 = A_1, \text{ and } \\
+        r^0 + u &= (w + u_2^0) + u = w + ( u_2^0 + u) \in w + U_2 = A_2.  \\
+      \end{aligned}
+    \end{equation}
+
+    Thus, $S \subseteq A_1 \cap A_2$. Therefore, we have shown that
+    \begin{equation}
+      A_1 \cap A_2 =
+      \begin{cases}
+        S,            & \text{ if } v-w \in U_1 + U_2, \\
+        \varnothing,  & \text{ otherwise. }
+      \end{cases}
+    \end{equation}
+  \end{xprf}
+\end{xrcs}
+

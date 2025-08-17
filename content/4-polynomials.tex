@@ -14,7 +14,7 @@ $p: \mathbb{F} \to \mathbb{F}, \, p(z) = a_0 + a_1z + \cdots + a_n z^m$ $\forall
   \label{factororing-out-zeros-of-a-polynomial-always-possible}
   $\forall p \in \mathcal{P}_m(\mathbb{F}): \; \exists \lambda \in \mathbb{F}$ \st
   \begin{equation}
-  	p(\lambda) = 0 \iff \exists q \in \mathcal{P}_{m-1}: p(z) = (z-\lambda)q(z)
+  	p(\lambda) = 0 \iff \exists q \in \mathcal{P}_{m-1}: p(z) = (z-\lambda)q(z), \quad \forall z \in \myF.
   \end{equation}
 \end{thm}
 \begin{prf} Let $p\in \polyn(\myF)_m$ for $m\in \nat$.
@@ -118,28 +118,27 @@ In case you are wondering where the $a_0$ went by subtracting $p(\lambda)$ from 
 
 \begin{thm} [{\slshape \scshape Fundamental Theorem of Algebra}, second version:]
   \label{fundamental-theorem-of-algebra-second-version}
-  If $p \in \polyn(\mathbb{C})$ is nonconstant polynomial, which means $\deg p \geq 1$, then $p$ has a unique factorization
+  If $p \in \polyn(\mathbb{C})$ is nonconstant polynomial (i.e. $\deg p \geq 1$), then $p$ has a unique factorization
   \begin{equation}
   	p(z)=c \cdot (z-\lambda_1) \cdots (z-\lambda_m)
   \end{equation}
   where $c, \lambda_1, \dots, \lambda_m \in \compl$. This factorization is unique except for the order of the factors.
 \end{thm}
 \begin{prf}
-  Let $p \in \polyn(\compl)$ and let $m :\equiv \deg p$. If $m = 1$, then
+  Let $p \in \polyn(\compl)$ and put $m := \deg p$. If $m = 1$, then
   \[
-    p = a_0 + a_1 z = a_0 \cdot \left(z-\tfrac{a_1}{a_0} \right),
+    p = a_0 + a_1 z = a_1 \cdot \left(z-\tfrac{a_0}{a_1} \right),
   \]
 
   so the the desired factorization exists and is unique.
 
-  So assume that $m > 1$ and that the desired factorization exists and is unqique for all polynomials of degree $m-1$.
-
-  First we will show that the desired factorization of $p$ exists. By the first version of the fundamental theoreom of algebra \ref{fundamental-theorem-of-algebra-first-version}, $p$ has a zero $\lambda \in \compl$. By \ref{factororing-out-zeros-of-a-polynomial-always-possible}, there is polynomial $q$ of degree $m-1$ \st
+  Hence, assume that $m > 1$ and that the desired factorization exists and is unqique for all polynomials of degree $m-1$.
+  By the first version of the fundamental theoreom of algebra \ref{fundamental-theorem-of-algebra-first-version}, $p$ has a zero $\lambda \in \compl$. By \ref{factororing-out-zeros-of-a-polynomial-always-possible}, there is polynomial $q$ of degree $m-1$ \st
   \[
     p(z) = (z-\lambda) q(z) \quad \forall z \in \compl.
   \]
 
-  Our induction hypothesis implies that $q$ has the desired factorization, which when plugged into the equation above gives the desired factorization of $p$.
+  Our induction hypothesis implies that $q$ has the desired factorization, which when plugged into the equation above, gives the desired factorization of $p$.
 
   \prooffont{Uniqueness:} The number $c$ is uniquely determined as the coefficient $a_m$ of $z^m$ in $p$. So we only need to show that except for the order, there is only one way to chosse $\lambda_1, \ddd, \lambda_m$. If we have some $\tau_1, \ddd, \tau_m \in \compl$ \st
   \begin{equation}
@@ -180,10 +179,15 @@ In case you are wondering where the $a_0$ went by subtracting $p(\lambda)$ from 
 % 4.14
 \begin{thm}[polynomials with real coefficients have nonreal zeros in pairs]
   \label{thm: polynomials with real coefficients have nonreal zeros in pairs}
-  Suppose $p\in \mathcal{P} (\mathbb{C})$ is a polynomial with real coefficients. If $\lambda \in \mathbb{C}$ is a zero of $p$, then so is $\overline{\lambda}$.
+  Suppose $p\in \mathcal{P} (\mathbb{C})$ is a polynomial with real coefficients. If $\lambda \in \mathbb{C}$ is a zero/root of $p$, then so is $\overline{\lambda}$.
 \end{thm}
 \begin{prf}
-  Let $p(z) :\equiv a_0 + a_1 z + \ldots + a_m z^m$, where $a_0, \ldots, a_m \in \real$. Suppose $\lambda \in \compl$ is a zero of $p$. Then
+  Let $p \in \polyn(\compl)$ be defined by
+  \begin{equation}
+    p(z) := a_0 + a_1 z + \ldots + a_m z^m \quad (\forall c \in  \compl),
+  \end{equation}
+
+  where $a_0, \ldots, a_m \in \real$. Suppose $\lambda \in \compl$ is a zero of $p$. Then
   \begin{equation}
     \begin{aligned}
       a_0+a_1\lambda+\cdots+a_m\lambda^m&=0\\

@@ -216,24 +216,25 @@ In the next result, the map $\Gamma$ is surjective by the definition of $V_1 + \
     v+u = (w - w + v + u) = w + \Big( \underbrace{(v-w)}_{\in \; U} + u\Big), $ thus $ v+u \in w+U.
   \]
 
-  Similarly, because $v-w \in U$ we also have $w-v \in U$ and thus
+  Similarly, because $v-w \in U$ we also have $w-v \in U$, and thus,
   \[
-    w+u = (v - v + w + u) = v+\Big( \underbrace{(w-v)}_{\in \; U}+u \Big), $ thus $ w+u \in v+U.
+    w+u = (v - v + w + u) = v+\Big( \underbrace{(w-v)}_{\in \; U}+u \Big), $ hence $ w+u \in v+U.
   \]
 
-  So we have $\forall u \in U: v+u \in w+U$ which is equivalent to \[ v+U \subseteq w + U\]
+  We have shown that $\forall u \in U: v+u \in w+U$; which is equivalent to \[ v+U \subseteq w + U\]
 
-  and $\forall u \in U: w+u \in v+U$ which is equivalent to \[ w+U \subseteq v+U.\]
+  and $\forall u \in U: w+u \in v+U$; which is equivalent to \[ w+U \subseteq v+U.\]
 
-  This implies $v+U = w+U$ given that $v-w \in U$, which proves the first equivalence.
+  This implies $v+U = w+U$, given that $v-w \in U$, which proves the first equivalence.
 
   \StepTwo The equation $v+U = w+U$ implies that $(v+U) \cap (w+U) \neq \varnothing$.
 
-  \StepThree Now suppose $(v+U) \cap (w+U) \neq \varnothing$. Thus there exist $u_1, u_2 \in U$ such that
+  \StepThree Now, suppose $(v+U) \cap (w+U) \neq \varnothing$. Thus, there exist $u_1, u_2 \in U$ such that
   \[
-    v+u_1 = w+u_1, $ thus $ v-w = \underbrace{u_2-u_1}_{\in \; U}.
+    v+u_1 = w+u_1,
   \]
-  Hence, $v-w \in U$.
+
+  Therefore, $ v-w = u_2-u_1$. Hence, $v-w \in U$.
 \end{prf}
 
 % 3.102
