@@ -55,7 +55,7 @@
   We first prove that $W := \sum_{k=1}^m V_k$  is a subspace of $V$,
   and then show it is the smallest such subspace
   containing each $V_k$.
-  Since $0 \in V_k \;\forall k \in \{1, \ddd, m\}$, we have $0 = 0 + \cdots + 0 \in W$.
+  Since $0 \in V_k$ for every $k \in \{1, \ddd, m\}$, we have $0 = 0 + \cdots + 0 \in W$.
   If
   \(u = \sum_{k=1}^m v_k \in W\) and
   \(w = \sum_{k=1}^m v'_k \in W\)
@@ -73,7 +73,7 @@
       \quad \text{ as each \(V_k\) is closed under scalar multiplication. }
   \end{equation}
 
-  Thus, $W$ contains $0$, is closed under addition and scalar multiplication, and hence, is a subspace of $V$, by \ref{thm: conditions for a subspace}.
+  Thus, $W$ contains $0$, is closed under addition and scalar multiplication, and hence, is a subspace of $V$ by \ref{thm: conditions for a subspace}.
   Now, we have to show the minimality of $W$ and that $W$ is contained in every subspace of $V$, containing $V_1, \ddd, V_m$.
   The subspaces $V_1, \ddd, V_m$ are all contained in $W$, i.e $\forall \kInOneTillM: V_k \subseteq W$. This is because every $v \in V_k$ can be written as $v = 0 + \cdots + v + \cdots + 0$.
 
@@ -87,17 +87,20 @@
 \begin{mydef}[direct sum, $\oplus$]
   \label{def: direct sum}
   %NO COMMA BEFORE IF ACC TO AXLER
-  $V_1 + \cdots + V_m$ is called a \qt{direct sum} if each element of $V_1 +\cdots+V_m$ can be written in only one way as a sum $v_1 + \cdots + v_m$, where each $v_k \in V_k$. In this case, we write:
+  $V_1 + \cdots + V_m$ is called a \qt{direct sum} if each element of $V_1 +\cdots+V_m$ can be written in only one way as a sum $v_1 + \cdots + v_m$, where each $v_k \in V_k$. In this case, we write
   \begin{equation}
-    V_1 \oplus \cdots \oplus V_m := V_1 + \cdots + V_m
+     V_1 + \cdots + V_m = V_1 \oplus \cdots \oplus V_m
   \end{equation}
+
+  to denote that $V_1 + \cdots + V_m$ is a direct sum.
 \end{mydef}
 
 \begin{example}
   Example: $\myF^3 =
   \left \{ \left ( x, y, 0 \right ) \in \myF^3 \mid x,y \in \myF \right \}
   \oplus
-  \left \{ \left (  0, 0, z  \right ) \in \myF^3 \mid z \in \myF \right \}$
+  \left \{ \left (  0, 0, \phantom{y} \!\!\!\! z  \right ) \in \myF^3 \mid z \in \myF \right \}$
+  %TODO: Check size or parentheses.
 \end{example}
 
 

@@ -12,14 +12,19 @@
     An invertible  linear map has a unique inverse.
   \end{thm}
   \begin{prf}
-    Suppose $T\in \lvw$ is invertible and $S_1$ and $S_2$ are inverses of $T$. $\implies S_1 = S_1 I = S_1 (T S_2) = (S_1 T) S_2 = I S_2 = S_2 \implies S_1 = S_2$.
+    Suppose $T\in \lvw$ is invertible and $S_1$ and $S_2$ are inverses of $T$. Hence,
+    \begin{equation}
+      S_1 = S_1 I = S_1 (T S_2) = (S_1 T) S_2 = I S_2 = S_2.
+    \end{equation}
+
+    Therefore, $S_1 = S_2$.
   \end{prf}
 
   % 3.61
   \begin{mydef} [notation $T^{-1}$]
-    The inverse is denoted by $T^{-1}\in \linmap(W,V)$ for $T\in \linmap(V,W).$ We have
+    Since the inverse is unique, the inverse is denoted by $T^{-1}\in \linmap(W,V)$ for $T\in \linmap(V,W).$ We have
     \begin{equation}
-      T^{-1}T=I_V$ and $T T^{-1} = I_W
+      T^{-1}T=I_V$ and $T T^{-1} = I_W.
     \end{equation}
   \end{mydef}
 
@@ -66,7 +71,7 @@
   \setcounter{thm}{67}
   \begin{thm} [$ST = I \iff TS=I$ on vector spaces of the same dimension]
     \label{thm: ST = I iff TS=I - on vector spaces of the same dimension}
-    Suppoe $V$ and $W$ are finite-dimensinal vector spaces of the same dimension. Let $S \in \linmap (W,V)$, and $T \in \linmap(V,W)$. Then $ST = I$ if and and only if $TS = I$.
+    Suppoe $V$ and $W$ are finite-dimensinal vector spaces of the same dimension. Let $S \in \linmap (W,V)$, and $T \in \linmap(V,W)$. Then $ST = I$ $\iff$ $TS = I$.
   \end{thm}
   \begin{prf}
      \Rightarrowdirection Let $S \in \linmap (W,V)$, and $T \in \linmap(V,W)$ such that $ST = I$. If $v \in V$ and $Tv = 0$, then
@@ -74,22 +79,22 @@
        v = Iv = (ST)v = S(Tv) = S(0) = 0.
      \end{equation}
 
-     Thus $\mynull T = \{0\}$ and therefore, $T$ is injective by \ref{thm: injectivity iff null space equals zero-set}. Because $V$ and $W$ have the same dimension, $T$ is invertible by \ref{thm: injectivity is equivalent to surjectivity}. Now multiply both sides of the equation $ST = I$ by $T^{-1}$ to conclude:
+     Thus, $\mynull T = \{0\}$ and therefore, $T$ is injective by \ref{thm: injectivity iff null space equals zero-set}. Because $V$ and $W$ have the same dimension, $T$ is invertible by \ref{thm: injectivity is equivalent to surjectivity}. Now, multiply both sides of the equation $ST = I$ by $T^{-1}$ to conclude:
      \begin{equation}
        S = T^{-1}.
      \end{equation}
 
      Hence, $TS = TT^{-1} = I$, as desired.
 
-     \Leftarrowdirection Right above, we have shown that $ST = I \implies TS=I$. To prove the implication in the other direction, simply reverse the roles of $S$ and $T$ and $V$ and $W$, showing that $TS=I \implies ST=I$.
+     \Leftarrowdirection Right above, we have shown that $ST = I$ implies that $TS=I$. To prove the implication in the other direction, simply reverse the roles of $S$ and $T$ and $V$ and $W$, showing that $TS=I$ implies that $ST=I$.
   \end{prf}
 
   \subsection{Isomorphic Vector Spaces}
 
   %\textbf{3.69}
-  \begin{thm}
+  \begin{mydef}
     An isomorphism is an invertible linear map. Two vector spaces are called isomorphic if there is a isomorphism from one vector space to the other. $T:V\to W$
-  \end{thm}
+  \end{mydef}
 
   %\textbf{3.70}
   \begin{thm}[dimension shows whether vector spaces are isomorphic]

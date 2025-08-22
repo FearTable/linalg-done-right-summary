@@ -13,7 +13,7 @@
   For $T=\linmap(V, W)$, $\mynull T$ is a subspace of $V$
 \end{thm}
 \begin{prf}
-  $0 \in \mynull T$, because $T(0) = 0$. Suppose $u,v \in \mynull T$ and $\lambda \in \myF.$ $\implies T(u+v)=Tu+Tv=0+0=0.$ Hence $u+v \in \mynull T$. We also have $T(\lambda u)= \lambda Tu = \lambda 0 = 0$, so $\lambda u \in \mynull T$.
+  We have that $0 \in \mynull T$, because $T(0) = 0$. Suppose $u,v \in \mynull T$ and $\lambda \in \myF.$ Then $T(u+v)=Tu+Tv=0+0=0$. Hence, $u+v \in \mynull T$. Similarly, $T(\lambda u)= \lambda Tu = \lambda 0 = 0$, so $\lambda u \in \mynull T$.
 \end{prf}
 
 % 3.14
@@ -22,11 +22,11 @@
   \label{def: injectivity}
   A function $T: V \to W$ is called \qt{injective} if
   \begin{equation}
-    Tu = Tv \implies u = v \quad \forall u,v \in V
+    Tu = Tv \implies u = v \quad \forall u,v \in V.
   \end{equation}
   Or analogous:
   \begin{equation}
-    u \neq v \implies Tu \neq Tv \quad \forall u,v \in V
+    u \neq v \implies Tu \neq Tv \quad \forall u,v \in V.
   \end{equation}
 \end{mydef}
 
@@ -68,7 +68,7 @@
 % 3.16
 \setcounter{thm}{15}
 \begin{mydef} [range]
-  $\operatorname{range}T :\equiv \{Tv \mid v \in V\} \subseteq W$ for $T \in \lvw$
+  $\operatorname{range}T := \{Tv \mid v \in V\} \subseteq W$ for $T \in \lvw$.
 \end{mydef}
 
 % 3.18
@@ -78,27 +78,25 @@
   $T\in \linmap(V,W) \implies \myrange T$ is a subspace of $W$.
 \end{thm}
 \begin{prf}
-  Let $T \in \linmap (V,W)$. Then $T(0)=0$ by \ref{thm: linear maps take 0 to 0}, which implies that $\boxed{0 \in \myrange T}\,$. So the additive identity $0$ is part of $\myrange T$.
-
+  Let $T \in \linmap (V,W)$. Then $T(0)=0$ by \ref{thm: linear maps take 0 to 0}, which implies that $\boxed{0 \in \myrange T}\,$. So, the additive identity $0$ is part of $\myrange T$.
   If $\boxed{w_1, w_2 \in \myrange T}\,$, then $\exists v_1, v_2\in V$ \st $Tv_1 = w_1$ and $Tv_2 =w_2$. Thus
   \[
     T(v_1 + v_2)=Tv_1 + Tv_2 = \boxed{w_1 + w_2 \in \myrange T}.
   \]
 
-  Hence $\myrange T$ is closed under addition.
-
-  If $\boxed{w \in \myrange T}$ and $\lambda \in \myF$, then $\exists v \in V$ \st $Tv = w$. Thus
+  Hence, $\myrange T$ is closed under addition.
+  If $\boxed{w \in \myrange T}$ and $\lambda \in \myF$, then $\exists v \in V$ \st $Tv = w$. Thus,
   \[
     T(\lambda v) = \lambda Tv = \boxed{\lambda w \in \myrange T}.
   \]
-  Hence $\myrange T$ is closed under scalar multiplication. Thus $\myrange T$ is a subspace of $W$ by \ref{thm: conditions for a subspace}.
+  Hence, $\myrange T$ is closed under scalar multiplication. Thus, $\myrange T$ is a subspace of $W$ by \ref{thm: conditions for a subspace}.
 \end{prf}
 
 %3.19
 \setcounter{thm}{18}
 \begin{mydef} [surjectivity]
   \label{def: surjectivity}
-  If $\myrange T=W$, $T:V\to W$ is called \qt{surjektive} or \qt{onto}.
+  If $\myrange T=W$, then $T:V\to W$ is called \qt{surjektive} or \qt{onto}.
 \end{mydef}
 
 \subsection{Fundamental Theorem of Linear Maps}

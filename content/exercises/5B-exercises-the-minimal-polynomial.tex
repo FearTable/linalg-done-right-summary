@@ -2,18 +2,33 @@
 
 \begin{xrcs}
   Suppose $T \in \linmap(V)$. Prove that $9$ is an eigenvalue of $T^2$ $\iff$ $3$ or $-3$ is an eigenvalue of $T$.
+
   \begin{xprf}
-    \Leftarrowdirection Suppose $-3$ is an eigenvalue of $T$. Thus, there exists $v \in V$ such that $Tv = -3v$. If we apply $T$ a second time, we get $TT v = T (-3v) = -3 T v = (-3) (-3) v = 9v$. Therefore, $9$ is an eigenvalue of $T^2$. The case where we start with $3$ as an eigenvalue of $T$ is completely analogous.
+    \Leftarrowdirection Suppose $-3$ is an eigenvalue of $T$. Thus, there exists $v \in V$ such that $Tv = -3v$. If we apply $T$ a second time, we get $TT v = T (-3v) = -3 T v = (-3) (-3) v = 9v$. Therefore, $9$ is an eigenvalue of $T^2$. The case where we start with $3$ as an eigenvalue of $T$ works analogously.
 
-    \Rightarrowdirection Let $v \in V$ be an eigenvector of $T^2$ corresponding to $\lambda = 9$. Thus, $T^2 v = \lambda v$ or equivalently, $T(Tv) = \lambda v$. Since eigenvectors are scalar mutiples of each other, we assume that $v$ is also an eigenvector of $T$. Hence, let $\alpha \in \myF$ be such that $Tv = \alpha v$. Therefore,
-    \begin{align}
-      T(Tv) &= \lambda v \\
-      T(\alpha v) &= \lambda v \\
-      \alpha T v &= \lambda v \\
-      \alpha^2 v &= \lambda v = 9v
-    \end{align}
+    \Rightarrowdirection
+    Let $v\neq 0$ satisfy $T^2v=9v$. Then
+    \begin{equation}
+      0=(T^2 - 9I) v = (T-3I) (T+3I) v.
+    \end{equation}
 
-    For this to happen, $\alpha$ must be $3$ or $-3$.
+    Set $w := (T+3I)v$. Then $(T-3I)w = 0$, so $Tw = 3w$. There are two cases:
+    \begin{itemize}
+      \item If $w=0$, then $(T + 3I) v = 0$. Hence, $Tv = -3v$ and $-3$ is an eigenvalue of $T$.
+      \item If $w \neq 0$, then $w$ is an eigenvector of $T$ with eigenvalue $3$.
+    \end{itemize}
+
+    Thus, $T$ has eigenvalue $3$ or $-3$, as required.
+
+%    \Rightarrowdirection Let $v \in V$ be an eigenvector of $T^2$ corresponding to $\lambda = 9$. Thus, $T^2 v = \lambda v$ or equivalently, $T(Tv) = \lambda v$. Since eigenvectors are scalar mutiples of each other, we assume that $v$ is also an eigenvector of $T$. Hence, let $\alpha \in \myF$ be such that $Tv = \alpha v$. Therefore,
+%    \begin{align}
+%      T(Tv) &= \lambda v \\
+%      T(\alpha v) &= \lambda v \\
+%      \alpha T v &= \lambda v \\
+%      \alpha^2 v &= \lambda v = 9v
+%    \end{align}
+%
+%    For this to happen, $\alpha$ must be $3$ or $-3$.
   \end{xprf}
 \end{xrcs}
 

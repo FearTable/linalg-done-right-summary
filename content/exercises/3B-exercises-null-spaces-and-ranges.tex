@@ -7,6 +7,7 @@
 \exercise{2}
 \begin{xrcs}
   Suppose $S, T \in \linmap(V)$ are such that $\myrange S \subseteq \mynull T$. Prove that $(ST)^2 = 0$.
+
   \begin{xprf}
     For any $v \in V$, $(ST)^2 (v) = (ST)(ST) (v) = ST (ST(v))$. Since $T(v) \in V$, we have $ST(v) = S(T(v)) \in \myrange S \subseteq \mynull T$, so $T(S(T(v)))=0$. Thus, we compute
     \begin{equation}
@@ -38,6 +39,7 @@
 \setcounter{xrcscount}{7}
 \begin{xrcs} % ChatGTP did a lot of changes
   Suppose $T \in \linmap(V,W)$ is injective and $v_1, \ddd, v_n$ is linearly independent in $V$. Prove that $Tv_1, \ddd, Tv_n$ is linearly independent in $W$.
+
   \begin{xprf}
     Let $a_1, \ddd, a_n \in \myF$ such that
     $
@@ -495,7 +497,7 @@
 
 \exercise{22}
 \begin{xrcs}
-  \begin{enumerate}
+  \begin{enumerate}[label=\textbf{(\alph*)}]
     \item {
     Suppose $U$, $V$ and $W$ are finite-dimensional vector spaces and $S \in \linmap (V,W)$ and $T \in \linmap(U,V)$. Prove that $\dim \mynull ST \leq \dim \mynull S + \dim \mynull T$.
 

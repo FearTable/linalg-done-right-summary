@@ -172,7 +172,6 @@ and so \(\lambda\) is an eigenvalue of \(T\) with eigenvector \(q(T)v\).
   This means that every vector of $V$ gets mapped to $0$ if $q(T)$ is applied. So we have found a minimal monic polynomial!
 
   \prooffont{General case:} As we can see a pattern now, we can use induction on $\dim V$ and assume $\dim V > 2$ and that the theorem holds for all vector spaces of smaller dimension than $\dim V$.
-
   Let $v\in V$ be nonzero. Then the list
   \begin{equation}
     \label{eq: v Tv T^dimV}
@@ -187,9 +186,9 @@ and so \(\lambda\) is an eigenvalue of \(T\) with eigenvector \(q(T)v\).
     \end{aligned}
   \end{equation}
 
-  Let us define
+  Let us define $q \in \mathcal{P}_m (\myF)$ as
   \begin{equation}
-    q(z) := c_0 + c_1z + \cdots + c_{m-1} z^{m-1} +z^{m} \in \mathcal{P}_m (\myF)
+    q(z) := c_0 + c_1z + \cdots + c_{m-1} z^{m-1} +z^{m}
   \end{equation}
 
   accordingly. Thus, we have
@@ -209,7 +208,7 @@ and so \(\lambda\) is an eigenvalue of \(T\) with eigenvector \(q(T)v\).
     v, Tv, \dots, T^{m-1}v
   \end{equation}
 
-  from before is linearly independent (This is not the same list as \eqref{eq: v Tv T^dimV}). This fact together with equation \eqref{eq: nice equation for q(T) again} imply that the vectors of the list \eqref{eq: v, Tv, T^m-1v} all belong to $\mynull q(T)$. Hence,
+  from before is linearly independent (This is not the same list as \eqref{eq: v Tv T^dimV}  since $m \leq \dim V$). This fact together with equation \eqref{eq: nice equation for q(T) again} imply that the vectors of the list \eqref{eq: v, Tv, T^m-1v} all belong to $\mynull q(T)$. Hence,
   \begin{equation}
     \begin{aligned}
       &\dim \mynull q(T)   \geq m \\
@@ -361,14 +360,14 @@ and so \(\lambda\) is an eigenvalue of \(T\) with eigenvector \(q(T)v\).
 \begin{mydef} [minimal polynomial]
   Let $T\in \linmap (v)$. The \qt{minimal polynomial of $T$} is the unique monic polynomial $p\in \mathcal{P}(\myF)$ of smallest degree \st $p(T)=0$.
 \end{mydef}
-\bfemph{Computation:} Find the smallest $m \in \nat$ such that: \\
+\bfemph{Computation of the minimal polynomial:} Find the smallest $m \in \nat$ such that: \\
 $c_0I + c_1 T + \cdots + c_{m-1} T^{m-1} = -T^{m}$ has a solution $c_0, \dots, c_{m-1} \in \myF$. Solve for $m=1,2,\dots,\dim V$
 
 Even faster (usually), pick $v \in V$ with $v \neq 0$ and consider the equation
 \begin{equation}
   c_0v + c_1Tv + \cdots + c_{\mydim V-1}T^{\mydim V-1}v=-T^{\mydim V}v.
 \end{equation}
-If this equation has a unique solution, as happens most of the time
+If this equation has a unique solution, as happens most of the time,
 \begin{equation}
   c_0, c_1, c_2, \dots, c_{\dim V-1}, 1
 \end{equation}
@@ -378,32 +377,47 @@ are the coefficients of the minimal polynomial of $T$.
 \setcounter{thm}{26}
 \begin{thm} [eigenvalues are the zeros of the minimal polynomial]
   \label{thm: eigenvalues are the zeros of the minimal polynomial}
-  Let $T \in \linmap(V)$, $\dim v \neq \infty$. Then
+  Let $T \in \linmap(V)$, which means $T$ is an operator and let $V$ be finite-dimensional ($\dim v \neq \infty$). Then
   \begin{enumerate}[label=\textbf{(\alph*)}]
     \item The zeros of the minimal polynomial of $T$ are the eigenvalues of $T$.
     \item If $V$ is a complex vector space, the minimal polynomial has the form
     \begin{equation}
       (z-\lambda_1)\cdots(z-\lambda_m), \mytext{where} \lambda_1, \dots, \lambda_m
-    \end{equation} are the eigenvalues of $T$, possibly with repetitions.
+    \end{equation} are the eigenvalues of $T$, possibly with repetitions ($\lambda_i = \lambda_j, i \neq j$).
   \end{enumerate}
 \end{thm}
 \begin{prf} Let $p$ be the minimal polynomial of $T$.
   \begin{enumerate}[label=\textbf{(\alph*)}]
-    \item \Rightarrowdirection Suppose $\lambda \in \myF$ is a zero of $p$. $\implies p(z)=(z-\lambda)q(z)$, where $q$ is a monic polynomial with coefficients in $\myF$ (see \ref{factororing-out-zeros-of-a-polynomial-always-possible})
+    \item \Rightarrowdirection Suppose $\lambda \in \myF$ is a zero of $p$. Hence, we can write $p$ as $p(z)=(z-\lambda)q(z)$, where $q$ is a monic polynomial with coefficients in $\myF$ (see \ref{factororing-out-zeros-of-a-polynomial-always-possible}). As we can write
     \begin{equation}
-      p(T)=0\implies 0=(T-\lambda I)(q(T)v) \quad \forall v\in V.
+      p(T)=0,
     \end{equation}
-    Because $q$ is of lesser degree than $p$, there exists at least one vector $u\in V$ sucht that
+
+    we can also write
+    \begin{equation}
+      0=(T-\lambda I)(q(T)v) \quad \forall v\in V.
+    \end{equation}
+
+    Because $q$ is of lesser degree than $p$ (i.e. $\deg q = (\deg p) -1$) and $p$ is the minimal polynomial of $T$, there exists at least one vector $u\in V$ sucht that
     \begin{equation}
       q(T)u \neq 0,
     \end{equation}
 
     which makes $q(T)u$ an eigenvector with eigenvalue $\lambda$.
 
-    \Leftarrowdirection Conversely, suppose $\lambda \in \myF$ is an eigenvalue of $T$. Thus there exists $v\in V, v \neq 0$ such that $Tv=\lambda v$. Repeated applications of $T$ on both sides of this equation show that $T^kv =\lambda^k v \quad \forall k\in \nat$.
-    $\implies p(T)v=p(\lambda)v$. Because $p$ is the minimal polynomial of $T$, we have $p(T)v=0$. $\implies p(\lambda) = 0$. $\implies$ $\lambda$ is a zero of $p$.
+    \Leftarrowdirection Conversely, suppose $\lambda \in \myF$ is an eigenvalue of $T$. Thus, there exists a nonzero $u\in V$ such that $Tu=\lambda u$. Repeated applications of $T$ on both sides of this equation show that
+    \begin{equation}
+      T^ku =\lambda^k u \quad \forall k\in \nat.
+    \end{equation}
 
-    \item use (a) and the second version of the fundamental theorem of algebra. (\ref{fundamental-theorem-of-algebra-second-version})
+    This implies that
+    \begin{equation}
+      p(T)u=p(\lambda)u.
+    \end{equation}
+
+    Because $p$ is the minimal polynomial of $T$, we have $p(T)u=p(\lambda)u=0$. Since $u$ is nonzero, we have $p(\lambda) = 0$. This makes $\lambda$ a zero of $p$.
+
+    \item use (a) and the second version of the fundamental theorem of algebra (\ref{fundamental-theorem-of-algebra-second-version}).
   \end{enumerate}
   \vspace*{-\baselineskip}
 \end{prf}
@@ -411,7 +425,7 @@ are the coefficients of the minimal polynomial of $T$.
 \setcounter{thm}{28}
 \begin{thm}[every \qt{zero-polynomial} is a multiple of the minimal polynomial]
   \label{thm: every zero polynomial is a multiple of the minimal polynomial}
-  $T\in \linmap(V)$ and $q \in \mathcal{P} (\myF)$:
+  Let $T\in \linmap(V)$ and $q \in \mathcal{P} (\myF)$. Then
   \begin{equation}
     q(T)=0 \iff q \mytext{is a multiple of the minimal polynomial of} T.
   \end{equation}
@@ -425,14 +439,15 @@ are the coefficients of the minimal polynomial of $T$.
       Suppose $q(T)=0$.
       By (\ref{division-algorithm-for-polynomials}) there exists $s,r \in \mathcal{P} (\myF)$ such that
       \begin{equation}
-        q=ps+r, \quad \deg r < \deg p
+        q=ps+r, \quad \deg r < \deg p.
       \end{equation}
+
       We have
       \begin{equation}
         \label{eq: 0 = q(T) = p(T)s(T) + r(T) = r(T)}
         0 = q(T) = p(T)s(T) + r(T) = r(T).
       \end{equation}
-      The equation above implies that $r=0$. Otherwise, dividing $r$ by its highest\-/degree coefficient would produce a monic polynomial that when applied to $T$ gives $0$. A contradiction because $\deg r < \deg p$ and $p$ is minimal. Thus \eqref{eq: 0 = q(T) = p(T)s(T) + r(T) = r(T)} becomes the equation $q=ps$, as desired
+      The equation above implies that $r=0$. Otherwise, dividing $r$ by its highest\-/degree coefficient would produce a monic polynomial that when applied to $T$ gives $0$. A contradiction because $\deg r < \deg p$ and $p$ is minimal. Thus, \eqref{eq: 0 = q(T) = p(T)s(T) + r(T) = r(T)} becomes the equation $q=ps$, as desired
     }
     \item{\Leftarrowdirection}{
       Suppose $q=ps$ for $q,p,s \in \mathcal{P}(\myF)$. We have
@@ -448,22 +463,25 @@ are the coefficients of the minimal polynomial of $T$.
 \setcounter{thm}{30}
 \begin{thm}[minimal polynomial of a restriction operator]
   \label{thm: minimal polynomial of a restriction operator}
-  If $U$ is a subspace of $V$, then the minimal polynomial of $T$ is a polynomial multiple of the minimal polynomial of $\left .T \right | _{ U}$
+  If $U$ is a subspace of $V$, then the minimal polynomial of $T$ is a polynomial multiple of the minimal polynomial of $\left .T \right | _{ U}$.
 \end{thm}
 \begin{prf}
-  Suppose $p$ is the minimal polynomial of $T\in \linmap(V)$ and $U \subseteq V$.
+  Suppose $p$ is the minimal polynomial of $T\in \linmap(V)$ and $U \subseteq V$. Then
   \begin{equation}
-    \implies p(T)v=0 \quad \forall v \in V.
+    p(T)v=0 \quad \forall v \in V.
   \end{equation}
   In particular,
   \begin{equation}
     p(T)u=0 \quad \forall u\in U.
-  \end{equation} Thus $p\left( \left.T\right|_{U} \right)=0.$ Now the previous theorem
-  \ref{thm: every zero polynomial is a multiple of the minimal polynomial} tells us, that $p$ is a polynomial multiple of the minimal polynomial of $\left. T \right |_U$. [This means that the degree of $p$ is at least as large].
+  \end{equation} Thus $p\left( \left.T\right|_{U} \right)=0.$ Now, the previous theorem
+  \ref{thm: every zero polynomial is a multiple of the minimal polynomial} tells us that $p$ is a polynomial multiple of the minimal polynomial of $\left. T \right |_U$. [This means that the degree of $p$ is at least as large].
 \end{prf}
 
 \begin{thm} [invertibility and the constant term of the minimal polynomial]
-  Let $T \in \linmap (V)$. Then we have: $T$ is not invertible $\iff$ the constant term of the minimal polynomial of $T$ is $0$.
+  Let $T \in \linmap (V)$. Then
+  \begin{equation}
+    T$ is not invertible $\iff$ the constant term of the minimal polynomial of $T$ is $0.
+  \end{equation}
 \end{thm}
 \begin{prf}
   $T$ is not invertible $\iff_{\text{(\ref{thm: equivalent conditions to be an eigenvalue})}}$ $0$ is an eigenvalue of $T$ $\iff_{(\text{\ref{thm: eigenvalues are the zeros of the minimal polynomial})}}$ $0$ is a zero of $p$ $\iff$ the constant term of $p$ is $0$.
@@ -495,10 +513,9 @@ are the coefficients of the minimal polynomial of $T$.
   \end{equation}
 
   The term in the large parentheses above is a positive number. Thus, the equation above implies that $v = 0$. Hence, we have shown that $S$ has no eigenvalues.
+  Let $U$ be a subspace of $N$ with even dimension that is invariant under $S$ and has the largest dimension among all subspaces of $N$. Note that $U$ could be $\{0\}$. If $U = N$, then we are done.
 
-  Let $U$ be a subspace of $N$ with even dimension, that is invariant under $S$ and has the largest dimension among all subspaces of $N$. Note that $U$ could be $\{0\}$. If $U = N$, then we are done.
-
-  Assume that $U \neq N$. By maximality, $U$ is not properly contained in any larger even-dimensional $S$-invariant subspace of $N$. Hence, there exists $w \in N$ such that $w \notin U$. Now, let
+  Therefore, assume that $U \neq N$. By maximality, $U$ is not properly contained in any larger even-dimensional $S$-invariant subspace of $N$. Hence, there exists $w \in N$ such that $w \notin U$. Now, let
   \begin{equation}
     W := \myspan {w, Sw}.
   \end{equation}

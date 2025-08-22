@@ -5,7 +5,7 @@
 \setcounter{thm}{30}
 \begin{mydef}[matrix of a linear map, $\mmatrix(T)$]
   \label{def: matrix of a linear map}
-  Let $T \in \linmap (L,W)$ and let $v_1, \dots, v_n$ be a basis of $V$ and let $w_1, \dots, w_m$ be a basis of $W$. The \qt{matrix of $T$} with respect to these bases is the $m$-by-$n$ matrix $\mmatrix(T)$ whose entries $A_{j,k}$ are defined by
+  Let $T \in \linmap (V,W)$ and let $v_1, \dots, v_n$ be a basis of $V$ and let $w_1, \dots, w_m$ be a basis of $W$. The \qt{matrix of $T$} with respect to these bases is the $m$-by-$n$ matrix $\mmatrix(T)$ whose entries $A_{j,k}$ are defined by
   \begin{equation}
     T v_k = A_{1,k} w_1 + \cdots + A_{m,k} w_m \equiv \sum_{j=1}^{m} A_{j,k} w_j.
   \end{equation}
@@ -301,15 +301,15 @@ For $1 \leq k \leq p$, we have
 % 3.56
 \setcounter{thm}{55}
 \begin{thm}[column-row factorization]
-  Suppose $A \in \myF^{m,n}$ with column rank $c \geq 1.$ $\implies \exists C\in \myF^{m,c}$ and $R\in \myF^{c,n}$ such that
+  Suppose $A \in \myF^{m,n}$ with column rank $c \geq 1.$ Then there exists $C\in \myF^{m,c}$ and $R\in \myF^{c,n}$ such that
   \begin{equation}
-    A = CR
+    A = CR.
   \end{equation}
 \end{thm}
 
  % 3.57}
 \begin{thm}[column rank and row rank]
-  $A\in \myF^{m,n} \implies$ column rank of $A$ $=$ row rank of $A$.
+  If $A\in \myF^{m,n}$, then column rank of $A$ $=$ row rank of $A$. This leads to the next definition.
 \end{thm}
 
 \begin{mydef} [rank]

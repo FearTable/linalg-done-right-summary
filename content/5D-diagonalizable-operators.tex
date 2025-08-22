@@ -38,9 +38,7 @@
   \end{equation}
 \end{thm}
 \begin{prf}
-  Suppose $v_1 + \cdots + v_m = 0$, where each $v_k \in E(\lambda_k, T)$ and $\lambda_1, \ddd, \lambda_m$ are distinct eigenvalues. \\
-  $\implies \forall k: v_k = 0$, because eigenvectors corresponding to distinct eigenvalues are linearly independent by \ref{thm: linearly independent eigenvectors}. Thus $E(\lambda_1, T) + \cdots + E(\lambda_m)$ is a direct sum by \ref{thm: condition for a direct sum}.
-
+  Let $\lambda_1, \ddd, \lambda_m$ be distinct eigenvalues. Suppose $v_1 + \cdots + v_m = 0$, where each $v_k \in E(\lambda_k, T)$ for $k = 1, \ddd, m $. This means $\forall k \in \{ 1, \ddd, m\}: v_k = 0$, because eigenvectors corresponding to distinct eigenvalues are linearly independent by \ref{thm: linearly independent eigenvectors}. Thus, $E(\lambda_1, T) + \cdots + E(\lambda_m, T)$ is a direct sum by \ref{thm: condition for a direct sum}.
   By \ref{thm: a sum is a direct sum if and only if the dimensions add up}, the dimensions of a direct sum add up. By \ref{thm: dimension of a subspace}, the dimension of a subspace is always smaller or equal to the space itself, if it is \fd. Therefore,
   \begin{equation}
       \dim E(\lambda_1, T) + \cdots + \dim E(\lambda_m, T)

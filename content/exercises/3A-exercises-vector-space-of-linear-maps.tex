@@ -15,6 +15,7 @@
 
 \begin{xrcs}
   Show that every linear map from a one-dimensional vector space to itself is a multiplication by some scalar. More precisely, prove that if $\mydim V = 1$ and $T \in \linmap (V)$, then there exists $\lambda in \myF$ such that $Tv = \lambda v$ for all $v \in V$.
+
   \begin{xprf}
     If $T = 0$, take $\lambda = 0$ and there's nothing more to show. Otherwise, because $T \neq 0$ there exists $v_1 \in V$ with $T(v_1) \neq 0$. Since $\dim V = 1$, $\{v_1\}$ is a basis of $V$, so every $v \in V$ can be written uniquely as $v=a_1 v_1, \; a_1 \in \myF$. Because $T(v_1)$ lies in the one-dimensional space $V=\myspan{v_1}$, there is a unique scalar $\lambda \in \myF$ such that
     \begin{equation}
@@ -140,21 +141,21 @@
   \begin{equation}
     Tv_k = w_k \quad \text{(for $k=1, \ddd, m$)}.
   \end{equation}
+  \begin{xsol}
+    Let $v_1, \ddd, v_m \in V$ be a linearly dependent list and let $T \in \linmap(V,W)$ be a linear map satisfying $T v_j = w_j$ (for $j=1, \ddd, m$) for some $w_1, \ddd, w_m \in W$.
+    Since $v_1, \ddd, v_m$ is a linearly dependent list, there exists a $k \in \{1, \ddd, m\}$ such that $v_k \in \myspan{v_1, \ddd, \xcancel{v_k}, \ddd, v_m}$ (by \ref{thm: linear dependence lemma}). Hence, we write
+    \begin{equation}
+      v_k = \sum_{\substack{j = 1 \\ j \neq k}}^{m} c_j v_j, \quad \text{where } c_j \in \myF (j=1,\ddd,m).
+    \end{equation}
+
+    If we apply $T$, we get
+    \begin{equation}
+      \begin{aligned}
+        T v_k &= \sum_{\substack{j = 1 \\ j \neq k}}^{m} T(c_j v_j) \iff
+        w_k &= \sum_{\substack{j = 1 \\ j \neq k}}^{m} c_j w_j.
+      \end{aligned}
+    \end{equation}
+
+    This means that $w_1, \ddd, w_m$ must be a linearly dependent list as well and satisfy the equation above. Since $W \neq \{0\}$, choose a nonzero $w \in W$. If we now put instead $w_k := w$ and $w_j := 0$ (for $j \neq k$), every possible $T \in \linmap(V,W)$ would violate the linear dependence enforced by the list $v_1, \ddd, v_m$ with the same arguments as before (i.e., the forced relation $w_k = \sum_{j \neq k} c_j w_j$ becomes $w=0$, a contradiction). With this choice of the $w_j$, no $T \in \linmap (V,W)$ can satisfy $T (v_j) = w_j$ for all $j \in \{1, \ddd, m\}$.
+  \end{xsol}
 \end{xrcs}
-\begin{xsol}
-  Let $v_1, \ddd, v_m \in V$ be a linearly dependent list and let $T \in \linmap(V,W)$ be a linear map satisfying $T v_j = w_j$ (for $j=1, \ddd, m$) for some $w_1, \ddd, w_m \in W$.
-  Since $v_1, \ddd, v_m$ is a linearly dependent list, there exists a $k \in \{1, \ddd, m\}$ such that $v_k \in \myspan{v_1, \ddd, \xcancel{v_k}, \ddd, v_m}$ (by \ref{thm: linear dependence lemma}). Hence, we write
-  \begin{equation}
-    v_k = \sum_{\substack{j = 1 \\ j \neq k}}^{m} c_j v_j, \quad \text{where } c_j \in \myF (j=1,\ddd,m).
-  \end{equation}
-
-  If we apply $T$, we get
-  \begin{equation}
-    \begin{aligned}
-      T v_k &= \sum_{\substack{j = 1 \\ j \neq k}}^{m} T(c_j v_j) \iff
-      w_k &= \sum_{\substack{j = 1 \\ j \neq k}}^{m} c_j w_j.
-    \end{aligned}
-  \end{equation}
-
-  This means that $w_1, \ddd, w_m$ must be a linearly dependent list as well and satisfy the equation above. Since $W \neq \{0\}$, choose a nonzero $w \in W$. If we now put instead $w_k := w$ and $w_j := 0$ (for $j \neq k$), every possible $T \in \linmap(V,W)$ would violate the linear dependence enforced by the list $v_1, \ddd, v_m$ with the same arguments as before (i.e., the forced relation $w_k = \sum_{j \neq k} c_j w_j$ becomes $w=0$, a contradiction). With this choice of the $w_j$, no $T \in \linmap (V,W)$ can satisfy $T (v_j) = w_j$ for all $j \in \{1, \ddd, m\}$.
-\end{xsol}

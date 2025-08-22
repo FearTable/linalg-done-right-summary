@@ -125,20 +125,20 @@ In the next result, the map $\Gamma$ is surjective by the definition of $V_1 + \
 
 \end{thm}
 \begin{prf}
-  By \ref{thm: injectivity iff null space equals zero-set}, $\Gamma$ is injective $\iff v_1 = \cdots = v_m = 0$ [Stated correctly, $\Gamma$ is injective if and only if $\mynull \Gamma = \{ \vec 0 \}$]. This means, the only way to write $0$ as a sum $v_1 + \cdots + v_m$, where each $v_k \in V_k$, is by taking each $v_k=0$. Thus \ref{thm: condition for a direct sum} shows that $\Gamma$ is injective $\iff$ $V_1 + \cdots + V_m$ is a direct sum, as desired.
+  By \ref{thm: injectivity iff null space equals zero-set}, $\Gamma$ is injective $\iff v_1 = \cdots = v_m = 0$ [Stated correctly, $\Gamma$ is injective if and only if $\mynull \Gamma = \{ \vec 0 \}$]. This means, the only way to write $0$ as a sum $v_1 + \cdots + v_m$, where each $v_k \in V_k$, is by taking each $v_k=0$. Thus, \ref{thm: condition for a direct sum} shows that $\Gamma$ is injective $\iff$ $V_1 + \cdots + V_m$ is a direct sum, as desired.
 \end{prf}
 
 \begin{thm}[a sum is a direct sum if and only if the dimensions add up]
   \label{thm: a sum is a direct sum if and only if the dimensions add up}
   Suppose $V$ is finite-dimensional and $V_1, \ddd,V_m$ are subspaces of $V$. Then
   \begin{equation}
-    V_1 + \cdots + V_1$ is a direct sum $\iff
+    V_1 + \cdots + V_m$ is a direct sum (i.e. $\sum_{i=1}^m V_i = \bigoplus_{i=1}^m V_i$) $\iff
     \dim (V_1+\cdots+V_m) = \dim V_1 + \cdots + \dim V_m
   \end{equation}
 \end{thm}
 
 \begin{prf}
-  The map $\Gamma: V_1 \times \cdots \times V_m \to V_1 + \cdots + V_m$ in \ref{thm: products and direct sums} is surjective. Thus by the rank-nullity theorem \ref{rank-nullity-theorem}, $\Gamma$ is injective $\iff$ $\dim \mynull \Gamma = 0$ and therefore
+  The map $\Gamma: V_1 \times \cdots \times V_m \to V_1 + \cdots + V_m$ in \ref{thm: products and direct sums} is surjective. Thus, by the rank-nullity theorem \ref{rank-nullity-theorem}, $\Gamma$ is injective $\iff$ $\dim \mynull \Gamma = 0$ and therefore
   \[
   \begin{aligned}
     &\dim (\underbrace{V_1 \times \cdots \times V_m}_{\text{domain}})=\underbrace{\dim \mynull \Gamma \phantom{V_m} \! \! \! \! \! \! \! \! \! \! \!}_{= \; 0} +  \dim(\underbrace{V_1 + \cdots + V_m}_{\text{codomain} \; \subseteq \; V
@@ -157,7 +157,7 @@ In the next result, the map $\Gamma$ is surjective by the definition of $V_1 + \
 
 
   Since $\Gamma$ is injective, \ref{thm: products and direct sums} tells us that $V_1+\cdots+V_m$ is a direct sum.
-  So we have have that
+  So, we have have that
   \[\dim (V_1 + \cdots + V_m) =  \dim V_1 + \cdots + \dim V_m
   \]
 

@@ -64,25 +64,27 @@
 
 % 2.10
 \begin{mydef}[polynomial, $\polyn(\myF)$]
+  A function $p: \myF \to \myF$ is called a \qt{polynomial} with coefficients in $\myF$, if there exists $a_0, \ldots, a_m \in \myF$ \st
+  \begin{equation}
+    p(z)=a_0 + a_1 + a_2z^2 + \cdots + a_m z^m \quad \forall z \in \myF.
+  \end{equation}
+
+  We further denote
   \begin{itemize}
-    \item $p: \myF \to \myF$ is called a \qt{polynomial} with coefficients in $\myF$, if there exists $a_0, \ldots, a_m \in \myF$ \st
-    \begin{equation}
-      p(z)=a_0 + a_1 + a_2z^2 + \cdots + a_m z^m \quad \forall z \in \myF.
-    \end{equation}
-    \item $\polyn (\myF)$ is the set of all polynomials with coefficients in $\myF$.
-    \item $\polyn (\myF)$ is a vector space of $\myF$ and a subspace of $\myF^\myF$.
+    \item $\polyn (\myF)$ as the set of all polynomials with coefficients in $\myF$.
+    \item Note that $\polyn (\myF)$ is a vector space of $\myF$ and a subspace of $\myF^\myF$.
   \end{itemize}
 \end{mydef}
 
 % 2.11
 \begin{mydef}[degree of a polynomial, $\deg p$]
   The degree $m$ of a polynomial $p=a_0+a_1z+a_2z^2+\cdots+a_mz^m$ is denoted with \begin{equation}
-    \deg p :\equiv m.
+    \deg p := m.
   \end{equation}
 
   We also define for the zero polynomial $p=0$
   \begin{equation}
-    \degree 0 : \equiv -\infty.
+    \degree p = \degree 0 := -\infty.
   \end{equation}
 \end{mydef}
 
@@ -156,7 +158,7 @@
   \end{equation}
   Furthermore, if $k$ satisfies the conditions above \eqref{eq: conditions in the linear dependence lemma} and the $k^{\text{th}}$-term is removed from $v_1, \dots, v_m$, then the span of the remaining list equals $\myspan {v_1, \dots, v_{m}}$:
   \begin{equation}
-    \myspan {v_1, \dots, v_{k-1}, v_{k+1}, \dots, v_m} = \myspan {v_1, \dots, v_m}
+    \myspan {v_1, \dots, v_{k-1},  \xcancel{v_k}, v_{k+1}, \dots, v_m} = \myspan {v_1, \dots, v_m}
   \end{equation}
 \end{thm}
 
@@ -166,14 +168,13 @@
     a_1 v_1 + \cdots + a_m v_m = 0,
   \end{equation}
 
-  where $a_1, \ldots, a_m \in \myF$ and $a_j \neq 0$ and $a_k \neq 0 $, for $j,k \in \{1, \ddd, m\}, j \neq k$.
+  where $a_1, \ldots, a_m \in \myF$ and $a_j \neq 0$ and $a_k \neq 0 $, for $j,k \in \{1, \ddd, m\}$ and $j \neq k$
   (we know, at least $2$ $a$'s are not $0$). Let $k$ be the largest element of $\setonetillm$ such that $a_k \neq 0$. Therefore,
   \begin{equation}
     v_k = - \frac{a_1}{a_k}v_1 - \cdots - \frac{a_{k-1}}{a_k}v_{k-1},
   \end{equation}
 
   showing $v_k \in \myspan{v_1, \ddd, v_{k-1}}$.
-
   Now for the second claim, suppose $k$ is any element of $\setonetillm$ such that
   \begin{equation}
     v_k \in \myspan{v_1, \ddd, v_{k-1}}
@@ -203,7 +204,7 @@
 
   Which shows that $u \in \myspan{v_1, \ddd, v_{k-1}}$. Combining \eqref{eq: first linear combination for u} and \eqref{eq: second linear combination for u}, we conclude that
   \begin{equation}
-    \myspan{v_1, \ddd, v_{k-1}, v_{k+1}, \ddd, v_m} = \myspan{v_1, \ddd, v_m},
+    \myspan{v_1, \ddd, v_{k-1}, \xcancel{v_k}, v_{k+1}, \ddd, v_m} = \myspan{v_1, \ddd, v_m},
   \end{equation}
 
   as desired.
@@ -216,8 +217,12 @@
   In a \fd vector space, the length of every linearly independent list of vectors is less than or equal to the length of every spanning list of vectors.
 \end{thm}
 \begin{prf}
-  Let $u_1, \ldots, u_m \in V$ be a linearly independent list and let $w_1, \ldots, w_n \in V$ such that $V=\myspan{w_1, \ldots, w_n}$. We need to prove that $m \leq n$.
-  We construct, in $m$ steps, a spanning list of size $n$ that incorporates $u_1,\dots,u_m$; this forces $m\le n$.  Start with
+  Let $u_1, \ldots, u_m \in V$ be a linearly independent list and let $w_1, \ldots, w_n \in V$ such that \begin{equation}
+    V=\myspan{w_1, \ldots, w_n}.
+  \end{equation}
+
+  We need to prove that $m \leq n$.
+  We construct, in $m$ steps, a spanning list of size $n$ that incorporates $u_1,\dots,u_m$. This will force $m\le n$.  Start with
   \[
       B_0 :=  (w_1, \dots, w_n),
       \quad V = \myspan {B_0}.
@@ -281,6 +286,6 @@
     u_k \notin \myspan{u_1, \ldots, u_{k-1}}.
   \end{equation}
 
-  After each step, as long as the process continues, we have constructed a list of vectors such that no vector in the list is in the span of the previous vectors. Hence at each stage we maintain a linearly independent list (by the Linear Dependence Lemma (\ref{thm: linear dependence lemma}). No list of independent vectors in $V$ can exceed the length of any spanning list of $V$ (by \ref{thm: length of linearly dependent list less or equal to length of spanning list})).
+  After each step, as long as the process continues, we have constructed a list of vectors such that no vector in the list is in the span of the previous vectors. Hence, at each stage we maintain a linearly independent list (by the Linear Dependence Lemma (\ref{thm: linear dependence lemma}). No list of independent vectors in $V$ can exceed the length of any spanning list of $V$ (by \ref{thm: length of linearly dependent list less or equal to length of spanning list})).
   Thus, the process eventually terminates (after at most $m=\dim V$ steps), so $U$ has a finite basis.
 \end{prf}

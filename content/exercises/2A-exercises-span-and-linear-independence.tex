@@ -3,7 +3,7 @@
 \begin{xrcs}
   We want to find a list of four distinct vectors in $\myF^3$ whose span equals
   \begin{equation}
-    \{(x,y,z) \in \myF^3 \mid x + y + z = 0 \}.
+    \left \{  \left(x,y,z \right) \in \myF^3 \mid x + y + z = 0 \right \}.
   \end{equation}
 \end{xrcs}
 
@@ -111,7 +111,7 @@
   \begin{xsol}
     $\polyn_4(\myF)$ has $5$ degrees of freedom and looks like this:
     \[
-      \polyn_4(\myF) = \{a_0 + a_1 z + a_2z^2 + a_3 z^3 + a_4 z^4 \mid a_0, \ddd, a4 \in \myF \}.
+      \polyn_4(\myF) = \left \{a_0 + a_1 z + a_2z^2 + a_3 z^3 + a_4 z^4 : a_0, \ddd, a4 \in \myF \right \}.
     \]
 
     If you span $4$ polynomials, you can not get $5$ degrees of freedom.
@@ -126,20 +126,20 @@
   \begin{xprf}
     Define an evaluation map $\varphi : \polyn_m(\myF) \to \myF$ such that
     \[
-    \varphi(p) :\equiv p(2) \quad \forall p \in \polyn(\myF).
+    \varphi(p) := p(2) \quad \forall p \in \polyn(\myF).
     \]
 
-    The polynomials that vanish at $z=2$ lie in the subspace $\mynull(\varphi)$ of $\polyn_m(\myF)$. So  we have
+    The polynomials that vanish at $z=2$ lie in the subspace $\mynull(\varphi)$ of $\polyn_m(\myF)$. So, we have
     \[
     \mynull(\varphi) \subseteq \polyn_m(\myF).
     \]
 
     Any polynomial $p \in \mynull(\varphi)$ can be written as
     \[
-    p(z) = (z-2) q(z) \where q(z) \in \polyn_{m-1} (\myF).
+    p(z) = (z-2) q(z),
     \]
 
-    Therefore, $\mydim \mynull(\varphi) = m$. Since $p_0, p_1, \ddd, p_m \in \mynull(\varphi)$, the given list is not linearly independent by \ref{thm: length of linearly dependent list less or equal to length of spanning list}, because it has length $m+1$.
+    where $q(z) \in \polyn_{m-1} (\myF)$. Therefore, $\mydim \mynull(\varphi) = m$. Since $p_0, p_1, \ddd, p_m \in \mynull(\varphi)$, the given list is not linearly independent by \ref{thm: length of linearly dependent list less or equal to length of spanning list}, because it has length $m+1$.
   \end{xprf}
 
 \end{xrcs}

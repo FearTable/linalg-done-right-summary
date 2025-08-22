@@ -30,15 +30,15 @@
 \begin{prf}
   We will proof $(a) \Rightarrow (b) \Rightarrow (c) \Rightarrow (d) \Rightarrow (e) \Rightarrow (f) \Rightarrow (a)$
 
-  \qt{First step:} If (a) holds, that means that $T$ is also self-adjoint. Then we have for an eigenvalue $\lambda \in \myF$
+  \StepOne If (a) holds, that means that $T$ is also self-adjoint. Then we have for an eigenvalue $\lambda \in \myF$
   \[
   0 \leq \ip{Tv}{v} = \ip{\lambda v}{v} = \lambda \ip{v}{v}.
   \implies 0 < \lambda
   \]
 
-  \qt{Second step:} Suppose (b) holds. By the spectral theorem, there is an orthonormal basis $e_1, \ddd, e_n$ of $V$ consisting of eigenvectors of $T$. Let $\lambda_1, \ddd, \lambda_n$ be the eigenvalues of $T$ corresponding to $e_1, \ddd, e_n$. By (a), we know that they are all nonegative. So $(b) \implies (c)$.
+  \StepTwo Suppose (b) holds. By the spectral theorem, there is an orthonormal basis $e_1, \ddd, e_n$ of $V$ consisting of eigenvectors of $T$. Let $\lambda_1, \ddd, \lambda_n$ be the eigenvalues of $T$ corresponding to $e_1, \ddd, e_n$. By (a), we know that they are all nonegative. So $(b) \implies (c)$.
 
-  \qt{Third step:} Now suppose (c) holds. Then there is a orthonormal basis $e_1, \ddd, e_n$ of $V$ such that
+  \StepThree Now suppose (c) holds. Then there is a orthonormal basis $e_1, \ddd, e_n$ of $V$ such that
   $\mmatrix(T) = \operatorname{diag}(\lambda_1,  \ddd, \lambda_n), \; \lambda_i > 0$. The linear map lemma \ref{thm: linear map lemma} implies that $\exists R \in \linmap (V)$:
   \[
   R e_k = \sqrt{\lambda_k}e_k \in V \quad \forall k \in \{1, \ddd,n\}.
@@ -49,11 +49,11 @@
 
   which implies that $R^2 = T$. Thus $R$ is a positive (semidefinite) square root of $T$. Hence (d) holds, which shows $(c) \implies (d)$.
 
-  \qt{Fourth step:} Every positive (semidefinite) operator is self-adjoint by the definition of a positive (semidefinite) operator. Thus $(d) \implies (e)$.
+  \StepFour Every positive (semidefinite) operator is self-adjoint by the definition of a positive (semidefinite) operator. Thus $(d) \implies (e)$.
 
-  \qt{Fifth step:} Now suppose (e) holds, meaning that there exists a self-adjoint operator $R=R^* \in \linmap(V)$ on $V$ \st $T=R^2$. Then $T=R^*R$. Hence $(e) \implies (f)$.
+  \StepFive Now suppose (e) holds, meaning that there exists a self-adjoint operator $R=R^* \in \linmap(V)$ on $V$ \st $T=R^2$. Then $T=R^*R$. Hence $(e) \implies (f)$.
 
-  \qt{Sixth step:} Finally, suppose (f) holds. Let $R \in \linmap (V)$ be such that $T=R^*R$. Then $T^* =  (R^* R)^* = R^* ( R^*)^* = R^*R = T$. Hence $T$ is self-adjoint. Note that $\forall v \in V$:
+  \StepSix Finally, suppose (f) holds. Let $R \in \linmap (V)$ be such that $T=R^*R$. Then $T^* =  (R^* R)^* = R^* ( R^*)^* = R^*R = T$. Hence $T$ is self-adjoint. Note that $\forall v \in V$:
   \[
   \ip{Tv}{v} = \ip{R^* Rv}{v} = \ip{Rv}{(R^*)^*v} = \ip{Rv}{Rv} \geq 0.
   \]

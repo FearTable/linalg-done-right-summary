@@ -10,6 +10,9 @@
 \newcommand{\StepThree}{\prooffont{Step 3: }}
 \newcommand{\StepFour}{\prooffont{Step 4: }}
 \newcommand{\StepFive}{\prooffont{Step 5: }}
+\newcommand{\StepSix}{\prooffont{Step 6: }}
+\newcommand{\StepSeven}{\prooffont{Step 7: }}
+\newcommand{\StepEight}{\prooffont{Step 8: }}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % change operatorname font
@@ -66,47 +69,47 @@
 \mdfdefinestyle{proof-style}{
   skipabove         = 0.1em,% .5\baselineskip ,
   skipbelow         = 8em,%.5\baselineskip ,
-  leftmargin        = 7pt ,
-  rightmargin       = 0em ,
-  innermargin       = 0pt ,
-  innertopmargin    = 0.5em, %0.6 %.675em ,
-  innerleftmargin   = 7pt, %.675em ,
-  innerrightmargin  = 0em,
-  innerbottommargin = 0.5em, %.675em +3pt,
-  hidealllines      = true,
-  singleextra       = {
-    \draw [thin] (O) -- ++(0,1.8em) (O) -- ++(1.8em,0) ;
-    \draw [thin] (P-|O) -- ++(0,-1.8em) (P-|O) -- ++(1.8em,0) ;
-  },
-  firstextra        = {
-    \draw [thin] (P-|O) -- ++(0,-1.8em) (P-|O) -- ++(1.8em,0) ;
-  },
-  secondextra       = {
-    \draw [thin] (O) -- ++(0,1.8em) (O) -- ++(1.8em,0) ;
-  },
+%  leftmargin        = 7pt ,
+%  rightmargin       = 0em ,
+%  innermargin       = 0pt ,
+%  innertopmargin    = 0.5em, %0.6 %.675em ,
+%  innerleftmargin   = 7pt, %.675em ,
+%  innerrightmargin  = 0em,
+%  innerbottommargin = 0.5em, %.675em +3pt,
+%  hidealllines      = true,
+%  singleextra       = {
+%    \draw [thin] (O) -- ++(0,1.8em) (O) -- ++(1.8em,0) ;
+%    \draw [thin] (P-|O) -- ++(0,-1.8em) (P-|O) -- ++(1.8em,0) ;
+%  },
+%  firstextra        = {
+%    \draw [thin] (P-|O) -- ++(0,-1.8em) (P-|O) -- ++(1.8em,0) ;
+%  },
+%  secondextra       = {
+%    \draw [thin] (O) -- ++(0,1.8em) (O) -- ++(1.8em,0) ;
+%  },
 }
 
-\surroundwithmdframed[style=proof-style]{prf}
+%\surroundwithmdframed[style=proof-style]{prf}
 \newtheorem*{prf}{Proof}
 
 % for exercises, we may be want proofs to look different:
 \mdfdefinestyle{exercise-proof-style}{
-  skipabove         = 0.1em,% .5\baselineskip ,
-  skipbelow         = 0.5em,%.5\baselineskip ,
-  leftmargin        = 7pt,
-  rightmargin       = 0em ,
-  innermargin       = 0pt ,
-  innertopmargin    = 0.5em, %0.6 %.675em ,
-  innerleftmargin   = 7pt, %.675em ,
-  innerrightmargin  = 0em,
-  innerbottommargin = 0.4em, %.675em +3pt,
-  hidealllines      = true,
+%  skipabove         = 0.1em,% .5\baselineskip ,
+%  skipbelow         = 0.5em,%.5\baselineskip ,
+%  leftmargin        = 7pt,
+%  rightmargin       = 0em ,
+%  innermargin       = 0pt ,
+%  innertopmargin    = 0.5em, %0.6 %.675em ,
+%  innerleftmargin   = 7pt, %.675em ,
+%  innerrightmargin  = 0em,
+%  innerbottommargin = 0.4em, %.675em +3pt,
+%  hidealllines      = true,
 }
 
-\surroundwithmdframed[style=exercise-proof-style]{xprf}
+%\surroundwithmdframed[style=exercise-proof-style]{xprf}
 \newtheorem*{xprf}{Proof}
 
-\surroundwithmdframed[style=exercise-proof-style]{xsol}
+%\surroundwithmdframed[style=exercise-proof-style]{xsol}
 \newtheorem*{xsol}{Solution}
 
 % custom QED Symbol
@@ -116,9 +119,9 @@
 
 %\renewcommand{\qedsymbol}{\rule{0.7em}{0.7em}}
 
-\renewenvironment{prf}{{\textbf{\scshape \slshape Proof:}}}{\hfill $\qedsymbol$}
-\renewenvironment{xprf}{{\textbf{\scshape \slshape Proof:}}}{\hfill $\qedsymbol$}
-\renewenvironment{xsol}{{\textbf{\scshape \slshape Solution:}}}{ }
+\renewenvironment{prf}{\begin{description} \item[\underline{\textbf{\scshape \slshape Proof:}}]}{\hfill $\qedsymbol$ \end{description}}
+\renewenvironment{xprf}{{\underline{\textbf{\scshape \slshape Proof:}}}}{\hfill $\qedsymbol$}
+\renewenvironment{xsol}{{\underline{\textbf{\scshape \slshape Solution:}}}}{ }
 
 % custom command to have the same slanted font as "Proof:"
 %\newcommand{\prooffont}[1]{\textbf{\scshape \slshape #1}}
@@ -177,6 +180,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+    \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
 % Define the exercise counter.
 \newcounter{xrcscount}[section]
 
@@ -187,20 +193,25 @@
   \refstepcounter{xrcscount}%
   % Begin a list that prints the label using our macro \thexrcs.
   % \begin{list}{\textbf{\thesection.\thexrcscount}}{%
-  \begin{list}{\prooffont{\thexrcscount} \;}{%
+  \begin{enumerate}[
+      label=\protect\circled{\prooffont{\arabic*}},
+      %align=parleft,
       % Adjust these lengths to control the indentation:
-      \setlength{\leftmargin}{3em}% distance from left edge to the body of the item
-      %\setlength{\leftmargin}{\mathindent}% distance from left edge to the body of the item
+      %\setlength{\leftmargin}{1em}% distance from left edge to the body of the item
+      %leftmargin=2em,% distance from left edge to the body of the item
       %\setlength{\itemindent}{0em}% ensures wrapped lines line up with the first line
-      \setlength{\labelwidth}{3.5em}% space reserved for the label (adjust as needed)
-      %\setlength{\labelwidth}{.3\mathindent}% space reserved for the label (adjust as needed)
-      \setlength{\labelsep}{0.6em}% space between the label and the text
-      \setlength{\listparindent}{0em}% paragraph indent within the list
+      %labelwidth=1.3em,% space reserved for the label (adjust as needed)
+      %\setlength{\labelwidth}{.3\mathindent}% space reserved for the label (adjust as needed)^
+      %labelsep=1.3em,% space between the label and the text
+      listparindent=0em,% paragraph indent within the list
       %\setlength{\parsep}{0pt}% vertical space between paragraphs in the item
-    }%
+    ]%
+    \setcounter{enumi}{\thexrcscount-1}
     \item
+    % change format of nested lists:
+    \setlist[enumerate]{label=\textbf{(\alph*)}}
   }{%
-  \end{list}
+  \end{enumerate}
   \vspace{.2 \baselineskip}
   \hrule
   \vspace{.2 \baselineskip}
@@ -297,16 +308,16 @@
 \newcommand{\lid}{linearly independent}
 
 % abbreviation for linearly independent
-\newcommand{\ld}{linearly dependent }
+\newcommand{\ld}{linearly dependent}
 
 % abbreviation for linearly independent
-\newcommand{\vs}{vector space }
+\newcommand{\vs}{vector space}
 
 % abbreviation for finite-dimensional
-\newcommand{\fd}{finite\-/dimensional }
+\newcommand{\fd}{finite\-/dimensional}
 
 % abbreviation for linear map
-\newcommand{\lm}{{linear map }}
+\newcommand{\lm}{linear map}
 
 % abbreaviation for L(V,W)
 \newcommand{\lvw}{{\mathcal{L}(V,W)}}

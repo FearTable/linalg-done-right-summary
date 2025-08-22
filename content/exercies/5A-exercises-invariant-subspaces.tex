@@ -41,6 +41,7 @@
 \exercise{12}
 \begin{xrcs}
   Suppose $V = U \oplus W$, where $U$ and $W$ are nonzero subspaces of $V$. Define $P \in \linmap(V)$ by $P(u+w) = u$ for each $u \in U$ and each $w \in W$. Find all eigenvalues and eigenvectors of $P$.
+
   \begin{xsol}
     We have an eigenvalue $\lambda_1 = 1$ for all vectors $u \in U$, because $P$ acts as the identity on $U$. We also have an eigenvalue $\lambda_0 = 0$ for all $w \in W$, because $P$ acts as the zero operator there.
   \end{xsol}
@@ -66,6 +67,7 @@
   \end{equation}
 
   Prove that $3$ or $-3$ is an eigenvalue of $T$
+
   \begin{xsol}
     If $T$ is defined as above, then $T(u+w) = 3w + 3u = 3(u+w)$. Hence, $u+w$ get's sent to $3(u+w)$, which makes $3$ an eigenvalue of $T$. If we change the definition of $T$ to
     \begin{equation}
@@ -81,8 +83,10 @@
   \end{xsol}
 \end{xrcs}
 
+\exercise{23}
 \begin{xrcs}
   Suppose $V$ is finite-dimensional and $T \in \linmap(V)$. Prove that $T$ has an eigenvalue $\iff$ there exists a subspace of $V$ of dimension $\mydim V - 1$ that is invariant under $T$.
+
   \begin{xprf}
     Suppose there exists $v_0 \in V, \lambda \in \myF$ such that $Tv_0 = \lambda v_0$. Define $\phi \in \dual{V}$ by
     \begin{equation}
@@ -92,6 +96,7 @@
     and also define a subspace $U = \mynull \phi$. Thus, $\mydim U = \mydim V - 1$.
     Then we can choose a subspace $U$ of with $V = U \oplus \myspan{v_0}$. We know already that $\myspan{v}$ is invarant under $T$. Let $u_1, \ddd, u_{m}$ be a basis of $U$ with $m = \mydim V - 1$. Hence,
   \end{xprf}
+
   \begin{xprf}
     \Rightarrowdirection Suppose there exists $v_0 \in V, \lambda \in \myF$ such that $Tv_0 = \lambda v_0$. Then we can choose a subspace $U$ of with $V = U \oplus \myspan{v_0}$. We know already that $\myspan{v}$ is invarant under $T$. Let $u_1, \ddd, u_{m}$ be a basis of $U$ with $m = \mydim V - 1$. Hence,
     \begin{equation}
@@ -106,5 +111,38 @@
     we choose a subspace $W = \myspan{u_1, \ddd, \xcancel{u_k}, \ddd, u_m, v_0}$. Otherwise, no $T u$ for $u \in U$ lies inside $V \setminus U = \myspan{v}$. Therefore, $U$ or $W$ is invariant under $T$.
 
     \Leftarrowdirection Suppose there exists a subspace of $U$ of $V$ with $\mydim U = \mydim V - 1$ that is invariant under $T$, and both have the right dimension.
+  \end{xprf}
+\end{xrcs}
+
+\exercise{40}
+\begin{xrcs}
+  Suppose $S,T \in \linmap (V), $ and $S$ is invertible. Suppose $p \in \polyn(\myF)$ is a polynomial. Prove that
+  \begin{equation}
+    p(STS^{-1}) = S p(T) S ^{-1}
+  \end{equation}
+
+  \begin{xprf}
+    We first want to prove that $(STS^{-1})^m = ST^m S^{-1}$ for every $m \in \nat_{\geq 0}$. To this end, we use induction over $m$. For $m=0$, the statement trivially holds. If $m=1$, then we can as well that both expressions are the same. So, assume $m \geq 1$. Then
+    \begin{equation}
+      \begin{aligned}
+        (STS^{-1})^{m+1} &= STS^{-1} (ST^{-1} S) ^m \\
+          &= STS^{-1} (ST S) ^m \\
+          &= STS^{-1} ST^m S^{-1} \\
+          &= S T T^{m} S^{-1} \\
+          &= S T^{m+1} S^{-1},
+      \end{aligned}
+    \end{equation}
+
+    Which proves our statement. Let $p(z)=a_0 z^0 + a_1 z^1 + \cdots + a_m z^m, a_j \in \myF$. Then
+    \begin{equation}
+      \begin{aligned}
+        p(STS^{-1}) &= a_0 I \phantom{S^{-1}} + a_1(STS^{-1}) + a_2 (STS^{-1})^2 + \cdots + a_m (STS^{-1})^m \\
+                    &= a_0 S S^{-1} + a_1(STS^{-1}) + a_2 (ST^2S^{-1}) + \cdots + a_m (ST^mS^{-1}) \\
+                    &= S a_0  S^{-1} + S(a_1T)S^{-1} + S(a_2 T)^2S^{-1} + \cdots + S(a_mT^m)S^{-1} \\
+                    &= S \left( (a_0  S^{-1} + (a_1T)S^{-1} + (a_2 T)^2S^{-1} + \cdots + (a_mT^m)S^{-1}\right) \\
+                    &= S \left( a_0 I  + a_1T + a_2 T^2 + \cdots + a_mT^m \right)S^{-1} \\
+                    &= S p(T) S^{-1}.
+      \end{aligned}
+    \end{equation}
   \end{xprf}
 \end{xrcs}

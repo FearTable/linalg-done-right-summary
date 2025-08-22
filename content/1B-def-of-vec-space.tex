@@ -5,22 +5,22 @@
   A \qt{vector space} is a set $V$ along with an addition on $V$ and a scalar multiplication on $V$ such that the following properties hold.
   \begin{itemize}
     \item \emph{Commutativity:}
-    $ u+v = v+u \quad \forall u,v \in V$
+    $ u+v = v+u, \quad \forall u,v \in V$
     \item \emph{Associativity:}
-    $(u+v)+w=u+(v+w)$ and $(ab)v=a(bv) \quad \forall u,v,w \in V$ and $\forall a,b \in \myF$
+    $(u+v)+w=u+(v+w)$ and $(ab)v=a(bv), \quad \forall u,v,w \in V$ and $\forall a,b \in \myF$
     \item \emph{Additive identity:}
-    $\exists 0\in V:v+0=v \quad \forall v\in V$.
+    $\exists 0\in V:v+0=v, \quad \forall v\in V$.
 
     $\exists!$ is not a requirement, but a property of vector spaces. See \ref{thm: unique additive identity}.
     \item \emph{Additive inverse:}
-    $\forall v\in V \quad \exists w\in V: v+w=0$
+    $\forall v\in V, \quad \exists w\in V: v+w=0$
     \item \emph{Multiplicative identity:}
-    $1v = v \quad \forall v\in V$
+    $1v = v, \quad \forall v\in V$
     \item \emph{Distributive properties:}
     $
       \alignLongunderstack{
-        &a(u+v) = au+av \quad \forall u,v \in V \myand  \\
-        &(a+b)v \, = av + bv \quad \forall a,b \in \myF \myand v \in V.
+        &a(u+v) = au+av, \quad \forall u,v \in V \myand  \\
+        &(a+b)v \, = av + bv, \quad \forall a,b \in \myF \myand v \in V.
       }
     $
   \end{itemize}
@@ -30,8 +30,8 @@
 \begin{mydef} [notation $\myF^S$]
   If $S$ is a set, then $\myF^S$ denotes the set of functions from $S$ to $\myF$. Let $f, g \in \myF^{S}$ and $\lambda \in \myF$:
   \begin{itemize}
-    \item The \qt{sum} $f+g \in \myF^{S}$ is defined as follows: $(f+g)(x) :\equiv f(x)+ g(x) \quad \forall x\in S$
-    \item The \qt{product} $\lambda f \in \myF^{S}$ is defined as follows: $(\lambda f)(x) :\equiv \lambda f(x) \quad \forall x \in S$.
+    \item The \qt{sum} $f+g \in \myF^{S}$ is defined as follows: $(f+g)(x) := f(x)+ g(x), \quad \forall x\in S$
+    \item The \qt{product} $\lambda f \in \myF^{S}$ is defined as follows: $(\lambda f)(x) := \lambda f(x), \quad \forall x \in S$.
   \end{itemize}
   The vector space $\myF^{n} :\equiv \myF^{\{1,2,\dots,n\}}$ is a special case, because each $(x_1, \dots, x_n) \in \myF^{n}$ can be thought of as a function $x$ from the set $\{1, 2, \dots, n\}$ to $\myF$ by writing $x(k)$ instead of $x_k$ for the $k^{\text{th}}$ coordinate of $(x_1, \dots, x_n)$.
 \end{mydef}
@@ -42,41 +42,41 @@
   A vector space has a unique additive identity.
 \end{thm}
 \begin{prf}
-  Suppose $0$ and $0'$ are both additive identities. Then $0' = 0'+ 0 = 0 + 0' = 0.$
+  Suppose $0$ and $0'$ are both additive identities. Then $0' = 0'+ 0 = 0 + 0' = 0.$ So, $0' = 0$.
 \end{prf}
 
 \begin{thm} [unique additive inverse]
   Every element in a vector space has a unique additive inverse.
 \end{thm}
 \begin{prf}
-  Let $v\in V.$ Suppose $u,w \in V$ are additive inverses of $v$. Then using associativity and the definition of the additive inverse we get
+  Let $v\in V.$ Suppose $u,w \in V$ are additive inverses of $v$. Using associativity and the definition of the additive inverse we get
   \begin{equation}
     u = u + 0 = u + (v + w) = (u+v) + w = 0 + w =w
   \end{equation}
-  Thus $u = w$, as desired.
+  Thus, $u = w$, as desired.
 \end{prf}
 
 \begin{mydef}
-  For $v,w\in V$, $-v$ denotes the additive inverse of $v$ and $w-v:\equiv w+(-v)$
+  For $v,w\in V$, $-v$ denotes the additive inverse of $v$ and we definie subtraction as $w-v := w+(-v)$
 \end{mydef}
 
 \begin{mydef}
-  For the rest of this summary, $V$ denotes a vector space over $\myF$.
+  For the rest of this summary, $V$ denotes a vector space over $\myF$ most of the time.
 \end{mydef}
 
 % 1.30
 \begin{thm} [the number $0$ times a vector]
-  $0v = 0 \quad \forall v\in V$
+  $0v = 0$, $\quad \forall v\in V$.
 \end{thm}
 \begin{prf}
-  $v \in V: 0v = (0+0)v = 0v +0v \implies 0 = 0v$. Using the definition of additive identity and the distributive property in $\myF$. After that, we subtract $0v$ on both sides of the equation.
+  Let $v \in V$. Thus, $0v = (0+0)v = 0v +0$, which implies $0 = 0v$. Here we have been using the definition of additive identity and the distributive property. After that, we subtract $0v$ on both sides of the equation.
 \end{prf}
 
 \begin{thm} [a number times the vector $0$]
-  $a \vec0= \vec0 \quad \forall a\in \myF$
+  $a \vec0= \vec0, \quad \forall a\in \myF$
 \end{thm}
 \begin{prf}
-  $a \in \myF: a\vec0 = a(\vec0+\vec0) = a\vec0 + a\vec0 \implies \vec0 = a\vec0$. Using the definition of additive identity and the distributive property for $\vec0 \in V, a \in \myF$. After that, we subtract $\vec0a$ on both sides of the equation.
+  For every $a \in \myF$, we have $a\vec0 = a(\vec0+\vec0) = a\vec0 + a\vec0$. This implies $\vec0 = a\vec0$. Using the definition of additive identity ($\vec0+\vec0=\vec0$) and one of the distributive properties. After that, we subtract $\vec0a$ on both sides of the equation.
 \end{prf}
 
 \begin{thm} [a number $-1$ times a vector]
